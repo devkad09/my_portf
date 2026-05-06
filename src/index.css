@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 96%;
+    --foreground: 228 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 228 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 30% 15%;
+
+    --primary: 185 100% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 15% 90%;
+    --secondary-foreground: 228 30% 15%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 270 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 15% 85%;
+    --input: 210 15% 85%;
+    --ring: 185 100% 35%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 180, 200, 0.15);
+    --glow-primary: 0 0 30px rgba(0, 180, 200, 0.1);
+    --glow-accent: 0 0 30px rgba(139, 92, 246, 0.1);
+
+    --sidebar-background: 210 20% 96%;
+    --sidebar-foreground: 228 30% 15%;
+    --sidebar-primary: 185 100% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 90%;
+    --sidebar-accent-foreground: 228 30% 15%;
+    --sidebar-border: 210 15% 85%;
+    --sidebar-ring: 185 100% 35%;
+  }
+
+  .dark {
+    --background: 228 50% 6%;
+    --foreground: 210 40% 92%;
+
+    --card: 228 40% 10%;
+    --card-foreground: 210 40% 92%;
+
+    --popover: 228 40% 10%;
+    --popover-foreground: 210 40% 92%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 228 50% 6%;
+
+    --secondary: 228 30% 16%;
+    --secondary-foreground: 210 40% 92%;
+
+    --muted: 228 25% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 25% 18%;
+    --input: 228 25% 18%;
+    --ring: 185 100% 50%;
+
+    --glass-bg: rgba(10, 14, 26, 0.7);
+    --glass-border: rgba(0, 230, 255, 0.1);
+    --glow-primary: 0 0 30px rgba(0, 230, 255, 0.15);
+    --glow-accent: 0 0 30px rgba(139, 92, 246, 0.15);
+
+    --sidebar-background: 228 50% 6%;
+    --sidebar-foreground: 210 40% 92%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 228 50% 6%;
+    --sidebar-accent: 228 30% 16%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 228 25% 18%;
+    --sidebar-ring: 185 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 3px;
+}
+
+/* Glass */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+  z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* Particle canvas */
+.particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: hsl(var(--primary));
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Glow button */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+/* Skill bar animation */
+.skill-bar-fill {
+  transition: width 1.5s ease-in-out;
+}
+
+/* Timeline line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
+  transform: translateX(-50%);
+}
+
+/* Float animation for trait cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
