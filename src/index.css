@@ -6,96 +6,78 @@
 
 @layer base {
   :root {
-    --background: 210 20% 96%;
-    --foreground: 228 30% 15%;
+    --background: 210 40% 98%;
+    --foreground: 228 50% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 228 30% 15%;
+    --card-foreground: 228 50% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 228 30% 15%;
+    --popover-foreground: 228 50% 10%;
 
-    --primary: 185 100% 35%;
+    --primary: 185 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 15% 90%;
-    --secondary-foreground: 228 30% 15%;
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 228 50% 10%;
 
-    --muted: 210 15% 92%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 270 60% 55%;
+    --accent: 270 70% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 15% 85%;
-    --input: 210 15% 85%;
-    --ring: 185 100% 35%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 185 100% 40%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --font-heading: 'Syne', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(0, 180, 200, 0.15);
-    --glow-primary: 0 0 30px rgba(0, 180, 200, 0.1);
-    --glow-accent: 0 0 30px rgba(139, 92, 246, 0.1);
-
-    --sidebar-background: 210 20% 96%;
-    --sidebar-foreground: 228 30% 15%;
-    --sidebar-primary: 185 100% 35%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 15% 90%;
-    --sidebar-accent-foreground: 228 30% 15%;
-    --sidebar-border: 210 15% 85%;
-    --sidebar-ring: 185 100% 35%;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glow-primary: 0 0 40px rgba(0, 185, 200, 0.15);
+    --glow-accent: 0 0 40px rgba(139, 92, 246, 0.15);
   }
 
   .dark {
-    --background: 228 50% 6%;
-    --foreground: 210 40% 92%;
+    --background: 228 60% 4%;
+    --foreground: 210 40% 95%;
 
-    --card: 228 40% 10%;
-    --card-foreground: 210 40% 92%;
+    --card: 228 45% 8%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 228 40% 10%;
-    --popover-foreground: 210 40% 92%;
+    --popover: 228 45% 8%;
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 185 100% 50%;
-    --primary-foreground: 228 50% 6%;
+    --primary: 185 100% 55%;
+    --primary-foreground: 228 60% 4%;
 
-    --secondary: 228 30% 16%;
-    --secondary-foreground: 210 40% 92%;
+    --secondary: 228 35% 12%;
+    --secondary-foreground: 210 40% 95%;
 
-    --muted: 228 25% 14%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 228 30% 10%;
+    --muted-foreground: 215 25% 60%;
 
-    --accent: 270 80% 60%;
+    --accent: 270 90% 65%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 228 25% 18%;
-    --input: 228 25% 18%;
-    --ring: 185 100% 50%;
+    --border: 228 30% 15%;
+    --input: 228 30% 15%;
+    --ring: 185 100% 55%;
 
-    --glass-bg: rgba(10, 14, 26, 0.7);
-    --glass-border: rgba(0, 230, 255, 0.1);
-    --glow-primary: 0 0 30px rgba(0, 230, 255, 0.15);
-    --glow-accent: 0 0 30px rgba(139, 92, 246, 0.15);
-
-    --sidebar-background: 228 50% 6%;
-    --sidebar-foreground: 210 40% 92%;
-    --sidebar-primary: 185 100% 50%;
-    --sidebar-primary-foreground: 228 50% 6%;
-    --sidebar-accent: 228 30% 16%;
-    --sidebar-accent-foreground: 210 40% 92%;
-    --sidebar-border: 228 25% 18%;
-    --sidebar-ring: 185 100% 50%;
+    --glass-bg: rgba(10, 14, 26, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glow-primary: 0 0 40px rgba(0, 230, 255, 0.2);
+    --glow-accent: 0 0 40px rgba(139, 92, 246, 0.2);
   }
 }
 
@@ -127,112 +109,84 @@
 /* Glass */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid var(--glass-border);
 }
 
-/* Reading progress bar */
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
-  z-index: 100;
-  transition: width 0.1s linear;
+.glass-morphism {
+  @apply bg-background/40 backdrop-blur-xl border border-white/10 shadow-2xl;
 }
 
-/* Particle canvas */
-.particles-canvas {
-  position: absolute;
+/* Aurora Background */
+.aurora-container {
+  position: fixed;
   inset: 0;
-  pointer-events: none;
-}
-
-/* Section reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Typewriter cursor */
-.typewriter-cursor {
-  display: inline-block;
-  width: 3px;
-  height: 1.1em;
-  background: hsl(var(--primary));
-  margin-left: 2px;
-  vertical-align: text-bottom;
-  animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* Glow button */
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.btn-glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-  border-radius: inherit;
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.btn-glow:hover::before {
-  opacity: 1;
+  overflow: hidden;
+  background: hsl(var(--background));
 }
 
-/* Skill bar animation */
-.skill-bar-fill {
-  transition: width 1.5s ease-in-out;
-}
-
-/* Timeline line */
-.timeline-line {
+.aurora-bg {
   position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--accent)));
-  transform: translateX(-50%);
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, 
+    hsla(var(--primary), 0.15) 0%, 
+    hsla(var(--accent), 0.1) 25%, 
+    transparent 50%
+  );
+  filter: blur(80px);
+  animation: aurora-rotate 20s linear infinite;
 }
 
-/* Float animation for trait cards */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes aurora-rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
 }
 
-/* Back to top */
-.back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 50;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  pointer-events: none;
+/* Floating Capsule Nav */
+.floating-nav {
+  @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 px-2 py-2 rounded-full glass border-white/20 shadow-2xl transition-all duration-500;
 }
-.back-to-top.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
+
+.nav-link-capsule {
+  @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-white/10;
+}
+
+.nav-link-capsule.active {
+  @apply bg-primary text-primary-foreground shadow-lg shadow-primary/20;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.bento-card {
+  @apply relative overflow-hidden rounded-3xl glass border-white/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5;
+}
+
+/* Animation Utilities */
+@keyframes tilt {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50% { transform: rotate(3deg) scale(1.05); }
+}
+
+.animate-tilt {
+  animation: tilt 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }

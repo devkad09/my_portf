@@ -16,33 +16,39 @@ const experiences = [
 ];
 
 const Experience = () => (
-  <section id="experience" className="py-24 bg-secondary/30">
-    <div className="container mx-auto px-6">
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 reveal">
-        <span className="text-primary">Experience</span>
-      </h2>
-      <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-12 reveal" />
+  <section id="experience" className="py-32 relative overflow-hidden bg-background">
+    <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto text-center mb-20 reveal">
+        <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
+          Career <span className="text-primary">Journey</span>
+        </h2>
+        <p className="text-muted-foreground text-lg">
+          My professional milestones and contributions in the tech ecosystem.
+        </p>
+      </div>
 
-      <div className="relative max-w-3xl mx-auto reveal">
+      <div className="relative max-w-4xl mx-auto reveal">
         {/* Vertical Line */}
-        <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-accent opacity-30" />
+        <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/50 to-transparent" />
 
         <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-16 md:pl-0">
+            <div key={index} className="relative pl-12 md:pl-0">
               {/* Dot */}
-              <div className="absolute left-3.5 md:left-1/2 md:-translate-x-1/2 top-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shadow-lg shadow-primary/20">
-                <Briefcase className="w-3.5 h-3.5 text-primary-foreground" />
+              <div className="absolute left-[-2px] md:left-1/2 md:-translate-x-1/2 top-0 w-9 h-9 rounded-full glass border-white/20 flex items-center justify-center z-10 shadow-xl shadow-primary/10">
+                <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
               </div>
 
-              <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:ml-0 md:text-right" : "md:pl-16 md:ml-auto md:text-left"}`}>
-                <div className="p-6 rounded-xl bg-card border border-border hover:border-primary/40 transition-all duration-300 hover:shadow-md group">
-                  <span className="text-primary text-sm font-semibold tracking-wider">{exp.period}</span>
-                  <h3 className="font-heading text-xl font-bold mt-1 group-hover:text-primary transition-colors">
+              <div className={`md:w-[45%] ${index % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}`}>
+                <div className="bento-card group p-8">
+                  <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase mb-4">
+                    {exp.period}
+                  </span>
+                  <h3 className="font-heading text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="font-medium text-foreground/80">{exp.company}</p>
-                  <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
+                  <p className="font-bold text-foreground/60 mb-4">{exp.company}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {exp.description}
                   </p>
                 </div>

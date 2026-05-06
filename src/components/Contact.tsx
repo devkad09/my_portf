@@ -73,115 +73,123 @@ const Contact = () => {
   const isSending = status === "sending";
 
   return (
-    <section id="contact" className="py-24">
-      <div className="container mx-auto px-6">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 reveal">
-          Get In <span className="text-primary">Touch</span>
-        </h2>
-        <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-12 reveal" />
+    <section id="contact" className="py-32 relative overflow-hidden bg-background">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-20 reveal">
+          <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
+            Let's <span className="text-primary">Connect</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Ready to start a project? I'm available for freelance work and new opportunities.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Info */}
-          <div className="reveal space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              Have a project in mind or just want to say hello? Feel free to reach out —
-              I'd love to hear from you!
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: Mail, label: "deve.kad.tech@gmail.com", href: "mailto:deve.kad.tech@gmail.com" },
-                { icon: Phone, label: "0592921133", href: "tel:0592921133" },
-                { icon: Github, label: "github.com/devkad09", href: "https://github.com/devkad09" },
-                { icon: Linkedin, label: "linkedin.com/in/kaddev", href: "https://www.linkedin.com/in/kaddev" },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
-                >
-                  <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm">{item.label}</span>
-                </a>
-              ))}
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+          {/* Info Cards */}
+          <div className="lg:col-span-4 space-y-4 reveal">
+            {[
+              { icon: Mail, label: "Email", value: "deve.kad.tech@gmail.com", href: "mailto:deve.kad.tech@gmail.com" },
+              { icon: Phone, label: "Phone", value: "0592921133", href: "tel:0592921133" },
+              { icon: Github, label: "GitHub", value: "devkad09", href: "https://github.com/devkad09" },
+              { icon: Linkedin, label: "LinkedIn", value: "kaddev", href: "https://www.linkedin.com/in/kaddev" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bento-card group p-6 block hover:border-primary/50 transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-primary uppercase tracking-widest">{item.label}</p>
+                    <p className="font-bold text-sm truncate max-w-[180px] sm:max-w-none">{item.value}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="reveal space-y-4">
-            {status === "success" && (
-              <div className="rounded-lg bg-primary/10 p-4 space-y-2">
-                <div className="flex items-center gap-2 text-primary text-sm font-medium">
-                  <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                  {SUCCESS_HEADING}
+          {/* Form Card */}
+          <div className="lg:col-span-8 reveal">
+            <form onSubmit={handleSubmit} className="bento-card p-8 md:p-10 space-y-6">
+              {status === "success" && (
+                <div className="rounded-2xl bg-primary/10 p-6 space-y-2 border border-primary/20 animate-fade-in">
+                  <div className="flex items-center gap-2 text-primary font-bold">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                    {SUCCESS_HEADING}
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {CONFIRMATION_MESSAGE}
+                  </p>
+                  <p className="text-muted-foreground text-xs italic opacity-70">
+                    ⏱ {REPLY_TIME_HINT}
+                  </p>
                 </div>
-                <p className="text-muted-foreground text-xs leading-relaxed">
-                  {CONFIRMATION_MESSAGE}
-                </p>
-                <p className="text-muted-foreground text-xs leading-relaxed italic">
-                  ⏱ {REPLY_TIME_HINT}
-                </p>
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline mt-1"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  {copied ? "Copied!" : "Copy confirmation"}
-                </button>
-              </div>
-            )}
-            {status === "error" && (
-              <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm font-medium">
-                <XCircle className="w-4 h-4 flex-shrink-0" />
-                {errorMsg}
-              </div>
-            )}
-
-            {(["name", "email", "message"] as const).map((field) => (
-              <div key={field}>
-                {field === "message" ? (
-                  <textarea
-                    placeholder="Your Message"
-                    rows={4}
-                    value={form[field]}
-                    disabled={isSending}
-                    onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none text-sm disabled:opacity-50"
-                  />
-                ) : (
-                  <input
-                    type={field === "email" ? "email" : "text"}
-                    placeholder={field === "name" ? "Your Name" : "Your Email"}
-                    value={form[field]}
-                    disabled={isSending}
-                    onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors text-sm disabled:opacity-50"
-                  />
-                )}
-                {errors[field] && (
-                  <p className="text-destructive text-xs mt-1">{errors[field]}</p>
-                )}
-              </div>
-            ))}
-
-            <button
-              type="submit"
-              disabled={isSending}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSending ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" /> Send Message
-                </>
               )}
-            </button>
-          </form>
+              
+              {status === "error" && (
+                <div className="flex items-center gap-2 p-4 rounded-2xl bg-destructive/10 text-destructive text-sm font-bold border border-destructive/20 animate-shake">
+                  <XCircle className="w-5 h-5 flex-shrink-0" />
+                  {errorMsg}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {(["name", "email"] as const).map((field) => (
+                  <div key={field} className="space-y-2">
+                    <label className="text-[10px] font-bold text-primary uppercase tracking-widest pl-1">{field}</label>
+                    <input
+                      type={field === "email" ? "email" : "text"}
+                      placeholder={field === "name" ? "John Doe" : "john@example.com"}
+                      value={form[field]}
+                      disabled={isSending}
+                      onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+                      className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all text-sm disabled:opacity-50"
+                    />
+                    {errors[field] && (
+                      <p className="text-destructive text-[10px] font-bold mt-1 pl-1">{errors[field]}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold text-primary uppercase tracking-widest pl-1">Message</label>
+                <textarea
+                  placeholder="Tell me about your project..."
+                  rows={5}
+                  value={form.message}
+                  disabled={isSending}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all resize-none text-sm disabled:opacity-50"
+                />
+                {errors.message && (
+                  <p className="text-destructive text-[10px] font-bold mt-1 pl-1">{errors.message}</p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSending}
+                className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed group"
+              >
+                {isSending ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> 
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

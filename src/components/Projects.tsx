@@ -4,21 +4,25 @@ import { ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     title: "E-Commerce Dashboard",
-    desc: "A modern admin dashboard for managing products, orders, and analytics with interactive charts and responsive layouts.",
-    tech: ["React", "Tailwind CSS", "Chart.js"],
+    desc: "A high-fidelity admin dashboard for managing products, orders, and real-time analytics.",
+    tech: ["React", "Next.js", "Chart.js"],
     category: "Web App",
+    image: "/assets/project1.png",
+    featured: true,
   },
   {
-    title: "Weather App",
-    desc: "Real-time weather application with location-based forecasts, animated backgrounds, and a clean minimalist UI.",
-    tech: ["JavaScript", "REST API", "CSS3"],
+    title: "Weather Pulse",
+    desc: "Immersive weather experience with animated backgrounds and real-time data.",
+    tech: ["TypeScript", "Vite", "API"],
     category: "Web App",
+    image: "/assets/project2.png",
   },
   {
-    title: "Portfolio Template",
-    desc: "A reusable, fully responsive portfolio template with dark mode support, smooth animations, and SEO optimization.",
-    tech: ["HTML", "CSS", "JavaScript"],
+    title: "Lumina Portfolio",
+    desc: "A premium portfolio template designed for visual storytellers and creators.",
+    tech: ["React", "Framer Motion", "Tailwind"],
     category: "UI/UX",
+    image: "/assets/project3.png",
   },
 ];
 
@@ -35,64 +39,79 @@ const Projects = () => {
   const filtered = active === ALL ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-32 bg-background/50">
       <div className="container mx-auto px-6">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 reveal">
-          My <span className="text-primary">Projects</span>
-        </h2>
-        <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 reveal" />
-
-        {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 reveal">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                active === cat
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 reveal">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
+              Selected <span className="text-primary">Works</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A collection of projects where I push the boundaries of what's possible on the web.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
+                  active === cat
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                    : "glass border-white/10 hover:border-primary/30"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {filtered.map((project, i) => (
             <div
               key={project.title}
-              className="reveal group rounded-xl bg-card border border-border p-6 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 flex flex-col animate-fade-in"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className={`reveal bento-card group flex flex-col ${
+                project.featured ? "md:col-span-2 lg:col-span-8" : "md:col-span-1 lg:col-span-4"
+              }`}
             >
-              <h3 className="font-heading text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4 flex-1">{project.desc}</p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium"
-                  >
-                    {t}
-                  </span>
-                ))}
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <a href="#" className="p-2 rounded-full glass border-white/10 text-white hover:text-primary transition-colors">
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="p-2 rounded-full glass border-white/10 text-white hover:text-primary transition-colors">
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-              <div className="flex gap-3">
-                <a
-                  href="#"
-                  className="flex items-center gap-1.5 text-sm text-primary hover:underline"
-                >
-                  <ExternalLink className="w-4 h-4" /> Live Demo
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
-                >
-                  <Github className="w-4 h-4" /> Code
-                </a>
+              
+              <div className="p-8 flex-1 flex flex-col">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((t) => (
+                    <span key={t} className="text-[10px] font-bold uppercase tracking-widest text-primary/80">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-heading text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
+                  {project.desc}
+                </p>
+                <button className="flex items-center gap-2 text-sm font-bold group/btn">
+                  View Case Study 
+                  <ExternalLink className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                </button>
               </div>
             </div>
           ))}
