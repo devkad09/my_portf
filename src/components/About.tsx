@@ -33,9 +33,9 @@ const About = () => (
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-center">
         {/* Profile Visual */}
-        <div className="lg:col-span-5 reveal">
+        <div className="md:col-span-5 reveal">
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-accent/20 to-primary/20 blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
             <div className="relative bento-card group aspect-square p-4">
@@ -53,7 +53,7 @@ const About = () => (
         </div>
 
         {/* Traits & Narrative */}
-        <div className="lg:col-span-7 space-y-10">
+        <div className="md:col-span-7 space-y-10">
           <div className="grid sm:grid-cols-2 gap-4 reveal">
             {traits.map((t) => (
               <div
