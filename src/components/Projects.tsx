@@ -3,26 +3,22 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Dashboard",
-    desc: "A high-fidelity admin dashboard for managing products, orders, and real-time analytics.",
-    tech: ["React", "Next.js", "Chart.js"],
-    category: "Web App",
-    image: "/assets/project1.png",
+    title: "Pulse",
+    desc: "A high-performance landing page with complex CSS animations and zero JS runtime.",
+    tech: ["Native CSS", "HTML5", "CSS Grid"],
+    category: "Landing Page",
+    image: "/assets/pulse.png",
+    link: "https://pluse-landing.vercel.app/",
     featured: true,
   },
   {
-    title: "Weather Pulse",
-    desc: "Immersive weather experience with animated backgrounds and real-time data.",
-    tech: ["TypeScript", "Vite", "API"],
+    title: "McSteeze Lounge",
+    desc: "A luxury hospitality website featuring a sophisticated dark-themed aesthetic and direct WhatsApp integration.",
+    tech: ["React", "Next.js", "Tailwind CSS"],
     category: "Web App",
-    image: "/assets/project2.png",
-  },
-  {
-    title: "Lumina Portfolio",
-    desc: "A premium portfolio template designed for visual storytellers and creators.",
-    tech: ["React", "Framer Motion", "Tailwind"],
-    category: "UI/UX",
-    image: "/assets/project3.png",
+    image: "/assets/mcsteeze.png",
+    link: "https://mcsteeze-lounge.vercel.app/",
+    featured: true,
   },
 ];
 
@@ -85,10 +81,12 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                 
                 <div className="absolute top-4 right-4 flex gap-2">
-                  <a href="#" className="p-2 rounded-full glass border-white/10 text-white hover:text-primary transition-colors">
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="p-2 rounded-full glass border-white/10 text-white hover:text-primary transition-colors">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="p-2 rounded-full glass border-white/10 text-white hover:text-primary transition-colors"
+                  >
                     <ExternalLink className="w-5 h-5" />
                   </a>
                 </div>
@@ -108,10 +106,15 @@ const Projects = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
                   {project.desc}
                 </p>
-                <button className="flex items-center gap-2 text-sm font-bold group/btn">
-                  View Case Study 
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2 text-sm font-bold group/btn"
+                >
+                  View Live Site 
                   <ExternalLink className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+                </a>
               </div>
             </div>
           ))}
