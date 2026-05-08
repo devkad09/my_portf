@@ -1,62 +1,54 @@
-import { Briefcase } from "lucide-react";
-
 const experiences = [
   {
     company: "Formgrid.dev",
     role: "Frontend Engineer",
-    period: "2026 — PRESENT",
-    description: "Defining technical documentation standards and building modular interface components for developer-centric tools.",
+    period: "2026 — Present",
+    description: "Defining technical documentation standards and building modular interface components for developer-centric tools. Emphasizing clean architecture and scalable design systems.",
   },
   {
     company: "Freelance",
     role: "Frontend Developer",
-    period: "2023 — present",
-    description: "Developed responsive and user-friendly web applications for various clients using React, TypeScript, and Tailwind CSS.",
+    period: "2023 — Present",
+    description: "Collaborated directly with clients to develop responsive, user-centric web applications. Focused on translating brand identities into high-fidelity digital experiences.",
   },
 ];
 
 const Experience = () => (
-  <section id="experience" className="py-32 relative overflow-hidden bg-background">
-    <div className="container mx-auto px-6 relative z-10">
-      <div className="max-w-4xl mx-auto text-center mb-20 reveal">
-        <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-          Career <span className="text-primary">Journey</span>
+  <section id="experience" className="py-24 px-6 md:px-12 bg-editorial-bg">
+    <div className="container mx-auto max-w-4xl">
+      
+      <div className="text-center mb-20">
+        <h2 className="font-serif text-4xl sm:text-5xl text-editorial-text mb-4">
+          Professional<br />
+          <span className="italic text-editorial-accent">Journey.</span>
         </h2>
-        <p className="text-muted-foreground text-lg">
-          My professional milestones and contributions in the tech ecosystem.
-        </p>
+        <div className="w-12 h-[1px] bg-editorial-accent mx-auto" />
       </div>
 
-      <div className="relative max-w-4xl mx-auto reveal">
-        {/* Vertical Line */}
-        <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-accent/50 to-transparent" />
-
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-12 md:pl-0">
-              {/* Dot */}
-              <div className="absolute left-[-2px] md:left-1/2 md:-translate-x-1/2 top-0 w-9 h-9 rounded-full glass border-white/20 flex items-center justify-center z-10 shadow-xl shadow-primary/10">
-                <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-              </div>
-
-              <div className={`md:w-[45%] ${index % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}`}>
-                <div className="bento-card group p-8">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase mb-4">
-                    {exp.period}
-                  </span>
-                  <h3 className="font-heading text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="font-bold text-foreground/60 mb-4">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
+      <div className="space-y-16">
+        {experiences.map((exp, index) => (
+          <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 group">
+            
+            <div className="md:col-span-3">
+              <span className="text-sm font-serif italic text-editorial-accent">{exp.period}</span>
             </div>
-          ))}
-        </div>
+            
+            <div className="md:col-span-9 relative">
+              {/* Subtle line connection */}
+              <div className="hidden md:block absolute -left-12 top-2 bottom-[-4rem] w-[1px] bg-editorial-border group-last:hidden" />
+              <div className="hidden md:block absolute -left-[3.2rem] top-2 w-2 h-2 rounded-full border border-editorial-accent bg-editorial-bg" />
+
+              <h3 className="font-serif text-2xl text-editorial-text mb-1">{exp.role}</h3>
+              <p className="text-sm uppercase tracking-widest text-editorial-muted mb-4">{exp.company}</p>
+              <p className="text-editorial-text/80 text-balance leading-relaxed">
+                {exp.description}
+              </p>
+            </div>
+            
+          </div>
+        ))}
       </div>
+
     </div>
   </section>
 );

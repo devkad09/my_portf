@@ -1,91 +1,79 @@
-import { Code, Palette, Zap, Rocket, Heart } from "lucide-react";
-
-const traits = [
-  {
-    icon: Code,
-    title: "Clean Code",
-    desc: "Writing maintainable, well-structured code that scales.",
-    delay: "0s",
-  },
-  {
-    icon: Palette,
-    title: "Creative Design",
-    desc: "Crafting visually compelling interfaces with attention to detail.",
-    delay: "0.2s",
-  },
-  {
-    icon: Zap,
-    title: "Fast Learner",
-    desc: "Quickly adapting to new technologies and frameworks.",
-    delay: "0.4s",
-  },
-];
-
 const About = () => (
-  <section id="about" className="py-20 md:py-32 relative overflow-hidden">
-    <div className="container mx-auto px-6 relative z-10">
-      <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20 reveal">
-        <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-          Building Digital <span className="text-primary">Masterpieces</span>
-        </h2>
-        <p className="text-muted-foreground text-base md:text-xl leading-relaxed">
-          I combine technical precision with creative flair to build interfaces that don't just work—they inspire.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-center">
-        {/* Profile Visual */}
-        <div className="md:col-span-5 reveal">
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-accent/20 to-primary/20 blur-3xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-            <div className="relative bento-card group aspect-square p-4">
+  <section id="about" className="py-24 px-6 md:px-12 bg-editorial-white">
+    <div className="container mx-auto max-w-7xl">
+      
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+        
+        <div className="lg:col-span-5">
+          <div className="relative mb-12 group mx-auto max-w-sm lg:max-w-md lg:mx-0">
+            <div className="aspect-[4/5] w-full overflow-hidden bg-editorial-border">
               <img 
                 src="/assets/profile.jpg" 
-                alt="Kelvin Atsu Djayouri" 
-                className="w-full h-full object-cover rounded-2xl grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                alt="Kelvin Atsu" 
+                className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700"
               />
-              <div className="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl border-white/20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <p className="text-sm font-bold text-primary uppercase tracking-widest mb-1">Based in</p>
-                <p className="text-lg font-bold">Accra, Ghana</p>
-              </div>
             </div>
+            {/* Decorative block */}
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-1/2 h-1/2 bg-editorial-accent/10 -z-10 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
+          </div>
+
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-editorial-text mb-6">
+            The Philosophy<br />
+            <span className="italic text-editorial-accent">of Design.</span>
+          </h2>
+          <div className="w-16 h-[1px] bg-editorial-text/20 mb-8" />
+          <p className="text-xl text-editorial-muted font-serif italic">
+            "Build with purpose,<br />design with empathy."
+          </p>
+        </div>
+
+        {/* Content Area */}
+        <div className="lg:col-span-7 font-sans text-editorial-text text-lg leading-relaxed">
+          <p className="mb-6 first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:-mt-1 first-letter:text-editorial-accent">
+            My work exists at the intersection of aesthetic beauty and technical precision. Based in Accra, Ghana, I have dedicated my career to crafting user interfaces that feel effortless to navigate while maintaining robust, scalable underlying architecture.
+          </p>
+          
+          <p className="mb-12">
+            Currently engineering experiences at Formgrid.dev, I specialize in React, TypeScript, and modern CSS architectures. I believe that a truly premium digital experience is not just about how it looks, but how it responds to the human touch.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 pt-12 border-t border-editorial-border">
+            
+            <div>
+              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">01. Architecture</span>
+              <h3 className="font-serif text-xl text-editorial-text mb-2">Clean Code</h3>
+              <p className="text-editorial-muted text-sm text-balance">
+                Building scalable, maintainable systems that stand the test of time and technical debt.
+              </p>
+            </div>
+
+            <div>
+              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">02. Aesthetics</span>
+              <h3 className="font-serif text-xl text-editorial-text mb-2">Creative Design</h3>
+              <p className="text-editorial-muted text-sm text-balance">
+                Translating complex requirements into simple, elegant, and compelling visual interfaces.
+              </p>
+            </div>
+
+            <div>
+              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">03. Adaptability</span>
+              <h3 className="font-serif text-xl text-editorial-text mb-2">Continuous Learning</h3>
+              <p className="text-editorial-muted text-sm text-balance">
+                Rapidly assimilating new paradigms and technologies to stay at the cutting edge.
+              </p>
+            </div>
+
+            <div>
+              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">04. Empathy</span>
+              <h3 className="font-serif text-xl text-editorial-text mb-2">User-Centric Focus</h3>
+              <p className="text-editorial-muted text-sm text-balance">
+                Always prioritizing the human element in every interaction and state change.
+              </p>
+            </div>
+
           </div>
         </div>
 
-        {/* Traits & Narrative */}
-        <div className="md:col-span-7 space-y-10">
-          <div className="grid sm:grid-cols-2 gap-4 reveal">
-            {traits.map((t) => (
-              <div
-                key={t.title}
-                className="bento-card group p-6"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <t.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h4 className="font-heading font-bold text-lg mb-2">{t.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{t.desc}</p>
-              </div>
-            ))}
-            <div className="bento-card group p-6 bg-primary/5 border-primary/20 sm:col-span-2 md:col-span-1 flex flex-col justify-center items-center text-center">
-              <Heart className="w-8 h-8 text-primary mb-3 animate-pulse" />
-              <p className="font-bold">Passionate about User Experience</p>
-            </div>
-          </div>
-
-          <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground leading-relaxed reveal">
-            <p>
-              As a <strong>Frontend Engineer</strong>, I focus on the intersection of design and development. 
-              My work at <strong>Formgrid.dev</strong> and my studies at <strong>Accra Technical University</strong> 
-              have taught me that the best user experiences are those that feel effortless.
-            </p>
-            <p>
-              I specialize in <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>, 
-              always aiming for code that is as elegant as the UI it powers. My philosophy is simple: 
-              <em> build with purpose, design with empathy.</em>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
