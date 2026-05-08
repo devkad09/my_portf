@@ -65,14 +65,16 @@ const Contact = () => {
             <div className="space-y-4">
               <a 
                 href="mailto:deve.kad.tech@gmail.com" 
-                className="flex items-center gap-4 p-6 bg-background border border-border rounded-2xl hover:border-accent hover:shadow-lg hover:shadow-accent/5 transition-all group"
+                className="flex items-center gap-4 p-5 bg-background border border-border rounded-2xl hover:border-accent hover:shadow-lg hover:shadow-accent/5 transition-all group max-w-sm"
               >
                 <div className="p-3 bg-secondary rounded-xl group-hover:bg-accent group-hover:text-white transition-colors">
                   <Mail className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Email Me</p>
-                  <p className="text-lg font-semibold text-foreground">deve.kad.tech@gmail.com</p>
+                  <p className="text-lg font-semibold text-foreground truncate" title="deve.kad.tech@gmail.com">
+                    deve.kad.tech@gmail.com
+                  </p>
                 </div>
               </a>
 

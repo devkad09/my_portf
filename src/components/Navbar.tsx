@@ -28,12 +28,15 @@ const Navbar = () => {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border py-4' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto max-w-7xl px-6 md:px-12 flex items-center justify-between">
         
-        {/* Logo */}
         <div 
-          className="font-heading text-2xl font-bold tracking-tighter cursor-pointer group"
+          className="cursor-pointer group flex items-center"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          Kad<span className="text-accent group-hover:text-foreground transition-colors">Dev</span>
+          <img 
+            src="/assets/logo.png" 
+            alt="KadDev Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         {/* Desktop Nav */}
