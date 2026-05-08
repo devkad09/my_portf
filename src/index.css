@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,32 +6,56 @@
 
 @layer base {
   :root {
-    --background: #fcfbf9;
-    --foreground: #1a1a1a;
+    --background: #ffffff;
+    --foreground: #0f172a;
 
     --card: #ffffff;
-    --card-foreground: #1a1a1a;
+    --card-foreground: #0f172a;
 
-    --primary: #1a1a1a;
-    --primary-foreground: #ffffff;
+    --primary: #0f172a;
+    --primary-foreground: #f8fafc;
 
-    --secondary: #f3f0ea;
-    --secondary-foreground: #1a1a1a;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
 
-    --muted: #f3f0ea;
-    --muted-foreground: #666666;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
 
-    --accent: #8c7c61;
+    --accent: #3b82f6; /* Modern Blue */
     --accent-foreground: #ffffff;
 
-    --border: #e5e5e5;
-    --input: #f3f0ea;
-    --ring: #1a1a1a;
+    --border: #e2e8f0;
+    --input: #f1f5f9;
+    --ring: #3b82f6;
 
-    --radius: 0;
+    --radius: 0.75rem;
 
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: #020617;
+    --foreground: #f8fafc;
+
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+
+    --primary: #f8fafc;
+    --primary-foreground: #020617;
+
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+
+    --accent: #3b82f6;
+    --accent-foreground: #ffffff;
+
+    --border: #1e293b;
+    --input: #1e293b;
+    --ring: #3b82f6;
   }
 }
 
@@ -49,20 +73,44 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
-  background: #fcfbf9;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #e5e5e5;
+  background: var(--border);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8c7c61;
+  background: var(--accent);
+}
+
+/* Reading Progress */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Typography Utilities */
@@ -76,7 +124,8 @@ input, textarea {
 }
 
 ::selection {
-  background: #8c7c61;
+  background: var(--accent);
   color: white;
 }
+
 

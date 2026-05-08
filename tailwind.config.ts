@@ -15,14 +15,6 @@ export default {
     },
     extend: {
       colors: {
-        editorial: {
-          bg: "#fcfbf9",
-          text: "#1a1a1a",
-          muted: "#666666",
-          accent: "#8c7c61", // Warm taupe
-          border: "#e5e5e5",
-          white: "#ffffff",
-        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,10 +42,8 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
-        heading: ['"Playfair Display"', 'serif'],
-        body: ['"Inter"', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       keyframes: {
         "fade-up": {

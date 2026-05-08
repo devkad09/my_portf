@@ -1,76 +1,48 @@
 const About = () => (
-  <section id="about" className="py-24 px-6 md:px-12 bg-editorial-white">
+  <section id="about" className="py-24 px-6 md:px-12 bg-background relative overflow-hidden">
     <div className="container mx-auto max-w-7xl">
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
-        <div className="lg:col-span-5">
-          <div className="relative mb-12 group mx-auto max-w-sm lg:max-w-md lg:mx-0">
-            <div className="aspect-[4/5] w-full overflow-hidden bg-editorial-border">
+        <div className="lg:col-span-5 animate-fade-up">
+          <div className="relative group">
+            <div className="aspect-square w-full overflow-hidden rounded-3xl bg-secondary">
               <img
                 src="/assets/profile.jpg"
                 alt="Kelvin Atsu Djayouri"
-                className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
             {/* Decorative block */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-1/2 h-1/2 bg-editorial-accent/10 -z-10 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/10 rounded-2xl -z-10 animate-pulse" />
           </div>
-
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-editorial-text mb-6">
-            The Philosophy<br />
-            <span className="italic text-editorial-accent">of Design.</span>
-          </h2>
-          <div className="w-16 h-[1px] bg-editorial-text/20 mb-8" />
-          <p className="text-xl text-editorial-muted font-serif italic">
-            "Build with purpose,<br />design with empathy."
-          </p>
         </div>
 
         {/* Content Area */}
-        <div className="lg:col-span-7 font-sans text-editorial-text text-lg leading-relaxed">
-          <p className="mb-6 first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:-mt-1 first-letter:text-editorial-accent">
-            I am Kelvin Atsu Djayouri, and my work exists at the intersection of aesthetic beauty and technical precision. Based in Accra, Ghana, I have dedicated my career to crafting user interfaces that feel effortless to navigate while maintaining robust, scalable underlying architecture.
-          </p>
+        <div className="lg:col-span-7 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">About Me</h2>
+          <h3 className="font-heading text-4xl sm:text-5xl text-foreground mb-8 leading-tight">
+            Building the next generation of <span className="text-accent">digital experiences.</span>
+          </h3>
+          
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              I am a dedicated <span className="text-foreground font-medium">Frontend Developer</span> with a strong foundation in Information Technology, holding a <span className="text-foreground font-medium">Diploma from ATU</span>. My journey in tech is driven by a passion for creating clean, intuitive, and high-performance user interfaces.
+            </p>
+            <p>
+              With a background in IT, I bring a holistic approach to web development, ensuring that every project is not only visually stunning but also technically sound, scalable, and accessible.
+            </p>
+          </div>
 
-          <p className="mb-12">
-            Currently engineering experiences at Formgrid.dev, I specialize in React, TypeScript, and modern CSS architectures. I believe that a truly premium digital experience is not just about how it looks, but how it responds to the human touch.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 pt-12 border-t border-editorial-border">
-
-            <div>
-              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">01. Architecture</span>
-              <h3 className="font-serif text-xl text-editorial-text mb-2">Clean Code</h3>
-              <p className="text-editorial-muted text-sm text-balance">
-                Building scalable, maintainable systems that stand the test of time and technical debt.
-              </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-12">
+            <div className="p-6 bg-secondary rounded-2xl border border-border hover:border-accent/50 transition-colors">
+              <h4 className="font-heading text-xl font-bold text-foreground mb-2">Technical Excellence</h4>
+              <p className="text-muted-foreground text-sm">Focused on clean code and robust architecture using React and TypeScript.</p>
             </div>
-
-            <div>
-              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">02. Aesthetics</span>
-              <h3 className="font-serif text-xl text-editorial-text mb-2">Creative Design</h3>
-              <p className="text-editorial-muted text-sm text-balance">
-                Translating complex requirements into simple, elegant, and compelling visual interfaces.
-              </p>
+            <div className="p-6 bg-secondary rounded-2xl border border-border hover:border-accent/50 transition-colors">
+              <h4 className="font-heading text-xl font-bold text-foreground mb-2">User-Centric Design</h4>
+              <p className="text-muted-foreground text-sm">Prioritizing user experience and accessibility in every line of code.</p>
             </div>
-
-            <div>
-              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">03. Adaptability</span>
-              <h3 className="font-serif text-xl text-editorial-text mb-2">Continuous Learning</h3>
-              <p className="text-editorial-muted text-sm text-balance">
-                Rapidly assimilating new paradigms and technologies to stay at the cutting edge.
-              </p>
-            </div>
-
-            <div>
-              <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">04. Empathy</span>
-              <h3 className="font-serif text-xl text-editorial-text mb-2">User-Centric Focus</h3>
-              <p className="text-editorial-muted text-sm text-balance">
-                Always prioritizing the human element in every interaction and state change.
-              </p>
-            </div>
-
           </div>
         </div>
 

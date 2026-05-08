@@ -1,76 +1,98 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Pulse",
-    desc: "A high-performance landing page with complex CSS animations and zero JS runtime.",
-    category: "01 / Development",
-    link: "https://pluse-landing.vercel.app/",
-    year: "2026",
-    image: "/assets/pulse.png"
+    title: "Nexus Business Landing Page",
+    desc: "A high-converting, responsive landing page for a startup consultancy, featuring modern CSS animations and a clean, professional aesthetic.",
+    tech: ["React", "Tailwind CSS", "Framer Motion"],
+    link: "#",
+    github: "#",
+    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/business_landing_page_1778276856267.png"
   },
   {
-    title: "McSteeze",
-    desc: "A luxury hospitality website featuring a sophisticated aesthetic and direct integration.",
-    category: "02 / Web App",
-    link: "https://mcsteeze-lounge.vercel.app/",
-    year: "2025",
-    image: "/assets/mcsteeze.png"
+    title: "Quantum Analytics Dashboard",
+    desc: "A sophisticated admin dashboard with real-time API integration, data visualization with Chart.js, and a sleek dark mode interface.",
+    tech: ["React", "TypeScript", "Recharts", "REST API"],
+    link: "#",
+    github: "#",
+    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/react_dashboard_api_1778276886215.png"
   },
+  {
+    title: "Aethel Luxury E-commerce",
+    desc: "A premium e-commerce UI experience with a focus on minimalist design, smooth transitions, and a seamless shopping flow.",
+    tech: ["Next.js", "Tailwind CSS", "Redux Toolkit"],
+    link: "#",
+    github: "#",
+    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/ecommerce_ui_experience_1778277096047.png"
+  }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12">
+    <section id="projects" className="py-24 px-6 md:px-12 bg-background">
       <div className="container mx-auto max-w-7xl">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-editorial-text">
-            Selected<br />
-            <span className="italic text-editorial-accent">Works.</span>
-          </h2>
-          <p className="text-editorial-muted max-w-sm text-balance">
-            A curated collection of recent digital experiences and interfaces.
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 animate-fade-up">
+          <div>
+            <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Portfolio</h2>
+            <h3 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-foreground">
+              Selected <span className="text-accent">Projects.</span>
+            </h3>
+          </div>
+          <p className="text-muted-foreground max-w-sm text-lg leading-relaxed">
+            A curated collection of digital experiences built with precision and passion.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <div key={project.title} className={`group flex flex-col ${i % 2 !== 0 ? 'md:mt-24' : ''}`}>
+            <div 
+                key={project.title} 
+                className="group bg-secondary/30 border border-border rounded-[2.5rem] overflow-hidden hover:border-accent/50 transition-all duration-500 flex flex-col animate-fade-up"
+                style={{ animationDelay: `${i * 0.1}s` }}
+            >
               
-              {/* Image */}
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative block aspect-[4/5] bg-editorial-border border border-editorial-border overflow-hidden mb-8 rounded-2xl">
+              {/* Image Container */}
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-editorial-text/5 group-hover:bg-transparent transition-colors duration-500" />
-                {/* Custom hover cursor/link icon */}
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-editorial-text text-editorial-white flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                  <ArrowUpRight className="w-5 h-5" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
+                  <a href={project.github} className="p-3 bg-background rounded-full hover:bg-accent hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500">
+                    <Github className="w-6 h-6" />
+                  </a>
+                  <a href={project.link} className="p-3 bg-background rounded-full hover:bg-accent hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75">
+                    <ExternalLink className="w-6 h-6" />
+                  </a>
                 </div>
-              </a>
-
-              {/* Meta */}
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-xs uppercase tracking-widest text-editorial-accent">
-                  {project.category}
-                </span>
-                <span className="text-xs text-editorial-muted">
-                  {project.year}
-                </span>
               </div>
 
-              {/* Title & Desc */}
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-block">
-                <h3 className="font-serif text-3xl text-editorial-text mb-3 group-hover:text-editorial-accent transition-colors">
+              {/* Content */}
+              <div className="p-8 flex-grow flex flex-col">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map(t => (
+                    <span key={t} className="px-3 py-1 bg-background text-xs font-semibold text-muted-foreground rounded-full border border-border">
+                        {t}
+                    </span>
+                  ))}
+                </div>
+                <h4 className="font-heading text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
                   {project.title}
-                </h3>
-              </a>
-              <p className="text-editorial-muted text-balance">
-                {project.desc}
-              </p>
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {project.desc}
+                </p>
+                <div className="mt-auto">
+                    <a 
+                        href={project.link}
+                        className="inline-flex items-center gap-2 text-foreground font-bold text-sm uppercase tracking-wider hover:text-accent transition-colors"
+                    >
+                        Live Demo <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                </div>
+              </div>
               
             </div>
           ))}
