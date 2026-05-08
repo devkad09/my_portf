@@ -6,14 +6,16 @@ const projects = [
     desc: "A high-performance landing page with complex CSS animations and zero JS runtime.",
     category: "01 / Development",
     link: "https://pluse-landing.vercel.app/",
-    year: "2026"
+    year: "2026",
+    image: "/assets/pulse.png"
   },
   {
     title: "McSteeze",
     desc: "A luxury hospitality website featuring a sophisticated aesthetic and direct integration.",
     category: "02 / Web App",
     link: "https://mcsteeze-lounge.vercel.app/",
-    year: "2025"
+    year: "2025",
+    image: "/assets/mcsteeze.png"
   },
 ];
 
@@ -36,12 +38,14 @@ const Projects = () => {
           {projects.map((project, i) => (
             <div key={project.title} className={`group flex flex-col ${i % 2 !== 0 ? 'md:mt-24' : ''}`}>
               
-              {/* Image Placeholder (Editorial style) */}
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative block aspect-[4/5] bg-editorial-white border border-editorial-border overflow-hidden mb-8">
+              {/* Image */}
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative block aspect-[4/5] bg-editorial-border border border-editorial-border overflow-hidden mb-8 rounded-2xl">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
                 <div className="absolute inset-0 bg-editorial-text/5 group-hover:bg-transparent transition-colors duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center text-editorial-muted/30 font-serif text-8xl italic select-none">
-                  {i + 1}
-                </div>
                 {/* Custom hover cursor/link icon */}
                 <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-editorial-text text-editorial-white flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                   <ArrowUpRight className="w-5 h-5" />

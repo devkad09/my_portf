@@ -1,15 +1,15 @@
 const About = () => (
   <section id="about" className="py-24 px-6 md:px-12 bg-editorial-white">
     <div className="container mx-auto max-w-7xl">
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-        
+
         <div className="lg:col-span-5">
           <div className="relative mb-12 group mx-auto max-w-sm lg:max-w-md lg:mx-0">
             <div className="aspect-[4/5] w-full overflow-hidden bg-editorial-border">
-              <img 
-                src="/assets/profile.jpg" 
-                alt="Kelvin Atsu" 
+              <img
+                src="/assets/profile.jpg"
+                alt="Kelvin Atsu Djayouri"
                 className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -30,15 +30,15 @@ const About = () => (
         {/* Content Area */}
         <div className="lg:col-span-7 font-sans text-editorial-text text-lg leading-relaxed">
           <p className="mb-6 first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:-mt-1 first-letter:text-editorial-accent">
-            My work exists at the intersection of aesthetic beauty and technical precision. Based in Accra, Ghana, I have dedicated my career to crafting user interfaces that feel effortless to navigate while maintaining robust, scalable underlying architecture.
+            I am Kelvin Atsu Djayouri, and my work exists at the intersection of aesthetic beauty and technical precision. Based in Accra, Ghana, I have dedicated my career to crafting user interfaces that feel effortless to navigate while maintaining robust, scalable underlying architecture.
           </p>
-          
+
           <p className="mb-12">
             Currently engineering experiences at Formgrid.dev, I specialize in React, TypeScript, and modern CSS architectures. I believe that a truly premium digital experience is not just about how it looks, but how it responds to the human touch.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 pt-12 border-t border-editorial-border">
-            
+
             <div>
               <span className="block text-xs uppercase tracking-widest text-editorial-accent mb-2">01. Architecture</span>
               <h3 className="font-serif text-xl text-editorial-text mb-2">Clean Code</h3>

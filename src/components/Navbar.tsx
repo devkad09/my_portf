@@ -26,18 +26,18 @@ const Navbar = () => {
 
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-editorial-bg/90 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto max-w-7xl px-6 md:px-12 flex items-center justify-between">
         
         {/* Logo */}
         <div 
           className="font-serif text-2xl tracking-tight cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          Kelvin Atsu.
+          KAD.
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <button
               key={link.href}
@@ -51,7 +51,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-editorial-text"
+          className="lg:hidden text-editorial-text"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" strokeWidth={1} /> : <Menu className="w-6 h-6" strokeWidth={1} />}

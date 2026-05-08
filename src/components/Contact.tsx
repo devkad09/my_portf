@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { ArrowUpRight, Github, Linkedin, Check } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Check, Mail } from "lucide-react";
 
 const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
 
@@ -63,11 +63,11 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6 pt-12 border-t border-editorial-border">
-              <div className="flex justify-between items-center group cursor-pointer">
+              <div className="flex justify-between items-center group">
                 <span className="font-serif text-2xl text-editorial-text">Email</span>
-                <span className="text-editorial-muted group-hover:text-editorial-accent flex items-center gap-2 transition-colors">
-                  deve.kad.tech@gmail.com <ArrowUpRight className="w-5 h-5" />
-                </span>
+                <a href="mailto:deve.kad.tech@gmail.com" className="text-editorial-muted hover:text-editorial-accent transition-colors">
+                  <Mail className="w-6 h-6" strokeWidth={1.5} />
+                </a>
               </div>
               <div className="flex justify-between items-center group cursor-pointer">
                 <span className="font-serif text-2xl text-editorial-text">Socials</span>
