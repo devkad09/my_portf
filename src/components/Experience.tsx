@@ -21,7 +21,7 @@ const Experience = () => {
         
         <div className="mb-24 text-right reveal">
           <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Professional Path</h2>
-          <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight">
+          <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight">
             WORK <br />
             EXPERIENCE.
           </h3>
@@ -31,7 +31,7 @@ const Experience = () => {
           {experiences.map((exp, i) => (
             <div 
               key={i}
-              className="group relative p-12 glass rounded-[3rem] border-white/5 reveal"
+              className="group relative p-8 md:p-12 glass rounded-[3rem] border-white/5 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -44,7 +44,7 @@ const Experience = () => {
                 </div>
 
                 <div className="lg:col-span-9">
-                  <h3 className="font-heading text-3xl lg:text-4xl font-black text-white mb-6">
+                  <h3 className="font-heading text-2xl lg:text-4xl font-black text-white mb-6">
                     {exp.role}
                   </h3>
                   <p className="text-white/40 text-lg leading-relaxed font-light max-w-3xl">

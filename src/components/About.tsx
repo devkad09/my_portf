@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section id="about" className="py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="about" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
       
       {/* Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter">
@@ -32,7 +32,7 @@ const About = () => {
           <div className="lg:col-span-6 space-y-8">
             <div>
               <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Behind the Code</h2>
-              <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight">
+              <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight">
                 CRAFTING <br />
                 WITH PURPOSE.
               </h3>

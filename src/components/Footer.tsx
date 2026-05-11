@@ -5,11 +5,11 @@ const Footer = () => (
     <div className="container mx-auto px-6 md:px-12 relative z-10">
       
       <div className="flex flex-col items-center text-center gap-12">
-        <a href="/" className="text-4xl font-black tracking-tighter text-gradient group">
+        <a href="/" className="text-3xl md:text-4xl font-black tracking-tighter text-gradient group">
           KAD<span className="text-accent group-hover:text-accent-secondary transition-colors">DEV</span>
         </a>
 
-        <nav className="flex flex-wrap justify-center gap-12">
+        <nav className="flex flex-wrap justify-center gap-6 md:gap-12">
           {["About", "Services", "Projects", "Contact"].map((link) => (
             <a key={link} href={`#${link.toLowerCase()}`} className="text-sm font-bold tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors">
               {link}
@@ -17,7 +17,7 @@ const Footer = () => (
           ))}
         </nav>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8">
           {[
             { icon: Github, href: "https://github.com/devkad09" },
             { icon: Linkedin, href: "https://www.linkedin.com/in/kaddev" },

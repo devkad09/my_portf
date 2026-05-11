@@ -35,7 +35,7 @@ const Services = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 reveal">
           <div className="max-w-2xl">
             <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Expertise</h2>
-            <h3 className="font-heading text-5xl lg:text-7xl font-black text-white leading-tight">
+            <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
               SERVICES <br />
               & SOLUTIONS.
             </h3>
@@ -45,11 +45,11 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {services.map((service, i) => (
             <div 
               key={service.title}
-              className="group relative p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 reveal"
+              className="group relative p-8 md:p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Background Glow */}

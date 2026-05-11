@@ -12,7 +12,7 @@ const Hero = () => {
             Available for Freelance & Jobs
           </span>
           
-          <h1 className="font-heading text-7xl sm:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient mb-8">
+          <h1 className="font-heading text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient mb-8">
             CREATING <br />
             <span className="text-gradient-accent">DIGITAL</span> <br />
             MAGNIFICENCE.
@@ -22,17 +22,17 @@ const Hero = () => {
             I'm <span className="text-white font-medium">Kelvin Atsu Djayouri</span>, a Frontend Developer crafting high-performance, immersive web experiences that redefine boundaries.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto mt-4 sm:mt-0">
             <button 
               onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="glass hover:bg-white/10 text-white px-10 py-5 rounded-full font-bold transition-all flex items-center gap-2 group"
+              className="w-full sm:w-auto glass hover:bg-white/10 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
             >
               Selected Works
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             </button>
             <button 
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-white/70 hover:text-white px-8 py-5 rounded-full font-bold transition-all flex items-center gap-2"
+              className="w-full sm:w-auto text-white/70 hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all flex items-center justify-center gap-2"
             >
               Get in Touch
             </button>

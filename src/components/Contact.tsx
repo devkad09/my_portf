@@ -46,7 +46,7 @@ const Contact = () => {
           
           <div className="lg:col-span-5 reveal">
             <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Get in Touch</h2>
-            <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight mb-8">
+            <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight mb-8">
               START A <br />
               CONVERSATION.
             </h3>
@@ -77,7 +77,7 @@ const Contact = () => {
           </div>
 
           <div className="lg:col-span-7 reveal">
-            <div className="glass p-8 md:p-12 rounded-[3rem] border-white/10">
+            <div className="glass p-6 md:p-12 rounded-[3rem] border-white/10">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">

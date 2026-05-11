@@ -35,12 +35,12 @@ const Projects = () => {
         
         <div className="mb-24 text-center">
           <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Selected Works</h2>
-          <h3 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-black text-gradient">
+          <h3 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-gradient">
             PORTFOLIO.
           </h3>
         </div>
 
-        <div className="flex flex-col gap-40">
+        <div className="flex flex-col gap-24 md:gap-40">
           {projects.map((project, i) => (
             <div 
                 key={project.title} 
@@ -76,7 +76,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <h4 className="font-heading text-4xl lg:text-5xl font-black text-gradient leading-tight">
+                <h4 className="font-heading text-3xl lg:text-5xl font-black text-gradient leading-tight">
                   {project.title}
                 </h4>
                 <p className="text-white/40 text-lg leading-relaxed font-light">
