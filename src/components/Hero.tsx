@@ -32,7 +32,7 @@ const Hero = () => {
             </button>
             <button 
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="w-full sm:w-auto text-accent hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black transition-all duration-1000 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto glass hover:bg-accent hover:text-black text-accent px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black transition-all duration-1000 flex items-center justify-center gap-2"
             >
               Hire Me
             </button>
