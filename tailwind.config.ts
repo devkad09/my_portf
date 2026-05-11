@@ -35,6 +35,7 @@ export default {
         accent: {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
+          secondary: "var(--accent-secondary)",
         },
         card: {
           DEFAULT: "var(--card)",
