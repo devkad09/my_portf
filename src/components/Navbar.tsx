@@ -30,19 +30,21 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navLinks.filter(l => l.name !== "Hire Me").map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm transition-colors ${
-                link.name === "Hire Me" 
-                  ? "text-accent font-black" 
-                  : "font-medium text-white/70 hover:text-white"
-              }`}
+              className="text-sm font-medium text-white/70 hover:text-white transition-colors"
             >
               {link.name}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="px-5 py-2 glass hover:bg-accent hover:text-black transition-all duration-500 rounded-full text-xs font-black uppercase tracking-widest text-accent"
+          >
+            Hire Me
+          </a>
         </div>
 
         <div className="flex items-center gap-4">
@@ -69,10 +71,10 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-lg transition-colors ${
+                className={`transition-all duration-500 ${
                   link.name === "Hire Me" 
-                    ? "text-accent font-black" 
-                    : "font-medium text-white/70 hover:text-white"
+                    ? "text-lg px-6 py-3 glass rounded-full text-center text-accent font-black mt-4" 
+                    : "text-lg font-medium text-white/70 hover:text-white"
                 }`}
               >
                 {link.name}
