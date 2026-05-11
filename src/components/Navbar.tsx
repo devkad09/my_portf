@@ -43,8 +43,8 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <div className="hidden sm:flex items-center gap-3">
-            <a href="#" className="text-white/50 hover:text-white transition-colors"><Github className="w-4 h-4" /></a>
-            <a href="#" className="text-white/50 hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
+            <a href="https://github.com/devkad09" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors"><Github className="w-4 h-4" /></a>
+            <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
           </div>
           
           <button 

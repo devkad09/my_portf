@@ -64,7 +64,7 @@ const Contact = () => {
                   <div className="text-white font-bold group-hover:text-accent transition-colors">deve.kad.tech@gmail.com</div>
                 </div>
               </a>
-              <a href="#" className="flex items-center gap-6 group">
+              <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
                 <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center group-hover:bg-accent group-hover:text-black transition-all duration-500">
                   <Linkedin className="w-6 h-6" />
                 </div>
