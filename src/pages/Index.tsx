@@ -2,42 +2,39 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ReadingProgress from "@/components/ReadingProgress";
-import BackToTop from "@/components/BackToTop";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
-    <ReadingProgress />
+  <div className="relative min-h-screen text-white">
+    {/* Background System */}
+    <div className="ambient-bg" />
+    <div className="ambient-blob top-[10%] -left-[10%] animate-pulse-slow" />
+    <div className="ambient-blob top-[60%] -right-[10%] animate-float" style={{ animationDelay: '2s' }} />
+    
     <Navbar />
-    <Hero />
-    <div className="reveal">
+    
+    <main>
+      <Hero />
       <About />
-    </div>
-    <div className="reveal">
       <Skills />
-    </div>
-    <div className="reveal">
+      <Experience />
       <Education />
-    </div>
-    <div className="reveal">
       <Services />
-    </div>
-    <div className="reveal">
       <Projects />
-    </div>
-    <div className="reveal">
       <Contact />
-    </div>
+    </main>
+
     <Footer />
-    <BackToTop />
+    
     <ScrollReveal />
   </div>
 );
 
 export default Index;
+

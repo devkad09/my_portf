@@ -1,41 +1,58 @@
 import { GraduationCap } from "lucide-react";
 
-const Education = () => (
-  <section id="education" className="py-24 px-6 md:px-12 bg-secondary/30">
-    <div className="container mx-auto max-w-7xl">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4 reveal">Education</h2>
-        <h3 className="font-heading text-4xl sm:text-5xl text-foreground mb-6 reveal">
-          Academic <span className="text-accent">Background.</span>
-        </h3>
-        <p className="text-lg text-muted-foreground reveal">
-          My formal education in Information Technology provides the theoretical foundation for my technical skills.
-        </p>
-      </div>
-
-      <div className="relative max-w-2xl mx-auto reveal">
-        {/* Timeline dot and line */}
-        <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-border" />
-
-        <div className="relative pl-16 md:pl-0 md:text-center">
-          <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 w-3 h-3 rounded-full bg-accent ring-4 ring-accent/20" />
-
-          <div className="md:mt-12 p-8 rounded-3xl bg-background border border-border hover:border-accent/40 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-accent/5 group">
-            <div className="mb-4 inline-block p-3 bg-secondary rounded-2xl group-hover:scale-110 transition-transform">
-              <GraduationCap className="w-6 h-6 text-accent" />
-            </div>
-            <div className="text-accent text-sm font-bold tracking-wider uppercase mb-2">2022 — 2026</div>
-            <h4 className="font-heading text-2xl font-bold text-foreground mb-1">
-              Accra Technical University
-            </h4>
-            <p className="text-muted-foreground text-lg">
-              BSc Information Technology (IT)
+const Education = () => {
+  return (
+    <section id="education" className="py-32 px-6 md:px-12 relative">
+      <div className="container mx-auto max-w-7xl">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          <div className="lg:col-span-5 reveal">
+            <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Academic Path</h2>
+            <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight mb-8">
+              FOUNDATION <br />
+              & GROWTH.
+            </h3>
+            <p className="text-white/40 text-lg leading-relaxed font-light">
+              My formal education in Information Technology provides the structural backbone for my creative and technical pursuits.
             </p>
           </div>
+
+          <div className="lg:col-span-7 reveal">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-accent/10 blur-3xl rounded-full opacity-50" />
+              <div className="relative glass p-12 rounded-[3rem] border-white/10 hover:border-accent/30 transition-all duration-700">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="w-20 h-20 rounded-3xl glass flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                    <GraduationCap className="w-10 h-10 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-accent text-xs font-black tracking-widest uppercase mb-2">2022 — 2026</div>
+                    <h4 className="font-heading text-3xl lg:text-4xl font-black text-white mb-4">
+                      Accra Technical University
+                    </h4>
+                    <p className="text-white/60 text-xl font-light mb-6 leading-relaxed">
+                      Bachelor of Science in Information Technology (IT)
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {["Software Eng.", "Data Structures", "Networking", "Web Tech"].map(tag => (
+                        <span key={tag} className="text-[10px] font-bold tracking-widest uppercase text-white/30 px-3 py-1 border border-white/5 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Education;
+

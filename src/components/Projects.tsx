@@ -5,9 +5,9 @@ const projects = [
     title: "Nexus Business Landing Page",
     desc: "A high-converting, responsive landing page for a startup consultancy, featuring modern CSS animations and a clean, professional aesthetic.",
     tech: ["React", "Tailwind CSS", "Framer Motion"],
-    link: "#",
-    github: "#",
-    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/business_landing_page_1778276856267.png"
+    link: "",
+    github: "https://github.com/devkad09/Nexus-Business-Landing-Page",
+    image: "/assets/pulse.png"
   },
   {
     title: "Quantum Analytics Dashboard",
@@ -15,7 +15,7 @@ const projects = [
     tech: ["React", "TypeScript", "Recharts", "REST API"],
     link: "#",
     github: "#",
-    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/react_dashboard_api_1778276886215.png"
+    image: "/assets/project1.png"
   },
   {
     title: "Aethel Luxury E-commerce",
@@ -23,73 +23,71 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", "Redux Toolkit"],
     link: "#",
     github: "#",
-    image: "/Users/kad/.gemini/antigravity/brain/f34c4e03-d7f0-4239-8e06-5c7eb8602303/ecommerce_ui_experience_1778277096047.png"
+    image: "/assets/mcsteeze.png"
   }
 ];
 
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 bg-background">
+    <section id="projects" className="py-32 px-6 md:px-12 bg-transparent relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 animate-fade-up">
-          <div>
-            <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Portfolio</h2>
-            <h3 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-foreground">
-              Selected <span className="text-accent">Projects.</span>
-            </h3>
-          </div>
-          <p className="text-muted-foreground max-w-sm text-lg leading-relaxed">
-            A curated collection of digital experiences built with precision and passion.
-          </p>
+        <div className="mb-24 text-center">
+          <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Selected Works</h2>
+          <h3 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-black text-gradient">
+            PORTFOLIO.
+          </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-40">
           {projects.map((project, i) => (
             <div 
                 key={project.title} 
-                className="group bg-secondary/30 border border-border rounded-[2.5rem] overflow-hidden hover:border-accent/50 transition-all duration-500 flex flex-col animate-fade-up"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 reveal`}
             >
               
-              {/* Image Container */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                  <a href={project.github} className="p-3 bg-background rounded-full hover:bg-accent hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500">
-                    <Github className="w-6 h-6" />
-                  </a>
-                  <a href={project.link} className="p-3 bg-background rounded-full hover:bg-accent hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75">
-                    <ExternalLink className="w-6 h-6" />
-                  </a>
+              {/* Image Section */}
+              <div className="relative w-full lg:w-3/5 group">
+                <div className="absolute -inset-4 bg-accent/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative aspect-[16/9] overflow-hidden rounded-[3rem] glass border-white/5">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6">
+                    <a href={project.github} className="p-4 glass rounded-full hover:bg-accent hover:text-black transition-all">
+                      <Github className="w-6 h-6" />
+                    </a>
+                    <a href={project.link} className="p-4 glass rounded-full hover:bg-accent hover:text-black transition-all">
+                      <ExternalLink className="w-6 h-6" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-8 flex-grow flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-4">
+              {/* Content Section */}
+              <div className="w-full lg:w-2/5 space-y-6">
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
-                    <span key={t} className="px-3 py-1 bg-background text-xs font-semibold text-muted-foreground rounded-full border border-border">
+                    <span key={t} className="px-4 py-1 glass text-[10px] font-bold tracking-widest uppercase text-white/50 rounded-full">
                         {t}
                     </span>
                   ))}
                 </div>
-                <h4 className="font-heading text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                <h4 className="font-heading text-4xl lg:text-5xl font-black text-gradient leading-tight">
                   {project.title}
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                <p className="text-white/40 text-lg leading-relaxed font-light">
                   {project.desc}
                 </p>
-                <div className="mt-auto">
+                <div className="pt-4">
                     <a 
                         href={project.link}
-                        className="inline-flex items-center gap-2 text-foreground font-bold text-sm uppercase tracking-wider hover:text-accent transition-colors"
+                        className="inline-flex items-center gap-3 text-white font-bold text-xs uppercase tracking-[0.2em] hover:text-accent transition-colors group"
                     >
-                        Live Demo <ArrowUpRight className="w-4 h-4" />
+                        EXPLORE PROJECT <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </a>
                 </div>
               </div>
@@ -104,3 +102,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

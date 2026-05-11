@@ -13,44 +13,54 @@ const experiences = [
   },
 ];
 
-const Experience = () => (
-  <section id="experience" className="py-24 px-6 md:px-12 bg-editorial-bg">
-    <div className="container mx-auto max-w-4xl">
+const Experience = () => {
+  return (
+    <section id="experience" className="py-32 px-6 md:px-12 relative overflow-hidden">
       
-      <div className="text-center mb-20">
-        <h2 className="font-serif text-4xl sm:text-5xl text-editorial-text mb-4">
-          Professional<br />
-          <span className="italic text-editorial-accent">Journey.</span>
-        </h2>
-        <div className="w-12 h-[1px] bg-editorial-accent mx-auto" />
-      </div>
+      <div className="container mx-auto max-w-7xl">
+        
+        <div className="mb-24 text-right reveal">
+          <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Professional Path</h2>
+          <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight">
+            WORK <br />
+            EXPERIENCE.
+          </h3>
+        </div>
 
-      <div className="space-y-16">
-        {experiences.map((exp, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 group">
-            
-            <div className="md:col-span-3">
-              <span className="text-sm font-serif italic text-editorial-accent">{exp.period}</span>
+        <div className="space-y-12">
+          {experiences.map((exp, i) => (
+            <div 
+              key={i}
+              className="group relative p-12 glass rounded-[3rem] border-white/5 reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div className="lg:col-span-3">
+                  <div className="text-accent text-xs font-black tracking-widest uppercase mb-2">{exp.period}</div>
+                  <h4 className="font-heading text-xl font-bold text-white/50 group-hover:text-white transition-colors uppercase tracking-wider">
+                    {exp.company}
+                  </h4>
+                </div>
+
+                <div className="lg:col-span-9">
+                  <h3 className="font-heading text-3xl lg:text-4xl font-black text-white mb-6">
+                    {exp.role}
+                  </h3>
+                  <p className="text-white/40 text-lg leading-relaxed font-light max-w-3xl">
+                    {exp.description}
+                  </p>
+                </div>
+
+              </div>
             </div>
-            
-            <div className="md:col-span-9 relative">
-              {/* Subtle line connection */}
-              <div className="hidden md:block absolute -left-12 top-2 bottom-[-4rem] w-[1px] bg-editorial-border group-last:hidden" />
-              <div className="hidden md:block absolute -left-[3.2rem] top-2 w-2 h-2 rounded-full border border-editorial-accent bg-editorial-bg" />
+          ))}
+        </div>
 
-              <h3 className="font-serif text-2xl text-editorial-text mb-1">{exp.role}</h3>
-              <p className="text-sm uppercase tracking-widest text-editorial-muted mb-4">{exp.company}</p>
-              <p className="text-editorial-text/80 text-balance leading-relaxed">
-                {exp.description}
-              </p>
-            </div>
-            
-          </div>
-        ))}
       </div>
-
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Experience;
+

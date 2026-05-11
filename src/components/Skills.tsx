@@ -1,30 +1,33 @@
 const skills = [
   "HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Tailwind CSS", 
-  "Git", "GitHub", "Responsive Design", "REST APIs", "UI/UX Design", "Vite"
+  "Git", "GitHub", "Responsive Design", "REST APIs", "UI/UX Design", "Vite", "Next.js", "Framer Motion", "GSAP"
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 px-6 md:px-12 bg-secondary/30">
-      <div className="container mx-auto max-w-7xl">
+    <section id="skills" className="py-32 px-6 md:px-12 relative overflow-hidden">
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
-          <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">My Skills</h2>
-          <h3 className="font-heading text-4xl sm:text-5xl text-foreground mb-6">
-            Technical <span className="text-accent">Proficiency.</span>
+        <div className="text-center mb-24 reveal">
+          <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">The Toolkit</h2>
+          <h3 className="font-heading text-5xl lg:text-7xl font-black text-gradient leading-tight">
+            TECHNICAL <br />
+            ARSENAL.
           </h3>
-          <p className="text-lg text-muted-foreground">
-            I specialize in modern frontend technologies, focusing on creating seamless user experiences with clean, maintainable code.
-          </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          {skills.map((skill) => (
+        <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto reveal">
+          {skills.map((skill, i) => (
             <div 
               key={skill} 
-              className="px-6 py-4 bg-background border border-border rounded-2xl flex items-center justify-center hover:border-accent hover:shadow-lg hover:shadow-accent/5 transition-all group"
+              className="px-8 py-4 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all duration-500 hover:-translate-y-1 group"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <span className="font-heading text-lg font-semibold text-foreground group-hover:text-accent transition-colors">
+              <span className="font-bold text-sm tracking-widest text-white/40 group-hover:text-white transition-colors uppercase">
                 {skill}
               </span>
             </div>
@@ -37,3 +40,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

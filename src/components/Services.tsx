@@ -1,69 +1,82 @@
-import { Monitor, Cpu, Rocket } from "lucide-react";
+import { Code, Smartphone, Globe, Palette } from "lucide-react";
 
 const services = [
   {
-    title: "Responsive Websites",
-    description: "I build websites that look and function perfectly on every device, from mobile to desktop.",
-    icon: <Monitor className="w-8 h-8 text-accent" />,
+    title: "Web Development",
+    desc: "Crafting high-performance, scalable web applications using the latest modern frameworks.",
+    icon: Code,
+    gradient: "from-blue-500 to-cyan-400"
   },
   {
-    title: "React Web Apps",
-    description: "Developing dynamic, scalable, and high-performance web applications using the latest React features.",
-    icon: <Cpu className="w-8 h-8 text-accent" />,
+    title: "UI/UX Design",
+    desc: "Creating intuitive and visually stunning user interfaces that prioritize user experience.",
+    icon: Palette,
+    gradient: "from-purple-500 to-pink-400"
   },
   {
-    title: "Landing Pages",
-    description: "Crafting high-converting landing pages for businesses and startups that drive results.",
-    icon: <Rocket className="w-8 h-8 text-accent" />,
+    title: "Mobile Optimization",
+    desc: "Ensuring your digital products look and perform flawlessly across all mobile devices.",
+    icon: Smartphone,
+    gradient: "from-amber-500 to-orange-400"
   },
+  {
+    title: "Performance SEO",
+    desc: "Optimizing your web applications for maximum speed and search engine visibility.",
+    icon: Globe,
+    gradient: "from-emerald-500 to-teal-400"
+  }
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 px-6 md:px-12 bg-background border-y border-border">
+    <section id="services" className="py-32 px-6 md:px-12 relative">
       <div className="container mx-auto max-w-7xl">
         
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
-          <h2 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Services</h2>
-          <h3 className="font-heading text-4xl sm:text-5xl text-foreground mb-6">
-            How I can help <span className="text-accent">your business.</span>
-          </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            I offer a range of frontend development services tailored to help startups and established businesses thrive in the digital landscape.
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 reveal">
+          <div className="max-w-2xl">
+            <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Expertise</h2>
+            <h3 className="font-heading text-5xl lg:text-7xl font-black text-white leading-tight">
+              SERVICES <br />
+              & SOLUTIONS.
+            </h3>
+          </div>
+          <p className="text-white/40 text-lg max-w-sm leading-relaxed font-light">
+            Providing end-to-end digital excellence through strategic design and engineering.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, i) => (
             <div 
-              key={service.title} 
-              className="p-10 bg-secondary/50 border border-border rounded-3xl hover:border-accent hover:bg-secondary transition-all group animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={service.title}
+              className="group relative p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="mb-6 p-4 bg-background rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
-                {service.icon}
+              {/* Background Glow */}
+              <div className={`absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700`} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-8 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-500`}>
+                  <service.icon className="w-8 h-8 text-white" />
+                </div>
+                
+                <h4 className="font-heading text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h4>
+                
+                <p className="text-white/40 leading-relaxed font-light">
+                  {service.desc}
+                </p>
+                
+                <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
+                  <span className="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase">Core Service</span>
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all duration-500">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                  </div>
+                </div>
               </div>
-              <h4 className="font-heading text-2xl font-bold text-foreground mb-4">{service.title}</h4>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-20 p-12 bg-primary rounded-[2rem] text-center text-primary-foreground relative overflow-hidden group">
-            <div className="relative z-10">
-                <h4 className="font-heading text-3xl sm:text-4xl font-bold mb-6 italic">“I build responsive websites, React apps, and landing pages for businesses and startups”</h4>
-                <button 
-                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-accent text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-opacity"
-                >
-                    Start a Project
-                </button>
-            </div>
-            {/* Background pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 blur-[100px] rounded-full -mr-20 -mt-20 group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full -ml-20 -mb-20" />
         </div>
 
       </div>
@@ -72,3 +85,4 @@ const Services = () => {
 };
 
 export default Services;
+
