@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => (
-  <div className="relative min-h-screen text-white">
+  <div className="relative min-h-screen text-white overflow-x-hidden">
     {/* Background System */}
     <div className="ambient-bg" />
     <div className="ambient-blob top-[10%] -left-[10%] animate-pulse-slow" />

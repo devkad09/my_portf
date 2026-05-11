@@ -12,7 +12,7 @@ const Hero = () => {
             Available for Freelance & Jobs
           </span>
           
-          <h1 className="font-heading text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient mb-8">
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient mb-8 break-words">
             CREATING <br />
             <span className="text-gradient-accent">DIGITAL</span> <br />
             MAGNIFICENCE.
