@@ -2,26 +2,26 @@ import { Code, Smartphone, Globe, Palette } from "lucide-react";
 
 const services = [
   {
-    title: "Web Development",
-    desc: "Crafting high-performance, scalable web applications using the latest modern frameworks.",
-    icon: Code,
+    title: "Responsive Websites",
+    desc: "Building high-performance, mobile-first websites that look and perform flawlessly across all devices and screen sizes.",
+    icon: Smartphone,
     gradient: "from-blue-500 to-cyan-400"
   },
   {
-    title: "UI/UX Design",
-    desc: "Creating intuitive and visually stunning user interfaces that prioritize user experience.",
-    icon: Palette,
+    title: "React Applications",
+    desc: "Developing scalable and interactive single-page applications using modern React patterns and state management.",
+    icon: Code,
     gradient: "from-purple-500 to-pink-400"
   },
   {
-    title: "Mobile Optimization",
-    desc: "Ensuring your digital products look and perform flawlessly across all mobile devices.",
-    icon: Smartphone,
+    title: "Modern UI/UX Development",
+    desc: "Crafting intuitive and visually stunning user interfaces with a focus on conversion and seamless user experiences.",
+    icon: Palette,
     gradient: "from-amber-500 to-orange-400"
   },
   {
-    title: "Performance SEO",
-    desc: "Optimizing your web applications for maximum speed and search engine visibility.",
+    title: "Frontend Engineering",
+    desc: "Optimizing web performance and ensuring clean, maintainable code for long-term project scalability.",
     icon: Globe,
     gradient: "from-emerald-500 to-teal-400"
   }

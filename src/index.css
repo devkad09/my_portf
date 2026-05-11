@@ -73,6 +73,9 @@
   .text-gradient-accent {
     @apply bg-clip-text text-transparent bg-gradient-to-br from-accent via-accent-secondary to-purple-500;
   }
+  .text-glow {
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  }
 
   .animate-float {
     animation: float 10s ease-in-out infinite;

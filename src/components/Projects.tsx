@@ -3,24 +3,25 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 const projects = [
   {
     title: "Business Analytics Dashboard",
-    desc: "A modern admin dashboard for tracking sales, users, and business performance. Uses charts, tables, and dynamic data to simulate real SaaS/business tools. Features include a dashboard overview with revenue cards, users table with search/filter, orders section, and settings UI.",
-    tech: ["React", "API Integration", "Recharts", "Responsive Design"],
+    isFeatured: true,
+    desc: "A powerful, SaaS-style admin dashboard designed to centralize business operations. It solves the problem of scattered data by providing a unified interface for tracking sales performance, monitoring user activity, and managing system settings. Features include interactive Recharts visualizations, dynamic data tables with filtering, and a responsive layout for cross-device management.",
+    tech: ["React", "Recharts", "API Integration", "Tailwind CSS"],
     link: "#",
     github: "#",
     image: ""
   },
   {
     title: "E-commerce Frontend Experience",
-    desc: "A premium e-commerce UI experience with a focus on minimalist design, smooth transitions, and a seamless shopping flow.",
-    tech: ["React", "Tailwind CSS", "Redux Toolkit"],
+    desc: "A premium, conversion-driven shopping interface that prioritizes user experience and performance. This project addresses the need for fast-loading, intuitive e-commerce platforms with features like a persistent cart, product filtering, and seamless checkout flows. Built with a focus on accessibility and high-fidelity design.",
+    tech: ["React", "Redux Toolkit", "Tailwind CSS"],
     link: "#",
     github: "#",
     image: ""
   },
   {
     title: "Nexus Business Landing Page",
-    desc: "A high-converting, responsive landing page for a startup consultancy, featuring modern CSS animations and a clean, professional aesthetic.",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
+    desc: "A high-converting landing page optimized for startups and consultancies. It focuses on lead generation and brand authority through clear messaging, modern CSS animations, and a professional aesthetic. Solves the challenge of building immediate trust with potential clients through a polished, responsive digital presence.",
+    tech: ["React", "Framer Motion", "Tailwind CSS"],
     link: "#",
     github: "https://github.com/devkad09/Nexus-Business-Landing-Page",
     image: ""
@@ -54,7 +55,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-6">
                     <a href={project.github} className="p-4 glass rounded-full hover:bg-accent hover:text-black transition-all">
@@ -69,7 +70,12 @@ const Projects = () => {
 
               {/* Content Section */}
               <div className="w-full lg:w-2/5 space-y-6">
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  {project.isFeatured && (
+                    <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent text-[10px] font-black tracking-widest uppercase rounded-full">
+                      Featured Project
+                    </span>
+                  )}
                   {project.tech.map(t => (
                     <span key={t} className="px-4 py-1 glass text-[10px] font-bold tracking-widest uppercase text-white/50 rounded-full">
                       {t}

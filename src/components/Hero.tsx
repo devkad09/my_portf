@@ -12,14 +12,14 @@ const Hero = () => {
             Available for Freelance & Jobs
           </span>
           
-          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-gradient mb-8 break-words">
-            BUILDING <br />
-            <span className="text-gradient-accent">REAL-WORLD</span> <br />
-            APPLICATIONS.
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-gradient mb-8 break-words uppercase">
+            Building <br />
+            <span className="text-gradient-accent text-glow">High-Performance</span> <br />
+            Web Solutions.
           </h1>
 
           <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            I'm <span className="text-white font-medium">Kelvin Atsu Djayouri (KadDev)</span>, a Frontend Developer. I specialize in crafting high-performance, responsive web interfaces designed to perform and scale.
+            I help <span className="text-white font-medium">businesses and startups</span> build scalable, responsive, and user-centric frontend applications that drive real-world results.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto mt-4 sm:mt-0">
