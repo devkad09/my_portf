@@ -17,7 +17,7 @@ const About = () => {
                 <img
                   src="/assets/profile.jpg"
                   alt="Kelvin Atsu Djayouri"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
                 />
               </div>
 
@@ -31,29 +31,29 @@ const About = () => {
 
           <div className="lg:col-span-6 space-y-8">
             <div>
-              <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Behind the Code</h2>
+              <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Professional Summary</h2>
               <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight">
-                CRAFTING <br />
-                WITH PURPOSE.
+                ENGINEERING <br />
+                THE WEB.
               </h3>
             </div>
 
             <p className="text-xl text-white/60 leading-relaxed font-light">
-              I am a <span className="text-white font-medium">Frontend Alchemist</span> based in Ghana, blending technical precision with artistic vision. My mission is to build digital environments that aren't just functional, but <span className="text-accent font-medium italic">emotionally resonant</span>.
+              I am a <span className="text-white font-medium">Frontend Developer</span> based in Ghana with a strong foundation in modern web technologies. I hold a <span className="text-accent font-medium">Diploma in Information Technology</span> from Accra Technical University and am currently pursuing my Top-Up degree.
             </p>
 
             <p className="text-lg text-white/40 leading-relaxed font-light">
-              With a deep focus on performance, accessibility, and high-fidelity interactions, I help brands and startups bridge the gap between imagination and reality.
+              My expertise lies in building responsive, scalable, and high-fidelity user interfaces. Using HTML, CSS, JavaScript, and React, I transform complex requirements into clean, maintainable, and highly functional real-world applications.
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-8">
               <div>
-                <div className="text-sm font-bold text-white mb-2 tracking-widest uppercase">Philosophy</div>
-                <p className="text-xs text-white/40 leading-relaxed uppercase tracking-wider">Simplicity is the ultimate sophistication.</p>
+                <div className="text-sm font-bold text-white mb-2 tracking-widest uppercase">Education</div>
+                <p className="text-xs text-white/40 leading-relaxed uppercase tracking-wider">Accra Technical University (IT Diploma)</p>
               </div>
               <div>
-                <div className="text-sm font-bold text-white mb-2 tracking-widest uppercase">Toolkit</div>
-                <p className="text-xs text-white/40 leading-relaxed uppercase tracking-wider">React, Next.js, TS, Framer Motion, GSAP.</p>
+                <div className="text-sm font-bold text-white mb-2 tracking-widest uppercase">Core Stack</div>
+                <p className="text-xs text-white/40 leading-relaxed uppercase tracking-wider">HTML, CSS, JS, React, Responsive UI</p>
               </div>
             </div>
           </div>

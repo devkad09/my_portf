@@ -41,7 +41,7 @@ const Services = () => {
             </h3>
           </div>
           <p className="text-white/40 text-lg max-w-sm leading-relaxed font-light">
-            Providing end-to-end digital excellence through strategic design and engineering.
+            I build responsive websites, React applications, and modern UI for businesses and startups.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ const Services = () => {
           {services.map((service, i) => (
             <div 
               key={service.title}
-              className="group relative p-8 md:p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 reveal"
+              className="group relative p-8 md:p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-1000 hover:-translate-y-1 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Background Glow */}

@@ -12,29 +12,29 @@ const Hero = () => {
             Available for Freelance & Jobs
           </span>
           
-          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient mb-8 break-words">
-            CREATING <br />
-            <span className="text-gradient-accent">DIGITAL</span> <br />
-            MAGNIFICENCE.
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-gradient mb-8 break-words">
+            BUILDING <br />
+            <span className="text-gradient-accent">REAL-WORLD</span> <br />
+            APPLICATIONS.
           </h1>
 
           <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            I'm <span className="text-white font-medium">Kelvin Atsu Djayouri</span>, a Frontend Developer crafting high-performance, immersive web experiences that redefine boundaries.
+            I'm <span className="text-white font-medium">Kelvin Atsu Djayouri (KadDev)</span>, a Frontend Developer. I specialize in crafting high-performance, responsive web interfaces designed to perform and scale.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto mt-4 sm:mt-0">
             <button 
               onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="w-full sm:w-auto glass hover:bg-white/10 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto glass hover:bg-white/10 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all duration-1000 flex items-center justify-center gap-2 group"
             >
-              Selected Works
+              View Projects
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             </button>
             <button 
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="w-full sm:w-auto text-white/70 hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto text-accent hover:text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black transition-all duration-1000 flex items-center justify-center gap-2"
             >
-              Get in Touch
+              Hire Me
             </button>
           </div>
         </div>

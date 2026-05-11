@@ -27,13 +27,18 @@ const Education = () => {
                     <GraduationCap className="w-10 h-10 text-accent" />
                   </div>
                   <div>
-                    <div className="text-accent text-xs font-black tracking-widest uppercase mb-2">2022 — 2026</div>
+                    <div className="text-accent text-xs font-black tracking-widest uppercase mb-2">2022 — Present</div>
                     <h4 className="font-heading text-2xl lg:text-4xl font-black text-white mb-4">
                       Accra Technical University
                     </h4>
-                    <p className="text-white/60 text-xl font-light mb-6 leading-relaxed">
-                      Bachelor of Science in Information Technology (IT)
-                    </p>
+                    <div className="mb-6">
+                      <p className="text-white/80 text-xl font-medium leading-relaxed">
+                        Diploma in Information Technology
+                      </p>
+                      <p className="text-white/50 text-md font-light leading-relaxed">
+                        Currently pursuing Top-Up Degree
+                      </p>
+                    </div>
                     <div className="flex flex-wrap gap-3">
                       {["Software Eng.", "Data Structures", "Networking", "Web Tech"].map(tag => (
                         <span key={tag} className="text-[10px] font-bold tracking-widest uppercase text-white/30 px-3 py-1 border border-white/5 rounded-full">

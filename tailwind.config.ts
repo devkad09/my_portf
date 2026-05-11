@@ -48,7 +48,7 @@ export default {
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
@@ -57,8 +57,8 @@ export default {
         }
       },
       animation: {
-        "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "fade-in": "fade-in 1s ease-out forwards",
+        "fade-up": "fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in": "fade-in 1.5s ease-out forwards",
       },
     },
   },

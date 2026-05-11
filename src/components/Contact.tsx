@@ -45,13 +45,13 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
           <div className="lg:col-span-5 reveal">
-            <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Get in Touch</h2>
+            <h2 className="text-xs font-black tracking-[0.4em] text-accent uppercase mb-4">Hire Me</h2>
             <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight mb-8">
-              START A <br />
-              CONVERSATION.
+              LET'S WORK <br />
+              TOGETHER.
             </h3>
             <p className="text-white/40 text-lg leading-relaxed font-light mb-12">
-              Have a magnificent idea? Let's bring it to life with precision and purpose.
+              Ready to start your next big project? Reach out and let's build something exceptional.
             </p>
 
             <div className="space-y-6">
@@ -62,6 +62,24 @@ const Contact = () => {
                 <div>
                   <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">Email</div>
                   <div className="text-white font-bold group-hover:text-accent transition-colors">deve.kad.tech@gmail.com</div>
+                </div>
+              </a>
+              <a href="https://wa.me/233592921133" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">WhatsApp</div>
+                  <div className="text-white font-bold group-hover:text-accent transition-colors">Let's Chat</div>
+                </div>
+              </a>
+              <a href="https://github.com/devkad09" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                  <Github className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">GitHub</div>
+                  <div className="text-white font-bold group-hover:text-accent transition-colors">@devkad09</div>
                 </div>
               </a>
               <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">

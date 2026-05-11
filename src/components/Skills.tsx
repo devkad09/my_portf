@@ -1,6 +1,6 @@
 const skills = [
-  "HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Tailwind CSS", 
-  "Git", "GitHub", "Responsive Design", "REST APIs", "UI/UX Design", "Vite", "Next.js", "Framer Motion", "GSAP"
+  "HTML", "CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS", 
+  "Git", "GitHub", "Responsive Design", "REST APIs", "Next.js", "Vite"
 ];
 
 const Skills = () => {
