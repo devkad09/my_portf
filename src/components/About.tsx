@@ -17,7 +17,7 @@ const About = () => {
                 <img
                   src="/assets/profile.jpg"
                   alt="Kelvin Atsu Djayouri"
-                  className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
               </div>
 
