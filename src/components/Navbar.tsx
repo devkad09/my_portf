@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, Twitter } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 
 const navLinks = [
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
+  { name: "Projects", href: "#projects" },
+  { name: "Services", href: "#services" },
   { name: "Hire Me", href: "#contact" },
 ];
 
@@ -52,8 +53,8 @@ const Navbar = () => {
             <a href="https://github.com/devkad09" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors"><Github className="w-4 h-4" /></a>
             <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
           </div>
-          
-          <button 
+
+          <button
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -71,11 +72,10 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`transition-all duration-500 ${
-                  link.name === "Hire Me" 
-                    ? "text-lg px-6 py-3 glass rounded-full text-center text-accent font-black mt-4" 
-                    : "text-lg font-medium text-white/70 hover:text-white"
-                }`}
+                className={`transition-all duration-500 ${link.name === "Hire Me"
+                  ? "text-lg px-6 py-3 glass rounded-full text-center text-accent font-black mt-4"
+                  : "text-lg font-medium text-white/70 hover:text-white"
+                  }`}
               >
                 {link.name}
               </a>

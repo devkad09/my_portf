@@ -2,7 +2,8 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Smart Invioce & Client Dashboard",
+    title: "Smart Invoice & Client Dashboard",
+    isFeatured: true,
     desc: "A web-based invoicing and client management system designed for freelancers and small businesses. Users can create invoices, track payments, and manage clients through a clean and responsive dashboard interface.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     link: "#",

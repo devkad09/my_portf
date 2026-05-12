@@ -18,9 +18,17 @@ const Hero = () => {
             Web Solutions.
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
             I help <span className="text-white font-medium">businesses and startups</span> build scalable, responsive, and user-centric frontend applications that drive real-world results.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {["React", "Node.js", "TypeScript", "Tailwind CSS"].map((skill) => (
+              <span key={skill} className="px-4 py-1.5 glass text-[10px] sm:text-xs font-bold tracking-widest uppercase text-white/70 rounded-full border border-white/5">
+                {skill}
+              </span>
+            ))}
+          </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto mt-4 sm:mt-0">
             <button 
