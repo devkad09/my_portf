@@ -2,28 +2,27 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Business Analytics Dashboard",
-    isFeatured: true,
-    desc: "A powerful, SaaS-style admin dashboard designed to centralize business operations. It solves the problem of scattered data by providing a unified interface for tracking sales performance, monitoring user activity, and managing system settings. Features include interactive Recharts visualizations, dynamic data tables with filtering, and a responsive layout for cross-device management.",
-    tech: ["React", "Recharts", "API Integration", "Tailwind CSS"],
+    title: "Smart Invioce & Client Dashboard",
+    desc: "A web-based invoicing and client management system designed for freelancers and small businesses. Users can create invoices, track payments, and manage clients through a clean and responsive dashboard interface.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
     link: "#",
     github: "#",
     image: ""
   },
   {
-    title: "E-commerce Frontend Experience",
-    desc: "A premium, conversion-driven shopping interface that prioritizes user experience and performance. This project addresses the need for fast-loading, intuitive e-commerce platforms with features like a persistent cart, product filtering, and seamless checkout flows. Built with a focus on accessibility and high-fidelity design.",
-    tech: ["React", "Redux Toolkit", "Tailwind CSS"],
+    title: "Real-Time Task Management App",
+    desc: "A collaborative task management application that allows teams to create, assign, and track tasks in real-time. Features include drag-and-drop task organization, real-time updates, and integration with popular communication tools.",
+    tech: ["React", "Firebase", "Redux"],
     link: "#",
     github: "#",
     image: ""
   },
   {
-    title: "Nexus Business Landing Page",
-    desc: "A high-converting landing page optimized for startups and consultancies. It focuses on lead generation and brand authority through clear messaging, modern CSS animations, and a professional aesthetic. Solves the challenge of building immediate trust with potential clients through a polished, responsive digital presence.",
-    tech: ["React", "Framer Motion", "Tailwind CSS"],
+    title: "AI Resume & Portfolio Builder",
+    desc: "An AI-powered resume and portfolio builder that helps users create professional resumes and portfolios with ease. The application uses natural language processing to suggest improvements and optimize content for job applications.",
+    tech: ["React", "Node.js", "Express", "OpenAI API"],
     link: "#",
-    github: "https://github.com/devkad09/Nexus-Business-Landing-Page",
+    github: "#",
     image: ""
   }
 ];
