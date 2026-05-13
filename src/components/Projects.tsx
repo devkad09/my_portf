@@ -8,7 +8,7 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB"],
     link: "#",
     github: "#",
-    image: ""
+    image: "./invoice.png"
   },
   {
     title: "Real-Time Task Management App",
@@ -16,7 +16,7 @@ const projects = [
     tech: ["React", "Firebase", "Redux"],
     link: "#",
     github: "#",
-    image: ""
+    image: "./dashboard.png"
   },
   {
     title: "AI Resume & Portfolio Builder",
@@ -24,7 +24,7 @@ const projects = [
     tech: ["React", "Node.js", "Express", "OpenAI API"],
     link: "#",
     github: "#",
-    image: ""
+    image: "./ai-resume.png"
   }
 ];
 
