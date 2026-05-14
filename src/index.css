@@ -101,18 +101,6 @@
     text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
   }
 
-  .animate-float {
-    animation: float 10s ease-in-out infinite;
-  }
-
-  .animate-pulse-slow {
-    animation: pulse 15s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
 }
 
 /* Custom Ambient Background */
@@ -164,12 +152,10 @@ html.light ::-webkit-scrollbar-thumb {
 /* Scroll Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(15px);
-  transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 ::selection {

@@ -39,7 +39,7 @@ const Footer = () => (
             © 2026 KADDEV. All rights reserved.
           </p>
           <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20">
-            Crafted with passion in Ghana.
+            Crafted with passion.
           </p>
         </div>
       </div>
