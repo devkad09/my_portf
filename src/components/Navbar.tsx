@@ -31,9 +31,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed inset-x-0 z-50 transition-all duration-700 ${isScrolled ? 'top-4' : 'top-6'} mx-auto w-[92%] max-w-5xl`}>
-      <div className="glass-dark rounded-full px-5 py-3 flex items-center justify-between gap-4 border border-white/10 backdrop-blur-xl shadow-[0_35px_120px_-60px_rgba(0,0,0,0.8)]">
-        <a href="#hero" className="text-lg sm:text-xl font-black tracking-tighter text-gradient group">
+    <nav className={`fixed inset-x-0 z-50 transition-all duration-700 ${isScrolled ? 'top-3 md:top-4' : 'top-4 md:top-6'} mx-auto w-[96%] sm:w-[92%] max-w-5xl px-3 sm:px-0`}>
+      <div className="glass-dark rounded-full px-3 sm:px-5 py-3 flex items-center justify-between gap-2 sm:gap-4 border border-white/10 backdrop-blur-xl shadow-[0_35px_120px_-60px_rgba(0,0,0,0.8)]">
+        <a href="#hero" className="text-base sm:text-lg md:text-xl font-black tracking-tighter text-gradient group whitespace-nowrap">
           KAD<span className="text-accent group-hover:text-accent-secondary transition-colors">DEV</span>
         </a>
 
@@ -88,16 +88,16 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="absolute top-full mt-4 left-0 right-0 glass-dark rounded-[2rem] p-6 border border-white/10 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="absolute top-full mt-2 sm:mt-4 left-0 right-0 glass-dark rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-6 border border-white/10 md:hidden">
+          <div className="flex flex-col gap-2 sm:gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`transition-all duration-500 ${link.name === "Hire Me"
-                  ? "text-lg px-6 py-3 glass rounded-full text-center text-accent font-black mt-4"
-                  : "text-lg font-medium text-white/70 hover:text-white"
+                className={`transition-all duration-500 py-2 px-3 rounded-lg ${link.name === "Hire Me"
+                  ? "text-base sm:text-lg px-6 py-3 glass rounded-full text-center text-accent font-black mt-2 sm:mt-4 min-h-[44px] flex items-center justify-center"
+                  : "text-base sm:text-lg font-medium text-white/70 hover:text-white"
                   }`}
               >
                 {link.name}

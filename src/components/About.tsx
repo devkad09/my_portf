@@ -1,16 +1,16 @@
 const About = () => {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="about" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter">
         INSPIRE.
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_0.75fr] items-start">
+        <div className="grid gap-6 lg:gap-12 lg:grid-cols-[0.95fr_0.75fr] items-start">
           <div className="space-y-8">
             <div>
               <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Professional Summary</h2>
-              <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+              <h3 className="font-heading text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight">
                 Designing polished web products with performance, clarity, and conversion in mind.
               </h3>
             </div>

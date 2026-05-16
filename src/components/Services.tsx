@@ -29,13 +29,13 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 px-6 md:px-12 relative">
+    <section id="services" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 relative">
       <div className="container mx-auto max-w-7xl">
         
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-24 reveal">
           <div className="max-w-2xl">
             <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">What I build</h2>
-            <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+            <h3 className="font-heading text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight">
               Digital products created to move fast and scale.
             </h3>
           </div>

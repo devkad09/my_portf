@@ -30,12 +30,12 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
 
         <div className="mb-24 text-center reveal">
           <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Selected Works</h2>
-          <h3 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight">
+          <h3 className="font-heading text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight">
             Projects with purpose.
           </h3>
           <p className="mx-auto mt-6 max-w-2xl text-white/50 text-lg leading-relaxed">

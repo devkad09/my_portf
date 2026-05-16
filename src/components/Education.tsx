@@ -5,7 +5,7 @@ const Education = () => {
     <section id="education" className="py-32 px-6 md:px-12 relative">
       <div className="container mx-auto max-w-7xl">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           <div className="lg:col-span-5 reveal">
             <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Academic Path</h2>

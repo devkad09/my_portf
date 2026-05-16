@@ -1,16 +1,16 @@
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-[100vh] flex items-center overflow-hidden pt-28 md:pt-32 pb-20">
+    <section id="hero" className="relative min-h-[100vh] flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6 md:px-12">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.18),transparent_26%),radial-gradient(circle_at_80%_18%,rgba(34,211,238,0.16),transparent_24%)] pointer-events-none" />
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid gap-14 lg:grid-cols-[1.3fr_0.9fr] items-center">
+        <div className="grid gap-8 lg:gap-14 lg:grid-cols-[1.3fr_0.9fr] items-center">
           <div className="space-y-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.32em] text-accent shadow-[0_20px_80px_-60px_rgba(124,58,237,0.4)]">
               Creative frontend for bold brands
             </span>
 
             <div className="space-y-6">
-              <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.92] tracking-tight text-white">
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-[0.92] tracking-tight text-white">
                 I build <span className="text-gradient-accent">bold digital experiences</span> that launch products faster.
               </h1>
               <p className="max-w-2xl text-lg sm:text-xl text-white/65 leading-relaxed font-light">
