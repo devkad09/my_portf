@@ -11,14 +11,12 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => (
-  <div className="relative min-h-screen text-white overflow-x-hidden">
-    {/* Background System */}
+  <div className="relative min-h-screen text-white overflow-x-hidden bg-background">
     <div className="ambient-bg" />
-    <div className="ambient-blob top-[10%] -left-[10%]" />
-    <div className="ambient-blob top-[60%] -right-[10%]" />
-    
+    <div className="ambient-blob top-[8%] -left-[18%]" />
+    <div className="ambient-blob top-[62%] -right-[16%]" />
     <Navbar />
-    
+
     <main>
       <Hero />
       <About />
@@ -31,7 +29,6 @@ const Index = () => (
     </main>
 
     <Footer />
-    
     <ScrollReveal />
   </div>
 );

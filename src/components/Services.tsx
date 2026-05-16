@@ -3,27 +3,27 @@ import { Code, Smartphone, Globe, Palette } from "lucide-react";
 const services = [
   {
     title: "Responsive Websites",
-    desc: "Building high-performance, mobile-first websites that look and perform flawlessly across all devices and screen sizes.",
+    desc: "High-performance websites built for mobile-first audiences with polished UI and fast loading experiences.",
     icon: Smartphone,
-    gradient: "from-blue-500 to-cyan-400"
+    gradient: "from-[#22d3ee] to-[#7c3aed]"
   },
   {
     title: "React Applications",
-    desc: "Developing scalable and interactive single-page applications using modern React patterns and state management.",
+    desc: "Scalable single-page apps architected with modern React patterns, clean state management, and smooth transitions.",
     icon: Code,
-    gradient: "from-purple-500 to-pink-400"
+    gradient: "from-[#a855f7] to-[#ec4899]"
   },
   {
-    title: "Modern UI/UX Development",
-    desc: "Crafting intuitive and visually stunning user interfaces with a focus on conversion and seamless user experiences.",
+    title: "Design Systems",
+    desc: "Reusable UI systems and component libraries designed for consistency, accessibility, and long-term maintainability.",
     icon: Palette,
-    gradient: "from-amber-500 to-orange-400"
+    gradient: "from-[#fbbf24] to-[#fb7185]"
   },
   {
     title: "Frontend Engineering",
-    desc: "Optimizing web performance and ensuring clean, maintainable code for long-term project scalability.",
+    desc: "Performance-first engineering, thorough testing, and polished interactions for modern production applications.",
     icon: Globe,
-    gradient: "from-emerald-500 to-teal-400"
+    gradient: "from-[#10b981] to-[#22d3ee]"
   }
 ];
 
@@ -32,47 +32,36 @@ const Services = () => {
     <section id="services" className="py-32 px-6 md:px-12 relative">
       <div className="container mx-auto max-w-7xl">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8 reveal">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-24 reveal">
           <div className="max-w-2xl">
-            <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Expertise</h2>
-            <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight">
-              SERVICES <br />
-              & SOLUTIONS.
+            <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">What I build</h2>
+            <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+              Digital products created to move fast and scale.
             </h3>
           </div>
-          <p className="text-white/40 text-lg max-w-sm leading-relaxed font-light">
-            I build responsive websites, React applications, and modern UI for businesses and startups.
+          <p className="text-white/40 text-lg max-w-xl leading-relaxed font-light">
+            A modern frontend partner for agencies, founders, and product teams who need clear interfaces, reliable performance, and a polished launch-ready experience.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, i) => (
             <div 
               key={service.title}
-              className="group relative p-8 md:p-12 bg-secondary/30 backdrop-blur-md rounded-[3rem] border border-white/5 overflow-hidden transition-all duration-1000 hover:-translate-y-1 reveal"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-[0_25px_80px_-50px_rgba(0,0,0,0.65)] transition-transform duration-500 hover:-translate-y-1 reveal"
+              style={{ transitionDelay: `${i * 75}ms` }}
             >
-              {/* Background Glow */}
-              <div className={`absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700`} />
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-8 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-500`}>
-                  <service.icon className="w-8 h-8 text-white" />
+              <div className={`absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${service.gradient} opacity-20 blur-3xl`} />
+              <div className="relative z-10 flex flex-col h-full gap-8">
+                <div className={`w-16 h-16 rounded-3xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-2xl shadow-black/20 transition-transform duration-500 group-hover:scale-105`}>
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
-                
-                <h4 className="font-heading text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors">
-                  {service.title}
-                </h4>
-                
-                <p className="text-white/40 leading-relaxed font-light">
-                  {service.desc}
-                </p>
-                
-                <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase">Core Service</span>
-                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all duration-500">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                  </div>
+                <div>
+                  <h4 className="font-heading text-2xl font-black text-white mb-4">{service.title}</h4>
+                  <p className="text-white/50 leading-relaxed">{service.desc}</p>
+                </div>
+                <div className="mt-auto pt-6 border-t border-white/10">
+                  <span className="text-[10px] font-black uppercase tracking-[0.32em] text-white/30">Full-stack frontend</span>
                 </div>
               </div>
             </div>

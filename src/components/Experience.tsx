@@ -3,60 +3,49 @@ const experiences = [
     company: "Formgrid.dev",
     role: "Frontend Engineer",
     period: "2026 — Present",
-    description: "Defining technical documentation standards and building modular interface components for developer-centric tools. Emphasizing clean architecture and scalable design systems.",
+    description: "Building modern interface components and documentation systems for developer tools with a focus on scalable design, accessibility, and clarity.",
   },
   {
     company: "Freelance",
     role: "Frontend Developer",
     period: "2023 — Present",
-    description: "Collaborated directly with clients to develop responsive, user-centric web applications. Focused on translating brand identities into high-fidelity digital experiences.",
+    description: "Partnering with founders and brands to build responsive, user-focused web applications that reflect strong visual direction and reliable performance.",
   },
 ];
 
 const Experience = () => {
   return (
     <section id="experience" className="py-32 px-6 md:px-12 relative overflow-hidden">
-      
       <div className="container mx-auto max-w-7xl">
-        
-        <div className="mb-24 text-right reveal">
+        <div className="mb-24 reveal">
           <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Professional Path</h2>
-          <h3 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-gradient leading-tight">
-            WORK <br />
-            EXPERIENCE.
+          <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+            Experience shaped by product-first engineering.
           </h3>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-10">
           {experiences.map((exp, i) => (
-            <div 
+            <div
               key={i}
-              className="group relative p-8 md:p-12 glass rounded-[3rem] border-white/5 reveal"
+              className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-8 md:p-12 shadow-[0_25px_80px_-50px_rgba(0,0,0,0.7)] reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <div className="lg:col-span-3">
-                  <div className="text-accent text-xs font-black tracking-widest uppercase mb-2">{exp.period}</div>
-                  <h4 className="font-heading text-xl font-bold text-white/50 group-hover:text-white transition-colors uppercase tracking-wider">
-                    {exp.company}
-                  </h4>
+              <div className="grid gap-8 lg:grid-cols-[0.3fr_0.7fr] items-start">
+                <div className="space-y-4">
+                  <span className="inline-flex rounded-full bg-accent/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.32em] text-accent">
+                    {exp.period}
+                  </span>
+                  <h4 className="text-xl font-black uppercase tracking-[0.2em] text-white">{exp.company}</h4>
                 </div>
-
-                <div className="lg:col-span-9">
-                  <h3 className="font-heading text-2xl lg:text-4xl font-black text-white mb-6">
-                    {exp.role}
-                  </h3>
-                  <p className="text-white/40 text-lg leading-relaxed font-light max-w-3xl">
-                    {exp.description}
-                  </p>
+                <div>
+                  <h3 className="text-3xl font-black text-white mb-4">{exp.role}</h3>
+                  <p className="text-white/50 leading-relaxed text-lg">{exp.description}</p>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
