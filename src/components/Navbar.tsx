@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, Sun, Moon } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 
 const DevToIcon = ({ className }: { className?: string }) => (
@@ -56,27 +56,7 @@ const Navbar = () => {
             <a href="https://dev.to/kaddev" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors"><DevToIcon className="w-4 h-4" /></a>
           </div>
 
-          <button
-            id="theme-toggle"
-            aria-label="Toggle theme"
-            onClick={toggleTheme}
-            className="relative w-14 h-7 rounded-full border border-white/10 transition-all duration-500 overflow-hidden flex-shrink-0"
-            style={{
-              background: theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(34, 211, 238, 0.14)',
-            }}
-          >
-            <span
-              className="absolute top-0.5 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-500 shadow-md"
-              style={{
-                left: theme === 'dark' ? '2px' : 'calc(100% - 26px)',
-                background: theme === 'dark' ? '#1e293b' : '#fff',
-              }}
-            >
-              {theme === 'dark'
-                ? <Moon className="w-3.5 h-3.5 text-sky-300" />
-                : <Sun className="w-3.5 h-3.5 text-amber-500" />}
-            </span>
-          </button>
+          {/* Theme toggle removed — dark-only site */}
 
           <button
             className="md:hidden text-white"
