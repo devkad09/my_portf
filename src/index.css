@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Bento+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,157 +6,155 @@
 
 @layer base {
   :root {
-    --background: #020817;
-    --foreground: #f8fafc;
-
-    --card: rgba(15, 23, 42, 0.6);
-    --card-foreground: #f8fafc;
-
-    --primary: #f8fafc;
-    --primary-foreground: #020617;
-
-    --secondary: #111827;
-    --secondary-foreground: #f8fafc;
-
-    --muted: #171f2f;
-    --muted-foreground: #94a3b8;
-
+    --background: #070b1f;
+    --background-strong: #050817;
+    --surface: rgba(14, 22, 50, 0.76);
+    --surface-soft: rgba(255, 255, 255, 0.05);
+    --foreground: #eef2ff;
+    --muted: #cbd5e1;
+    --border: rgba(255, 255, 255, 0.1);
     --accent: #7c3aed;
     --accent-secondary: #22d3ee;
-    
-    --border: rgba(255, 255, 255, 0.12);
-    --input: rgba(255, 255, 255, 0.06);
-    --ring: #22d3ee;
-
+    --accent-soft: rgba(124, 58, 237, 0.16);
     --radius: 2rem;
-
     --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
 
-  /* Light mode removed — site is dark-only */
-}
-
-@layer base {
-  * {
-    border-color: var(--border);
+  html {
+    scroll-behavior: smooth;
   }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   html, body {
-    background-color: var(--background);
+    min-height: 100%;
+    margin: 0;
+    background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 24%),
+                radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.14), transparent 22%),
+                linear-gradient(180deg, #070b1f 0%, #02050e 100%);
     color: var(--foreground);
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
-
 @layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.55)];
-  }
-  
-  .glass-dark {
-    @apply bg-slate-950/75 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.7)];
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/70;
+  .glass-soft {
+    @apply bg-white/3 backdrop-blur-xl border border-white/10 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.45)];
   }
 
-  .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-accent-secondary to-purple-500;
+  .section-title {
+    @apply text-xs uppercase tracking-[0.35em] text-accent font-black;
+  }
+
+  .section-heading {
+    @apply font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight;
+  }
+
+  .section-copy {
+    @apply max-w-3xl text-white/70 text-base sm:text-lg leading-relaxed;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-accent;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-accent to-accent-secondary px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-black shadow-[0_20px_50px_-25px_rgba(124,58,237,0.6)] transition hover:-translate-y-0.5 min-h-[44px];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-secondary px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-[0_20px_50px_-20px_rgba(124,58,237,0.45)] transition hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white transition hover:border-accent hover:text-accent min-h-[44px];
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:text-accent;
   }
 }
 
-/* Custom Ambient Background */
-.ambient-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at 18% 16%, rgba(124, 58, 237, 0.18) 0%, transparent 25%),
-              radial-gradient(circle at 82% 24%, rgba(34, 211, 238, 0.14) 0%, transparent 25%),
-              radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
-              linear-gradient(180deg, #020617 0%, #050a18 100%);
-  transition: background 0.5s ease;
-}
-/* Light mode ambient-bg removed (dark-only design retained) */
-
-.ambient-blob {
+.hero-fade {
   position: absolute;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-  filter: blur(120px);
-  opacity: 0.1;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.22), transparent 22%),
+              radial-gradient(circle at 80% 18%, rgba(34, 211, 238, 0.16), transparent 22%);
   pointer-events: none;
+}
+
+.glow-ring {
+  position: absolute;
+  bottom: -5rem;
+  right: -8rem;
+  width: min(46vw, 540px);
+  height: min(46vw, 540px);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18), transparent 60%);
+  filter: blur(120px);
   z-index: -1;
+}
+
+.card-highlight {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.section-divider {
+  @apply h-px w-full bg-white/10 my-12;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  background: var(--background);
+  width: 8px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
 }
-/* Removed light-mode scrollbar thumb styles */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: rgba(124, 58, 237, 0.45);
 }
 
-/* Scroll Reveal */
 .reveal {
   opacity: 0;
-  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .reveal.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 ::selection {
-  background: var(--accent);
-  color: black;
+  background: rgba(124, 58, 237, 0.45);
+  color: #020617;
 }
 
-
-
-/* ── Light-mode utility overrides ─────────────────────────────────── */
-/* Removed light-mode utility overrides */
-/* Theme transition */
 html, html * {
-  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.3s ease;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }
-/* Disable transition on pseudo-elements to avoid FOUC */
 html *::before, html *::after {
   transition: none !important;
 }
-
-/* ── Light-mode colour remapping ────────────────────────────────────
-   Tailwind generates text-white, text-white/XX, bg-white/XX as static
-   classes. We remap them under html.light so every component adapts
-   automatically without touching individual TSX files.               */
-
-/* Text colours */
-/* Removed light-mode remapped utility rules — dark-only styling in use */

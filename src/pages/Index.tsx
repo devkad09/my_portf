@@ -12,9 +12,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => (
   <div className="relative min-h-screen text-white overflow-x-hidden bg-background">
-    <div className="ambient-bg" />
-    <div className="ambient-blob top-[8%] -left-[18%]" />
-    <div className="ambient-blob top-[62%] -right-[16%]" />
     <Navbar />
 
     <main>

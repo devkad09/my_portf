@@ -30,26 +30,19 @@ const otherProjects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 relative overflow-hidden">
-      <div className="container mx-auto max-w-7xl">
-
-        {/* Section Header */}
+    <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 overflow-hidden relative">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-20 text-center reveal">
-          <h2 className="text-xs font-bold tracking-[0.4em] text-accent uppercase mb-4">Selected Works</h2>
-          <h3 className="font-heading text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight">
-            Projects with purpose.
-          </h3>
-          <p className="mx-auto mt-6 max-w-2xl text-white/50 text-lg leading-relaxed font-light">
+          <p className="section-title">Selected works</p>
+          <h2 className="section-heading">Projects with purpose.</h2>
+          <p className="section-copy mx-auto mt-6 max-w-2xl">
             High-impact digital products built with polished UI, strong performance, and thoughtful user experiences.
           </p>
         </div>
 
-        {/* Featured Project (Visually Larger & Prominent) */}
         <div className="mb-24 md:mb-32 reveal">
           <div className="group grid gap-10 lg:grid-cols-[0.55fr_0.45fr] items-center">
-            
-            {/* Image Container */}
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_35px_100px_-60px_rgba(0,0,0,0.6)] aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-[3rem] border border-white/10 shadow-[0_35px_100px_-60px_rgba(0,0,0,0.6)] aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
               <img
                 src={featuredProject.image}
                 alt={featuredProject.title}
@@ -57,15 +50,15 @@ const Projects = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute left-6 bottom-6 flex items-center gap-3">
-                <a 
-                  href={featuredProject.github} 
+                <a
+                  href={featuredProject.github}
                   className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition hover:bg-accent hover:text-black border border-white/10"
                   aria-label="GitHub Repository"
                 >
                   <Github className="w-5 h-5" />
                 </a>
-                <a 
-                  href={featuredProject.link} 
+                <a
+                  href={featuredProject.link}
                   className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition hover:bg-accent hover:text-black border border-white/10"
                   aria-label="Live Demo"
                 >
@@ -74,11 +67,10 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Content Details */}
             <div className="space-y-6 lg:pl-4">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="rounded-full border border-accent bg-accent/10 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.3em] text-accent">
-                  Featured Project
+                  Featured project
                 </span>
                 {featuredProject.tech.map((tech) => (
                   <span key={tech} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em] text-white/70">
@@ -87,39 +79,35 @@ const Projects = () => {
                 ))}
               </div>
 
-              <h4 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-gradient leading-tight">
+              <h4 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
                 {featuredProject.title}
               </h4>
               <p className="text-white/50 text-base sm:text-lg leading-relaxed font-light">
                 {featuredProject.desc}
               </p>
-              
-              <div className="flex items-center gap-6 pt-2">
+
+              <div className="flex flex-wrap items-center gap-6 pt-2">
                 <a
                   href={featuredProject.link}
-                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent group/link"
+                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
                 >
-                  Live Demo <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                  Live Demo <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
                   href={featuredProject.github}
-                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent group/link"
+                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
                 >
-                  GitHub <Github className="w-4 h-4 transition-transform duration-300" />
+                  GitHub <Github className="w-4 h-4" />
                 </a>
               </div>
             </div>
-
           </div>
         </div>
 
-        {/* Secondary Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 reveal">
           {otherProjects.map((project) => (
             <div key={project.title} className="group flex flex-col space-y-6">
-              
-              {/* Image Container */}
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_25px_80px_-50px_rgba(0,0,0,0.6)] aspect-[16/10]">
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_25px_80px_-50px_rgba(0,0,0,0.6)] aspect-[16/10]">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -127,15 +115,15 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute left-6 bottom-6 flex items-center gap-3">
-                  <a 
-                    href={project.github} 
+                  <a
+                    href={project.github}
                     className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition hover:bg-accent hover:text-black border border-white/10"
                     aria-label="GitHub Repository"
                   >
                     <Github className="w-4.5 h-4.5" />
                   </a>
-                  <a 
-                    href={project.link} 
+                  <a
+                    href={project.link}
                     className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition hover:bg-accent hover:text-black border border-white/10"
                     aria-label="Live Demo"
                   >
@@ -144,7 +132,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Details */}
               <div className="space-y-4 px-2">
                 <div className="flex flex-wrap items-center gap-2">
                   {project.tech.map((tech) => (
@@ -154,33 +141,31 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <h4 className="font-heading text-xl sm:text-2xl font-black text-gradient leading-snug">
+                <h4 className="font-heading text-xl sm:text-2xl font-black text-white leading-snug">
                   {project.title}
                 </h4>
                 <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light min-h-[4.5rem]">
                   {project.desc}
                 </p>
-                
+
                 <div className="flex items-center gap-5 pt-1">
                   <a
                     href={project.link}
-                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent group/link"
+                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
                   >
-                    Live Demo <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    Live Demo <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                   <a
                     href={project.github}
-                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent group/link"
+                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
                   >
                     GitHub <Github className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
