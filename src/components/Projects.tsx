@@ -34,7 +34,7 @@ const Projects = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-20 text-center reveal">
           <p className="section-title text-sm">Selected works</p>
-          <h2 className="section-heading text-3xl sm:text-4xl">Projects with purpose.</h2>
+          <h2 className="section-heading text-2xl sm:text-3xl">Projects with purpose.</h2>
           <p className="section-copy mx-auto mt-6 max-w-2xl text-sm">
             High-impact digital products built with polished UI, strong performance, and thoughtful user experiences.
           </p>
@@ -79,23 +79,23 @@ const Projects = () => {
                 ))}
               </div>
 
-              <h4 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+              <h4 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
                 {featuredProject.title}
               </h4>
-              <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light">
+              <p className="text-white/50 text-xs sm:text-sm leading-relaxed font-light">
                 {featuredProject.desc}
               </p>
 
               <div className="flex flex-wrap items-center gap-6 pt-2">
                 <a
                   href={featuredProject.link}
-                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
+                  className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
                 >
                   Live Demo <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
                   href={featuredProject.github}
-                  className="inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
+                  className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
                 >
                   GitHub <Github className="w-4 h-4" />
                 </a>
@@ -141,23 +141,23 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <h4 className="font-heading text-lg sm:text-xl font-black text-white leading-snug">
+                <h4 className="font-heading text-base sm:text-lg font-black text-white leading-snug">
                   {project.title}
                 </h4>
-                <p className="text-white/50 text-xs sm:text-sm leading-relaxed font-light min-h-[4.5rem]">
+                <p className="text-white/50 text-[10px] sm:text-xs leading-relaxed font-light min-h-[4.5rem]">
                   {project.desc}
                 </p>
 
                 <div className="flex items-center gap-5 pt-1">
                   <a
                     href={project.link}
-                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
+                    className="inline-flex items-center gap-2 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.25em] text-white transition hover:text-accent"
                   >
                     Live Demo <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                   <a
                     href={project.github}
-                    className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
+                    className="inline-flex items-center gap-2 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.25em] text-white/60 transition hover:text-accent"
                   >
                     GitHub <Github className="w-3.5 h-3.5" />
                   </a>
