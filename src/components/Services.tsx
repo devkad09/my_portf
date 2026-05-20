@@ -52,7 +52,7 @@ const Services = () => {
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-2xl font-black text-white mb-4">{service.title}</h4>
+                  <h4 className="font-heading text-xl font-black text-white mb-4">{service.title}</h4>
                   <p className="text-white/60 leading-relaxed">{service.desc}</p>
                 </div>
                 <div className="mt-auto pt-6 border-t border-white/10">

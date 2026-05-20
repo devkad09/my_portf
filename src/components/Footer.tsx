@@ -6,10 +6,10 @@ const Footer = () => (
       <div className="glass-panel rounded-[3rem] border-white/10 p-10">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-center">
           <div className="space-y-4">
-            <a href="#hero" className="text-3xl font-black tracking-tighter text-white">
+            <a href="#hero" className="text-2xl font-black tracking-tighter text-white">
               KAD<span className="text-accent">DEV</span>
             </a>
-            <p className="text-white/60 text-base leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed">
               Building polished, performance-focused web products for ambitious teams and founders.
             </p>
           </div>

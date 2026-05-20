@@ -36,7 +36,7 @@ const Hero = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {heroMetrics.map((item) => (
                 <div key={item.label} className="glass-panel rounded-[2rem] p-6 text-center">
-                  <p className="text-3xl font-black text-white">{item.value}</p>
+                  <p className="text-2xl font-black text-white">{item.value}</p>
                   <p className="mt-3 text-xs uppercase tracking-[0.3em] text-white/50">{item.label}</p>
                 </div>
               ))}
@@ -49,18 +49,18 @@ const Hero = () => {
                 <div className="inline-flex rounded-full bg-white/5 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-accent">
                   Product-first frontend
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-black text-white">Design systems, performance, and launch-ready UI.</h2>
+                <h2 className="text-2xl sm:text-3xl font-black text-white">Design systems, performance, and launch-ready UI.</h2>
                 <p className="text-white/65 leading-relaxed">
                   I partner with product teams to build scalable React experiences that are easy to maintain and delightful for users.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">Design systems</p>
-                    <p className="mt-3 text-xl font-black text-white">Atomic UI</p>
+                    <p className="mt-3 text-lg font-black text-white">Atomic UI</p>
                   </div>
                   <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">Performance</p>
-                    <p className="mt-3 text-xl font-black text-white">Fast interactions</p>
+                    <p className="mt-3 text-lg font-black text-white">Fast interactions</p>
                   </div>
                 </div>
               </div>

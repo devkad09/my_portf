@@ -21,11 +21,11 @@ const About = () => {
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <p className="text-xs uppercase tracking-[0.32em] text-white/40">Experience</p>
-                  <p className="mt-4 text-4xl font-black text-white">3+ Years</p>
+                  <p className="mt-4 text-2xl font-black text-white">3+ Years</p>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.32em] text-white/40">Key tool</p>
-                  <p className="mt-4 text-4xl font-black text-white">React</p>
+                  <p className="mt-4 text-2xl font-black text-white">React</p>
                 </div>
               </div>
               <p className="mt-8 text-white/65 leading-relaxed">
@@ -35,11 +35,11 @@ const About = () => {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="glass-panel rounded-[2rem] p-6 text-center">
-                <p className="text-3xl font-black text-white">20+</p>
+                <p className="text-2xl font-black text-white">20+</p>
                 <p className="mt-3 text-xs uppercase tracking-[0.3em] text-white/50">Projects shipped</p>
               </div>
               <div className="glass-panel rounded-[2rem] p-6 text-center">
-                <p className="text-3xl font-black text-white">100%</p>
+                <p className="text-2xl font-black text-white">100%</p>
                 <p className="mt-3 text-xs uppercase tracking-[0.3em] text-white/50">Remote friendly</p>
               </div>
             </div>

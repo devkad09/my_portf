@@ -33,9 +33,9 @@ const Projects = () => {
     <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 overflow-hidden relative">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-20 text-center reveal">
-          <p className="section-title">Selected works</p>
-          <h2 className="section-heading">Projects with purpose.</h2>
-          <p className="section-copy mx-auto mt-6 max-w-2xl">
+          <p className="section-title text-sm">Selected works</p>
+          <h2 className="section-heading text-3xl sm:text-4xl">Projects with purpose.</h2>
+          <p className="section-copy mx-auto mt-6 max-w-2xl text-sm">
             High-impact digital products built with polished UI, strong performance, and thoughtful user experiences.
           </p>
         </div>
@@ -79,10 +79,10 @@ const Projects = () => {
                 ))}
               </div>
 
-              <h4 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+              <h4 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
                 {featuredProject.title}
               </h4>
-              <p className="text-white/50 text-base sm:text-lg leading-relaxed font-light">
+              <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light">
                 {featuredProject.desc}
               </p>
 
@@ -141,10 +141,10 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <h4 className="font-heading text-xl sm:text-2xl font-black text-white leading-snug">
+                <h4 className="font-heading text-lg sm:text-xl font-black text-white leading-snug">
                   {project.title}
                 </h4>
-                <p className="text-white/50 text-sm sm:text-base leading-relaxed font-light min-h-[4.5rem]">
+                <p className="text-white/50 text-xs sm:text-sm leading-relaxed font-light min-h-[4.5rem]">
                   {project.desc}
                 </p>
 

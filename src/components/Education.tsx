@@ -23,10 +23,10 @@ const Education = () => {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-[0.35em] text-accent">2022 — Present</p>
-                    <h3 className="mt-4 text-3xl font-black text-white">Accra Technical University</h3>
+                    <h3 className="mt-4 text-2xl font-black text-white">Accra Technical University</h3>
                     <div className="mt-5 space-y-3">
-                      <p className="text-white/80 text-xl font-medium">Diploma in Information Technology</p>
-                      <p className="text-white/50 text-base">Currently pursuing Top-Up Degree</p>
+                      <p className="text-white/80 text-lg font-medium">Diploma in Information Technology</p>
+                      <p className="text-white/50 text-sm">Currently pursuing Top-Up Degree</p>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
                       {["Software Eng.", "Data Structures", "Networking", "Web Tech"].map((tag) => (

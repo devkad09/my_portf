@@ -34,11 +34,11 @@ const Experience = () => {
                   <span className="inline-flex rounded-full bg-accent/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.32em] text-accent">
                     {exp.period}
                   </span>
-                  <h4 className="text-xl font-black uppercase tracking-[0.2em] text-white">{exp.company}</h4>
+                  <h4 className="text-lg font-black uppercase tracking-[0.2em] text-white">{exp.company}</h4>
                 </div>
                 <div>
-                  <h3 className="text-3xl font-black text-white mb-4">{exp.role}</h3>
-                  <p className="text-white/65 leading-relaxed text-lg">{exp.description}</p>
+                  <h3 className="text-2xl font-black text-white mb-4">{exp.role}</h3>
+                  <p className="text-white/65 leading-relaxed text-base">{exp.description}</p>
                 </div>
               </div>
             </div>
