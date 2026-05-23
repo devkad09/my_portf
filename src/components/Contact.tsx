@@ -1,7 +1,21 @@
 import { useState, FormEvent } from "react";
-import { ArrowUpRight, Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, MessageSquare, Send } from "lucide-react";
 
 const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+
+const contactLinks = [
+  { label: "Email", value: "deve.kad.tech@gmail.com", icon: Mail, href: "mailto:deve.kad.tech@gmail.com", accent: "violet" },
+  { label: "WhatsApp", value: "Chat with me", icon: MessageSquare, href: "https://wa.me/233592921133", accent: "emerald" },
+  { label: "GitHub", value: "@devkad09", icon: Github, href: "https://github.com/devkad09", accent: "gray" },
+  { label: "LinkedIn", value: "@kaddev", icon: Linkedin, href: "https://www.linkedin.com/in/kaddev", accent: "cyan" },
+];
+
+const iconBg: Record<string, string> = {
+  violet: "from-violet-500 to-purple-600",
+  emerald: "from-emerald-400 to-teal-500",
+  gray: "from-gray-600 to-gray-800",
+  cyan: "from-cyan-400 to-blue-500",
+};
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -35,99 +49,112 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 overflow-hidden relative">
-      <div className="absolute -bottom-24 -left-24 w-[50vw] h-[50vw] bg-accent/5 blur-[150px] rounded-full pointer-events-none" />
+    <section id="contact" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
+      {/* Background glows */}
+      <div className="glow-violet w-[500px] h-[500px] -left-40 bottom-0 opacity-20 absolute pointer-events-none" />
+      <div className="glow-cyan w-[400px] h-[400px] right-0 top-0 opacity-15 absolute pointer-events-none" />
 
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        <div className="grid gap-10 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-5 reveal">
-            <p className="section-title">Contact</p>
-            <h2 className="section-heading">Ready to build something remarkable?</h2>
-            <p className="section-copy mt-6">
-              Share your project goals and let's create a polished web experience together.
-            </p>
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+        {/* Header */}
+        <div className="mb-16 text-center reveal">
+          <p className="section-eyebrow justify-center mb-4">
+            <span className="w-5 h-px bg-violet-400 rounded-full" />
+            Contact
+            <span className="w-5 h-px bg-violet-400 rounded-full" />
+          </p>
+          <h2 className="section-heading">
+            Let's build something{" "}
+            <span className="grad-violet-cyan">great together</span>
+          </h2>
+          <p className="section-copy mx-auto max-w-xl mt-4">
+            Have a project in mind or want to collaborate? Drop me a message and I'll get back to you within 24 hours.
+          </p>
+        </div>
 
-            <div className="mt-12 space-y-5">
-              {[
-                { label: "Email", value: "deve.kad.tech@gmail.com", icon: Mail, href: "mailto:deve.kad.tech@gmail.com" },
-                { label: "WhatsApp", value: "Chat with me", icon: MessageSquare, href: "https://wa.me/233592921133" },
-                { label: "GitHub", value: "@devkad09", icon: Github, href: "https://github.com/devkad09" },
-                { label: "LinkedIn", value: "@kaddev", icon: Linkedin, href: "https://www.linkedin.com/in/kaddev" },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-[2rem] border border-white/10 bg-white/5 p-5 transition hover:border-accent hover:bg-accent/10"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-white/5 text-accent transition group-hover:bg-accent group-hover:text-black">
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.32em] text-white/40">{item.label}</p>
-                    <p className="mt-2 text-white font-semibold">{item.value}</p>
-                  </div>
-                </a>
-              ))}
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start reveal">
+          {/* LEFT — contact links */}
+          <div className="space-y-4">
+            {contactLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 glass card-border rounded-xl p-4 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${iconBg[item.accent]} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">{item.label}</p>
+                  <p className="text-sm font-medium text-white group-hover:text-violet-300 transition-colors duration-200 truncate mt-0.5">{item.value}</p>
+                </div>
+                <ArrowUpRight className="h-4 w-4 text-[#8892a4] group-hover:text-violet-400 transition-all duration-200 opacity-0 group-hover:opacity-100 flex-shrink-0" />
+              </a>
+            ))}
+
+            {/* "Let's talk" blurb */}
+            <div className="glass rounded-xl p-5 mt-6 border border-violet-500/15">
+              <p className="text-sm text-[#8892a4] leading-relaxed">
+                I'm currently <span className="text-emerald-400 font-medium">open to new opportunities</span> — full-time, contract, or freelance. Let's build something together.
+              </p>
             </div>
           </div>
 
-          <div className="lg:col-span-7 reveal">
-            <div className="glass-panel rounded-[3rem] p-6 md:p-12">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black tracking-[0.35em] uppercase text-white/40">Name</label>
-                    <input
-                      type="text"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full rounded-[1.75rem] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-accent"
-                      placeholder="Alex Johnson"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black tracking-[0.35em] uppercase text-white/40">Email</label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full rounded-[1.75rem] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-accent"
-                      placeholder="alex@email.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black tracking-[0.35em] uppercase text-white/40">Message</label>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full rounded-[1.75rem] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-accent h-44 resize-none"
-                    placeholder="Tell me about your project goals..."
+          {/* RIGHT — form */}
+          <div className="glass card-border rounded-2xl p-7 md:p-10">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Name</label>
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className="form-input"
+                    placeholder="Alex Johnson"
                     required
                   />
                 </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Email</label>
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="form-input"
+                    placeholder="alex@email.com"
+                    required
+                  />
+                </div>
+              </div>
 
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="w-full rounded-full bg-gradient-to-r from-accent to-accent-secondary px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-black transition hover:-translate-y-0.5"
-                >
-                  {status === "sending" ? "SENDING..." : status === "success" ? "SENT" : "SEND MESSAGE"}
-                </button>
-              </form>
+              <div className="space-y-2">
+                <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Message</label>
+                <textarea
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="form-input h-40 resize-none"
+                  placeholder="Tell me about your project..."
+                  required
+                />
+              </div>
 
-              {status === "success" && (
-                <p className="mt-6 text-sm text-emerald-300">Thanks! Your message has been sent.</p>
-              )}
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full btn-primary justify-center py-4 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <Send className="w-4 h-4" />
+                {status === "sending" ? "Sending..." : status === "success" ? "✅ Message sent!" : "Send Message"}
+              </button>
+
               {status === "error" && (
-                <p className="mt-6 text-sm text-rose-300">Something went wrong. Please try again later.</p>
+                <p className="text-sm text-red-400 font-medium text-center">
+                  ⚠️ Something went wrong. Please try again.
+                </p>
               )}
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -136,4 +163,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

@@ -11,10 +11,13 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => (
-  <div className="relative min-h-screen text-white overflow-x-hidden bg-background">
+  <div className="relative min-h-screen overflow-x-hidden" style={{ background: "var(--bg)" }}>
+    {/* Global background dot-grid */}
+    <div className="dot-grid fixed inset-0 opacity-30 pointer-events-none z-0" />
+
     <Navbar />
 
-    <main>
+    <main className="relative z-10">
       <Hero />
       <About />
       <Skills />
@@ -31,4 +34,3 @@ const Index = () => (
 );
 
 export default Index;
-
