@@ -4,8 +4,9 @@ import { Menu, X, Github, Linkedin } from "lucide-react";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
 ];
@@ -22,7 +23,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sections = ["hero", "about", "skills", "projects", "experience", "services", "contact"];
+    const sections = ["hero", "about", "skills", "education", "experience", "projects", "services", "contact"];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
