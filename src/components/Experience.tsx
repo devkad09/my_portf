@@ -1,88 +1,125 @@
-const experiences = [
+import { Calendar, MapPin, CheckCircle2 } from "lucide-react";
+
+interface WorkExperience {
+  period: string;
+  role: string;
+  company: string;
+  location: string;
+  type: string;
+  summary: string;
+  tech: string[];
+  achievements: string[];
+}
+
+const EXPERIENCES: WorkExperience[] = [
   {
-    company: "Formgrid.dev",
-    role: "Frontend Engineer",
     period: "2026 — Present",
-    type: "Full-time",
-    description:
-      "Building modern interface components and documentation systems for developer tools. Focused on scalable design, accessibility, and clarity — shipping clean, reusable component libraries used by developers worldwide.",
-    highlights: ["Component Libraries", "Design Systems", "Accessibility", "Docs"],
-    accent: "violet",
+    role: "Technical Writer",
+    company: "Formgrid",
+    location: "Remote",
+    type: "Full-Time",
+    summary:
+      "Authoring comprehensive technical documentation, developer guides, API specifications, and component library documentation for Formgrid. Partnering with engineering teams to simplify complex features into intuitive developer resources.",
+    tech: ["Technical Writing", "Markdown", "API Specs", "React.js", "TypeScript", "Doc Systems", "Figma"],
+    achievements: [
+      "Authored & structured end-to-end technical documentation and API guides for Formgrid developer tools.",
+      "Collaborated directly with engineering leads to document component APIs, properties, and usage patterns.",
+      "Reduced developer onboarding time and support tickets by creating clear, interactive documentation portals.",
+      "Maintained accurate API reference specs and technical release notes across major product versions.",
+    ],
   },
   {
-    company: "Freelance",
-    role: "Frontend Developer",
-    period: "2023 — Present",
-    type: "Contract",
-    description:
-      "Partnering with founders and brands to build responsive, user-focused web applications. Delivering products that reflect strong visual direction and reliable performance across every project.",
-    highlights: ["React Apps", "UI/UX", "Responsive Design", "Performance"],
-    accent: "cyan",
+    period: "2022 — 2023",
+    role: "Junior Web Developer & UI Associate",
+    company: "Tech Solutions Studio",
+    location: "Accra, Ghana — Hybrid",
+    type: "Full-Time",
+    summary:
+      "Supported frontend application development for client web portals and administrative dashboards. Worked under senior engineering leadership using React, JavaScript, and CSS systems to fix bugs and build feature updates.",
+    tech: ["JavaScript", "React", "HTML5", "CSS3", "Git & GitHub", "Figma"],
+    achievements: [
+      "Collaborated with senior engineers to build accessible admin tables and dynamic dashboard panels.",
+      "Refined existing UI components for visual consistency, cross-browser compatibility, and mobile responsiveness.",
+      "Assisted in resolving front-end bugs and speeding up feature deployment cycles.",
+    ],
   },
 ];
 
-const accentMap: Record<string, { dot: string; border: string; tag: string; text: string }> = {
-  violet: { dot: "bg-violet-400 shadow-[0_0_12px_rgba(167,139,250,0.8)]", border: "border-violet-500/30", tag: "border-violet-500/30 bg-violet-500/10 text-violet-300", text: "text-violet-300" },
-  cyan: { dot: "bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]", border: "border-cyan-500/30", tag: "border-cyan-500/30 bg-cyan-500/10 text-cyan-300", text: "text-cyan-300" },
-};
-
 const Experience = () => (
-  <section id="experience" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-    <div className="glow-emerald w-[400px] h-[400px] -right-40 bottom-0 opacity-20 absolute pointer-events-none" />
-
-    <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+  <section id="experience" className="py-24 px-4 sm:px-6 bg-[#f8fafc] border-y border-[#e2e8f0]">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6">
       {/* Header */}
-      <div className="mb-16 reveal">
-        <p className="section-eyebrow mb-4">
-          <span className="w-5 h-px bg-violet-400 rounded-full" />
-          Professional path
+      <div className="mb-16 text-center space-y-4">
+        <p className="section-eyebrow justify-center">
+          Professional Path
         </p>
-        <h2 className="section-heading max-w-xl">
-          Experience shaped by{" "}
-          <span className="grad-violet-cyan">product-first</span>{" "}
-          engineering
+        <h2 className="section-heading">
+          Career experience & <span className="text-[#2563eb]">technical impact</span>
         </h2>
+        <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
+          My experience in technical writing, developer documentation, and frontend engineering.
+        </p>
       </div>
 
-      {/* Timeline */}
-      <div className="relative pl-8 space-y-6 reveal">
-        {/* Vertical line */}
-        <div className="timeline-line absolute left-3 top-3 bottom-3" />
-
-        {experiences.map((exp, i) => {
-          const a = accentMap[exp.accent];
-          return (
-            <div key={i} className="relative">
-              {/* Timeline dot */}
-              <div className={`timeline-dot absolute -left-[21px] top-7 ${a.dot}`} />
-
-              {/* Card */}
-              <div className={`glass card-border rounded-2xl p-7 md:p-9 transition-all duration-300 hover:border-opacity-60`}>
-                <div className="grid gap-6 md:grid-cols-[0.35fr_0.65fr] items-start">
-                  {/* Left — company & period */}
-                  <div className="space-y-3">
-                    <span className={`inline-flex tag border ${a.tag}`}>{exp.period}</span>
-                    <div>
-                      <h4 className="font-heading font-bold text-white text-lg">{exp.company}</h4>
-                      <span className={`text-[11px] font-semibold uppercase tracking-widest ${a.text}`}>{exp.type}</span>
-                    </div>
+      {/* Timeline List */}
+      <div className="space-y-8">
+        {EXPERIENCES.map((exp, index) => (
+          <div
+            key={index}
+            className="bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:border-[#bfdbfe]"
+          >
+            <div className="space-y-6">
+              {/* Top Row */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-5">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {exp.period}
+                    </span>
+                    <span className="text-xs font-semibold text-[#166534] bg-[#f0fdf4] px-2.5 py-0.5 rounded-full border border-[#bbf7d0]">
+                      {exp.type}
+                    </span>
                   </div>
-
-                  {/* Right — role & desc */}
-                  <div>
-                    <h3 className="font-heading font-bold text-xl text-white mb-3">{exp.role}</h3>
-                    <p className="section-copy text-sm leading-relaxed mb-5">{exp.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.highlights.map((h) => (
-                        <span key={h} className="tag-gray">{h}</span>
-                      ))}
-                    </div>
+                  <h3 className="font-bold text-2xl text-[#0f172a] pt-2">{exp.role}</h3>
+                  <div className="flex items-center gap-2 text-sm text-[#475569]">
+                    <strong className="text-[#2563eb]">{exp.company}</strong>
+                    <span>•</span>
+                    <span className="flex items-center gap-1 text-[#64748b]">
+                      <MapPin className="w-3.5 h-3.5 text-[#2563eb]" />
+                      {exp.location}
+                    </span>
                   </div>
                 </div>
               </div>
+
+              {/* Summary */}
+              <p className="text-base text-[#475569] leading-relaxed">
+                {exp.summary}
+              </p>
+
+              {/* Tech Pills */}
+              <div className="space-y-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Technologies & Skillsets:</p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tech.map((t) => (
+                    <span key={t} className="tag-gray">{t}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Checkmark Achievements Grid */}
+              <div className="grid md:grid-cols-2 gap-3 pt-2">
+                {exp.achievements.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-[#f8fafc] border border-[#e2e8f0]">
+                    <CheckCircle2 className="w-4 h-4 text-[#166534] flex-shrink-0 mt-0.5" />
+                    <span className="text-xs font-medium text-[#334155] leading-normal">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   </section>

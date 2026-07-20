@@ -1,105 +1,72 @@
-const highlights = [
-  { emoji: "⚡", label: "Performance", desc: "Sub-second load times" },
-  { emoji: "♿", label: "Accessibility", desc: "WCAG 2.1 compliant" },
-  { emoji: "📱", label: "Responsive", desc: "Every screen, flawless" },
-  { emoji: "🔥", label: "Modern Stack", desc: "React 18 + TypeScript" },
-];
+import DevTerminal from "./DevTerminal";
 
-const About = () => {
-  return (
-    <section id="about" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-      <div className="glow-violet w-[600px] h-[400px] -right-60 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none absolute" />
+const About = () => (
+  <section id="about" className="py-24 px-4 sm:px-6 bg-white">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+      {/* Header */}
+      <div className="mb-16 space-y-3">
+        <p className="section-eyebrow">
+          About Me
+        </p>
+        <h2 className="section-heading max-w-2xl">
+          Technical Writer & <span className="text-[#2563eb]">Software Communicator</span>
+        </h2>
+      </div>
 
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
-        {/* Section header */}
-        <div className="mb-16 reveal">
-          <p className="section-eyebrow mb-4">
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
-            About me
-          </p>
-          <h2 className="section-heading max-w-2xl">
-            Building for the{" "}
-            <span className="grad-violet-cyan">intersection</span>
-            {" "}of design & engineering
-          </h2>
-        </div>
+      <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] items-start">
+        {/* LEFT — Bio text */}
+        <div className="space-y-8">
+          <div className="space-y-5 text-[#475569] leading-relaxed">
+            <p className="text-base sm:text-lg">
+              I'm a Technical Writer at <strong className="text-[#0f172a]">Formgrid</strong> specializing in developer documentation, API specifications, and component guides. I bridge the gap between complex software architecture and developer clarity.
+            </p>
+            <p className="text-base sm:text-lg">
+              Over 3 years, I've worked across technical documentation systems, component libraries, and React/TypeScript codebases. My sweet spot is distilling sophisticated API concepts and design systems into clear, actionable guides.
+            </p>
+            <p className="text-base sm:text-lg">
+              At Formgrid, I craft developer docs, API specs, and component standards that help teams build better software faster.
+            </p>
+          </div>
 
-        <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] items-start">
-          {/* LEFT — text */}
-          <div className="space-y-8 reveal">
-            <div className="space-y-5">
-              <p className="section-copy text-base">
-                I'm a frontend engineer based in Ghana with a passion for building products that feel as good as they look. I bridge the gap between beautiful design and robust engineering—every pixel intentional, every interaction deliberate.
-              </p>
-              <p className="section-copy text-base">
-                Over 3 years, I've partnered with founders, agencies, and product teams to ship React applications that are fast, accessible, and genuinely delightful to use. My sweet spot is turning complex problems into elegant digital experiences.
-              </p>
-              <p className="section-copy text-base">
-                When I'm not coding, I'm studying design systems, exploring new frontend patterns, or contributing to the broader dev community.
-              </p>
-            </div>
-
-            {/* Quick facts */}
-            <div className="flex flex-wrap gap-3">
-              {["React", "TypeScript", "Node.js", "Tailwind CSS", "Figma", "MongoDB"].map((tech) => (
+          {/* Quick tags */}
+          <div className="space-y-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Core Competencies & Tools:</p>
+            <div className="flex flex-wrap gap-2">
+              {["Technical Writing", "Developer Docs", "API Specs", "Markdown", "React", "TypeScript", "Design Systems", "Figma"].map((tech) => (
                 <span key={tech} className="tag-gray">{tech}</span>
               ))}
             </div>
-
-            {/* CTA row */}
-            <div className="flex items-center gap-4 pt-2">
-              <a href="#contact" className="btn-primary text-sm">
-                Work with me
-              </a>
-              <a
-                href="https://github.com/devkad09"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-[#8892a4] hover:text-violet-400 transition-colors duration-200 flex items-center gap-1.5"
-              >
-                GitHub ↗
-              </a>
-            </div>
           </div>
 
-          {/* RIGHT — cards */}
-          <div className="space-y-4 reveal">
-            {/* Large stat */}
-            <div className="glass card-border rounded-2xl p-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="font-heading font-bold text-4xl grad-violet-cyan">3+</p>
-                  <p className="text-[11px] font-medium text-[#8892a4] uppercase tracking-widest mt-2">Years experience</p>
-                </div>
-                <div>
-                  <p className="font-heading font-bold text-4xl grad-cyan-emerald">20+</p>
-                  <p className="text-[11px] font-medium text-[#8892a4] uppercase tracking-widest mt-2">Projects shipped</p>
-                </div>
-              </div>
-              <div className="mt-6 line-sep" />
-              <p className="mt-5 text-sm text-[#8892a4] leading-relaxed">
-                Focused on <span className="text-violet-300 font-medium">conversion-driven UIs</span>, scalable architecture, and shipping on time.
-              </p>
-            </div>
-
-            {/* Highlight grid */}
-            <div className="grid grid-cols-2 gap-3">
-              {highlights.map((h) => (
-                <div
-                  key={h.label}
-                  className="glass rounded-xl p-4 transition-all duration-300 hover:border-violet-500/25 hover:bg-violet-500/05 cursor-default"
-                >
-                  <span className="text-2xl">{h.emoji}</span>
-                  <p className="mt-2 font-semibold text-white text-sm">{h.label}</p>
-                  <p className="text-[11px] text-[#8892a4] mt-0.5">{h.desc}</p>
-                </div>
-              ))}
-            </div>
+          {/* CTA Row */}
+          <div className="flex items-center gap-4 pt-2">
+            <a href="#contact" className="btn-primary text-xs py-3 px-6">
+              Work With Me
+            </a>
+            <a
+              href="https://github.com/devkad09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-[#2563eb] hover:underline"
+            >
+              View GitHub Profile →
+            </a>
           </div>
         </div>
+
+        {/* RIGHT — Terminal / Interactive Card */}
+        <div className="bg-[#0f172a] rounded-3xl p-6 shadow-2xl border border-[#1e293b]">
+          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#334155]">
+            <span className="w-3 h-3 rounded-full bg-[#ef4444]" />
+            <span className="w-3 h-3 rounded-full bg-[#f59e0b]" />
+            <span className="w-3 h-3 rounded-full bg-[#10b981]" />
+            <span className="ml-2 text-xs font-mono text-[#94a3b8]">kaddev-cli — bash</span>
+          </div>
+          <DevTerminal />
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

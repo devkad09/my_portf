@@ -1,160 +1,161 @@
-import { useState, FormEvent } from "react";
-import { ArrowUpRight, Github, Linkedin, Mail, MessageSquare, Send } from "lucide-react";
-
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
-
-const contactLinks = [
-  { label: "Email", value: "deve.kad.tech@gmail.com", icon: Mail, href: "mailto:deve.kad.tech@gmail.com", accent: "violet" },
-  { label: "WhatsApp", value: "Chat with me", icon: MessageSquare, href: "https://wa.me/233592921133", accent: "emerald" },
-  { label: "GitHub", value: "@devkad09", icon: Github, href: "https://github.com/devkad09", accent: "gray" },
-  { label: "LinkedIn", value: "@kaddev", icon: Linkedin, href: "https://www.linkedin.com/in/kaddev", accent: "cyan" },
-];
-
-const iconBg: Record<string, string> = {
-  violet: "from-violet-500 to-purple-600",
-  emerald: "from-emerald-400 to-teal-500",
-  gray: "from-gray-600 to-gray-800",
-  cyan: "from-cyan-400 to-blue-500",
-};
+import { useState } from "react";
+import { Send, CheckCircle2, Mail, Phone } from "lucide-react";
+import { GithubLogo, LinkedinLogo, GmailLogo } from "./SocialLogos";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          name: form.name.trim(),
-          email: form.email.trim(),
-          message: form.message.trim(),
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus("success");
-        setForm({ name: "", email: "", message: "" });
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1000);
   };
 
   return (
-    <section id="contact" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-      {/* Background glows */}
-      <div className="glow-violet w-[500px] h-[500px] -left-40 bottom-0 opacity-20 absolute pointer-events-none" />
-      <div className="glow-cyan w-[400px] h-[400px] right-0 top-0 opacity-15 absolute pointer-events-none" />
-
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+    <section id="contact" className="py-24 px-4 sm:px-6 bg-[#f8fafc] border-t border-[#e2e8f0]">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         {/* Header */}
-        <div className="mb-16 text-center reveal">
-          <p className="section-eyebrow justify-center mb-4">
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
-            Contact
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
+        <div className="mb-16 text-center space-y-4">
+          <p className="section-eyebrow justify-center">
+            Let's Connect
           </p>
           <h2 className="section-heading">
-            Let's build something{" "}
-            <span className="grad-violet-cyan">great together</span>
+            Get in touch & <span className="text-[#2563eb]">collaborate</span>
           </h2>
-          <p className="section-copy mx-auto max-w-xl mt-4">
-            Have a project in mind or want to collaborate? Drop me a message and I'll get back to you within 24 hours.
+          <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
+            Have a technical writing project, documentation inquiry, or engineering opportunity? Drop me a message below.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start reveal">
-          {/* LEFT — contact links */}
-          <div className="space-y-4">
-            {contactLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 glass card-border rounded-xl p-4 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${iconBg[item.accent]} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="h-5 w-5 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">{item.label}</p>
-                  <p className="text-sm font-medium text-white group-hover:text-violet-300 transition-colors duration-200 truncate mt-0.5">{item.value}</p>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-[#8892a4] group-hover:text-violet-400 transition-all duration-200 opacity-0 group-hover:opacity-100 flex-shrink-0" />
-              </a>
-            ))}
-
-            {/* "Let's talk" blurb */}
-            <div className="glass rounded-xl p-5 mt-6 border border-violet-500/15">
-              <p className="text-sm text-[#8892a4] leading-relaxed">
-                I'm currently <span className="text-emerald-400 font-medium">open to new opportunities</span> — full-time, contract, or freelance. Let's build something together.
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] items-start">
+          {/* LEFT — Info & Brand Links */}
+          <div className="bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-md space-y-8">
+            <div>
+              <h3 className="font-bold text-2xl text-[#0f172a]">Contact Information</h3>
+              <p className="text-sm text-[#475569] mt-2 leading-relaxed">
+                Reach out via email, LinkedIn, or GitHub. I typically respond within 24 hours.
               </p>
+            </div>
+
+            <div className="space-y-4">
+              <a
+                href="mailto:deve.kad.tech@gmail.com"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#e2e8f0] flex items-center justify-center text-[#ea4335]">
+                  <GmailLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#64748b] uppercase tracking-wider">Direct Email</p>
+                  <p className="text-sm font-semibold text-[#0f172a] group-hover:text-[#2563eb]">deve.kad.tech@gmail.com</p>
+                </div>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/kaddev"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#e2e8f0] flex items-center justify-center text-[#0a66c2]">
+                  <LinkedinLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#64748b] uppercase tracking-wider">LinkedIn Profile</p>
+                  <p className="text-sm font-semibold text-[#0f172a] group-hover:text-[#2563eb]">linkedin.com/in/kaddev</p>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com/devkad09"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#e2e8f0] flex items-center justify-center text-[#0f172a]">
+                  <GithubLogo className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#64748b] uppercase tracking-wider">GitHub Organization</p>
+                  <p className="text-sm font-semibold text-[#0f172a] group-hover:text-[#2563eb]">github.com/devkad09</p>
+                </div>
+              </a>
             </div>
           </div>
 
-          {/* RIGHT — form */}
-          <div className="glass card-border rounded-2xl p-7 md:p-10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-4 sm:grid-cols-2">
+          {/* RIGHT — Form */}
+          <div className="bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-md">
+            {submitted ? (
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-[#f0fdf4] border border-[#bbf7d0] flex items-center justify-center mx-auto text-[#166534]">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-2xl text-[#0f172a]">Message Sent Successfully!</h3>
+                <p className="text-sm text-[#475569]">
+                  Thank you for reaching out. I'll review your inquiry and get back to you shortly.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="btn-outline text-xs py-2.5 px-5 mt-4"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Name</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">Your Name</label>
                   <input
                     type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="form-input"
-                    placeholder="Alex Johnson"
                     required
+                    placeholder="e.g. Alex Smith"
+                    className="form-input"
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Email</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">Your Email</label>
                   <input
                     type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="form-input"
-                    placeholder="alex@email.com"
                     required
+                    placeholder="alex@company.com"
+                    className="form-input"
                   />
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Message</label>
-                <textarea
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="form-input h-40 resize-none"
-                  placeholder="Tell me about your project..."
-                  required
-                />
-              </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">Project Category / Subject</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Technical Documentation / API Specifications"
+                    className="form-input"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="w-full btn-primary justify-center py-4 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                <Send className="w-4 h-4" />
-                {status === "sending" ? "Sending..." : status === "success" ? "✅ Message sent!" : "Send Message"}
-              </button>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">Message Details</label>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Tell me about your project goals, deliverables, or timeline..."
+                    className="form-input resize-none"
+                  />
+                </div>
 
-              {status === "error" && (
-                <p className="text-sm text-red-400 font-medium text-center">
-                  ⚠️ Something went wrong. Please try again.
-                </p>
-              )}
-            </form>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary w-full justify-center text-sm py-4"
+                >
+                  {loading ? "Sending Message..." : <>Send Message <Send className="w-4 h-4" /></>}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

@@ -1,36 +1,39 @@
 import { useState, useEffect } from "react";
-import { ArrowDown, Sparkles, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, FileText, CheckCircle2, Award } from "lucide-react";
+import { GithubLogo, LinkedinLogo, GmailLogo } from "./SocialLogos";
+import ResumeModal from "./ResumeModal";
 
 const ROLES = [
+  "Technical Writer @ Formgrid",
+  "Developer Docs Specialist",
+  "API & System Spec Writer",
   "Frontend Engineer",
-  "React Developer",
-  "UI/UX Craftsman",
-  "Product Builder",
 ];
 
 const metrics = [
-  { value: "20+", label: "Projects Shipped", accent: "violet" },
-  { value: "3+", label: "Years Building", accent: "cyan" },
-  { value: "100%", label: "Remote Ready", accent: "emerald" },
+  { value: "20+", label: "Guides & Specs", accent: "blue" },
+  { value: "3+", label: "Years Experience", accent: "blue" },
+  { value: "100%", label: "Remote Ready", accent: "blue" },
 ];
 
 const Hero = () => {
   const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     const role = ROLES[roleIdx];
     let timeout: ReturnType<typeof setTimeout>;
     if (typing) {
       if (displayed.length < role.length) {
-        timeout = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 65);
+        timeout = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 60);
       } else {
-        timeout = setTimeout(() => setTyping(false), 1800);
+        timeout = setTimeout(() => setTyping(false), 2000);
       }
     } else {
       if (displayed.length > 0) {
-        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
+        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
       } else {
         setRoleIdx((i) => (i + 1) % ROLES.length);
         setTyping(true);
@@ -40,140 +43,141 @@ const Hero = () => {
   }, [displayed, typing, roleIdx]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-16">
-      {/* Background glows */}
-      <div className="glow-violet w-[500px] h-[500px] -top-40 -left-40 opacity-60 animate-pulse-glow" />
-      <div className="glow-cyan w-[400px] h-[400px] top-1/3 -right-32 opacity-40 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-      <div className="glow-emerald w-[300px] h-[300px] bottom-0 left-1/3 opacity-30" />
-
-      {/* Dot grid */}
-      <div className="dot-grid absolute inset-0 opacity-40 pointer-events-none" />
+    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-white">
+      {/* Background dot grid */}
+      <div className="dot-grid absolute inset-0 pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
-        <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr] items-center">
-          {/* LEFT */}
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          {/* LEFT CONTENT */}
           <div className="space-y-8">
-            {/* Available badge */}
-            <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-[11px] font-semibold text-emerald-400">
+            {/* Status Pill */}
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-4 py-2 text-xs font-semibold text-[#2563eb]">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2563eb] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2563eb]" />
                 </span>
-                Available for new projects
+                Available for New Writing & Development Projects
               </span>
             </div>
 
-            {/* Heading */}
-            <div className="space-y-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-white">
-                Hi, I'm{" "}
-                <span className="grad-violet-cyan">KAD</span>
-                <br />
-                <span className="text-[#8892a4] text-3xl sm:text-4xl lg:text-5xl font-medium">
-                  I'm a{" "}
-                  <span className="text-white typewriter">{displayed}</span>
-                </span>
+            {/* Headline */}
+            <div className="space-y-4">
+              <h1 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#0f172a] leading-[1.1]">
+                Kelvin Atsu Djayouri <br />
+                <span className="text-[#2563eb]">Technical Writer</span> & Developer Advocate
               </h1>
+
+              {/* Typewriter subtitle */}
+              <div className="flex items-center gap-2 text-lg sm:text-xl font-semibold text-[#334155] min-h-[32px]">
+                <span className="w-2 h-2 rounded-full bg-[#2563eb]" />
+                <span>{displayed}</span>
+                <span className="w-0.5 h-6 bg-[#2563eb] animate-pulse" />
+              </div>
             </div>
 
-            <p className="section-copy max-w-xl animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              I craft high-performance React applications with pixel-perfect UIs, silky animations, and code that scales. Turning ambitious ideas into digital products people love.
+            {/* Bio paragraph */}
+            <p className="section-copy max-w-xl text-base sm:text-lg">
+              Technical Writer at <strong className="text-[#0f172a]">Formgrid</strong>. I craft clear, comprehensive technical documentation, developer guides, and API specifications that help teams ship software faster.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
               <a href="#projects" className="btn-primary">
-                <Sparkles className="w-4 h-4" /> View my work
+                View My Work <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#contact" className="btn-outline">
-                Let's talk
+                Let's Connect
               </a>
+              <button
+                onClick={() => setIsResumeOpen(true)}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#2563eb] hover:text-[#1d4ed8] px-4 py-3 rounded-xl hover:bg-[#eff6ff] transition-all"
+              >
+                <FileText className="w-4 h-4" /> View CV / Resume
+              </button>
             </div>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-3 animate-slide-up" style={{ animationDelay: "0.5s" }}>
-              {[
-                { icon: Github, href: "https://github.com/devkad09", label: "GitHub" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/kaddev", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:deve.kad.tech@gmail.com", label: "Email" },
-              ].map(({ icon: Icon, href, label }) => (
+            {/* Social Icons Row */}
+            <div className="pt-2 flex items-center gap-4 border-t border-[#e2e8f0]">
+              <span className="text-xs font-semibold text-[#64748b] uppercase tracking-wider">Connect:</span>
+              <div className="flex items-center gap-3">
                 <a
-                  key={label}
-                  href={href}
+                  href="https://github.com/devkad09"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="h-10 w-10 flex items-center justify-center rounded-xl border border-white/10 text-[#8892a4] transition hover:text-white hover:border-violet-500/40 hover:bg-violet-500/10"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] text-[#475569] hover:text-[#0f172a] hover:border-[#cbd5e1] hover:bg-white transition-all shadow-sm"
+                  title="GitHub @devkad09"
                 >
-                  <Icon className="h-4 w-4" />
+                  <GithubLogo className="w-4 h-4" />
                 </a>
-              ))}
-              <div className="h-px w-8 bg-white/15" />
-              <span className="text-[11px] font-medium text-[#8892a4] tracking-wide">Follow along</span>
+                <a
+                  href="https://www.linkedin.com/in/kaddev"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] text-[#475569] hover:text-[#2563eb] hover:border-[#bfdbfe] hover:bg-[#eff6ff] transition-all shadow-sm"
+                  title="LinkedIn @kaddev"
+                >
+                  <LinkedinLogo className="w-4 h-4" />
+                </a>
+                <a
+                  href="mailto:deve.kad.tech@gmail.com"
+                  className="p-2.5 rounded-xl border border-[#e2e8f0] bg-[#f8fafc] text-[#475569] hover:text-[#ea4335] hover:border-[#fecaca] hover:bg-[#fef2f2] transition-all shadow-sm"
+                  title="Email deve.kad.tech@gmail.com"
+                >
+                  <GmailLogo className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* RIGHT — stat cards + decoration */}
-          <div className="relative animate-slide-up" style={{ animationDelay: "0.3s" }}>
-            {/* Rotating ring */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[320px] h-[320px] rounded-full border border-dashed border-violet-500/15 animate-spin-slow" />
-            </div>
-
-            {/* Main card */}
-            <div className="glass card-border rounded-3xl p-8 space-y-6 animate-float">
-              {/* Code-like display */}
-              <div className="rounded-xl bg-black/40 border border-white/05 p-5 font-mono text-xs space-y-2">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <span className="w-3 h-3 rounded-full bg-emerald-500/70" />
-                  <span className="ml-2 text-[#8892a4] text-[10px]">profile.tsx</span>
+          {/* RIGHT PROFILE CARD */}
+          <div className="relative flex justify-center">
+            <div className="w-full max-w-md bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-2xl space-y-6">
+              {/* Top info badge */}
+              <div className="flex items-center justify-between border-b border-[#e2e8f0] pb-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#2563eb] flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/30">
+                    KD
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-[#0f172a]">Kelvin Atsu Djayouri</h3>
+                    <p className="text-xs font-semibold text-[#2563eb]">Technical Writer at Formgrid</p>
+                  </div>
                 </div>
-                <p><span className="text-violet-400">const</span> <span className="text-cyan-300">developer</span> = {"{"}</p>
-                <p className="pl-4"><span className="text-emerald-400">name</span>: <span className="text-amber-300">'KAD'</span>,</p>
-                <p className="pl-4"><span className="text-emerald-400">role</span>: <span className="text-amber-300">'Frontend Eng.'</span>,</p>
-                <p className="pl-4"><span className="text-emerald-400">stack</span>: [<span className="text-amber-300">'React'</span>, <span className="text-amber-300">'TS'</span>],</p>
-                <p className="pl-4"><span className="text-emerald-400">available</span>: <span className="text-cyan-400">true</span>,</p>
-                <p>{"}"}</p>
               </div>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-3 gap-3">
+              {/* Quick specs list */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#f8fafc] border border-[#e2e8f0]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2563eb] flex-shrink-0" />
+                  <span className="text-xs font-medium text-[#334155]">Technical Docs & API Specifications</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#f8fafc] border border-[#e2e8f0]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2563eb] flex-shrink-0" />
+                  <span className="text-xs font-medium text-[#334155]">Developer Experience & Onboarding Guides</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-[#f8fafc] border border-[#e2e8f0]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2563eb] flex-shrink-0" />
+                  <span className="text-xs font-medium text-[#334155]">React & TypeScript System Documentation</span>
+                </div>
+              </div>
+
+              {/* Metrics Grid */}
+              <div className="grid grid-cols-3 gap-3 pt-2">
                 {metrics.map((m) => (
-                  <div key={m.label} className="rounded-xl bg-white/03 border border-white/06 p-3 text-center">
-                    <p className={`font-heading font-bold text-xl ${
-                      m.accent === "violet" ? "grad-violet" :
-                      m.accent === "cyan" ? "grad-violet-cyan" : "grad-cyan-emerald"
-                    }`}>{m.value}</p>
-                    <p className="text-[9px] font-medium text-[#8892a4] uppercase tracking-widest mt-1 leading-tight">{m.label}</p>
+                  <div key={m.label} className="p-3.5 rounded-2xl bg-[#eff6ff] border border-[#bfdbfe] text-center">
+                    <p className="font-extrabold text-xl text-[#2563eb]">{m.value}</p>
+                    <p className="text-[10px] font-bold text-[#1e40af] uppercase tracking-wider mt-1">{m.label}</p>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Floating chips */}
-            <div className="absolute -top-4 -right-4 tag-violet animate-float" style={{ animationDelay: "0.5s" }}>
-              ⚡ React 18
-            </div>
-            <div className="absolute -bottom-4 -left-4 tag-cyan animate-float" style={{ animationDelay: "1s" }}>
-              🎯 TypeScript
-            </div>
           </div>
         </div>
-
-        {/* Scroll hint */}
-        <div className="flex justify-center mt-20">
-          <a
-            href="#about"
-            className="flex flex-col items-center gap-2 text-[#8892a4] hover:text-violet-400 transition-colors duration-300 group"
-          >
-            <span className="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
-            <ArrowDown className="h-4 w-4 animate-bounce group-hover:text-violet-400" />
-          </a>
-        </div>
       </div>
+
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </section>
   );
 };

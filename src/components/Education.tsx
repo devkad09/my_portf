@@ -1,81 +1,98 @@
-import { GraduationCap, BookOpen, Award } from "lucide-react";
+import { GraduationCap, BookOpen, Award, Calendar } from "lucide-react";
+
+interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  status: string;
+  description: string;
+  coursework: string[];
+}
+
+const EDUCATION_DATA: EducationItem[] = [
+  {
+    degree: "Diploma in Information Technology (Top-Up Degree)",
+    institution: "Accra Technical University",
+    period: "2022 — Present",
+    status: "In Progress",
+    description:
+      "Comprehensive academic program focused on core computer science foundations, software engineering principles, database design, computer networks, and advanced web technologies.",
+    coursework: ["Software Engineering", "Data Structures & Algorithms", "Database Management", "Computer Networks", "Web Architecture"],
+  },
+  {
+    degree: "Technical Writing & Developer Experience Specialization",
+    institution: "Self-Directed & Industry Documentation Training",
+    period: "2023 — Present",
+    status: "Completed",
+    description:
+      "Advanced mastery of technical documentation systems, API reference creation, component specifications, Markdown standards, and developer onboarding workflows.",
+    coursework: ["API Reference Specs", "Component Documentation", "Developer Onboarding", "Markdown Standards", "WCAG A11y"],
+  },
+];
 
 const Education = () => (
-  <section id="education" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-    <div className="glow-violet w-[400px] h-[400px] -left-40 top-0 opacity-15 absolute pointer-events-none" />
+  <section id="education" className="py-24 px-4 sm:px-6 bg-white">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+      {/* Header */}
+      <div className="mb-16 text-center space-y-4">
+        <p className="section-eyebrow justify-center">
+          Academic Background
+        </p>
+        <h2 className="section-heading">
+          Education & <span className="text-[#2563eb]">technical mastery</span>
+        </h2>
+        <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
+          Combining formal Computer Science studies with specialized technical writing & web development skills.
+        </p>
+      </div>
 
-    <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
-      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] items-center">
-        {/* Left */}
-        <div className="space-y-6 reveal">
-          <p className="section-eyebrow mb-2">
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
-            Academic background
-          </p>
-          <h2 className="section-heading">
-            Foundation &{" "}
-            <span className="grad-violet-cyan">continuous growth</span>
-          </h2>
-          <p className="section-copy">
-            My background in Information Technology, combined with hands-on frontend development, has shaped my approach to building scalable, user-focused digital products.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            {["Self-taught", "Project-based", "Always learning"].map((t) => (
-              <span key={t} className="tag-violet">{t}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* Right — card */}
-        <div className="reveal">
-          <div className="glass card-border rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            {/* Background glow decoration */}
-            <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-violet-500/10 blur-2xl pointer-events-none" />
-
-            <div className="flex items-start gap-5">
-              {/* Icon */}
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center shadow-[0_8px_25px_-8px_rgba(139,92,246,0.6)]">
-                <GraduationCap className="h-7 w-7 text-white" />
+      {/* Grid */}
+      <div className="grid gap-8 md:grid-cols-2">
+        {EDUCATION_DATA.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-md flex flex-col justify-between space-y-6 transition-all duration-300 hover:shadow-xl hover:border-[#bfdbfe]"
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center text-[#2563eb]">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {item.period}
+                </span>
               </div>
 
-              <div className="flex-1 space-y-4">
-                <div>
-                  <span className="tag-violet mb-3 inline-flex">2022 — Present</span>
-                  <h3 className="font-heading font-bold text-xl text-white">Accra Technical University</h3>
-                </div>
+              <div>
+                <h3 className="font-bold text-xl text-[#0f172a]">{item.degree}</h3>
+                <p className="text-xs font-bold text-[#2563eb] mt-1">{item.institution}</p>
+              </div>
 
-                <div className="space-y-2">
-                  <p className="font-semibold text-white">Diploma in Information Technology</p>
-                  <p className="text-sm text-[#8892a4]">Currently pursuing Top-Up Degree</p>
-                </div>
+              <p className="text-sm text-[#475569] leading-relaxed">
+                {item.description}
+              </p>
 
-                <div className="line-sep my-2" />
-
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { icon: BookOpen, label: "Software Eng." },
-                    { icon: BookOpen, label: "Data Structures" },
-                    { icon: BookOpen, label: "Networking" },
-                    { icon: BookOpen, label: "Web Tech" },
-                  ].map(({ icon: Icon, label }) => (
-                    <div key={label} className="flex items-center gap-2 rounded-xl bg-white/03 border border-white/06 px-3 py-2.5">
-                      <Icon className="h-3.5 w-3.5 text-violet-400 flex-shrink-0" />
-                      <span className="text-[11px] font-medium text-[#8892a4]">{label}</span>
+              {/* Coursework */}
+              <div className="space-y-2 pt-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Key Focus Areas:</p>
+                <div className="flex flex-wrap gap-2">
+                  {item.coursework.map((course) => (
+                    <div key={course} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#f8fafc] border border-[#e2e8f0] text-xs font-medium text-[#334155]">
+                      <BookOpen className="w-3.5 h-3.5 text-[#2563eb]" />
+                      <span>{course}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Bottom achievement */}
-            <div className="mt-6 flex items-center gap-3 rounded-xl border border-amber-500/20 bg-amber-500/08 p-4">
-              <Award className="h-5 w-5 text-amber-400 flex-shrink-0" />
-              <p className="text-sm text-[#8892a4]">
-                Supplemented with <span className="text-amber-300 font-medium">self-directed learning</span> in modern web development
-              </p>
+            <div className="pt-4 border-t border-[#e2e8f0] flex items-center gap-2 text-xs font-semibold text-[#166534]">
+              <Award className="w-4 h-4 text-[#d97706] flex-shrink-0" />
+              <span>{item.status} · Academic & Practical Distinction</span>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>

@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import WhyHire from "@/components/WhyHire";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -20,11 +22,13 @@ const Index = () => (
     <main className="relative z-10">
       <Hero />
       <About />
+      <WhyHire />
       <Skills />
       <Education />
       <Experience />
       <Projects />
       <Services />
+      <Testimonials />
       <Contact />
     </main>
 

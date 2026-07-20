@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { GithubLogo, LinkedinLogo, GmailLogo } from "./SocialLogos";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -17,48 +18,50 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const sections = ["hero", "about", "skills", "education", "experience", "projects", "services", "contact"];
+    const sections = ["hero", "about", "why-hire", "skills", "education", "experience", "projects", "services", "contact"];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
       },
-      { threshold: 0.4 }
+      { threshold: 0.3 }
     );
     sections.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
     return () => obs.disconnect();
   }, []);
 
   return (
-    <nav className={`fixed inset-x-0 z-50 flex flex-col items-center transition-all duration-500 ${scrolled ? "top-3" : "top-5"}`}>
-      <div className={`nav-pill flex w-[94%] max-w-5xl items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 ${scrolled ? "shadow-[0_8px_40px_-8px_rgba(139,92,246,0.25)]" : ""}`}>
-        {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center shadow-lg group-hover:shadow-violet-500/40 transition-shadow duration-300">
-            <span className="text-white text-[10px] font-black">K</span>
+    <nav className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 pb-2 transition-all duration-300">
+      <div className={`flex w-full max-w-6xl items-center justify-between rounded-2xl border bg-white/90 backdrop-blur-md px-6 py-3.5 transition-all duration-300 ${
+        scrolled ? "border-[#cbd5e1] shadow-lg shadow-slate-900/05" : "border-[#e2e8f0]"
+      }`}>
+        {/* Brand */}
+        <a href="#hero" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-xl bg-[#2563eb] flex items-center justify-center text-white font-bold text-xs shadow-md shadow-blue-500/20 group-hover:bg-[#1d4ed8] transition-colors">
+            K
           </div>
-          <span className="font-heading font-bold text-base text-white tracking-tight">
-            KAD<span className="grad-violet-cyan">DEV</span>
+          <span className="font-bold text-lg text-[#0f172a] tracking-tight">
+            Kad<span className="text-[#2563eb]">Dev</span>
           </span>
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-1 bg-[#f8fafc] border border-[#e2e8f0] rounded-xl p-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.slice(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
                   isActive
-                    ? "bg-violet-500/15 text-violet-300"
-                    : "text-[#8892a4] hover:text-white hover:bg-white/05"
+                    ? "bg-[#2563eb] text-white shadow-sm"
+                    : "text-[#475569] hover:text-[#0f172a] hover:bg-white"
                 }`}
               >
                 {link.name}
@@ -67,63 +70,63 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-2">
-          <a
-            href="https://github.com/devkad09"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-[#8892a4] transition hover:text-white hover:border-violet-500/50 hover:bg-violet-500/10"
-          >
-            <Github className="h-4 w-4" />
+        {/* Right Actions */}
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2 border-r border-[#e2e8f0] pr-3">
+            <a
+              href="https://github.com/devkad09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[#64748b] hover:text-[#0f172a] hover:bg-[#f1f5f9] transition-colors"
+              title="GitHub"
+            >
+              <GithubLogo className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/kaddev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-[#64748b] hover:text-[#0f172a] hover:bg-[#f1f5f9] transition-colors"
+              title="LinkedIn"
+            >
+              <LinkedinLogo className="w-4 h-4" />
+            </a>
+          </div>
+
+          <a href="#contact" className="hidden sm:inline-flex btn-primary text-xs py-2 px-4 rounded-xl">
+            Let's Talk
           </a>
-          <a
-            href="https://www.linkedin.com/in/kaddev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 text-[#8892a4] transition hover:text-white hover:border-cyan-500/50 hover:bg-cyan-500/10"
-          >
-            <Linkedin className="h-4 w-4" />
-          </a>
-          <a href="#contact" className="hidden sm:inline-flex btn-primary text-xs py-2.5 px-5">
-            Hire me
-          </a>
+
+          {/* Mobile toggle */}
           <button
-            className="lg:hidden h-9 w-9 flex items-center justify-center rounded-xl border border-white/10 text-[#8892a4] hover:text-white transition"
             onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 rounded-xl text-[#334155] hover:bg-[#f1f5f9]"
           >
-            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="nav-pill mt-2 w-[94%] max-w-5xl rounded-2xl p-4 shadow-[0_20px_60px_-10px_rgba(139,92,246,0.2)] lg:hidden">
-          <div className="grid grid-cols-2 gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-[#8892a4] transition hover:bg-violet-500/10 hover:text-violet-300"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          <div className="mt-3 pt-3 border-t border-white/05 flex items-center gap-2">
-            <a href="https://github.com/devkad09" target="_blank" rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/10 py-2.5 text-xs text-[#8892a4] hover:text-white hover:border-white/20 transition">
-              <Github className="h-4 w-4" /> GitHub
+        <div className="absolute top-20 inset-x-4 bg-white border border-[#e2e8f0] rounded-2xl p-6 shadow-2xl space-y-3 md:hidden animate-fade-in">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#334155] hover:bg-[#f8fafc] hover:text-[#2563eb]"
+            >
+              {link.name}
             </a>
-            <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/10 py-2.5 text-xs text-[#8892a4] hover:text-white hover:border-white/20 transition">
-              <Linkedin className="h-4 w-4" /> LinkedIn
-            </a>
-            <a href="#contact" onClick={() => setMobileOpen(false)}
-              className="flex-1 btn-primary text-xs py-2.5 justify-center">
-              Hire me
+          ))}
+          <div className="pt-3 border-t border-[#e2e8f0] flex justify-between items-center">
+            <div className="flex gap-3">
+              <a href="https://github.com/devkad09" target="_blank" rel="noreferrer"><GithubLogo className="w-5 h-5" /></a>
+              <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noreferrer"><LinkedinLogo className="w-5 h-5" /></a>
+            </div>
+            <a href="#contact" onClick={() => setMobileOpen(false)} className="btn-primary text-xs py-2 px-4">
+              Let's Talk
             </a>
           </div>
         </div>
