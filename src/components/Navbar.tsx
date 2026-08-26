@@ -117,7 +117,7 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="absolute top-20 inset-x-4 bg-slate-950/95 backdrop-blur-2xl border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-3 md:hidden animate-fade-in z-50">
+        <div className="absolute top-20 inset-x-4 bg-slate-950/95 backdrop-blur-2xl border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-3 md:hidden z-50">
           {navLinks.map((link) => (
             <a
               key={link.name}

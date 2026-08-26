@@ -12,7 +12,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-x-0 inset-y-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-x-0 inset-y-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
       <div className="bg-slate-900 border border-slate-700/80 max-w-3xl w-full rounded-3xl p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Close Button */}
         <button

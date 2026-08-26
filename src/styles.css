@@ -24,10 +24,12 @@
 
 * {
   box-sizing: border-box;
+  animation: none !important;
+  transition: none !important;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -38,7 +40,6 @@ body {
     linear-gradient(135deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 85%, #0f172a) 100%);
   color: var(--text);
   line-height: 1.6;
-  transition: background 220ms ease, color 220ms ease;
 }
 
 :root.light body {
@@ -97,7 +98,6 @@ img {
 
 .site-nav a {
   color: var(--muted);
-  transition: color 180ms ease;
 }
 
 .site-nav a:hover,
@@ -184,11 +184,6 @@ img {
   border-radius: 999px;
   padding: 0.8rem 1.2rem;
   font-weight: 600;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -531,13 +526,11 @@ img {
   background: rgba(255, 255, 255, 0.06);
   font-weight: 500;
   font-size: 0.92rem;
-  transition: all 0.2s ease;
 }
 
 .contact-list a:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(124, 147, 255, 0.4);
-  transform: translateY(-1px);
 }
 
 .site-footer {

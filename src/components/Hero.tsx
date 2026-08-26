@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
-import { ArrowRight, Sparkles, FileText, CheckCircle2, Award } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, FileText, CheckCircle2 } from "lucide-react";
 import { GithubLogo, LinkedinLogo, GmailLogo } from "./SocialLogos";
 import ResumeModal from "./ResumeModal";
-
-const ROLES = [
-  "Technical Writer @ Formgrid",
-  "Developer Docs Specialist",
-  "API & System Spec Writer",
-  "Frontend Engineer",
-];
 
 const metrics = [
   { value: "20+", label: "Guides & Specs", accent: "blue" },
@@ -17,30 +10,7 @@ const metrics = [
 ];
 
 const Hero = () => {
-  const [roleIdx, setRoleIdx] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-
-  useEffect(() => {
-    const role = ROLES[roleIdx];
-    let timeout: ReturnType<typeof setTimeout>;
-    if (typing) {
-      if (displayed.length < role.length) {
-        timeout = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 60);
-      } else {
-        timeout = setTimeout(() => setTyping(false), 2000);
-      }
-    } else {
-      if (displayed.length > 0) {
-        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
-      } else {
-        setRoleIdx((i) => (i + 1) % ROLES.length);
-        setTyping(true);
-      }
-    }
-    return () => clearTimeout(timeout);
-  }, [displayed, typing, roleIdx]);
 
   return (
     <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
@@ -56,7 +26,6 @@ const Hero = () => {
             <div>
               <span className="inline-flex items-center gap-2.5 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs font-semibold text-blue-300 backdrop-blur-md shadow-sm shadow-blue-500/10">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
                 </span>
                 Available for Writing & Development Projects
@@ -70,11 +39,10 @@ const Hero = () => {
                 <span className="grad-violet-cyan">Technical Writer</span> & Developer Advocate
               </h1>
 
-              {/* Typewriter subtitle */}
+              {/* Static subtitle */}
               <div className="flex items-center gap-2.5 text-lg sm:text-xl font-medium text-slate-300 min-h-[32px]">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400" />
-                <span className="font-mono text-cyan-300">{displayed}</span>
-                <span className="w-0.5 h-6 bg-cyan-400 animate-pulse" />
+                <span className="font-mono text-cyan-300">Technical Writer @ Formgrid</span>
               </div>
             </div>
 
@@ -93,7 +61,7 @@ const Hero = () => {
               </a>
               <button
                 onClick={() => setIsResumeOpen(true)}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 px-4 py-3 rounded-xl hover:bg-blue-500/10 transition-all"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 px-4 py-3 rounded-xl hover:bg-blue-500/10"
               >
                 <FileText className="w-4 h-4" /> View CV / Resume
               </button>
@@ -107,7 +75,7 @@ const Hero = () => {
                   href="https://github.com/devkad09"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-white hover:border-slate-700 hover:bg-slate-800 transition-all shadow-sm"
+                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-white hover:border-slate-700 hover:bg-slate-800 shadow-sm"
                   title="GitHub @devkad09"
                 >
                   <GithubLogo className="w-4 h-4" />
@@ -116,14 +84,14 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/kaddev"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 hover:bg-blue-500/10 transition-all shadow-sm"
+                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 hover:bg-blue-500/10 shadow-sm"
                   title="LinkedIn @kaddev"
                 >
                   <LinkedinLogo className="w-4 h-4" />
                 </a>
                 <a
                   href="mailto:deve.kad.tech@gmail.com"
-                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-red-400 hover:border-red-500/40 hover:bg-red-500/10 transition-all shadow-sm"
+                  className="p-2.5 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-400 hover:text-red-400 hover:border-red-500/40 hover:bg-red-500/10 shadow-sm"
                   title="Email deve.kad.tech@gmail.com"
                 >
                   <GmailLogo className="w-4 h-4" />
@@ -135,7 +103,7 @@ const Hero = () => {
           {/* RIGHT PROFILE ID CARD */}
           <div className="relative flex justify-center">
             {/* Ambient card halo */}
-            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-blue-600/30 via-indigo-600/20 to-cyan-500/30 blur-xl opacity-75 animate-pulse-glow" />
+            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-blue-600/30 via-indigo-600/20 to-cyan-500/30 blur-xl opacity-75" />
 
             <div className="relative w-full max-w-md bg-slate-900/80 backdrop-blur-2xl border border-slate-700/80 rounded-3xl p-7 shadow-2xl space-y-6">
               {/* Top ID Header */}
