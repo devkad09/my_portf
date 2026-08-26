@@ -63,58 +63,55 @@ const accentMap: Record<string, { gradient: string; border: string; bg: string; 
 };
 
 const Services = () => (
-  <section id="services" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-    <div className="glow-cyan w-[400px] h-[400px] right-0 -bottom-20 opacity-15 absolute pointer-events-none" />
+  <section id="services" className="py-24 px-4 sm:px-6 overflow-hidden relative">
+    <div className="glow-orb glow-purple w-[450px] h-[450px] right-0 -bottom-20 opacity-30" />
 
     <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
       {/* Header */}
-      <div className="mb-16 text-center reveal">
-        <p className="section-eyebrow justify-center mb-4">
-          <span className="w-5 h-px bg-violet-400 rounded-full" />
-          What I build
-          <span className="w-5 h-px bg-violet-400 rounded-full" />
+      <div className="mb-16 text-center">
+        <p className="section-eyebrow justify-center mb-3">
+          What I Deliver
         </p>
         <h2 className="section-heading">
-          Digital products that{" "}
-          <span className="grad-violet-cyan">delight users</span>
+          Technical solutions that{" "}
+          <span className="grad-violet-cyan">empower teams</span>
         </h2>
         <p className="section-copy mx-auto max-w-xl mt-4">
-          Beautiful, fast, and user-friendly solutions for agencies, founders, and product teams who want to make a real impact.
+          Documentation, developer guides, and frontend experiences built with clarity, accuracy, and user-centric architecture.
         </p>
       </div>
 
       {/* Services grid */}
-      <div className="grid sm:grid-cols-2 gap-5 reveal">
+      <div className="grid sm:grid-cols-2 gap-6">
         {services.map((service) => {
           const a = accentMap[service.accent];
           return (
             <div
               key={service.title}
-              className="group glass card-border rounded-2xl p-7 relative overflow-hidden transition-all duration-500 hover:-translate-y-1"
-              style={{ "--hover-glow": a.glow } as React.CSSProperties}
+              className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-slate-700 shadow-xl"
             >
               {/* Background glow on hover */}
               <div
-                className={`absolute -right-10 -top-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl bg-gradient-to-br ${a.gradient}`}
+                className={`absolute -right-10 -top-10 w-36 h-36 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl bg-gradient-to-br ${a.gradient}`}
               />
 
               <div className="relative z-10">
                 {/* Number + Icon row */}
                 <div className="flex items-start justify-between mb-6">
-                  <span className={`font-heading font-bold text-3xl ${a.text} opacity-30`}>{service.number}</span>
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${a.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                  <span className={`font-mono font-bold text-3xl ${a.text} opacity-30`}>{service.number}</span>
+                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${a.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                     <service.icon className="w-6 h-6 text-white" />
                   </div>
                 </div>
 
                 {/* Title & desc */}
-                <h4 className="font-heading font-bold text-lg text-white mb-3">{service.title}</h4>
-                <p className="section-copy text-sm leading-relaxed">{service.desc}</p>
+                <h4 className="font-bold text-xl text-white mb-3 group-hover:text-blue-300 transition-colors">{service.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">{service.desc}</p>
 
                 {/* Footer */}
-                <div className="mt-6 pt-5 border-t border-white/05 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#8892a4]">Full-stack frontend</span>
-                  <a href="#contact" className={`flex items-center gap-1.5 text-[11px] font-semibold ${a.text} opacity-0 group-hover:opacity-100 transition-all duration-300 hover:gap-2`}>
+                <div className="mt-6 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Quality Assured</span>
+                  <a href="#contact" className={`flex items-center gap-1.5 text-xs font-semibold ${a.text} opacity-0 group-hover:opacity-100 transition-all duration-300 hover:gap-2`}>
                     Get started <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>

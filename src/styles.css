@@ -281,12 +281,14 @@ img {
   height: 72px;
   display: grid;
   place-items: center;
-  border-radius: 50%;
+  border-radius: 20px;
   font-size: 1.4rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #030712;
   margin-bottom: 1rem;
+  object-fit: cover;
+  border: 2px solid var(--accent-subtle);
 }
 
 .hero-card h3 {

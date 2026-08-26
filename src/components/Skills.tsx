@@ -167,24 +167,27 @@ const categories = [
   },
 ];
 
-const accentMap: Record<string, { border: string; bg: string; text: string; tag: string }> = {
+const accentMap: Record<string, { border: string; bg: string; text: string; tag: string; glow: string }> = {
   violet: {
-    border: "border-violet-500/30",
-    bg: "bg-violet-500/10",
-    text: "text-violet-300",
+    border: "border-indigo-500/40",
+    bg: "bg-indigo-500/10",
+    text: "text-indigo-300",
     tag: "tag-violet",
+    glow: "hover:border-indigo-500/50 hover:shadow-indigo-500/10",
   },
   cyan: {
-    border: "border-cyan-500/30",
+    border: "border-cyan-500/40",
     bg: "bg-cyan-500/10",
     text: "text-cyan-300",
     tag: "tag-cyan",
+    glow: "hover:border-cyan-500/50 hover:shadow-cyan-500/10",
   },
   emerald: {
-    border: "border-emerald-500/30",
+    border: "border-emerald-500/40",
     bg: "bg-emerald-500/10",
     text: "text-emerald-300",
     tag: "tag-emerald",
+    glow: "hover:border-emerald-500/50 hover:shadow-emerald-500/10",
   },
 };
 
@@ -192,16 +195,14 @@ const Skills = () => {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="py-24 md:py-36 px-4 sm:px-6 overflow-hidden relative">
-      <div className="glow-cyan w-[500px] h-[400px] -left-60 top-1/2 -translate-y-1/2 opacity-20 absolute pointer-events-none" />
+    <section id="skills" className="py-24 px-4 sm:px-6 overflow-hidden relative">
+      <div className="glow-orb glow-cyan w-[500px] h-[500px] -left-48 top-1/2 -translate-y-1/2 opacity-30" />
 
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="mb-16 text-center reveal">
-          <p className="section-eyebrow justify-center mb-4">
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
+        <div className="mb-16 text-center">
+          <p className="section-eyebrow justify-center mb-3">
             Skills & tech stack
-            <span className="w-5 h-px bg-violet-400 rounded-full" />
           </p>
           <h2 className="section-heading">
             Tools I use to build{" "}
@@ -213,18 +214,18 @@ const Skills = () => {
         </div>
 
         {/* Category grid */}
-        <div className="grid gap-6 lg:grid-cols-3 reveal">
+        <div className="grid gap-6 lg:grid-cols-3">
           {categories.map((cat) => {
             const accent = accentMap[cat.accent];
             return (
               <div
                 key={cat.name}
-                className={`glass card-border rounded-2xl p-6 transition-all duration-300`}
+                className={`bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-7 transition-all duration-300 hover:border-slate-700 hover:shadow-2xl shadow-xl flex flex-col justify-between`}
               >
                 {/* Category header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-heading font-semibold text-white text-base">{cat.name}</h3>
-                  <span className={`tag ${accent.border} ${accent.bg} ${accent.text}`}>
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+                  <h3 className="font-bold text-white text-lg tracking-tight">{cat.name}</h3>
+                  <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${accent.border} ${accent.bg} ${accent.text}`}>
                     {cat.skills.length} tools
                   </span>
                 </div>
@@ -234,24 +235,23 @@ const Skills = () => {
                   {cat.skills.map((skill) => {
                     const isHov = hovered === skill.name;
                     return (
-                      <button
+                      <div
                         key={skill.name}
-                        type="button"
                         onMouseEnter={() => setHovered(skill.name)}
                         onMouseLeave={() => setHovered(null)}
-                        className={`skill-pill flex flex-col items-center gap-2 rounded-xl border p-3 text-center cursor-default transition-all duration-300 ${
+                        className={`flex flex-col items-center gap-2 rounded-2xl border p-3.5 text-center cursor-default transition-all duration-300 ${
                           isHov
-                            ? `${accent.border} ${accent.bg}`
-                            : "border-white/07 bg-white/03"
+                            ? `${accent.border} ${accent.bg} shadow-lg scale-[1.03]`
+                            : "border-slate-800/80 bg-slate-950/60 hover:border-slate-700"
                         }`}
                       >
-                        <div className={`transition-transform duration-300 ${isHov ? "scale-110" : ""}`}>
+                        <div className={`transition-transform duration-300 ${isHov ? "scale-115" : ""}`}>
                           {skill.icon}
                         </div>
-                        <span className={`text-[9px] font-semibold uppercase tracking-widest leading-tight ${isHov ? accent.text : "text-[#8892a4]"}`}>
+                        <span className={`text-[10px] font-semibold tracking-wide leading-tight ${isHov ? accent.text : "text-slate-400"}`}>
                           {skill.name}
                         </span>
-                      </button>
+                      </div>
                     );
                   })}
                 </div>

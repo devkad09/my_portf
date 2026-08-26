@@ -28,15 +28,15 @@ const REASONS = [
 ];
 
 const WhyHire = () => (
-  <section id="why-hire" className="py-20 px-4 sm:px-6 bg-[#f8fafc] border-y border-[#e2e8f0]">
-    <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+  <section id="why-hire" className="py-24 px-4 sm:px-6 relative border-y border-slate-800/60 bg-slate-950/40 backdrop-blur-md">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
       {/* Header */}
       <div className="mb-16 text-center space-y-4">
         <p className="section-eyebrow justify-center">
           Why Work With Me
         </p>
         <h2 className="section-heading">
-          Technical writing that drives <span className="text-[#2563eb]">developer adoption</span>
+          Technical writing that drives <span className="grad-violet-cyan">developer adoption</span>
         </h2>
         <p className="section-copy mx-auto max-w-2xl text-base sm:text-lg">
           I bridge the gap between complex software architecture and developer clarity with structured, intuitive documentation.
@@ -50,30 +50,30 @@ const WhyHire = () => (
           return (
             <div
               key={item.title}
-              className="bg-white border border-[#e2e8f0] rounded-3xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#bfdbfe]"
+              className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-slate-900/90 group"
             >
               <div className="flex flex-col justify-between h-full space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#eff6ff] border border-[#bfdbfe] flex items-center justify-center text-[#2563eb]">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:border-blue-400 transition-all shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]">
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-blue-950/70 text-blue-300 border border-blue-800/50">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-xl text-[#0f172a]">
+                  <h3 className="font-bold text-xl text-white group-hover:text-blue-300 transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-[#475569] leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#e2e8f0] flex items-center gap-2 text-xs font-semibold text-[#166534]">
-                  <CheckCircle2 className="w-4 h-4 text-[#166534] flex-shrink-0" />
+                <div className="pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs font-semibold text-emerald-400">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>Clear, accurate & developer-ready documentation guaranteed</span>
                 </div>
               </div>

@@ -46,15 +46,15 @@ const EXPERIENCES: WorkExperience[] = [
 ];
 
 const Experience = () => (
-  <section id="experience" className="py-24 px-4 sm:px-6 bg-[#f8fafc] border-y border-[#e2e8f0]">
-    <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+  <section id="experience" className="py-24 px-4 sm:px-6 relative border-y border-slate-800/60 bg-slate-950/40 backdrop-blur-md">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
       {/* Header */}
       <div className="mb-16 text-center space-y-4">
         <p className="section-eyebrow justify-center">
           Professional Path
         </p>
         <h2 className="section-heading">
-          Career experience & <span className="text-[#2563eb]">technical impact</span>
+          Career experience & <span className="grad-violet-cyan">technical impact</span>
         </h2>
         <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
           My experience in technical writing, developer documentation, and frontend engineering.
@@ -66,27 +66,27 @@ const Experience = () => (
         {EXPERIENCES.map((exp, index) => (
           <div
             key={index}
-            className="bg-white border border-[#e2e8f0] rounded-3xl p-8 shadow-md transition-all duration-300 hover:shadow-xl hover:border-[#bfdbfe]"
+            className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-slate-700"
           >
             <div className="space-y-6">
               {/* Top Row */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#e2e8f0] pb-5">
-                <div className="space-y-1">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div className="space-y-1.5">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe]">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-950/70 text-blue-300 border border-blue-800/50">
                       <Calendar className="w-3.5 h-3.5" />
                       {exp.period}
                     </span>
-                    <span className="text-xs font-semibold text-[#166534] bg-[#f0fdf4] px-2.5 py-0.5 rounded-full border border-[#bbf7d0]">
+                    <span className="text-xs font-semibold text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-800/50">
                       {exp.type}
                     </span>
                   </div>
-                  <h3 className="font-bold text-2xl text-[#0f172a] pt-2">{exp.role}</h3>
-                  <div className="flex items-center gap-2 text-sm text-[#475569]">
-                    <strong className="text-[#2563eb]">{exp.company}</strong>
+                  <h3 className="font-bold text-2xl text-white pt-2">{exp.role}</h3>
+                  <div className="flex items-center gap-2 text-sm text-slate-400">
+                    <strong className="text-blue-400">{exp.company}</strong>
                     <span>•</span>
-                    <span className="flex items-center gap-1 text-[#64748b]">
-                      <MapPin className="w-3.5 h-3.5 text-[#2563eb]" />
+                    <span className="flex items-center gap-1 text-slate-400">
+                      <MapPin className="w-3.5 h-3.5 text-blue-400" />
                       {exp.location}
                     </span>
                   </div>
@@ -94,13 +94,13 @@ const Experience = () => (
               </div>
 
               {/* Summary */}
-              <p className="text-base text-[#475569] leading-relaxed">
+              <p className="text-base text-slate-300 leading-relaxed">
                 {exp.summary}
               </p>
 
               {/* Tech Pills */}
-              <div className="space-y-2">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#64748b]">Technologies & Skillsets:</p>
+              <div className="space-y-2.5">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Technologies & Skillsets:</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.tech.map((t) => (
                     <span key={t} className="tag-gray">{t}</span>
@@ -111,9 +111,9 @@ const Experience = () => (
               {/* Checkmark Achievements Grid */}
               <div className="grid md:grid-cols-2 gap-3 pt-2">
                 {exp.achievements.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-[#f8fafc] border border-[#e2e8f0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#166534] flex-shrink-0 mt-0.5" />
-                    <span className="text-xs font-medium text-[#334155] leading-normal">{item}</span>
+                  <div key={idx} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-slate-950/50 border border-slate-800/80">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-xs font-medium text-slate-300 leading-normal">{item}</span>
                   </div>
                 ))}
               </div>
