@@ -7,6 +7,7 @@ interface Project {
   problem: string;
   solution: string;
   outcome: string;
+  image: string;
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
@@ -23,6 +24,7 @@ const PROJECTS: Project[] = [
       "Engineered a minimalist storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer with real-time state recalculation, and clean typography.",
     outcome:
       "Achieved 100/100 Core Web Vitals score, sub-second load times via code splitting, and WCAG 2.1 AA compliant keyboard navigation.",
+    image: "/nordhem.png",
     technologies: ["React 18", "TypeScript", "Tailwind CSS", "E-Commerce", "UI/UX"],
     liveUrl: "https://nordhem-blue.vercel.app",
     githubUrl: "https://github.com/devkad09/nordhem",
@@ -37,6 +39,7 @@ const PROJECTS: Project[] = [
       "Developed a modular form engine with Zod schema validation, accessible keyboard navigation, WCAG 2.1 compliance, and direct Web3Forms/Supabase data routing.",
     outcome:
       "Reduced form integration overhead by providing pre-built accessible components with automated error handling and fast database persistence.",
+    image: "/formflow.png",
     technologies: ["React", "TypeScript", "Supabase", "Zod", "A11y"],
     liveUrl: "https://formflow-olive.vercel.app",
     githubUrl: "https://github.com/devkad09/formflow",
@@ -51,6 +54,7 @@ const PROJECTS: Project[] = [
       "Designed a custom responsive web experience featuring an interactive digital menu browser, reservation form with real-time notifications, and high-performance asset optimization.",
     outcome:
       "Streamlined table bookings, increased mobile customer engagement, and achieved fast load times across all mobile screen sizes.",
+    image: "/mcsteeze.png",
     technologies: ["React", "Tailwind CSS", "Responsive Design", "UI/UX"],
     liveUrl: "https://mcsteeze-lounge.vercel.app",
     githubUrl: "https://github.com/devkad09/mcsteeze-lounge",
@@ -84,20 +88,21 @@ const Projects = () => {
               >
                 {/* Visual / Screenshot Showcase */}
                 <div className={isImageFirst ? "lg:order-1" : "lg:order-2"}>
-                  <div className="overflow-hidden rounded-[24px] lg:rounded-[28px] border border-line bg-canvas shadow-card group">
-                    <div className="aspect-[16/10] w-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative overflow-hidden">
-                      <div className="p-8 text-center space-y-3 w-full">
-                        <div className="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent/10 text-accent border border-accent/20">
-                          {project.title}
-                        </div>
-                        <h4 className="text-xl sm:text-2xl font-bold text-ink tracking-tight">
-                          {project.subtitle}
-                        </h4>
-                        <p className="text-xs text-ink-muted font-mono">
-                          Live Production Deployment
-                        </p>
-                      </div>
-                    </div>
+                  <div className="overflow-hidden rounded-[24px] lg:rounded-[28px] border border-line bg-canvas shadow-card group transition-all duration-300 hover:border-zinc-400 dark:hover:border-zinc-600">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block aspect-[16/10] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900 relative cursor-pointer"
+                      title={`Visit ${project.title}`}
+                    >
+                      <img
+                        src={project.image}
+                        alt={`${project.title} live interface preview`}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </a>
                   </div>
                 </div>
 
