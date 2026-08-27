@@ -73,7 +73,8 @@ const Contact = () => {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("deve.kad.tech@gmail.com");
     setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+    setTimeout(() => setCopiedEmail(false), 2500);
+    window.location.href = "mailto:deve.kad.tech@gmail.com";
   };
 
   return (
