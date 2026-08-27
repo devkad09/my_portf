@@ -5,7 +5,6 @@ import Skills from "@/components/Skills";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Experience from "@/components/Experience";
-import Education from "@/components/Education";
 import Writing from "@/components/Writing";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -24,7 +23,6 @@ const Index = () => (
       <Experience />
       <Services />
       <Process />
-      <Education />
       <Writing />
       <Contact />
     </main>
