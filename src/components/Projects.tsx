@@ -7,57 +7,53 @@ interface Project {
   problem: string;
   solution: string;
   outcome: string;
-  image: string;
   technologies: string[];
   liveUrl: string;
-  githubUrl?: string;
+  githubUrl: string;
 }
 
 const PROJECTS: Project[] = [
   {
     id: "nordhem",
     title: "Nordhem",
-    subtitle: "Scandinavian Minimalist E-Commerce & Lookbook",
+    subtitle: "Minimalist Scandinavian Apparel & E-Commerce",
     problem:
-      "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, interactive lookbooks, and zero page reloads on mobile connections.",
+      "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, curated lookbooks, and zero page reloads on mobile connections.",
     solution:
-      "Engineered a high-performance storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer, and clean Scandinavian typography.",
+      "Engineered a minimalist storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer with real-time state recalculation, and clean typography.",
     outcome:
       "Achieved 100/100 Core Web Vitals score, sub-second load times via code splitting, and WCAG 2.1 AA compliant keyboard navigation.",
-    image: "/nordhem.png",
-    technologies: ["React 18", "TypeScript", "Tailwind CSS", "State Management", "WCAG 2.1 AA"],
+    technologies: ["React 18", "TypeScript", "Tailwind CSS", "E-Commerce", "UI/UX"],
     liveUrl: "https://nordhem-blue.vercel.app",
-    githubUrl: "https://github.com/devkad09",
+    githubUrl: "https://github.com/devkad09/nordhem",
   },
   {
     id: "formflow",
-    title: "FormFlow Studio",
-    subtitle: "Dynamic Multi-Step Form & Workflow Engine",
+    title: "FormFlow",
+    subtitle: "Developer Multi-Step Form Engine & Data Router",
     problem:
-      "Teams needed custom interactive multi-step forms with live preview validation, conditional logic, and database persistence without building custom backend code from scratch.",
+      "Developer teams needed a streamlined, accessible way to create multi-step forms with schema validation, custom field architectures, and database persistence without building backend pipelines from scratch.",
     solution:
-      "Engineered an intuitive drag-and-drop form canvas with real-time schema generation, conditional field branching, and instant embed code export.",
+      "Developed a modular form engine with Zod schema validation, accessible keyboard navigation, WCAG 2.1 compliance, and direct Web3Forms/Supabase data routing.",
     outcome:
-      "Streamlined form creation workflows with instant live preview, validation rules, and exportable React form components.",
-    image: "/formflow.png",
-    technologies: ["React 18", "TypeScript", "Context API", "Tailwind CSS"],
-    liveUrl: "https://form-flow-one.vercel.app/",
-    githubUrl: "https://github.com/devkad09/FormFlow",
+      "Reduced form integration overhead by providing pre-built accessible components with automated error handling and fast database persistence.",
+    technologies: ["React", "TypeScript", "Supabase", "Zod", "A11y"],
+    liveUrl: "https://formflow-olive.vercel.app",
+    githubUrl: "https://github.com/devkad09/formflow",
   },
   {
-    id: "pulse",
-    title: "Pulse SaaS Dashboard",
-    subtitle: "Real-Time SaaS Analytics & KPI Visualization",
+    id: "mcsteeze",
+    title: "Mcsteeze Lounge",
+    subtitle: "Hospitality Brand Portal & Digital Menu Experience",
     problem:
-      "SaaS product managers required actionable analytics, retention cohort heatmaps, and revenue tracking without enterprise software clutter.",
+      "Hospitality businesses needed a modern, mobile-first brand portal with interactive digital menu browsing, reservation management, and fast mobile asset delivery.",
     solution:
-      "Built a data-dense, accessible analytics interface featuring reactive time-series charts (Recharts), conversion funnels, and filterable transaction tables.",
+      "Designed a custom responsive web experience featuring an interactive digital menu browser, reservation form with real-time notifications, and high-performance asset optimization.",
     outcome:
-      "Delivered responsive data visualization across mobile, tablet, and 4K displays with under 400ms rendering performance.",
-    image: "/pulse.png",
-    technologies: ["React", "TypeScript", "Recharts", "Tailwind CSS"],
-    liveUrl: "https://pulse-landing-three.vercel.app/",
-    githubUrl: "https://github.com/devkad09/pulse-landing",
+      "Streamlined table bookings, increased mobile customer engagement, and achieved fast load times across all mobile screen sizes.",
+    technologies: ["React", "Tailwind CSS", "Responsive Design", "UI/UX"],
+    liveUrl: "https://mcsteeze-lounge.vercel.app",
+    githubUrl: "https://github.com/devkad09/mcsteeze-lounge",
   },
 ];
 
@@ -72,7 +68,7 @@ const Projects = () => {
             Products designed for real use
           </h2>
           <p className="section-copy">
-            Featured projects developed from concept to deployment. Each began with a concrete problem and shipped with a measurable outcome.
+            Featured applications and tools developed from concept to deployment. Each began with a concrete problem and shipped with a measurable outcome.
           </p>
         </div>
 
