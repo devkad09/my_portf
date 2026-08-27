@@ -1,160 +1,475 @@
 import { useState } from "react";
-import { Send, CheckCircle2, Mail, Phone } from "lucide-react";
-import { GithubLogo, LinkedinLogo, GmailLogo } from "./SocialLogos";
+import { CheckCircle2, ArrowRight, ArrowLeft, Mail, Send, Sparkles } from "lucide-react";
+
+interface FormData {
+  fullName: string;
+  company: string;
+  email: string;
+  website: string;
+  projectType: string;
+  projectDescription: string;
+  stage: string;
+  timeline: string;
+  budget: string;
+  contactMethod: string[];
+  notes: string;
+}
+
+const initialFormData: FormData = {
+  fullName: "",
+  company: "",
+  email: "",
+  website: "",
+  projectType: "",
+  projectDescription: "",
+  stage: "",
+  timeline: "",
+  budget: "",
+  contactMethod: ["Email"],
+  notes: "",
+};
 
 const Contact = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const totalSteps = 5;
+  const progressPercent = Math.round(((currentStep - 1) / totalSteps) * 100);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckbox = (method: string) => {
+    setFormData((prev) => {
+      const exists = prev.contactMethod.includes(method);
+      return {
+        ...prev,
+        contactMethod: exists
+          ? prev.contactMethod.filter((m) => m !== method)
+          : [...prev.contactMethod, method],
+      };
+    });
+  };
+
+  const handleNext = () => {
+    if (currentStep < totalSteps) setCurrentStep((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    if (currentStep > 1) setCurrentStep((prev) => prev - 1);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1000);
+    setSubmitted(true);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("deve.kad.tech@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 relative border-t border-slate-800/60">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
+    <section
+      id="work-with-me"
+      className="relative overflow-hidden bg-canvas pb-28 pt-24 sm:pb-36 sm:pt-32"
+      aria-labelledby="work-with-me-heading"
+    >
+      {/* Background Watermark */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-8 select-none sm:top-10 lg:top-6"
+        aria-hidden="true"
+      >
+        <p className="mx-auto max-w-[1280px] px-4 text-center text-[clamp(3.5rem,14vw,11rem)] font-extrabold leading-[0.85] tracking-[0.04em] text-ink/[0.04] sm:tracking-[0.06em]">
+          WORK WITH ME
+        </p>
+      </div>
+
+      <div className="mx-auto w-full px-5 sm:px-8 lg:px-10 relative z-10 max-w-[1280px]">
         {/* Header */}
-        <div className="mb-16 text-center space-y-4">
-          <p className="section-eyebrow justify-center">
-            Let's Connect
-          </p>
-          <h2 className="section-heading">
-            Get in touch & <span className="text-blue-400">collaborate</span>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="section-eyebrow justify-center">Available for select projects</p>
+          <h2
+            id="work-with-me-heading"
+            className="text-[clamp(2.25rem,4.2vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.045em] text-ink"
+          >
+            Have a product to build? Let's talk.
           </h2>
-          <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
-            Have a technical writing project, documentation inquiry, or engineering opportunity? Drop me a message below.
-          </p>
+          <div className="mx-auto mt-6 max-w-xl space-y-4 text-base sm:text-lg leading-[1.7] text-ink-muted">
+            <p>
+              Ready to build your next web application or technical documentation system? Complete the consultation form below to get started.
+            </p>
+            <p>
+              For direct inquiries:{" "}
+              <button
+                onClick={handleCopyEmail}
+                className="text-ink font-semibold underline underline-offset-4 decoration-accent hover:text-accent cursor-pointer transition-colors"
+              >
+                {copiedEmail ? "Copied deve.kad.tech@gmail.com!" : "deve.kad.tech@gmail.com"}
+              </button>
+            </p>
+          </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-start">
-          {/* LEFT — Info & Brand Links */}
-          <div className="bento-card space-y-8">
-            <div>
-              <h3 className="font-bold text-2xl text-slate-900 dark:text-white">Contact Information</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
-                Reach out via email, LinkedIn, or GitHub. I typically respond within 24 hours.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <a
-                href="mailto:deve.kad.tech@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-red-300 hover:bg-red-50/50 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-red-500/40 dark:hover:bg-slate-950"
-              >
-                <div className="w-11 h-11 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-red-600 group-hover:scale-105 transition-transform dark:bg-red-500/10 dark:border-red-500/30 dark:text-red-400">
-                  <GmailLogo className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Direct Email</p>
-                  <p className="text-sm font-semibold text-slate-900 group-hover:text-red-600 transition-colors dark:text-white dark:group-hover:text-red-400">deve.kad.tech@gmail.com</p>
-                </div>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/kaddev"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-blue-500/40 dark:hover:bg-slate-950"
-              >
-                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:scale-105 transition-transform dark:bg-blue-500/10 dark:border-blue-500/30 dark:text-blue-400">
-                  <LinkedinLogo className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">LinkedIn Profile</p>
-                  <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors dark:text-white dark:group-hover:text-blue-400">linkedin.com/in/kaddev</p>
-                </div>
-              </a>
-
-              <a
-                href="https://github.com/devkad09"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-slate-600 dark:hover:bg-slate-950"
-              >
-                <div className="w-11 h-11 rounded-xl bg-slate-200 border border-slate-300 flex items-center justify-center text-slate-800 group-hover:scale-105 transition-transform dark:bg-slate-800 dark:border-slate-700 dark:text-white">
-                  <GithubLogo className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">GitHub Organization</p>
-                  <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors dark:text-white dark:group-hover:text-blue-300">github.com/devkad09</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* RIGHT — Form */}
-          <div className="bento-card">
+        {/* Consultation Form Card */}
+        <div
+          id="consultation"
+          className="mx-auto mt-14 max-w-[850px] scroll-mt-28 lg:mt-18"
+          aria-labelledby="consultation-heading"
+        >
+          <div className="rounded-[24px] border border-line bg-surface px-6 py-10 shadow-soft sm:px-10 sm:py-12 lg:px-12 lg:py-14">
             {submitted ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center mx-auto text-emerald-600 shadow-sm dark:bg-emerald-950/80 dark:border-emerald-500/40 dark:text-emerald-400">
+              <div className="text-center py-12 space-y-5">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="font-bold text-2xl text-slate-900 dark:text-white">Message Sent Successfully!</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto">
-                  Thank you for reaching out. I'll review your inquiry and get back to you within 24 hours.
+                <h3 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+                  Consultation Request Received
+                </h3>
+                <p className="text-base sm:text-lg text-ink-muted max-w-md mx-auto leading-relaxed">
+                  Thank you, <strong>{formData.fullName || "friend"}</strong>. Your project details have been received and will be reviewed personally within 24 hours.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="btn-outline text-xs py-2.5 px-5 mt-4 cursor-pointer"
-                >
-                  Send Another Message
-                </button>
+                <div className="pt-4">
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setCurrentStep(1);
+                      setFormData(initialFormData);
+                    }}
+                    className="btn-secondary text-sm"
+                  >
+                    Submit another inquiry
+                  </button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Your Name</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Alex Smith"
-                    className="form-input"
-                  />
+              <div>
+                {/* Progress Bar Header */}
+                <div className="space-y-3 mb-10">
+                  <div className="flex items-center justify-between text-[13px] text-ink-muted">
+                    <span className="font-medium uppercase tracking-wider text-accent text-xs">
+                      Step {currentStep} of {totalSteps}
+                    </span>
+                    <span aria-live="polite" className="font-mono text-xs">
+                      {progressPercent}% completed
+                    </span>
+                  </div>
+                  <div
+                    className="h-1.5 w-full overflow-hidden rounded-full bg-line"
+                    role="progressbar"
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={progressPercent}
+                  >
+                    <div
+                      className="h-full rounded-full bg-accent transition-all duration-300 ease-out"
+                      style={{ width: `${progressPercent}%` }}
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Your Email</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="alex@company.com"
-                    className="form-input"
-                  />
-                </div>
+                <form onSubmit={handleSubmit} className="space-y-10">
+                  {/* Step 1: About You */}
+                  {currentStep === 1 && (
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                          About You
+                        </h3>
+                        <p className="text-xs text-ink-muted mt-1">Let's start with who you are.</p>
+                      </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Project Category / Subject</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Technical Documentation / API Specifications"
-                    className="form-input"
-                  />
-                </div>
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">
+                            Full Name <span className="text-accent">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="fullName"
+                            required
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            placeholder="Alex Morgan"
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          />
+                        </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Message Details</label>
-                  <textarea
-                    required
-                    rows={4}
-                    placeholder="Tell me about your project goals, deliverables, or timeline..."
-                    className="form-input resize-none"
-                  />
-                </div>
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Company / Brand</label>
+                          <input
+                            type="text"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            placeholder="Acme Labs"
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          />
+                        </div>
+                      </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="btn-primary w-full justify-center text-sm py-4 cursor-pointer"
-                >
-                  {loading ? "Sending Message..." : <>Send Message <Send className="w-4 h-4" /></>}
-                </button>
-              </form>
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">
+                            Email <span className="text-accent">*</span>
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="alex@acmelabs.com"
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Website</label>
+                          <input
+                            type="text"
+                            name="website"
+                            value={formData.website}
+                            onChange={handleChange}
+                            placeholder="acmelabs.com"
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 2: Project */}
+                  {currentStep === 2 && (
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                          Project Details
+                        </h3>
+                        <p className="text-xs text-ink-muted mt-1">What are we building together?</p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[14px] font-medium text-ink">
+                          What would you like to build? <span className="text-accent">*</span>
+                        </label>
+                        <select
+                          name="projectType"
+                          required
+                          value={formData.projectType}
+                          onChange={handleChange}
+                          className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                        >
+                          <option value="">Select a project type</option>
+                          <option value="Frontend Web Application">Frontend Web Application (React / Next.js)</option>
+                          <option value="Technical Documentation & API Specs">Technical Documentation & API Specs</option>
+                          <option value="SaaS Dashboard & Analytics">SaaS Dashboard & Analytics</option>
+                          <option value="Design System & Component Library">Design System & Component Library</option>
+                          <option value="Other">Other / Full Consultation</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[14px] font-medium text-ink">
+                          Describe your project <span className="text-accent">*</span>
+                        </label>
+                        <textarea
+                          name="projectDescription"
+                          required
+                          rows={4}
+                          value={formData.projectDescription}
+                          onChange={handleChange}
+                          placeholder="Describe the problem you're solving, who the users are, and what success looks like."
+                          className="w-full rounded-[14px] border border-line bg-canvas p-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 3: Scope & Stage */}
+                  {currentStep === 3 && (
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                          Current Stage
+                        </h3>
+                        <p className="text-xs text-ink-muted mt-1">Where is the product right now?</p>
+                      </div>
+
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Project Stage</label>
+                          <select
+                            name="stage"
+                            value={formData.stage}
+                            onChange={handleChange}
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          >
+                            <option value="">Select a stage</option>
+                            <option value="Idea / Concept">Idea / Concept</option>
+                            <option value="Design Mockups Ready">Design Mockups Ready (Figma)</option>
+                            <option value="Existing Codebase (Refactor/Scale)">Existing Codebase (Refactor/Scale)</option>
+                            <option value="Live in Production">Live in Production (Docs & Features)</option>
+                          </select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Target Users</label>
+                          <select
+                            name="timeline"
+                            value={formData.timeline}
+                            onChange={handleChange}
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          >
+                            <option value="">Select user scale</option>
+                            <option value="Early-stage (< 100 users)">Early-stage (&lt; 100 users)</option>
+                            <option value="Growing (100 - 5,000 users)">Growing (100 - 5,000 users)</option>
+                            <option value="Scale (5,000+ users)">Scale (5,000+ users)</option>
+                            <option value="Internal Enterprise Team">Internal Enterprise Team</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 4: Timeline & Budget */}
+                  {currentStep === 4 && (
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                          Timeline & Budget
+                        </h3>
+                        <p className="text-xs text-ink-muted mt-1">Alignment on delivery expectations.</p>
+                      </div>
+
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Desired Timeline</label>
+                          <select
+                            name="timeline"
+                            value={formData.timeline}
+                            onChange={handleChange}
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          >
+                            <option value="">Select a timeline</option>
+                            <option value="Immediately (< 2 weeks)">Immediately (&lt; 2 weeks)</option>
+                            <option value="1 - 2 Months">1 - 2 Months</option>
+                            <option value="3+ Months">3+ Months</option>
+                            <option value="Flexible">Flexible</option>
+                          </select>
+                        </div>
+
+                        <div className="space-y-2">
+                          <label className="text-[14px] font-medium text-ink">Estimated Budget Range</label>
+                          <select
+                            name="budget"
+                            value={formData.budget}
+                            onChange={handleChange}
+                            className="w-full h-14 rounded-[14px] border border-line bg-canvas px-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                          >
+                            <option value="">Select a range</option>
+                            <option value="Under $1,000">Under $1,000</option>
+                            <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                            <option value="$3,000 - $8,000">$3,000 - $8,000</option>
+                            <option value="$8,000+">$8,000+</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Step 5: Communication & Final Notes */}
+                  {currentStep === 5 && (
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-xl sm:text-[22px] font-semibold tracking-[-0.02em] text-ink">
+                          Communication
+                        </h3>
+                        <p className="text-xs text-ink-muted mt-1">How would you prefer to connect?</p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[14px] font-medium text-ink">Preferred Contact Method</label>
+                        <div className="grid gap-3 sm:grid-cols-3">
+                          {["Email", "Google Meet", "Zoom"].map((method) => {
+                            const isChecked = formData.contactMethod.includes(method);
+                            return (
+                              <label
+                                key={method}
+                                onClick={() => handleCheckbox(method)}
+                                className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-[14px] border px-4 transition-all ${
+                                  isChecked
+                                    ? "border-accent bg-accent/5 text-ink font-semibold"
+                                    : "border-line bg-canvas text-ink-muted"
+                                }`}
+                              >
+                                <input
+                                  type="checkbox"
+                                  checked={isChecked}
+                                  onChange={() => {}}
+                                  className="h-4 w-4 rounded text-accent focus:ring-accent"
+                                />
+                                <span className="text-[15px]">{method}</span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[14px] font-medium text-ink">Additional Notes</label>
+                        <textarea
+                          name="notes"
+                          rows={3}
+                          value={formData.notes}
+                          onChange={handleChange}
+                          placeholder="Anything else you'd like me to know before we talk."
+                          className="w-full rounded-[14px] border border-line bg-canvas p-4 text-base text-ink shadow-none focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 transition-all"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Form Step Buttons */}
+                  <div className="flex items-center justify-between border-t border-line pt-8 gap-4">
+                    {currentStep > 1 ? (
+                      <button
+                        type="button"
+                        onClick={handlePrev}
+                        className="btn-secondary h-12 px-5 text-sm"
+                      >
+                        <ArrowLeft className="w-4 h-4" /> Back
+                      </button>
+                    ) : (
+                      <div />
+                    )}
+
+                    {currentStep < totalSteps ? (
+                      <button
+                        type="button"
+                        onClick={handleNext}
+                        className="btn-primary h-12 px-6 text-sm"
+                      >
+                        Next Step <ArrowRight className="w-4 h-4" />
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="btn-primary h-12 px-8 text-sm"
+                      >
+                        Request Consultation <Send className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                </form>
+              </div>
             )}
           </div>
         </div>
