@@ -15,25 +15,11 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: "formgrid",
-    title: "Formgrid.dev",
-    subtitle: "AI Form Builder & Headless Endpoints Documentation",
-    problem:
-      "Developers and businesses needed form backends without vendor lock-in, opaque data practices, or building custom servers for every site, with no way to follow up on submissions without a separate CRM.",
-    solution:
-      "Authored the complete REST API documentation suite (/api/f/:id), developer portals, integration guides for Next.js and static sites, and documented the AI Lead Pipeline (New → Contacted → Converted).",
-    outcome:
-      "Helped onboard 400+ registered users and paying customers across three continents with 2-minute live setups and frictionless developer adoption.",
-    image: "/formgrid.png",
-    technologies: ["React", "TypeScript", "REST APIs", "Documentation Systems", "Tailwind CSS"],
-    liveUrl: "https://formgrid.dev",
-  },
-  {
     id: "nordhem",
     title: "Nordhem",
     subtitle: "Scandinavian Minimalist E-Commerce & Lookbook",
     problem:
-      "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce experience with instant product filtering, lookbooks, and zero page reloads on mobile networks.",
+      "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, interactive lookbooks, and zero page reloads on mobile connections.",
     solution:
       "Engineered a high-performance storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer, and clean Scandinavian typography.",
     outcome:
@@ -48,11 +34,11 @@ const PROJECTS: Project[] = [
     title: "FormFlow Studio",
     subtitle: "Dynamic Multi-Step Form & Workflow Engine",
     problem:
-      "Teams needed custom interactive multi-step forms with live preview validation, conditional logic, and database persistence without building custom backend code.",
+      "Teams needed custom interactive multi-step forms with live preview validation, conditional logic, and database persistence without building custom backend code from scratch.",
     solution:
       "Engineered an intuitive drag-and-drop form canvas with real-time schema generation, conditional field branching, and instant embed code export.",
     outcome:
-      "Streamlined form creation workflows with instant live preview and exportable React form components.",
+      "Streamlined form creation workflows with instant live preview, validation rules, and exportable React form components.",
     image: "/formflow.png",
     technologies: ["React 18", "TypeScript", "Context API", "Tailwind CSS"],
     liveUrl: "https://form-flow-one.vercel.app/",
@@ -86,7 +72,7 @@ const Projects = () => {
             Products designed for real use
           </h2>
           <p className="section-copy">
-            Featured projects. Each began with a concrete problem and shipped with a measurable business outcome.
+            Featured projects developed from concept to deployment. Each began with a concrete problem and shipped with a measurable outcome.
           </p>
         </div>
 
@@ -104,7 +90,6 @@ const Projects = () => {
                 <div className={isImageFirst ? "lg:order-1" : "lg:order-2"}>
                   <div className="overflow-hidden rounded-[24px] lg:rounded-[28px] border border-line bg-canvas shadow-card group">
                     <div className="aspect-[16/10] w-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative overflow-hidden">
-                      {/* Fallback preview container if static image is loading */}
                       <div className="p-8 text-center space-y-3 w-full">
                         <div className="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent/10 text-accent border border-accent/20">
                           {project.title}
