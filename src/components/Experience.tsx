@@ -1,7 +1,10 @@
+import { Briefcase, ExternalLink, Sparkles, CheckCircle2, Calendar, MapPin } from "lucide-react";
+
 interface ExperienceItem {
   role: string;
   company: string;
   companyUrl?: string;
+  badge: string;
   location: string;
   period: string;
   problem: string;
@@ -11,9 +14,10 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    role: "Technical Writer",
+    role: "Technical Writer & Documentation Architect",
     company: "Formgrid.dev",
     companyUrl: "https://formgrid.dev",
+    badge: "Core Documentation Lead",
     location: "Remote",
     period: "2026 – Present",
     problem:
@@ -24,7 +28,8 @@ const EXPERIENCES: ExperienceItem[] = [
   },
   {
     role: "Frontend Developer",
-    company: "Freelance / Client Projects",
+    company: "Freelance & Client Engineering",
+    badge: "20+ Shipped Deliverables",
     location: "Remote",
     period: "2023 – Present",
     problem:
@@ -37,90 +42,101 @@ const EXPERIENCES: ExperienceItem[] = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 sm:py-32 bg-surface" aria-labelledby="experience-heading">
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10">
+    <section id="experience" className="py-24 sm:py-32 relative overflow-hidden" aria-labelledby="experience-heading">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="mb-16 max-w-3xl">
-          <p className="section-eyebrow">Experience</p>
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <p className="section-eyebrow justify-center">
+            <Sparkles className="w-4 h-4" />
+            <span>Proven Track Record</span>
+          </p>
           <h2 id="experience-heading" className="section-heading">
-            Impact over job titles
+            Engineering experience & <span className="text-emerald-600 dark:text-emerald-400">measurable impact</span>
           </h2>
-          <p className="section-copy">
-            Roles framed by the problem solved and the business outcome, not a stack dump.
+          <p className="section-copy mx-auto">
+            Real roles defined by business outcomes, architecture decisions, and software shipped to production.
           </p>
         </div>
 
-        {/* Experience Case Cards */}
-        <div className="space-y-6">
+        {/* Experience Timeline Cards */}
+        <div className="space-y-8">
           {EXPERIENCES.map((exp) => (
             <article
               key={`${exp.company}-${exp.role}`}
-              className="rounded-[24px] border border-line bg-canvas p-8 sm:p-10 shadow-soft"
+              className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300 shadow-xl"
             >
-              {/* Header row */}
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-ink">
-                    {exp.role}
-                  </h3>
-                  <p className="mt-1 text-base sm:text-lg text-ink-muted">
+              {/* Header Row */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-line/60">
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">
+                      {exp.role}
+                    </h3>
+                    <span className="px-3 py-0.5 rounded-full text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      {exp.badge}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm text-ink-muted">
                     {exp.companyUrl ? (
                       <a
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-medium text-ink hover:text-accent underline underline-offset-4 decoration-line transition-colors"
+                        className="font-semibold text-ink hover:text-emerald-500 transition-colors flex items-center gap-1"
                       >
-                        {exp.company}
+                        <span>{exp.company}</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     ) : (
-                      <span className="font-medium text-ink">{exp.company}</span>
+                      <span className="font-semibold text-ink">{exp.company}</span>
                     )}
-                    <span className="text-ink-muted/50"> · </span>
-                    {exp.location}
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-emerald-500" />
+                      {exp.location}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-2 border border-line text-xs font-mono text-ink-muted self-start sm:self-auto">
+                  <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>{exp.period}</span>
+                </div>
+              </div>
+
+              {/* Problem vs Outcome */}
+              <div className="mt-6 grid gap-6 lg:grid-cols-2">
+                <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
+                  <p className="text-xs font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+                    The Challenge & Need:
+                  </p>
+                  <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
+                    {exp.problem}
                   </p>
                 </div>
 
-                <p className="text-sm font-medium text-ink-muted font-mono">
-                  {exp.period}
-                </p>
+                <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
+                  <p className="text-xs font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+                    Business Outcome & Delivery:
+                  </p>
+                  <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
+                    {exp.outcome}
+                  </p>
+                </div>
               </div>
 
-              {/* Problem vs Outcome Grid */}
-              <dl className="mt-8 grid gap-6 lg:grid-cols-2">
-                <div>
-                  <dt className="text-[13px] font-medium uppercase tracking-[0.12em] text-accent">
-                    Problem solved
-                  </dt>
-                  <dd className="mt-2.5 text-[16px] sm:text-[17px] leading-[1.65] text-ink-muted">
-                    {exp.problem}
-                  </dd>
-                </div>
-
-                <div>
-                  <dt className="text-[13px] font-medium uppercase tracking-[0.12em] text-accent">
-                    Business outcome & Delivery
-                  </dt>
-                  <dd className="mt-2.5 text-[16px] sm:text-[17px] leading-[1.65] text-ink-muted">
-                    {exp.outcome}
-                  </dd>
-                </div>
-              </dl>
-
-              {/* Technologies / Competencies List */}
-              <ul
-                className="mt-7 flex flex-wrap gap-2 border-t border-line/60 pt-6"
-                aria-label={`Technologies used at ${exp.company}`}
-              >
-                {exp.technologies.map((tech) => (
-                  <li
-                    key={tech}
-                    className="rounded-full border border-line bg-surface px-3.5 py-1 text-xs sm:text-sm text-ink-muted"
+              {/* Technologies */}
+              <div className="mt-6 pt-5 border-t border-line/60 flex flex-wrap gap-2">
+                {exp.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1 rounded-lg text-xs font-mono text-ink-muted bg-surface-2 border border-line"
                   >
-                    {tech}
-                  </li>
+                    {t}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </article>
           ))}
         </div>

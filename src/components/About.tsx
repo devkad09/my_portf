@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileText, Download } from "lucide-react";
+import { FileText, Sparkles, MapPin, CheckCircle2, Send, Download } from "lucide-react";
 import ResumeModal from "./ResumeModal";
 
 const About = () => {
@@ -7,39 +7,51 @@ const About = () => {
 
   return (
     <>
-      <section id="about" className="relative bg-canvas py-24 sm:py-32" aria-labelledby="about-heading">
-        <div className="mx-auto w-full px-5 sm:px-8 lg:px-10 max-w-[1280px]">
-          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 xl:gap-[4.5rem]">
-            {/* Left: Framed Portrait */}
-            <div className="relative mx-auto w-full max-w-[480px] lg:mx-0 lg:max-w-none">
-              <div className="overflow-hidden rounded-[24px] border border-line bg-surface shadow-card">
-                <img
-                  src="/profile.jpg"
-                  alt="Kelvin Atsu Djayouri"
-                  className="aspect-[4/5] h-auto w-full object-cover"
-                  loading="lazy"
-                />
+      <section id="about" className="py-24 sm:py-32 relative overflow-hidden" aria-labelledby="about-heading">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            {/* Left: Framed Portrait with Neon Accents */}
+            <div className="relative mx-auto w-full max-w-[420px] lg:mx-0">
+              <div className="relative rounded-3xl overflow-hidden glass-panel border-emerald-500/30 p-2 shadow-2xl">
+                <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-surface-2 relative">
+                  <img
+                    src="/profile.jpg"
+                    alt="Kelvin Atsu Djayouri - Frontend Developer and Technical Writer"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-slate-950/90 p-5 text-white">
+                    <p className="font-display font-bold text-lg">Kelvin Atsu Djayouri</p>
+                    <p className="text-xs text-emerald-400 font-mono">Frontend Developer & Technical Writer</p>
+                    <p className="text-[11px] text-slate-300 flex items-center gap-1 mt-1">
+                      <MapPin className="w-3 h-3 text-emerald-400" />
+                      <span>Accra, Ghana (GMT+0) • Remote Global</span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Right: Narrative Story & Academic Background */}
-            <div className="min-w-0 lg:pt-4">
-              <p className="section-eyebrow">About</p>
-              <h2
-                id="about-heading"
-                className="max-w-xl text-[clamp(2.25rem,4.2vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.045em] text-ink"
-              >
-                I build from Ghana. The products get used everywhere.
-              </h2>
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="section-eyebrow">
+                  <Sparkles className="w-4 h-4" />
+                  <span>The Background</span>
+                </p>
+                <h2 id="about-heading" className="section-heading">
+                  Building from Ghana. <span className="text-emerald-600 dark:text-emerald-400">Products used worldwide.</span>
+                </h2>
+              </div>
 
-              <div className="mt-7 max-w-xl space-y-5 text-base sm:text-lg leading-[1.7] text-ink-muted">
+              <div className="space-y-4 text-sm sm:text-base leading-relaxed text-ink-muted">
                 <p>
                   I've spent over 3 years developing responsive web applications and creating clear technical documentation systems. Currently, as a Technical Writer at{" "}
                   <a
                     href="https://formgrid.dev"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-ink font-semibold underline underline-offset-4 decoration-accent hover:text-accent transition-colors"
+                    className="text-ink font-semibold underline underline-offset-4 decoration-emerald-500 hover:text-emerald-500 transition-colors"
                   >
                     Formgrid.dev
                   </a>
@@ -53,33 +65,30 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Skills & Tools Tags */}
-              <div className="mt-8 pt-6 border-t border-line">
-                <p className="text-xs font-bold uppercase tracking-wider text-ink-muted mb-3">
-                  Core Technologies & Tools
+              {/* Technologies Pills */}
+              <div className="pt-2 space-y-3">
+                <p className="text-xs font-mono uppercase font-bold text-ink tracking-wider">
+                  Core Engineering & Tooling Stack:
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "HTML5",
-                    "CSS3",
-                    "JavaScript (ES6+)",
-                    "TypeScript",
                     "React 18",
+                    "TypeScript",
                     "Tailwind CSS",
                     "Next.js",
                     "Vite",
                     "Node.js",
                     "REST APIs",
-                    "Responsive Web Design",
-                    "Git & GitHub",
-                    "MS Office Suite",
-                    "Technical Writing",
+                    "Supabase",
                     "WCAG 2.1 AA",
+                    "axe DevTools",
+                    "Technical Writing",
                     "Figma",
+                    "Git / GitHub",
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-line bg-surface px-3 py-1 text-xs sm:text-sm text-ink-muted"
+                      className="px-3 py-1 rounded-lg text-xs font-mono bg-surface-2 border border-line text-ink-muted"
                     >
                       {tech}
                     </span>
@@ -87,16 +96,17 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              {/* CTA Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-3.5">
                 <a href="#work-with-me" className="btn-primary">
-                  Work with Me
+                  <Send className="w-4 h-4" />
+                  <span>Work with Me</span>
                 </a>
                 <button
                   onClick={() => setIsResumeOpen(true)}
-                  className="btn-secondary flex items-center gap-2 cursor-pointer"
+                  className="btn-secondary"
                 >
-                  <FileText className="w-4 h-4" />
+                  <FileText className="w-4 h-4 text-emerald-500" />
                   <span>View Full CV</span>
                 </button>
               </div>

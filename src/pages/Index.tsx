@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
@@ -12,18 +13,19 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
 const Index = () => (
-  <div className="relative min-h-screen overflow-x-hidden bg-canvas text-ink transition-colors duration-200">
+  <div className="relative min-h-screen overflow-x-hidden bg-canvas text-ink transition-colors duration-300">
     <Navbar />
 
     <main id="main" className="relative z-10">
       <Hero />
-      <Services />
+      <About />
       <Projects />
-      <Process />
+      <Skills />
       <Experience />
+      <Services />
+      <Process />
       <Education />
       <Writing />
-      <About />
       <Contact />
     </main>
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,29 +6,31 @@
 
 @layer base {
   :root {
-    --canvas: #ffffff;
-    --surface: #f8f9fa;
-    --surface-hover: #f1f3f5;
-    --ink: #09090b;
-    --ink-muted: #52525b;
-    --line: #e4e4e7;
-    --line-subtle: #f4f4f5;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --accent-light: #eff6ff;
+    --canvas: #f8fafc;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --surface-hover: #e2e8f0;
+    --ink: #090d16;
+    --ink-muted: #64748b;
+    --line: #e2e8f0;
+    --line-subtle: #f1f5f9;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --accent-light: #ecfdf5;
   }
 
   .dark {
-    --canvas: #09090b;
-    --surface: #121215;
-    --surface-hover: #18181c;
-    --ink: #fafafa;
-    --ink-muted: #a1a1aa;
-    --line: #27272a;
-    --line-subtle: #18181b;
-    --accent: #3b82f6;
-    --accent-hover: #2563eb;
-    --accent-light: #172554;
+    --canvas: #08090e;
+    --surface: #0f111a;
+    --surface-2: #161926;
+    --surface-hover: #1c2030;
+    --ink: #f8fafc;
+    --ink-muted: #94a3b8;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-subtle: rgba(255, 255, 255, 0.04);
+    --accent: #10b981;
+    --accent-hover: #34d399;
+    --accent-light: rgba(16, 185, 129, 0.15);
   }
 
   html {
@@ -54,17 +56,12 @@
   }
 
   ::selection {
-    background-color: rgba(37, 99, 235, 0.15);
-    color: #1d4ed8;
-  }
-
-  .dark ::selection {
-    background-color: rgba(59, 130, 246, 0.3);
-    color: #93c5fd;
+    background-color: rgba(16, 185, 129, 0.25);
+    color: #34d399;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
     letter-spacing: -0.035em;
     color: var(--ink);
   }
@@ -86,13 +83,13 @@
     border-radius: 4px;
   }
   .dark ::-webkit-scrollbar-thumb {
-    background: #27272a;
+    background: #1e2433;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
   }
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
+    background: #333d54;
   }
 }
 
@@ -102,6 +99,9 @@
   }
   .bg-surface {
     background-color: var(--surface);
+  }
+  .bg-surface-2 {
+    background-color: var(--surface-2);
   }
   .text-ink {
     color: var(--ink);
@@ -119,41 +119,58 @@
     color: var(--accent);
   }
 
-  .shadow-card {
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  /* Glassmorphism Panels without Gradients */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
   }
-  .shadow-soft {
-    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  }
-  .dark .shadow-card, .dark .shadow-soft {
-    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  .dark .glass-panel {
+    background: rgba(15, 17, 26, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+  .dark .glass-card {
+    background: rgba(15, 17, 26, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  /* Typography / Section Tokens */
   .section-eyebrow {
-    @apply mb-4 text-[13px] font-medium uppercase tracking-[0.14em] text-accent;
+    @apply inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400;
   }
 
   .section-heading {
-    @apply text-[clamp(2.25rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.045em] text-ink;
+    @apply font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-ink;
   }
 
   .section-copy {
-    @apply mt-5 text-lg sm:text-xl leading-[1.7] text-ink-muted max-w-3xl;
+    @apply mt-5 text-base sm:text-lg leading-[1.75] text-ink-muted max-w-2xl;
   }
 
+  /* Solid Clean Button Tokens */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:translate-y-px bg-accent text-white hover:bg-blue-700 h-14 rounded-[14px] px-7 text-base shadow-sm;
+    @apply relative inline-flex items-center justify-center gap-2.5 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 active:scale-[0.98] bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20 h-12 rounded-2xl px-7 text-sm font-semibold cursor-pointer;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:translate-y-px border border-line bg-surface text-ink hover:border-zinc-400 hover:bg-canvas h-14 rounded-[14px] px-7 text-base dark:hover:border-zinc-600;
+    @apply inline-flex items-center justify-center gap-2.5 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 active:scale-[0.98] border border-line bg-surface text-ink hover:border-emerald-500/50 hover:bg-surface-hover h-12 rounded-2xl px-6 text-sm backdrop-blur-md cursor-pointer;
   }
 
   .bento-card {
-    @apply rounded-[24px] border border-line bg-surface p-8 sm:p-10 shadow-soft transition-all duration-200;
-  }
-
-  .tag-gray {
-    @apply inline-flex items-center rounded-full border border-line bg-canvas px-3.5 py-1.5 text-xs sm:text-sm text-ink-muted;
+    @apply rounded-3xl border border-line bg-surface p-8 sm:p-10 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-emerald-500/40;
   }
 }

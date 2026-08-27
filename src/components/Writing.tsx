@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, BookOpen, Sparkles, Clock, Calendar } from "lucide-react";
 
 interface Article {
   title: string;
@@ -12,7 +12,7 @@ interface Article {
 const ARTICLES: Article[] = [
   {
     title: "Building Headless Form Endpoints That Scale: Lessons from Formgrid.dev",
-    tag: "api-design",
+    tag: "API Architecture",
     readTime: "6 min read",
     date: "Aug 2026",
     description:
@@ -21,7 +21,7 @@ const ARTICLES: Article[] = [
   },
   {
     title: "Achieving 100/100 Core Web Vitals in Modern React & TypeScript SPAs",
-    tag: "performance",
+    tag: "Web Performance",
     readTime: "8 min read",
     date: "Aug 2026",
     description:
@@ -30,7 +30,7 @@ const ARTICLES: Article[] = [
   },
   {
     title: "WCAG 2.1 AA Compliance with axe DevTools: Beyond Basic Semantic HTML",
-    tag: "accessibility",
+    tag: "Accessibility",
     readTime: "7 min read",
     date: "Jul 2026",
     description:
@@ -39,7 +39,7 @@ const ARTICLES: Article[] = [
   },
   {
     title: "Why Developer Documentation is a Frontend Engineering Problem",
-    tag: "documentation",
+    tag: "Documentation",
     readTime: "5 min read",
     date: "Jun 2026",
     description:
@@ -50,60 +50,73 @@ const ARTICLES: Article[] = [
 
 const Writing = () => {
   return (
-    <section id="writing" className="py-24 sm:py-32 bg-canvas" aria-labelledby="writing-heading">
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10">
+    <section id="writing" className="py-24 sm:py-32 relative overflow-hidden" aria-labelledby="writing-heading">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="mb-16 max-w-3xl">
-          <p className="section-eyebrow">Writing</p>
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <p className="section-eyebrow justify-center">
+            <Sparkles className="w-4 h-4" />
+            <span>Technical Publications</span>
+          </p>
           <h2 id="writing-heading" className="section-heading">
-            Notes from the work
+            Engineering insights & <span className="text-emerald-600 dark:text-emerald-400">documentation</span>
           </h2>
-          <p className="section-copy">
-            Working notes on frontend systems, API design, accessibility, and documentation architecture.
+          <p className="section-copy mx-auto">
+            Working notes on frontend systems, API design, accessibility, and developer documentation architecture.
           </p>
         </div>
 
         {/* Articles Grid */}
-        <ul className="grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="grid gap-6 md:grid-cols-2">
           {ARTICLES.map((article) => (
-            <li key={article.title} className="h-full">
-              <article className="flex h-full flex-col rounded-[24px] border border-line bg-surface p-7 sm:p-8 shadow-soft justify-between">
-                <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="rounded-md bg-zinc-200/70 dark:bg-zinc-800 px-2.5 py-1 text-[11px] font-mono font-medium uppercase tracking-[0.08em] text-ink">
-                      {article.tag}
+            <article
+              key={article.title}
+              className="rounded-3xl glass-card p-6 sm:p-8 border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between group relative overflow-hidden"
+            >
+
+              <div className="relative z-10 space-y-4">
+                {/* Meta Top Row */}
+                <div className="flex items-center justify-between gap-3 pb-3 border-b border-line/60">
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    {article.tag}
+                  </span>
+                  <div className="flex items-center gap-2 text-xs font-mono text-ink-muted">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-emerald-500" />
+                      {article.readTime}
                     </span>
-                    <p className="shrink-0 text-right text-[13px] text-ink-muted">
-                      {article.readTime} • {article.date}
-                    </p>
+                    <span>•</span>
+                    <span>{article.date}</span>
                   </div>
-
-                  <h3 className="mt-5 text-[1.4rem] sm:text-[1.65rem] font-bold leading-[1.2] tracking-[-0.03em] text-ink hover:text-accent transition-colors">
-                    <a href={article.url} target="_blank" rel="noopener noreferrer">
-                      {article.title}
-                    </a>
-                  </h3>
-
-                  <p className="mt-3 text-[15px] leading-[1.7] text-ink-muted">
-                    {article.description}
-                  </p>
                 </div>
 
-                <div className="mt-8 flex justify-end">
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 font-medium bg-ink text-canvas hover:opacity-90 h-10 rounded-[12px] px-4 text-sm transition-all"
-                  >
-                    Read article
-                    <ArrowUpRight className="w-4 h-4" />
+                {/* Article Headline */}
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-ink group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                  <a href={article.url} target="_blank" rel="noopener noreferrer">
+                    {article.title}
                   </a>
-                </div>
-              </article>
-            </li>
+                </h3>
+
+                <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+                  {article.description}
+                </p>
+              </div>
+
+              {/* Action Link */}
+              <div className="relative z-10 mt-6 pt-4 border-t border-line/60 flex items-center justify-end">
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 group-hover:text-teal-500 transition-colors"
+                >
+                  <span>Read Article</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </article>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
