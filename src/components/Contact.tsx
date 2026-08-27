@@ -24,19 +24,19 @@ const Contact = () => {
             Let's Connect
           </p>
           <h2 className="section-heading">
-            Get in touch & <span className="grad-violet-cyan">collaborate</span>
+            Get in touch & <span className="text-blue-400">collaborate</span>
           </h2>
           <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
             Have a technical writing project, documentation inquiry, or engineering opportunity? Drop me a message below.
           </p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] items-start">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-start">
           {/* LEFT — Info & Brand Links */}
-          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 shadow-xl space-y-8">
+          <div className="bento-card space-y-8">
             <div>
-              <h3 className="font-bold text-2xl text-white">Contact Information</h3>
-              <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+              <h3 className="font-bold text-2xl text-slate-900 dark:text-white">Contact Information</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                 Reach out via email, LinkedIn, or GitHub. I typically respond within 24 hours.
               </p>
             </div>
@@ -44,14 +44,14 @@ const Contact = () => {
             <div className="space-y-4">
               <a
                 href="mailto:deve.kad.tech@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-red-500/40 hover:bg-slate-950 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-red-300 hover:bg-red-50/50 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-red-500/40 dark:hover:bg-slate-950"
               >
-                <div className="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-red-600 group-hover:scale-105 transition-transform dark:bg-red-500/10 dark:border-red-500/30 dark:text-red-400">
                   <GmailLogo className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Direct Email</p>
-                  <p className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">deve.kad.tech@gmail.com</p>
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Direct Email</p>
+                  <p className="text-sm font-semibold text-slate-900 group-hover:text-red-600 transition-colors dark:text-white dark:group-hover:text-red-400">deve.kad.tech@gmail.com</p>
                 </div>
               </a>
 
@@ -59,14 +59,14 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/kaddev"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-blue-500/40 hover:bg-slate-950 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-blue-500/40 dark:hover:bg-slate-950"
               >
-                <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:scale-105 transition-transform dark:bg-blue-500/10 dark:border-blue-500/30 dark:text-blue-400">
                   <LinkedinLogo className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">LinkedIn Profile</p>
-                  <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">linkedin.com/in/kaddev</p>
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">LinkedIn Profile</p>
+                  <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors dark:text-white dark:group-hover:text-blue-400">linkedin.com/in/kaddev</p>
                 </div>
               </a>
 
@@ -74,33 +74,33 @@ const Contact = () => {
                 href="https://github.com/devkad09"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-slate-600 hover:bg-slate-950 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all group dark:bg-slate-950/60 dark:border-slate-800/80 dark:hover:border-slate-600 dark:hover:bg-slate-950"
               >
-                <div className="w-11 h-11 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                <div className="w-11 h-11 rounded-xl bg-slate-200 border border-slate-300 flex items-center justify-center text-slate-800 group-hover:scale-105 transition-transform dark:bg-slate-800 dark:border-slate-700 dark:text-white">
                   <GithubLogo className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">GitHub Organization</p>
-                  <p className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">github.com/devkad09</p>
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">GitHub Organization</p>
+                  <p className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors dark:text-white dark:group-hover:text-blue-300">github.com/devkad09</p>
                 </div>
               </a>
             </div>
           </div>
 
           {/* RIGHT — Form */}
-          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-8 shadow-xl">
+          <div className="bento-card">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-500/20">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center mx-auto text-emerald-600 shadow-sm dark:bg-emerald-950/80 dark:border-emerald-500/40 dark:text-emerald-400">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="font-bold text-2xl text-white">Message Sent Successfully!</h3>
-                <p className="text-sm text-slate-400 max-w-sm mx-auto">
+                <h3 className="font-bold text-2xl text-slate-900 dark:text-white">Message Sent Successfully!</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto">
                   Thank you for reaching out. I'll review your inquiry and get back to you within 24 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="btn-outline text-xs py-2.5 px-5 mt-4"
+                  className="btn-outline text-xs py-2.5 px-5 mt-4 cursor-pointer"
                 >
                   Send Another Message
                 </button>
@@ -108,7 +108,7 @@ const Contact = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Your Name</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Your Name</label>
                   <input
                     type="text"
                     required
@@ -118,7 +118,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Your Email</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Your Email</label>
                   <input
                     type="email"
                     required
@@ -128,7 +128,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Project Category / Subject</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Project Category / Subject</label>
                   <input
                     type="text"
                     required
@@ -138,7 +138,7 @@ const Contact = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-300">Message Details</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Message Details</label>
                   <textarea
                     required
                     rows={4}

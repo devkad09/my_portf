@@ -92,15 +92,9 @@ const ExpressIcon = () => (
 
 const ViteIcon = () => (
   <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
-    <path d="M22.1 2.2L12.5 21.6 2.9 2.2h19.2z" fill="url(#vg)" />
+    <path d="M22.1 2.2L12.5 21.6 2.9 2.2h19.2z" fill="#41D1FF" />
     <path d="M19.8 1.5L12 17.1 4.2 1.5h15.6z" fill="#BD34FE" />
     <path d="M12.5 6L11 11h3.5L11.5 18l5-8.5H13l1-3.5z" fill="#FFD600" />
-    <defs>
-      <linearGradient id="vg" x1="2.9" y1="2.2" x2="22.1" y2="2.2" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#41D1FF" />
-        <stop offset="1" stopColor="#BD34FE" />
-      </linearGradient>
-    </defs>
   </svg>
 );
 
@@ -130,64 +124,128 @@ const RestIcon = () => (
   </svg>
 );
 
+const FigmaIcon = () => (
+  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+    <path d="M8 24c2.2 0 4-1.8 4-4v-4H8c-2.2 0-4 1.8-4 4s1.8 4 4 4z" fill="#0ACF83" />
+    <path d="M4 12c0-2.2 1.8-4 4-4h4v8H8c-2.2 0-4-1.8-4-4z" fill="#A259FF" />
+    <path d="M4 4c0-2.2 1.8-4 4-4h4v8H8C5.8 8 4 6.2 4 4z" fill="#F24E1E" />
+    <path d="M12 0h4c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4V0z" fill="#FF7262" />
+    <path d="M20 12c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4 4 1.8 4 4z" fill="#1ABCFE" />
+  </svg>
+);
+
+const DocIcon = () => (
+  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="16" y1="13" x2="8" y2="13" />
+    <line x1="16" y1="17" x2="8" y2="17" />
+    <polyline points="10 9 9 9 8 9" />
+  </svg>
+);
+
+const AccessibilityIcon = () => (
+  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="4" r="2" />
+    <path d="M4 9h16" />
+    <path d="M12 9v12" />
+    <path d="M6.5 17.5l5.5-3.5 5.5 3.5" />
+  </svg>
+);
+
+const ComponentIcon = () => (
+  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+    <path d="M2 17l10 5 10-5" />
+    <path d="M2 12l10 5 10-5" />
+  </svg>
+);
+
+const MicrosoftOfficeIcon = () => (
+  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="9.5" height="9.5" rx="1.5" fill="#F25022" />
+    <rect x="12.5" y="2" width="9.5" height="9.5" rx="1.5" fill="#7FBA00" />
+    <rect x="2" y="12.5" width="9.5" height="9.5" rx="1.5" fill="#00A4EF" />
+    <rect x="12.5" y="12.5" width="9.5" height="9.5" rx="1.5" fill="#FFB900" />
+  </svg>
+);
+
 const categories = [
   {
-    name: "Frontend",
+    name: "Frontend Development",
     accent: "violet",
     skills: [
-      { name: "React", icon: <ReactIcon /> },
+      { name: "React 18", icon: <ReactIcon /> },
       { name: "TypeScript", icon: <TSIcon /> },
-      { name: "Next.js", icon: <NextjsIcon /> },
       { name: "JavaScript", icon: <JSIcon /> },
       { name: "Tailwind CSS", icon: <TailwindIcon /> },
-      { name: "HTML5", icon: <HTMLIcon /> },
-      { name: "CSS3", icon: <CSSIcon /> },
-      { name: "Redux", icon: <ReduxIcon /> },
+      { name: "Next.js", icon: <NextjsIcon /> },
       { name: "Vite", icon: <ViteIcon /> },
+      { name: "Context API", icon: <ReduxIcon /> },
+      { name: "HTML5 / CSS3", icon: <HTMLIcon /> },
     ],
   },
   {
-    name: "Backend",
+    name: "Backend & APIs",
     accent: "cyan",
     skills: [
       { name: "Node.js", icon: <NodeIcon /> },
-      { name: "Express", icon: <ExpressIcon /> },
-      { name: "MongoDB", icon: <MongoIcon /> },
-      { name: "Firebase", icon: <FirebaseIcon /> },
       { name: "REST APIs", icon: <RestIcon /> },
+      { name: "MongoDB", icon: <MongoIcon /> },
+      { name: "Express", icon: <ExpressIcon /> },
     ],
   },
   {
-    name: "Workflow",
+    name: "Tools & Standards",
     accent: "emerald",
     skills: [
-      { name: "Git", icon: <GitIcon /> },
-      { name: "GitHub", icon: <GithubIcon /> },
+      { name: "Git & GitHub", icon: <GithubIcon /> },
+      { name: "Figma", icon: <FigmaIcon /> },
+      { name: "MS Office Suite", icon: <MicrosoftOfficeIcon /> },
+      { name: "WCAG 2.1 A11y", icon: <AccessibilityIcon /> },
+      { name: "Core Web Vitals", icon: <RestIcon /> },
+    ],
+  },
+  {
+    name: "Technical Writing & Systems",
+    accent: "blue",
+    skills: [
+      { name: "Technical Writing", icon: <DocIcon /> },
+      { name: "Doc Systems", icon: <DocIcon /> },
+      { name: "Component Libraries", icon: <ComponentIcon /> },
+      { name: "Responsive Design", icon: <ComponentIcon /> },
     ],
   },
 ];
 
 const accentMap: Record<string, { border: string; bg: string; text: string; tag: string; glow: string }> = {
   violet: {
-    border: "border-indigo-500/40",
-    bg: "bg-indigo-500/10",
-    text: "text-indigo-300",
+    border: "border-indigo-200 dark:border-indigo-500/40",
+    bg: "bg-indigo-50 dark:bg-indigo-500/10",
+    text: "text-indigo-700 dark:text-indigo-300",
     tag: "tag-violet",
-    glow: "hover:border-indigo-500/50 hover:shadow-indigo-500/10",
+    glow: "hover:border-indigo-400 dark:hover:border-indigo-500/50",
   },
   cyan: {
-    border: "border-cyan-500/40",
-    bg: "bg-cyan-500/10",
-    text: "text-cyan-300",
+    border: "border-cyan-200 dark:border-cyan-500/40",
+    bg: "bg-cyan-50 dark:bg-cyan-500/10",
+    text: "text-cyan-700 dark:text-cyan-300",
     tag: "tag-cyan",
-    glow: "hover:border-cyan-500/50 hover:shadow-cyan-500/10",
+    glow: "hover:border-cyan-400 dark:hover:border-cyan-500/50",
   },
   emerald: {
-    border: "border-emerald-500/40",
-    bg: "bg-emerald-500/10",
-    text: "text-emerald-300",
+    border: "border-emerald-200 dark:border-emerald-500/40",
+    bg: "bg-emerald-50 dark:bg-emerald-500/10",
+    text: "text-emerald-700 dark:text-emerald-300",
     tag: "tag-emerald",
-    glow: "hover:border-emerald-500/50 hover:shadow-emerald-500/10",
+    glow: "hover:border-emerald-400 dark:hover:border-emerald-500/50",
+  },
+  blue: {
+    border: "border-blue-200 dark:border-blue-500/40",
+    bg: "bg-blue-50 dark:bg-blue-500/10",
+    text: "text-blue-700 dark:text-blue-300",
+    tag: "tag-blue",
+    glow: "hover:border-blue-400 dark:hover:border-blue-500/50",
   },
 };
 
@@ -200,38 +258,37 @@ const Skills = () => {
 
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="section-eyebrow justify-center mb-3">
-            Skills & tech stack
+        <div className="mb-16 text-center space-y-4">
+          <p className="section-eyebrow justify-center">
+            Skills & Tech Stack
           </p>
           <h2 className="section-heading">
-            Tools I use to build{" "}
-            <span className="grad-violet-cyan">great products</span>
+            Tools I use to build <span className="text-blue-600 dark:text-blue-400">accessible & scalable software</span>
           </h2>
-          <p className="section-copy mx-auto max-w-xl mt-4">
-            A curated set of technologies I rely on daily — from frontend architecture to backend systems and developer workflows.
+          <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
+            A curated set of technologies I rely on daily — from React component systems to technical documentation.
           </p>
         </div>
 
         {/* Category grid */}
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat) => {
             const accent = accentMap[cat.accent];
             return (
               <div
                 key={cat.name}
-                className={`bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-7 transition-all duration-300 hover:border-slate-700 hover:shadow-2xl shadow-xl flex flex-col justify-between`}
+                className="bento-card flex flex-col justify-between"
               >
                 {/* Category header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-                  <h3 className="font-bold text-white text-lg tracking-tight">{cat.name}</h3>
-                  <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${accent.border} ${accent.bg} ${accent.text}`}>
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+                  <h3 className="font-bold text-slate-900 dark:text-white text-base tracking-tight">{cat.name}</h3>
+                  <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${accent.border} ${accent.bg} ${accent.text}`}>
                     {cat.skills.length} tools
                   </span>
                 </div>
 
                 {/* Skills */}
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-2.5">
                   {cat.skills.map((skill) => {
                     const isHov = hovered === skill.name;
                     return (
@@ -239,16 +296,16 @@ const Skills = () => {
                         key={skill.name}
                         onMouseEnter={() => setHovered(skill.name)}
                         onMouseLeave={() => setHovered(null)}
-                        className={`flex flex-col items-center gap-2 rounded-2xl border p-3.5 text-center cursor-default transition-all duration-300 ${
+                        className={`flex flex-col items-center gap-2 rounded-2xl border p-3 text-center cursor-default transition-all duration-200 ${
                           isHov
-                            ? `${accent.border} ${accent.bg} shadow-lg scale-[1.03]`
-                            : "border-slate-800/80 bg-slate-950/60 hover:border-slate-700"
+                            ? `${accent.border} ${accent.bg} shadow-md scale-[1.03]`
+                            : "border-slate-200 bg-slate-50 hover:border-slate-300 dark:border-slate-800/80 dark:bg-slate-950/60 dark:hover:border-slate-700"
                         }`}
                       >
-                        <div className={`transition-transform duration-300 ${isHov ? "scale-115" : ""}`}>
+                        <div className={`transition-transform duration-200 ${isHov ? "scale-110" : ""}`}>
                           {skill.icon}
                         </div>
-                        <span className={`text-[10px] font-semibold tracking-wide leading-tight ${isHov ? accent.text : "text-slate-400"}`}>
+                        <span className={`text-[10px] font-semibold tracking-wide leading-tight ${isHov ? accent.text : "text-slate-600 dark:text-slate-400"}`}>
                           {skill.name}
                         </span>
                       </div>

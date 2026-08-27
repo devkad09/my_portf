@@ -10,39 +10,54 @@ const COMMANDS: Record<string, React.ReactNode> = {
   whoami: (
     <div className="space-y-1 text-violet-300">
       <p>👨‍💻 <strong className="text-white">Kelvin Atsu Djayouri (KadDev)</strong></p>
-      <p className="text-xs text-[#8892a4]">Technical Writer at Formgrid.</p>
-      <p className="text-xs text-[#8892a4]">Specializing in developer documentation, API specifications, component guides & technical communication.</p>
+      <p className="text-xs text-cyan-300 font-semibold">Frontend Developer | Technical Writer | Information Technology</p>
+      <p className="text-xs text-[#8892a4]">Technical Writer at <a href="https://formgrid.dev" target="_blank" rel="noreferrer" className="text-blue-400 underline">Formgrid.dev</a> & Freelance Frontend Engineer. Ghana • Remote Ready.</p>
+    </div>
+  ),
+  formgrid: (
+    <div className="space-y-1.5 text-xs text-[#8892a4]">
+      <p>⚡ <strong className="text-white">Formgrid (formgrid.dev) — AI Form Builder & Lead Pipeline</strong></p>
+      <p>• Authored the complete REST API documentation & headless HTML endpoint reference (<code className="text-blue-400">/api/f/:id</code>).</p>
+      <p>• Build and maintain modern component libraries and supporting documentation systems.</p>
+      <p>• Documented the AI Lead Pipeline, automated stage tracking (New → Contacted → Converted), and email follow-up reminders.</p>
+      <p>🔗 <a href="https://formgrid.dev" target="_blank" rel="noreferrer" className="text-cyan-400 underline">https://formgrid.dev</a> · <a href="https://github.com/allenarduino/formgrid" target="_blank" rel="noreferrer" className="text-emerald-400 underline">GitHub Open Source</a></p>
     </div>
   ),
   skills: (
     <div className="grid grid-cols-2 gap-2 text-xs">
-      <div><span className="text-cyan-400 font-bold">Writing & Docs:</span> Technical Documentation, API References, User Guides, Markdown</div>
-      <div><span className="text-violet-400 font-bold">Tech Stack:</span> React, TypeScript, Next.js, Vite, Tailwind CSS, REST APIs</div>
-      <div><span className="text-emerald-400 font-bold">Systems:</span> Component Libraries, Design Systems, WCAG A11y</div>
-      <div><span className="text-amber-400 font-bold">Tools:</span> Git, GitHub, VS Code, Figma, Postman</div>
+      <div><span className="text-cyan-400 font-bold">Frontend:</span> React 18, TypeScript, JavaScript, Tailwind CSS, Context API, Recharts</div>
+      <div><span className="text-violet-400 font-bold">Backend & APIs:</span> Node.js, REST APIs, MongoDB, Express</div>
+      <div><span className="text-emerald-400 font-bold">Tools & Standards:</span> Git, Figma, MS Office Suite, WCAG 2.1 A11y, Core Web Vitals</div>
+      <div><span className="text-amber-400 font-bold">Technical Writing:</span> Documentation Systems, Component Libraries, Responsive Design</div>
     </div>
   ),
   projects: (
     <div className="space-y-1.5 text-xs">
       <p>🚀 <strong className="text-white">Selected Works:</strong></p>
-      <p>• <span className="text-cyan-300">Aurora E-Commerce:</span> Premium storefront with faceted search</p>
-      <p>• <span className="text-emerald-300">Connect Analytics:</span> SaaS data visualization dashboard</p>
+      <p>• <span className="text-cyan-300">Nordhem:</span> Minimalist Scandinavian apparel & e-commerce</p>
       <p>• <span className="text-violet-300">FormFlow:</span> Dynamic form & workflow builder with Supabase</p>
+      <p>• <span className="text-indigo-300">Mcsteeze Lounge:</span> Hospitality & brand showcase platform</p>
       <p>• <span className="text-amber-300">Pulse Landing:</span> High-conversion SaaS landing experience</p>
+    </div>
+  ),
+  nordhem: (
+    <div className="space-y-1 text-xs">
+      <p>🛍️ <strong className="text-white">Nordhem — Minimalist E-Commerce</strong></p>
+      <p className="text-[#8892a4]">Scandinavian fashion label with lookbooks, catalog filtering & reactive cart.</p>
+      <p>🔗 <a href="https://nordhem-blue.vercel.app" target="_blank" rel="noreferrer" className="text-cyan-400 underline">https://nordhem-blue.vercel.app</a></p>
     </div>
   ),
   contact: (
     <div className="space-y-1 text-xs text-[#8892a4]">
-      <p>📧 <strong className="text-white">Email:</strong> <a href="mailto:deve.kad.tech@gmail.com" className="text-violet-400 underline">deve.kad.tech@gmail.com</a></p>
+      <p>📧 <strong className="text-white">Email:</strong> <a href="mailto:deve.kad.tech@gmail.com" className="text-blue-400 underline">deve.kad.tech@gmail.com</a></p>
       <p>💼 <strong className="text-white">LinkedIn:</strong> <a href="https://www.linkedin.com/in/kaddev" target="_blank" rel="noreferrer" className="text-cyan-400 underline">@kaddev</a></p>
       <p>💻 <strong className="text-white">GitHub:</strong> <a href="https://github.com/devkad09" target="_blank" rel="noreferrer" className="text-emerald-400 underline">@devkad09</a></p>
-      <p>📱 <strong className="text-white">WhatsApp:</strong> <a href="https://wa.me/233592921133" target="_blank" rel="noreferrer" className="text-amber-400 underline">+233 59 292 1133</a></p>
     </div>
   ),
   hire: (
-    <div className="p-3 rounded-lg bg-violet-500/10 border border-violet-500/20 text-xs space-y-1">
-      <p className="text-emerald-400 font-bold">🟢 Status: Available for freelance & full-time opportunities!</p>
-      <p className="text-white">Ready to turn your product vision into high-performance web software.</p>
+    <div className="p-3 rounded-lg bg-blue-950/40 border border-blue-800/40 text-xs space-y-1">
+      <p className="text-emerald-400 font-bold">🟢 Status: Available for Technical Writing & Frontend Contracts</p>
+      <p className="text-slate-300">Ready to author clean documentation systems, API specifications, and polished React applications.</p>
     </div>
   ),
 };
@@ -115,11 +130,11 @@ const DevTerminal = () => {
 
         {/* Command Pill Shortcuts */}
         <div className="flex flex-wrap gap-2 pt-1 font-sans">
-          {["whoami", "skills", "projects", "contact", "hire", "clear"].map((cmd) => (
+          {["whoami", "formgrid", "skills", "projects", "nordhem", "contact", "hire", "clear"].map((cmd) => (
             <button
               key={cmd}
               onClick={() => runCommand(cmd)}
-              className="px-2.5 py-1 rounded-md bg-white/05 border border-white/10 text-xs text-[#8892a4] hover:text-violet-300 hover:border-violet-500/30 hover:bg-violet-500/10 transition-all duration-150 flex items-center gap-1"
+              className="px-2.5 py-1 rounded-md bg-white/05 border border-white/10 text-xs text-[#8892a4] hover:text-blue-300 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-150 flex items-center gap-1 cursor-pointer"
             >
               <Play className="w-2.5 h-2.5 text-cyan-400" /> {cmd}
             </button>

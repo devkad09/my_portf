@@ -9,15 +9,10 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => (
-  <div className="relative min-h-screen overflow-x-hidden bg-[#060913] text-slate-100">
-    {/* Global ambient background lighting */}
-    <div className="dot-grid fixed inset-0 opacity-40 pointer-events-none z-0" />
-    <div className="glow-orb glow-blue w-[700px] h-[700px] -top-48 -left-48" />
-    <div className="glow-orb glow-purple w-[600px] h-[600px] top-[35%] -right-48" />
-    <div className="glow-orb glow-cyan w-[650px] h-[650px] bottom-[20%] -left-48" />
-
+  <div className="relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-[#060913] dark:text-slate-100 transition-colors duration-200">
     <Navbar />
 
     <main className="relative z-10">
@@ -33,6 +28,7 @@ const Index = () => (
     </main>
 
     <Footer />
+    <BackToTop />
   </div>
 );
 

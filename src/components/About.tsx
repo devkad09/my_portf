@@ -3,51 +3,63 @@ import DevTerminal from "./DevTerminal";
 const About = () => (
   <section id="about" className="py-24 px-4 sm:px-6 relative">
     <div className="container mx-auto max-w-6xl px-4 sm:px-6 relative z-10">
-      {/* Header */}
-      <div className="mb-16 space-y-3">
-        <p className="section-eyebrow">
+      {/* Section Header */}
+      <div className="mb-16 text-center space-y-4">
+        <p className="section-eyebrow justify-center">
           About Me
         </p>
-        <h2 className="section-heading max-w-2xl">
-          Technical Writer & <span className="grad-violet-cyan">Software Communicator</span>
+        <h2 className="section-heading">
+          Frontend Developer & <span className="text-blue-600 dark:text-blue-400">Technical Writer</span>
         </h2>
+        <p className="section-copy mx-auto max-w-xl text-base sm:text-lg">
+          Building responsive, accessible web applications and authoring developer documentation systems.
+        </p>
       </div>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] items-start">
-        {/* LEFT — Bio text */}
-        <div className="space-y-8">
-          <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-xl shadow-lg">
-            <div className="w-16 h-16 rounded-2xl p-0.5 bg-gradient-to-br from-blue-500 to-indigo-600 flex-shrink-0 shadow-md shadow-blue-500/20">
+      <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start">
+        {/* LEFT — Bio text & Aligned Picture Card */}
+        <div className="space-y-6">
+          {/* Profile & About Intro Card */}
+          <div className="bento-card p-6 sm:p-7 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+            <div className="relative flex-shrink-0">
               <img
                 src="/profile.jpg"
                 alt="Kelvin Atsu Djayouri"
-                className="w-full h-full rounded-[14px] object-cover"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border-2 border-blue-500/30 shadow-md"
               />
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full shadow-sm" title="Online" />
             </div>
-            <div>
-              <h3 className="font-bold text-base text-white">Kelvin Atsu Djayouri</h3>
-              <p className="text-xs text-blue-400 font-semibold">Technical Writer & Developer Advocate</p>
-              <p className="text-xs text-slate-400 mt-0.5">Accra, Ghana · Remote Worldwide</p>
+
+            <div className="space-y-2 text-center sm:text-left flex-1">
+              <div className="space-y-1">
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white">Kelvin Atsu Djayouri</h3>
+                <p className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-semibold">Frontend Developer | Technical Writer</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Ghana · Remote Ready · Formgrid.dev</p>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                Technical Writer at <a href="https://formgrid.dev" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-semibold underline hover:no-underline">Formgrid.dev</a> and freelance frontend engineer with 3+ years of experience.
+              </p>
             </div>
           </div>
 
-          <div className="space-y-5 text-slate-300 leading-relaxed">
-            <p className="text-base sm:text-lg">
-              I'm a Technical Writer at <strong className="text-white font-semibold">Formgrid</strong> specializing in developer documentation, API specifications, and component guides. I bridge the gap between complex software architecture and developer clarity.
+          {/* Narrative Bio */}
+          <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-base">
+            <p>
+              I have 3+ years of professional experience developing responsive, high-performance web applications and creating clear technical documentation. Experienced in React, TypeScript, JavaScript, Tailwind CSS, REST APIs, and modern frontend practices.
             </p>
-            <p className="text-base sm:text-lg text-slate-400">
-              Over 3 years, I've worked across technical documentation systems, component libraries, and React/TypeScript codebases. My sweet spot is distilling sophisticated API concepts and design systems into clear, actionable guides.
+            <p className="text-slate-500 dark:text-slate-400">
+              At <a href="https://formgrid.dev" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-semibold underline hover:no-underline">Formgrid.dev</a>, I build and maintain modern component libraries, develop clean reusable components, and create clear technical documentation for developer workflows.
             </p>
-            <p className="text-base sm:text-lg text-slate-400">
-              At Formgrid, I craft developer docs, API specs, and component standards that help teams build better software faster.
+            <p className="text-slate-500 dark:text-slate-400">
+              I have a strong background in reusable component systems, accessible interfaces (tested with axe DevTools for WCAG 2.1 AA compliance), and data-driven dashboards with a focus on maintainable solutions and user experience.
             </p>
           </div>
 
           {/* Quick tags */}
-          <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Core Competencies & Tools:</p>
+          <div className="space-y-3 pt-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Core Competencies & Tools:</p>
             <div className="flex flex-wrap gap-2">
-              {["Technical Writing", "Developer Docs", "API Specs", "Markdown", "React", "TypeScript", "Design Systems", "Figma"].map((tech) => (
+              {["React 18", "TypeScript", "JavaScript", "Tailwind CSS", "Context API", "Recharts", "Node.js", "REST APIs", "Technical Writing", "Component Libraries", "WCAG 2.1", "Figma", "Microsoft Office"].map((tech) => (
                 <span key={tech} className="tag-gray">{tech}</span>
               ))}
             </div>
@@ -62,7 +74,7 @@ const About = () => (
               href="https://github.com/devkad09"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-blue-400 hover:text-blue-300 hover:underline"
+              className="text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 hover:underline"
             >
               View GitHub Profile →
             </a>
@@ -70,13 +82,7 @@ const About = () => (
         </div>
 
         {/* RIGHT — Terminal / Interactive Card */}
-        <div className="bg-slate-950/90 rounded-3xl p-6 shadow-2xl border border-slate-800 backdrop-blur-xl">
-          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-800">
-            <span className="w-3 h-3 rounded-full bg-red-500/80" />
-            <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-            <span className="ml-2 text-xs font-mono text-slate-400">kaddev-cli — zsh</span>
-          </div>
+        <div className="rounded-3xl shadow-xl border border-slate-200 bg-slate-950 overflow-hidden dark:border-slate-800 dark:shadow-2xl sticky top-28">
           <DevTerminal />
         </div>
       </div>
