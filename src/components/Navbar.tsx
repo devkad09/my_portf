@@ -32,7 +32,7 @@ const Navbar = () => {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-200 ${
           isScrolled
-            ? "border-b border-line bg-canvas/90 backdrop-blur-md shadow-sm"
+            ? "border-b border-zinc-200/80 bg-white/90 dark:border-zinc-800/80 dark:bg-[#09090b]/90 backdrop-blur-md shadow-sm"
             : "border-b border-transparent bg-transparent"
         }`}
       >

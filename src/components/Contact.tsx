@@ -84,10 +84,10 @@ const Contact = () => {
     >
       {/* Background Watermark */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-8 select-none sm:top-10 lg:top-6"
+        className="pointer-events-none absolute inset-x-0 top-8 select-none sm:top-10 lg:top-6 overflow-hidden"
         aria-hidden="true"
       >
-        <p className="mx-auto max-w-[1280px] px-4 text-center text-[clamp(3.5rem,14vw,11rem)] font-extrabold leading-[0.85] tracking-[0.04em] text-ink/[0.04] sm:tracking-[0.06em]">
+        <p className="mx-auto max-w-[1280px] px-4 text-center text-[clamp(3.5rem,14vw,11rem)] font-extrabold leading-[0.85] tracking-[0.04em] text-slate-900/[0.04] dark:text-white/[0.04] sm:tracking-[0.06em]">
           WORK WITH ME
         </p>
       </div>
