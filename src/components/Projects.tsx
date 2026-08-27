@@ -4,6 +4,7 @@ interface Project {
   id: string;
   title: string;
   subtitle: string;
+  status?: string;
   problem: string;
   solution: string;
   outcome: string;
@@ -18,6 +19,7 @@ const PROJECTS: Project[] = [
     id: "nordhem",
     title: "Nordhem",
     subtitle: "Minimalist Scandinavian Apparel & E-Commerce",
+    status: "Live Deployment",
     problem:
       "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, curated lookbooks, and zero page reloads on mobile connections.",
     solution:
@@ -33,12 +35,13 @@ const PROJECTS: Project[] = [
     id: "formflow",
     title: "FormFlow",
     subtitle: "Developer Multi-Step Form Engine & Data Router",
+    status: "In Active Development",
     problem:
       "Developer teams needed a streamlined, accessible way to create multi-step forms with schema validation, custom field architectures, and database persistence without building backend pipelines from scratch.",
     solution:
-      "Developed a modular form engine with Zod schema validation, accessible keyboard navigation, WCAG 2.1 compliance, and direct Web3Forms/Supabase data routing.",
+      "Developing a modular form engine with Zod schema validation, accessible keyboard navigation, WCAG 2.1 compliance, and direct Web3Forms/Supabase data routing.",
     outcome:
-      "Reduced form integration overhead by providing pre-built accessible components with automated error handling and fast database persistence.",
+      "Actively iterating on dynamic validation rules, live preview generation, and exportable React form components.",
     image: "/formflow.png",
     technologies: ["React", "TypeScript", "Supabase", "Zod", "A11y"],
     liveUrl: "https://formflow-olive.vercel.app",
@@ -48,6 +51,7 @@ const PROJECTS: Project[] = [
     id: "mcsteeze",
     title: "Mcsteeze Lounge",
     subtitle: "Hospitality Brand Portal & Digital Menu Experience",
+    status: "Live Deployment",
     problem:
       "Hospitality businesses needed a modern, mobile-first brand portal with interactive digital menu browsing, reservation management, and fast mobile asset delivery.",
     solution:
@@ -108,9 +112,26 @@ const Projects = () => {
 
                 {/* Structured Narrative: Problem, Solution, Outcome */}
                 <div className={`max-w-xl ${isImageFirst ? "lg:order-2" : "lg:order-1"}`}>
-                  <h3 className="text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-[-0.03em] text-ink">
-                    {project.title}
-                  </h3>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-[-0.03em] text-ink">
+                      {project.title}
+                    </h3>
+                    {project.status && (
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-semibold font-mono ${
+                          project.status === "In Active Development"
+                            ? "bg-amber-500/10 text-amber-600 border border-amber-500/20 dark:text-amber-400"
+                            : "bg-accent/10 text-accent border border-accent/20"
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs sm:text-sm font-medium text-ink-muted mt-1 font-mono">
+                    {project.subtitle}
+                  </p>
 
                   <dl className="mt-7 space-y-6">
                     <div>
