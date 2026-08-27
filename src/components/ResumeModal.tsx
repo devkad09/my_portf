@@ -89,8 +89,8 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                     <Award className="w-4 h-4" /> Technical Skills & Stack
                   </span>
                   <p className="text-ink-muted text-xs leading-relaxed">
-                    <strong className="text-ink">Frontend:</strong> React 18, TypeScript, JavaScript, Tailwind CSS, Context API, Recharts<br />
-                    <strong className="text-ink">Backend & APIs:</strong> Node.js, REST APIs, MongoDB<br />
+                    <strong className="text-ink">Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React 18, TypeScript, Tailwind CSS, Responsive Design, Context API<br />
+                    <strong className="text-ink">Backend & APIs:</strong> Node.js, REST APIs, MongoDB, Express<br />
                     <strong className="text-ink">Tools & Standards:</strong> Git, Figma, Microsoft Office Suite, WCAG 2.1 Accessibility, Core Web Vitals
                   </p>
                 </div>

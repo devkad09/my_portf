@@ -60,18 +60,22 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "React 18",
+                    "HTML5",
+                    "CSS3",
+                    "JavaScript (ES6+)",
                     "TypeScript",
-                    "JavaScript",
+                    "React 18",
                     "Tailwind CSS",
                     "Next.js",
+                    "Vite",
                     "Node.js",
                     "REST APIs",
-                    "WCAG 2.1 AA",
+                    "Responsive Web Design",
+                    "Git & GitHub",
                     "MS Office Suite",
                     "Technical Writing",
+                    "WCAG 2.1 AA",
                     "Figma",
-                    "Git & GitHub",
                   ].map((tech) => (
                     <span
                       key={tech}
