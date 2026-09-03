@@ -59,7 +59,7 @@ const Writing = () => {
             <span>Technical Publications</span>
           </p>
           <h2 id="writing-heading" className="section-heading">
-            Engineering insights & <span className="text-emerald-600 dark:text-emerald-400">documentation</span>
+            Engineering insights & <span className="text-emerald-600 dark:text-emerald-400">publications</span>
           </h2>
           <p className="section-copy mx-auto">
             Working notes on frontend systems, API design, accessibility, and developer documentation architecture.

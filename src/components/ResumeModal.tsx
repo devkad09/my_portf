@@ -86,7 +86,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
           {activeTab === "summary" && (
             <div className="space-y-4 text-xs leading-relaxed">
               <p className="text-sm text-ink-muted">
-                Frontend Developer and Technical Writer with 3+ years of experience developing responsive, high-performance web applications and creating clear technical documentation. Experienced in React 18, TypeScript, JavaScript, Tailwind CSS, REST APIs, and modern frontend practices. Strong background in reusable component systems, accessible interfaces (WCAG 2.1 AA), and developer portals, with a focus on maintainability and speed.
+                Frontend Developer and Technical Writer with 2+ years of experience developing responsive, high-performance web applications and creating clear technical documentation. Experienced in React 18, TypeScript, JavaScript, Tailwind CSS, REST APIs, and modern frontend practices. Strong background in reusable component systems, accessible interfaces (WCAG 2.1 AA), and developer portals, with a focus on maintainability and speed.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
@@ -105,7 +105,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                     <CheckCircle2 className="w-4 h-4" /> Key Milestones
                   </span>
                   <ul className="text-ink-muted text-xs space-y-1 list-disc list-inside">
-                    <li>20+ projects shipped, including 3 production SaaS platforms</li>
+                    <li>9+ projects shipped, including 3 production SaaS platforms</li>
                     <li>Technical Writer @ Formgrid.dev for REST API specifications</li>
                     <li>WCAG 2.1 AA-compliant components tested with axe DevTools</li>
                     <li>Achieved sub-second load times via code splitting & optimization</li>
@@ -119,27 +119,13 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
             <div className="space-y-4 text-xs">
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-bold text-ink text-sm">Technical Writer & Docs Architect</h4>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">2026 – Present</span>
-                </div>
-                <p className="text-ink font-medium">Formgrid.dev · Remote</p>
-                <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
-                  <li>Authored the complete REST API documentation suite and headless HTML endpoints (/api/f/:id).</li>
-                  <li>Built and maintain modern component libraries and supporting documentation systems.</li>
-                  <li>Documented the AI Lead Pipeline and automated stage routing workflows (New → Contacted → Converted).</li>
-                  <li>Streamlined developer onboarding to under two minutes for 400+ active users.</li>
-                </ul>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
-                <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Frontend Developer</h4>
                   <span className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">2023 – Present</span>
                 </div>
                 <p className="text-ink font-medium">Freelance & Client Engineering · Remote</p>
                 <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
                   <li>Collaborated with founders and businesses to design and develop responsive React web apps.</li>
-                  <li>Shipped 20+ responsive web projects including 3 production SaaS analytics dashboards.</li>
+                  <li>Shipped 9+ responsive web projects including 3 production SaaS analytics dashboards.</li>
                   <li>Achieved sub-second load times via code splitting and lazy loading assets.</li>
                   <li>Delivered 100% WCAG 2.1 AA accessible interfaces tested with axe DevTools.</li>
                 </ul>

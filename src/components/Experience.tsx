@@ -14,28 +14,15 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    role: "Technical Writer & Documentation Architect",
-    company: "Formgrid.dev",
-    companyUrl: "https://formgrid.dev",
-    badge: "Core Documentation Lead",
-    location: "Remote",
-    period: "2026 – Present",
-    problem:
-      "Developers integrating Formgrid's headless HTML endpoints (/api/f/:id) and multi-step forms needed clear API references, Next.js code examples, and structured lead pipeline documentation to onboard without confusion.",
-    outcome:
-      "Authored the complete REST API documentation suite, built reusable UI component libraries, and documented the AI Lead Pipeline (New → Contacted → Converted). Streamlined developer setup times to under two minutes across 400+ registered users.",
-    technologies: ["REST API References", "React Component Systems", "Markdown/MDX", "Design Systems", "Webhooks", "Lead Pipelines"],
-  },
-  {
     role: "Frontend Developer",
     company: "Freelance & Client Engineering",
-    badge: "20+ Shipped Deliverables",
+    badge: "9+ Shipped Projects",
     location: "Remote",
     period: "2023 – Present",
     problem:
       "Founders and businesses needed responsive, accessible, high-performance web applications that convert visitors into customers without slow page loads or mobile layout bugs.",
     outcome:
-      "Shipped 20+ responsive web projects including 3 production SaaS analytics dashboards. Achieved sub-second load times via code splitting and lazy loading, and built WCAG 2.1 AA compliant components tested with axe DevTools.",
+      "Shipped 9+ responsive web projects including 3 production SaaS analytics dashboards. Achieved sub-second load times via code splitting and lazy loading, and built WCAG 2.1 AA compliant components tested with axe DevTools.",
     technologies: ["React 18", "TypeScript", "Tailwind CSS", "REST APIs", "WCAG 2.1 AA", "Figma", "Core Web Vitals"],
   },
 ];

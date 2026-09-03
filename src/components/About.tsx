@@ -46,7 +46,7 @@ const About = () => {
 
               <div className="space-y-4 text-sm sm:text-base leading-relaxed text-ink-muted">
                 <p>
-                  I've spent over 3 years developing responsive web applications and creating clear technical documentation systems. Currently, as a Technical Writer at{" "}
+                  I've spent over 2 years developing responsive web applications and creating clear technical documentation systems. Currently, as a Technical Writer at{" "}
                   <a
                     href="https://formgrid.dev"
                     target="_blank"

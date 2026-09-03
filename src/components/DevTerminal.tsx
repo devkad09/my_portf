@@ -42,7 +42,7 @@ const COMMANDS: Record<string, React.ReactNode> = {
   ),
   nordhem: (
     <div className="space-y-1 text-xs">
-      <p>🛍️ <strong className="text-white">Nordhem — Minimalist E-Commerce</strong></p>
+      <p>🛍️ <strong className="text-white">Nordhem — Minimalist E-Commerce (Personal Project · In Progress)</strong></p>
       <p className="text-[#8892a4]">Scandinavian fashion label with lookbooks, catalog filtering & reactive cart.</p>
       <p>🔗 <a href="https://nordhem-blue.vercel.app" target="_blank" rel="noreferrer" className="text-emerald-400 underline">https://nordhem-blue.vercel.app</a></p>
     </div>

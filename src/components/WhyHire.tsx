@@ -3,8 +3,8 @@ import { CheckCircle2, Award, Layers, ShieldCheck, TrendingUp } from "lucide-rea
 const REASONS = [
   {
     title: "Proven Track Record & SaaS Shipped",
-    badge: "20+ Projects · 3 Production SaaS",
-    description: "Over 3 years of building and shipping responsive React applications, SaaS analytics dashboards, and end-to-end documentation systems.",
+    badge: "9+ Projects · 3 Production SaaS",
+    description: "Over 2 years of building and shipping responsive React applications, SaaS analytics dashboards, and end-to-end documentation systems.",
     icon: Award,
   },
   {

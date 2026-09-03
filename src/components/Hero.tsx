@@ -173,11 +173,11 @@ const Hero = () => {
             {/* Verified Metrics Strip */}
             <div className="pt-6 border-t border-line/60 grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div>
-                <p className="font-display text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">3+ Yrs</p>
+                <p className="font-display text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">2+ Yrs</p>
                 <p className="text-xs text-ink-muted mt-0.5">React & TypeScript</p>
               </div>
               <div>
-                <p className="font-display text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">20+</p>
+                <p className="font-display text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">9+</p>
                 <p className="text-xs text-ink-muted mt-0.5">Projects Shipped</p>
               </div>
               <div>

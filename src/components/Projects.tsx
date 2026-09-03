@@ -23,16 +23,16 @@ const PROJECTS: Project[] = [
     id: "nordhem",
     title: "Nordhem",
     category: "ecommerce",
-    subtitle: "Minimalist Scandinavian Apparel & E-Commerce",
-    status: "Production Live",
+    subtitle: "Personal Project · Minimalist Scandinavian Apparel & E-Commerce",
+    status: "In Active Development",
     statusColor: "emerald",
     problem:
-      "Fashion and apparel brands needed a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, curated lookbooks, and zero page reloads on mobile connections.",
+      "Fashion and apparel brands need a lightweight, hyper-fast e-commerce shopping experience with instant category filtering, curated lookbooks, and zero page reloads on mobile connections.",
     solution:
-      "Engineered a minimalist storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer with real-time state recalculation, and clean typography.",
+      "Building a minimalist storefront with client-side faceted filtering, lookbook overlays, slide-out reactive cart drawer with real-time state recalculation, and clean typography.",
     outcome:
-      "Achieved 100/100 Core Web Vitals score, sub-second load times via code splitting, and WCAG 2.1 AA compliant keyboard navigation.",
-    vitals: "100/100 Performance • 0ms Layout Shift",
+      "Currently in active development with a working prototype live on Vercel, targeting 100/100 Core Web Vitals, sub-second load times, and WCAG 2.1 AA keyboard accessibility.",
+    vitals: "In Progress • 100/100 Vitals Target",
     image: "/nordhem.png",
     technologies: ["React 18", "TypeScript", "Tailwind CSS", "E-Commerce", "UI/UX", "Vite"],
     liveUrl: "https://nordhem-blue.vercel.app",
