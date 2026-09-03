@@ -61,7 +61,7 @@ const Navbar = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-sm sm:text-base text-ink tracking-tight flex items-center gap-1.5">
-                  Kelvin Atsu
+                  KAD
                   <span className="hidden xs:inline-block font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/10 text-slate-700 dark:text-slate-300 font-semibold border border-white/15">
                     v2.6
                   </span>
