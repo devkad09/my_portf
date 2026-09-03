@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,25 @@
 
 @layer base {
   :root {
-    --canvas: #f8fafc;
+    --canvas: #ffffff;
     --surface: #ffffff;
-    --surface-2: #f1f5f9;
-    --surface-hover: #e2e8f0;
-    --ink: #090a0f;
-    --ink-muted: #64748b;
-    --line: #e2e8f0;
-    --line-subtle: #f1f5f9;
-    --accent: #090a0f;
-    --accent-hover: #1e293b;
-    --accent-light: #f1f5f9;
-    --glow-white: rgba(255, 255, 255, 0.25);
-    --glow-titanium: rgba(148, 163, 184, 0.15);
+    --surface-2: #f4f4f5;
+    --surface-hover: #e4e4e7;
+    --ink: #18181b;
+    --ink-muted: #71717a;
+    --line: #e4e4e7;
+    --line-subtle: #f4f4f5;
   }
 
   .dark {
-    --canvas: #07080d;
-    --surface: #0e1017;
-    --surface-2: #141722;
-    --surface-hover: #1d2130;
-    --ink: #f8fafc;
-    --ink-muted: #94a3b8;
-    --line: rgba(255, 255, 255, 0.1);
-    --line-subtle: rgba(255, 255, 255, 0.05);
-    --accent: #ffffff;
-    --accent-hover: #e2e8f0;
-    --accent-light: rgba(255, 255, 255, 0.1);
-    --glow-white: rgba(255, 255, 255, 0.3);
-    --glow-titanium: rgba(203, 213, 225, 0.15);
+    --canvas: #09090b;
+    --surface: #09090b;
+    --surface-2: #18181b;
+    --surface-hover: #27272a;
+    --ink: #fafafa;
+    --ink-muted: #a1a1aa;
+    --line: #27272a;
+    --line-subtle: #18181b;
   }
 
   html {
@@ -59,54 +49,20 @@
     overflow-x: hidden;
   }
 
-  /* Minimalist Titanium Dark Canvas with subtle ambient frost */
-  .dark body {
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
-      radial-gradient(circle at 100% 40%, rgba(203, 213, 225, 0.03) 0%, transparent 50%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-    background-position: center top, center center, center center, center center;
-  }
-
   ::selection {
-    background-color: rgba(255, 255, 255, 0.25);
-    color: #ffffff;
+    background-color: var(--line);
+    color: var(--ink);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
-    letter-spacing: -0.035em;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
 
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  /* Custom modern titanium scrollbar */
-  ::-webkit-scrollbar {
-    width: 7px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--canvas);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-  }
-  .dark ::-webkit-scrollbar-thumb {
-    background: #1e2230;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background: #33384c;
   }
 }
 
@@ -129,71 +85,26 @@
   .border-line {
     border-color: var(--line);
   }
-  .bg-accent {
-    background-color: var(--accent);
-  }
-  .text-accent {
-    color: var(--accent);
+  .border-line-subtle {
+    border-color: var(--line-subtle);
   }
 
-  /* Monochrome Titanium Glass Panels */
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(226, 232, 240, 0.9);
-  }
-  .dark .glass-panel {
-    background: rgba(13, 15, 22, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 255, 255, 0.02);
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-  }
-  .dark .glass-card {
-    background: rgba(13, 15, 22, 0.72);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.03) inset;
-  }
-
-  .glass-card:hover {
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.08);
-  }
-
-  /* Typography / Section Tokens */
-  .section-eyebrow {
-    @apply inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-mono font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-slate-300;
-  }
-
-  .section-heading {
-    @apply font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold leading-[1.04] tracking-[-0.04em] text-ink;
-  }
-
-  .section-copy {
-    @apply mt-5 text-base sm:text-lg leading-[1.75] text-ink-muted max-w-2xl;
-  }
-
-  /* Monochrome Pure White & Platinum Buttons */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2.5 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 active:scale-[0.98] bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-200 shadow-lg dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] h-12 rounded-2xl px-7 text-sm cursor-pointer border border-white/20;
+    @apply inline-flex items-center justify-center gap-2 font-medium bg-ink text-canvas hover:opacity-90 transition-opacity h-9 rounded-lg px-4 text-xs cursor-pointer;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2.5 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 active:scale-[0.98] border border-line bg-surface text-ink hover:border-white/40 hover:bg-surface-hover h-12 rounded-2xl px-6 text-sm backdrop-blur-md cursor-pointer;
+    @apply inline-flex items-center justify-center gap-2 font-medium border border-line bg-surface-2 text-ink hover:bg-surface-hover transition-colors h-9 rounded-lg px-4 text-xs cursor-pointer;
   }
 
-  .bento-card {
-    @apply rounded-3xl border border-line bg-surface p-8 sm:p-10 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-white/30;
+  .glass-panel {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  .glass-card {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
   }
 }
 
