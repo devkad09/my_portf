@@ -206,3 +206,44 @@
     color: #000000 !important;
   }
 }
+
+@media (max-width: 767px) {
+  body {
+    line-height: 1.55;
+  }
+
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .dark body {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    line-height: 1.08;
+  }
+
+  .section-copy {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 2.875rem;
+    padding-inline: 1rem;
+  }
+
+  section:not(#top) {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+  }
+}

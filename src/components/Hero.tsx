@@ -129,31 +129,31 @@ const Hero = () => {
     <>
       <section
         id="top"
-        className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden"
+        className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 sm:pt-36 sm:pb-28 overflow-hidden"
         aria-labelledby="hero-heading"
       >
         {/* Subtle Ambient Monochrome Background Glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-white/05 blur-[140px] rounded-full pointer-events-none -z-10" />
 
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-10 items-center">
             {/* Left Column: Hero Narrative & Value Prop (6 cols) */}
-            <div className="lg:col-span-6 space-y-6 sm:space-y-7">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-7">
               {/* Radar Live Status Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border-white/20 text-xs font-semibold text-ink shadow-sm">
+              <div className="inline-flex max-w-full items-start sm:items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full glass-card border-white/20 text-xs font-semibold text-ink shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-900 dark:bg-white" />
                 </span>
-                <span>Available for Select Contracts & Engineering</span>
+                <span className="leading-snug">Available for Select Contracts & Engineering</span>
                 <span className="text-ink-muted/40">•</span>
-                <span className="text-ink font-mono text-[11px]">Accra (GMT+0)</span>
+                <span className="hidden sm:inline text-ink font-mono text-[11px]">Accra (GMT+0)</span>
               </div>
 
               {/* Main Headline */}
               <h1
                 id="hero-heading"
-                className="text-[36px] sm:text-[48px] lg:text-[54px] font-extrabold leading-[1.08] tracking-[-0.04em] text-ink font-display"
+                className="text-[34px] sm:text-[48px] lg:text-[54px] font-extrabold leading-[1.08] tracking-[-0.04em] text-ink font-display"
               >
                 Engineering sub-second web applications &{" "}
                 <span className="text-slate-500 dark:text-slate-300 underline underline-offset-8 decoration-white/30">
@@ -167,15 +167,15 @@ const Hero = () => {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-1">
-                <a href="#projects" className="btn-primary">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1">
+                <a href="#projects" className="btn-primary w-full sm:w-auto">
                   <span>Explore Selected Works</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <button
                   type="button"
                   onClick={() => setIsResumeOpen(true)}
-                  className="btn-secondary"
+                  className="btn-secondary w-full sm:w-auto"
                 >
                   <FileText className="w-4 h-4 text-slate-400" />
                   <span>Interactive CV</span>

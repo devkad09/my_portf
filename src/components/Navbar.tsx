@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Sun, Moon, Menu, X, FileText, Sparkles, Send, Search } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import ResumeModal from "./ResumeModal";
 import CommandPalette from "./CommandPalette";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
-  { href: "#writing", label: "Writing" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/writing", label: "Writing" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -75,13 +75,13 @@ const Navbar = () => {
               aria-label="Primary"
             >
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="px-3.5 py-1.5 rounded-full text-xs font-medium text-ink-muted transition-all duration-200 hover:text-ink hover:bg-surface"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -128,13 +128,13 @@ const Navbar = () => {
               </button>
 
               {/* Primary Consultation CTA */}
-              <a
-                href="#work-with-me"
+              <Link
+                to="/contact"
                 className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-200 shadow-md transition-all cursor-pointer border border-white/20"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Let's Build</span>
-              </a>
+              </Link>
 
               {/* Mobile Menu Toggle */}
               <button
@@ -169,14 +169,14 @@ const Navbar = () => {
                 </button>
 
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-muted hover:text-ink hover:bg-surface-2/80 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
                 <button
                   type="button"
@@ -190,14 +190,14 @@ const Navbar = () => {
                   <span>View Full CV</span>
                 </button>
                 <div className="pt-2">
-                  <a
-                    href="#work-with-me"
+                  <Link
+                    to="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="btn-primary w-full text-center py-3 rounded-xl text-sm"
+                    className="btn-primary w-full text-center py-3 rounded-xl text-sm inline-flex items-center justify-center gap-1.5"
                   >
                     <Send className="w-4 h-4" />
                     <span>Work with Me</span>
-                  </a>
+                  </Link>
                 </div>
               </nav>
             </div>

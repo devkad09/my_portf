@@ -5,9 +5,6 @@ import {
   ExternalLink,
   Sparkles,
   Zap,
-  CheckCircle2,
-  Activity,
-  ArrowRight,
 } from "lucide-react";
 
 interface Project {
@@ -139,16 +136,20 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Compact 3-Column / 2-Column Bento Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
-          {filteredProjects.map((project) => (
+        {/* Alternating Staggered Layout */}
+        <div className="space-y-10 sm:space-y-12">
+          {filteredProjects.map((project, index) => (
             <article
               key={project.id}
-              className="group relative rounded-3xl glass-card border-white/10 hover:border-white/30 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
+              className={`grid gap-6 sm:gap-8 lg:gap-12 items-center ${
+                index % 2 === 0 ? "lg:grid-cols-[1fr_1.1fr]" : "lg:grid-cols-[1.1fr_1fr]"
+              }`}
             >
-              <div className="space-y-4">
-                {/* Browser Viewport Frame with Live Link */}
-                <div className="rounded-2xl overflow-hidden border border-line/80 bg-slate-950 shadow-md relative group/preview">
+              {/* Image Section */}
+              <div
+                className={`order-2 ${index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}
+              >
+                <div className="rounded-2xl overflow-hidden border border-line/80 bg-slate-950 shadow-lg relative group/preview">
                   {/* Chrome Header */}
                   <div className="px-3.5 py-2 bg-slate-900/95 border-b border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
@@ -175,13 +176,14 @@ const Projects = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="block aspect-[16/10] overflow-hidden relative cursor-pointer bg-slate-900"
+                    className="block aspect-[16/8] sm:aspect-[16/9] overflow-hidden relative cursor-pointer bg-slate-900"
                   >
                     <img
                       src={project.image}
                       alt={`${project.title} live interface preview`}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/preview:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
                       <span className="px-3 py-1.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 text-xs font-semibold shadow-lg flex items-center gap-1">
@@ -191,15 +193,17 @@ const Projects = () => {
                     </div>
                   </a>
                 </div>
+              </div>
 
+              {/* Content Section */}
+              <div
+                className={`order-1 space-y-3 ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}
+              >
                 {/* Header: Title + Category + Status */}
-                <div>
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="font-display text-xl font-bold tracking-tight text-ink group-hover:text-slate-500 dark:group-hover:text-slate-300 transition-colors">
-                      {project.title}
-                    </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span
-                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold ${
+                      className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold ${
                         project.statusType === "live"
                           ? "bg-white/10 text-ink border border-white/20"
                           : "bg-white/05 text-ink-muted border border-white/10"
@@ -208,44 +212,51 @@ const Projects = () => {
                       <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
                       {project.status}
                     </span>
+                    <span className="text-xs font-mono text-ink-muted">
+                      {project.categoryLabel}
+                    </span>
                   </div>
-
-                  <p className="text-xs text-ink-muted mt-2 leading-relaxed line-clamp-3">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-ink">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-ink-muted leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Metric Strip Badge */}
-                <div className="p-2.5 rounded-xl bg-surface-2/60 border border-line/60 flex items-center gap-2 text-[11px] font-mono">
+                {/* Metric Badge */}
+                <div className="px-3 py-2 rounded-xl bg-surface-2/60 border border-line/60 flex items-center gap-2 text-xs sm:text-sm">
                   <Zap className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                   <span className="text-ink font-semibold truncate">{project.metricBadge}</span>
                 </div>
-              </div>
 
-              {/* Card Footer: Tech Pills & Actions */}
-              <div className="mt-5 pt-4 border-t border-line/60 space-y-3">
-                {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1">
-                  {project.technologies.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 rounded-md text-[10px] font-mono text-ink-muted bg-surface-2 border border-line"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                {/* Tech Stack */}
+                <div className="space-y-1.5">
+                  <p className="text-xs font-mono uppercase text-ink-muted font-semibold tracking-wider">
+                    Built with:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 rounded-lg text-xs font-mono text-ink-muted bg-surface-2 border border-line"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-2 pt-1">
+                <div className="pt-1 flex items-center gap-2">
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-primary h-9 px-3.5 rounded-xl text-xs font-semibold flex items-center gap-1 flex-1 justify-center"
+                    className="btn-primary px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2"
                   >
-                    <span>View Demo</span>
-                    <ArrowUpRight className="w-3 h-3" />
+                    <span>View Live Demo</span>
+                    <ArrowUpRight className="w-4 h-4" />
                   </a>
 
                   {project.githubUrl && (
@@ -253,7 +264,7 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-xl bg-surface-2 hover:bg-surface border border-line text-ink-muted hover:text-ink transition-all"
+                      className="p-2.5 rounded-xl bg-surface-2 hover:bg-surface border border-line text-ink-muted hover:text-ink transition-all"
                       title="View GitHub source code"
                       aria-label="GitHub source"
                     >
@@ -264,57 +275,8 @@ const Projects = () => {
               </div>
             </article>
           ))}
-
-          {/* Quick Custom Build Tile (on all filter) */}
-          {filter === "all" && (
-            <div className="rounded-3xl glass-card border-dashed border-white/20 hover:border-white/40 p-5 sm:p-6 flex flex-col justify-between bg-gradient-to-br from-white/05 via-transparent to-surface-2/30 shadow-lg transition-all">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-line/60">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-white/10 text-ink border border-white/15">
-                    Next Build
-                  </span>
-                  <span className="text-[11px] font-mono text-ink font-semibold flex items-center gap-1">
-                    <Activity className="w-3 h-3 text-slate-400" /> Openings
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="font-display text-xl font-bold tracking-tight text-ink">
-                    Need a custom React app or documentation system?
-                  </h3>
-                  <p className="text-xs text-ink-muted leading-relaxed">
-                    Partner with me to engineer sub-second SPAs, accessible design systems, and developer portals.
-                  </p>
-                </div>
-
-                <div className="space-y-2 pt-1 text-xs text-ink-muted">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>Sub-second load times & 100/100 Vitals</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>WCAG 2.1 AA accessible component systems</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>Turnkey technical writing & API references</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-line/60">
-                <a
-                  href="#work-with-me"
-                  className="btn-primary w-full h-9 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-md"
-                >
-                  <span>Start Consultation</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          )}
         </div>
+
       </div>
     </section>
   );

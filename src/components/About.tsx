@@ -24,6 +24,7 @@ const About = () => {
                     alt="Kelvin Atsu Djayouri - Frontend Developer and Technical Writer"
                     className="w-full h-full object-cover grayscale-[25%] contrast-[1.05] group-hover:grayscale-0 transition-all duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   {/* Subtle cyber scan overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
