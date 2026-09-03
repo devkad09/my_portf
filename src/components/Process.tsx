@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, CheckCircle2, ArrowRight, ShieldCheck, Compass, GitBranch, Layers, Rocket } from "lucide-react";
+import { Sparkles, Compass, GitBranch, Layers, ShieldCheck, Rocket } from "lucide-react";
 
 const STAGES = [
   {
@@ -67,7 +67,7 @@ const Process = () => {
             <span>Engineering Process</span>
           </p>
           <h2 id="process-heading" className="section-heading">
-            A reliable pipeline from <span className="text-emerald-600 dark:text-emerald-400">concept to cloud</span>
+            A reliable pipeline from <span className="text-indigo-600 dark:text-indigo-400">concept to cloud</span>
           </h2>
           <p className="section-copy mx-auto">
             Five structured stages ensuring transparency, zero surprises, and guaranteed technical quality at every step.
@@ -86,20 +86,20 @@ const Process = () => {
                 onMouseEnter={() => setActiveStep(idx)}
                 className={`rounded-3xl p-6 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
                   isSelected
-                    ? "glass-card border-emerald-500/50 bg-surface shadow-2xl scale-[1.03] -translate-y-1"
-                    : "glass-card border-line/60 bg-surface/60 hover:border-emerald-500/30"
+                    ? "glass-card border-indigo-500/50 bg-surface shadow-2xl scale-[1.03] -translate-y-1"
+                    : "glass-card border-line/60 bg-surface/60 hover:border-indigo-500/30"
                 }`}
               >
                 <div>
                   {/* Step Header */}
                   <div className="flex items-center justify-between pb-4 border-b border-line/60">
-                    <span className="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    <span className="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400">
                       PHASE {stage.step}
                     </span>
                     <div
                       className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
                         isSelected
-                          ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/30"
+                          ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/30"
                           : "bg-surface-2 text-ink-muted"
                       }`}
                     >
@@ -112,7 +112,7 @@ const Process = () => {
                     <h3 className="font-display font-bold text-lg text-ink">
                       {stage.title}
                     </h3>
-                    <p className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                    <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold">
                       {stage.subtitle}
                     </p>
                     <p className="text-xs text-ink-muted leading-relaxed pt-2">

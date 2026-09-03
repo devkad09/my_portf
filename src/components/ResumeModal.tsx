@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { FileText, Download, X, Award, Briefcase, GraduationCap, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import {
+  X,
+  Download,
+  FileText,
+  Briefcase,
+  GraduationCap,
+  Award,
+  CheckCircle2,
+  ExternalLink,
+} from "lucide-react";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -12,41 +21,42 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-x-0 inset-y-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-surface glass-panel border-emerald-500/30 max-w-3xl w-full rounded-3xl p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto shadow-2xl">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="resume-modal-title"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-3xl rounded-3xl glass-panel border-indigo-500/30 p-6 sm:p-8 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto space-y-6"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-xl bg-surface-2 border border-line flex items-center justify-center text-ink-muted hover:text-ink hover:border-emerald-500/40 transition-all cursor-pointer"
-          aria-label="Close modal"
+          className="absolute top-5 right-5 p-2 rounded-full bg-surface-2 hover:bg-surface border border-line text-ink-muted hover:text-ink transition-all cursor-pointer"
+          aria-label="Close CV Modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line/60 pb-6">
-          <div className="flex items-center gap-3.5">
-            <div className="w-13 h-13 rounded-2xl p-0.5 bg-emerald-600 shadow-md">
-              <img
-                src="/profile.jpg"
-                alt="Kelvin Atsu Djayouri"
-                className="w-12 h-12 rounded-[14px] object-cover"
-              />
+        {/* Modal Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-line/60">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse" />
+              <h3 id="resume-modal-title" className="font-display font-bold text-2xl text-ink">
+                Kelvin Atsu Djayouri
+              </h3>
             </div>
-            <div>
-              <h3 className="font-display font-bold text-xl text-ink">Kelvin Atsu Djayouri</h3>
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold font-mono">
-                Frontend Developer & Technical Writer
-              </p>
-              <p className="text-[11px] text-ink-muted flex items-center gap-1 mt-0.5">
-                <MapPin className="w-3 h-3 text-emerald-500" />
-                <span>Ghana · Remote Global · deve.kad.tech@gmail.com</span>
-              </p>
-            </div>
+            <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mt-0.5">
+              Frontend Developer & Technical Writer @ Formgrid.dev
+            </p>
           </div>
 
           <a
-            href="/KELVIN ATSU DJAYOURI.pdf"
+            href="/resume.pdf"
             download
             className="btn-primary h-10 px-4 rounded-xl text-xs font-semibold self-start sm:self-auto"
           >
@@ -70,7 +80,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20"
+                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25"
                     : "text-ink-muted hover:text-ink hover:bg-surface-2"
                 }`}
               >
@@ -91,7 +101,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 <div className="p-4 rounded-2xl bg-surface-2/60 border border-line/60 space-y-1.5">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 text-xs">
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-1.5 text-xs">
                     <Award className="w-4 h-4" /> Technical Stack
                   </span>
                   <p className="text-ink-muted text-xs leading-relaxed">
@@ -101,7 +111,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                   </p>
                 </div>
                 <div className="p-4 rounded-2xl bg-surface-2/60 border border-line/60 space-y-1.5">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 text-xs">
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-1.5 text-xs">
                     <CheckCircle2 className="w-4 h-4" /> Key Milestones
                   </span>
                   <ul className="text-ink-muted text-xs space-y-1 list-disc list-inside">
@@ -119,8 +129,21 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
             <div className="space-y-4 text-xs">
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
                 <div className="flex items-center justify-between">
+                  <h4 className="font-bold text-ink text-sm">Technical Writer & Documentation Engineer</h4>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2024 – Present</span>
+                </div>
+                <p className="text-ink font-medium">Formgrid.dev · Remote</p>
+                <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
+                  <li>Authored REST API references, endpoint specifications, and code recipes for developer onboarding.</li>
+                  <li>Created component documentation guides and lead intake pipeline workflows.</li>
+                  <li>Collaborated with engineering to ensure zero ambiguity in developer adoption.</li>
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
+                <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Frontend Developer</h4>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">2023 – Present</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2023 – Present</span>
                 </div>
                 <p className="text-ink font-medium">Freelance & Client Engineering · Remote</p>
                 <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
@@ -138,7 +161,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Diploma in Information Technology</h4>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">2024 – 2026</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2024 – 2026</span>
                 </div>
                 <p className="text-ink font-medium">Accra Technical University</p>
                 <p className="text-ink-muted">Coursework: Data Structures • Networking • Web Technologies • Software Engineering • Database Systems.</p>
@@ -147,7 +170,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">BSc in Computer Science (Top-Up)</h4>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">Target: 2027</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">Target: 2027</span>
                 </div>
                 <p className="text-ink font-medium">Ghana Communication Technology University (GCTU)</p>
                 <p className="text-ink-muted">Target program advancing study in algorithms, distributed systems, software engineering, and systems architecture.</p>

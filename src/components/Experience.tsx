@@ -1,4 +1,4 @@
-import { Briefcase, ExternalLink, Sparkles, CheckCircle2, Calendar, MapPin } from "lucide-react";
+import { ExternalLink, Sparkles, Calendar, MapPin, CheckCircle2, ShieldCheck } from "lucide-react";
 
 interface ExperienceItem {
   role: string;
@@ -14,10 +14,23 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
+    role: "Technical Writer & Documentation Engineer",
+    company: "Formgrid.dev",
+    companyUrl: "https://formgrid.dev",
+    badge: "API Specs & Developer Adoption",
+    location: "Remote",
+    period: "2024 – Present",
+    problem:
+      "Engineering teams and external developers needed clear, interactive OpenAPI documentation, component recipes, and end-to-end integration workflows to rapidly implement headless form endpoints without ambiguity.",
+    outcome:
+      "Authored REST API endpoint specifications, code examples in TypeScript/cURL, automated webhook routing guides, and interactive developer onboarding documentation that cut adoption friction.",
+    technologies: ["REST APIs", "OpenAPI", "MDX", "TypeScript", "Component Guides", "Lead Pipelines"],
+  },
+  {
     role: "Frontend Developer",
     company: "Freelance & Client Engineering",
     badge: "9+ Shipped Projects",
-    location: "Remote",
+    location: "Remote Global",
     period: "2023 – Present",
     problem:
       "Founders and businesses needed responsive, accessible, high-performance web applications that convert visitors into customers without slow page loads or mobile layout bugs.",
@@ -29,7 +42,11 @@ const EXPERIENCES: ExperienceItem[] = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 sm:py-32 relative overflow-hidden" aria-labelledby="experience-heading">
+    <section
+      id="experience"
+      className="py-24 sm:py-32 relative overflow-hidden"
+      aria-labelledby="experience-heading"
+    >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -38,7 +55,10 @@ const Experience = () => {
             <span>Proven Track Record</span>
           </p>
           <h2 id="experience-heading" className="section-heading">
-            Engineering experience & <span className="text-emerald-600 dark:text-emerald-400">measurable impact</span>
+            Engineering experience &{" "}
+            <span className="text-indigo-600 dark:text-indigo-400">
+              measurable impact
+            </span>
           </h2>
           <p className="section-copy mx-auto">
             Real roles defined by business outcomes, architecture decisions, and software shipped to production.
@@ -50,7 +70,7 @@ const Experience = () => {
           {EXPERIENCES.map((exp) => (
             <article
               key={`${exp.company}-${exp.role}`}
-              className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300 shadow-xl"
+              className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 shadow-xl"
             >
               {/* Header Row */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-line/60">
@@ -59,7 +79,7 @@ const Experience = () => {
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">
                       {exp.role}
                     </h3>
-                    <span className="px-3 py-0.5 rounded-full text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    <span className="px-3 py-0.5 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
                       {exp.badge}
                     </span>
                   </div>
@@ -70,7 +90,7 @@ const Experience = () => {
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-semibold text-ink hover:text-emerald-500 transition-colors flex items-center gap-1"
+                        className="font-semibold text-ink hover:text-indigo-500 transition-colors flex items-center gap-1"
                       >
                         <span>{exp.company}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -80,14 +100,14 @@ const Experience = () => {
                     )}
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-500" />
+                      <MapPin className="w-3.5 h-3.5 text-indigo-500" />
                       {exp.location}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-2 border border-line text-xs font-mono text-ink-muted self-start sm:self-auto">
-                  <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                  <Calendar className="w-3.5 h-3.5 text-indigo-500" />
                   <span>{exp.period}</span>
                 </div>
               </div>
@@ -95,7 +115,7 @@ const Experience = () => {
               {/* Problem vs Outcome */}
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="text-xs font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+                  <p className="text-xs font-mono uppercase font-bold text-indigo-600 dark:text-indigo-400 tracking-wider">
                     The Challenge & Need:
                   </p>
                   <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
@@ -104,7 +124,7 @@ const Experience = () => {
                 </div>
 
                 <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="text-xs font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+                  <p className="text-xs font-mono uppercase font-bold text-violet-600 dark:text-violet-400 tracking-wider">
                     Business Outcome & Delivery:
                   </p>
                   <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
@@ -118,7 +138,7 @@ const Experience = () => {
                 {exp.technologies.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 rounded-lg text-xs font-mono text-ink-muted bg-surface-2 border border-line"
+                    className="px-3 py-1 rounded-xl text-xs font-mono text-ink-muted bg-surface-2/80 border border-line hover:border-indigo-500/30 hover:text-ink transition-colors"
                   >
                     {t}
                   </span>

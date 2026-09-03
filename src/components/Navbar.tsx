@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Sun, Moon, Menu, X, FileText, Sparkles, Send } from "lucide-react";
+import { Sun, Moon, Menu, X, FileText, Sparkles, Send, Search } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import ResumeModal from "./ResumeModal";
+import CommandPalette from "./CommandPalette";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -17,6 +18,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Global Cmd+K trigger
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
       <header className="fixed inset-x-0 top-3 z-50 px-3 sm:px-6 pointer-events-none">
@@ -33,22 +47,22 @@ const Navbar = () => {
           <div
             className={`flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6 rounded-2xl sm:rounded-full transition-all duration-300 ${
               isScrolled
-                ? "glass-panel shadow-xl shadow-black/5 dark:shadow-black/40 border-emerald-500/20"
-                : "glass-panel border-white/10 dark:border-white/05 bg-surface/60"
+                ? "glass-panel shadow-2xl shadow-black/50 border-indigo-500/25 bg-slate-950/85 dark:bg-slate-950/90"
+                : "glass-panel border-white/10 dark:border-white/05 bg-surface/70"
             }`}
           >
             {/* Brand / Logo */}
             <a
               href="#top"
-              className="flex items-center gap-2 group cursor-pointer"
+              className="flex items-center gap-2.5 group cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-indigo-500/30 group-hover:scale-105 group-hover:bg-indigo-500 transition-all">
                 K
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-sm sm:text-base text-ink tracking-tight flex items-center gap-1.5">
                   Kelvin Atsu
-                  <span className="hidden xs:inline-block font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
+                  <span className="hidden xs:inline-block font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold border border-indigo-500/20">
                     v2.6
                   </span>
                 </span>
@@ -56,7 +70,10 @@ const Navbar = () => {
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-surface-2/60 border border-line/60 backdrop-blur-md" aria-label="Primary">
+            <nav
+              className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-surface-2/60 border border-line/60 backdrop-blur-md"
+              aria-label="Primary"
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -70,34 +87,50 @@ const Navbar = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-2 sm:gap-2.5">
+              {/* Command Palette Trigger Button (⌘K) */}
+              <button
+                type="button"
+                onClick={() => setIsCommandOpen(true)}
+                className="hidden sm:inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full border border-line bg-surface-2/60 hover:bg-surface text-ink-muted hover:text-ink hover:border-indigo-500/30 transition-all cursor-pointer"
+                title="Open Command Palette (⌘K)"
+              >
+                <Search className="w-3.5 h-3.5 text-indigo-500" />
+                <span className="hidden md:inline text-[11px]">Search</span>
+                <kbd className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface border border-line text-ink font-semibold">
+                  ⌘K
+                </kbd>
+              </button>
+
               {/* CV Modal Trigger */}
               <button
+                type="button"
                 onClick={() => setIsResumeOpen(true)}
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-line bg-surface/80 hover:bg-surface text-ink-muted hover:text-ink transition-all cursor-pointer"
                 title="View interactive CV"
               >
-                <FileText className="w-3.5 h-3.5 text-emerald-500" />
+                <FileText className="w-3.5 h-3.5 text-indigo-500" />
                 <span>CV</span>
               </button>
 
               {/* Theme Toggle Button */}
               <button
+                type="button"
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-ink-muted hover:text-ink bg-surface-2/60 hover:bg-surface border border-line/60 transition-all cursor-pointer"
                 title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
+                  <Sun className="w-4 h-4 text-amber-400" />
                 ) : (
-                  <Moon className="w-4 h-4 text-emerald-600" />
+                  <Moon className="w-4 h-4 text-indigo-600" />
                 )}
               </button>
 
               {/* Primary Consultation CTA */}
               <a
                 href="#work-with-me"
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-500/25 transition-all cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Let's Build</span>
@@ -118,8 +151,23 @@ const Navbar = () => {
 
           {/* Mobile Dropdown Menu */}
           {mobileMenuOpen && (
-            <div className="mt-2 rounded-2xl glass-panel p-5 shadow-2xl border-emerald-500/20 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="mt-2 rounded-2xl glass-panel p-5 shadow-2xl border-indigo-500/20 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200 bg-slate-950/95">
               <nav className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setIsCommandOpen(true);
+                  }}
+                  className="px-4 py-2.5 rounded-xl text-sm font-mono text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-between text-left"
+                >
+                  <span className="flex items-center gap-2">
+                    <Search className="w-4 h-4" />
+                    <span>Command Palette</span>
+                  </span>
+                  <span className="text-xs">⌘K</span>
+                </button>
+
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
@@ -131,13 +179,14 @@ const Navbar = () => {
                   </a>
                 ))}
                 <button
+                  type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setIsResumeOpen(true);
                   }}
                   className="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-muted hover:text-ink hover:bg-surface-2/80 text-left flex items-center gap-2"
                 >
-                  <FileText className="w-4 h-4 text-emerald-500" />
+                  <FileText className="w-4 h-4 text-indigo-500" />
                   <span>View Full CV</span>
                 </button>
                 <div className="pt-2">
@@ -156,8 +205,13 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* CV Modal */}
+      {/* Global Modals */}
       <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+      <CommandPalette
+        isOpen={isCommandOpen}
+        onClose={() => setIsCommandOpen(false)}
+        onOpenResume={() => setIsResumeOpen(true)}
+      />
     </>
   );
 };

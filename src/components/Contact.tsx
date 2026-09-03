@@ -12,7 +12,6 @@ import {
   MapPin,
   Clock,
   ShieldCheck,
-  MessageSquare,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -152,7 +151,7 @@ const Contact = () => {
           </p>
           <h2 id="work-with-me-heading" className="section-heading">
             Have a product in mind?{" "}
-            <span className="text-emerald-600 dark:text-emerald-400">
+            <span className="text-indigo-600 dark:text-indigo-400">
               Let's build.
             </span>
           </h2>
@@ -166,7 +165,7 @@ const Contact = () => {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12 items-start">
           {/* Left Column: Direct Contact Info & Guarantees (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl glass-card p-6 sm:p-8 border-emerald-500/20 shadow-xl space-y-6">
+            <div className="rounded-3xl glass-card p-6 sm:p-8 border-indigo-500/20 shadow-xl space-y-6">
               <div>
                 <h3 className="font-display font-bold text-xl text-ink">
                   Direct Contact & Details
@@ -181,7 +180,7 @@ const Contact = () => {
               <div className="p-4 rounded-2xl bg-surface-2/70 border border-line/60 space-y-3">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
@@ -190,7 +189,7 @@ const Contact = () => {
                       </p>
                       <a
                         href="mailto:deve.kad.tech@gmail.com"
-                        className="text-xs sm:text-sm font-semibold text-ink hover:text-emerald-500 transition-colors"
+                        className="text-xs sm:text-sm font-semibold text-ink hover:text-indigo-500 transition-colors"
                       >
                         deve.kad.tech@gmail.com
                       </a>
@@ -200,11 +199,11 @@ const Contact = () => {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="p-2 rounded-xl bg-surface border border-line hover:border-emerald-500/40 text-ink-muted hover:text-ink transition-all cursor-pointer"
+                    className="p-2 rounded-xl bg-surface border border-line hover:border-indigo-500/40 text-ink-muted hover:text-ink transition-all cursor-pointer"
                     title="Copy email address"
                   >
                     {copiedEmail ? (
-                      <Check className="w-4 h-4 text-emerald-500" />
+                      <Check className="w-4 h-4 text-indigo-500" />
                     ) : (
                       <Copy className="w-4 h-4" />
                     )}
@@ -218,10 +217,10 @@ const Contact = () => {
                   href="https://linkedin.com/in/kaddev"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-emerald-500/40 hover:bg-surface-2 transition-all group"
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-indigo-500/40 hover:bg-surface-2 transition-all group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
                       <Linkedin className="w-4 h-4" />
                     </div>
                     <div>
@@ -229,17 +228,17 @@ const Contact = () => {
                       <p className="text-[11px] text-ink-muted">@kaddev</p>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
 
                 <a
                   href="https://github.com/devkad09"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-emerald-500/40 hover:bg-surface-2 transition-all group"
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-indigo-500/40 hover:bg-surface-2 transition-all group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-violet-500/10 text-violet-400 flex items-center justify-center">
                       <Github className="w-4 h-4" />
                     </div>
                     <div>
@@ -247,26 +246,26 @@ const Contact = () => {
                       <p className="text-[11px] text-ink-muted">@devkad09</p>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
 
               {/* Working Guarantees */}
               <div className="pt-4 border-t border-line/60 space-y-3">
                 <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <Clock className="w-4 h-4 text-indigo-500 shrink-0" />
                   <span>
                     <strong className="text-ink">Response Time:</strong> Guaranteed reply within 24 hours
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <MapPin className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <MapPin className="w-4 h-4 text-indigo-500 shrink-0" />
                   <span>
                     <strong className="text-ink">Timezone:</strong> Accra, Ghana (GMT+0) • Remote Global
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-indigo-500 shrink-0" />
                   <span>
                     <strong className="text-ink">Quality:</strong> Clean code, WCAG 2.1 AA & sub-second performance
                   </span>
@@ -277,11 +276,11 @@ const Contact = () => {
 
           {/* Right Column: Streamlined Single-Page Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-emerald-500/20 shadow-2xl">
+            <div className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-indigo-500/20 shadow-2xl">
               {submitted ? (
                 /* Success Confirmation Screen */
                 <div className="text-center py-10 px-4 space-y-6 animate-in fade-in duration-300">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   <div className="space-y-2">
@@ -325,7 +324,7 @@ const Contact = () => {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <label htmlFor="fullName" className="text-xs font-semibold text-ink">
-                        Your Name <span className="text-emerald-500">*</span>
+                        Your Name <span className="text-indigo-500">*</span>
                       </label>
                       <input
                         id="fullName"
@@ -335,13 +334,13 @@ const Contact = () => {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="Alex Morgan"
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-emerald-500 transition-all"
+                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-indigo-500 transition-all"
                       />
                     </div>
 
                     <div className="space-y-1.5">
                       <label htmlFor="email" className="text-xs font-semibold text-ink">
-                        Work Email <span className="text-emerald-500">*</span>
+                        Work Email <span className="text-indigo-500">*</span>
                       </label>
                       <input
                         id="email"
@@ -351,7 +350,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="alex@company.com"
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-emerald-500 transition-all"
+                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-indigo-500 transition-all"
                       />
                     </div>
                   </div>
@@ -366,7 +365,7 @@ const Contact = () => {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-emerald-500 transition-all"
+                      className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-indigo-500 transition-all"
                     >
                       {PROJECT_TYPES.map((type) => (
                         <option key={type} value={type}>
@@ -387,7 +386,7 @@ const Contact = () => {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-emerald-500 transition-all"
+                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-indigo-500 transition-all"
                       >
                         {BUDGET_OPTIONS.map((opt) => (
                           <option key={opt} value={opt}>
@@ -406,7 +405,7 @@ const Contact = () => {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-emerald-500 transition-all"
+                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-indigo-500 transition-all"
                       >
                         {TIMELINE_OPTIONS.map((opt) => (
                           <option key={opt} value={opt}>
@@ -420,7 +419,7 @@ const Contact = () => {
                   {/* Message / Project Details */}
                   <div className="space-y-1.5">
                     <label htmlFor="message" className="text-xs font-semibold text-ink">
-                      Project Details & Goals <span className="text-emerald-500">*</span>
+                      Project Details & Goals <span className="text-indigo-500">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -430,7 +429,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your product, what you need built, existing tools/stacks, or specific deadlines..."
-                      className="w-full rounded-xl border border-line bg-surface-2/60 p-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-emerald-500 transition-all leading-relaxed"
+                      className="w-full rounded-xl border border-line bg-surface-2/60 p-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-indigo-500 transition-all leading-relaxed"
                     />
                   </div>
 
@@ -439,7 +438,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-primary w-full h-12 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all"
+                      className="btn-primary w-full h-12 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all"
                     >
                       {isSubmitting ? (
                         <>
