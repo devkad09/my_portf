@@ -47,8 +47,8 @@ const Navbar = () => {
           <div
             className={`flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6 rounded-2xl sm:rounded-full transition-all duration-300 ${
               isScrolled
-                ? "glass-panel shadow-2xl shadow-black/50 border-indigo-500/25 bg-slate-950/85 dark:bg-slate-950/90"
-                : "glass-panel border-white/10 dark:border-white/05 bg-surface/70"
+                ? "glass-panel shadow-2xl shadow-black/50 border-white/15 bg-slate-950/90 dark:bg-slate-950/95"
+                : "glass-panel border-white/10 dark:border-white/05 bg-surface/80"
             }`}
           >
             {/* Brand / Logo */}
@@ -56,13 +56,13 @@ const Navbar = () => {
               href="#top"
               className="flex items-center gap-2.5 group cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-indigo-500/30 group-hover:scale-105 group-hover:bg-indigo-500 transition-all">
+              <div className="w-8 h-8 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-950 flex items-center justify-center font-bold text-sm shadow-md group-hover:scale-105 transition-all">
                 K
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-sm sm:text-base text-ink tracking-tight flex items-center gap-1.5">
                   Kelvin Atsu
-                  <span className="hidden xs:inline-block font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold border border-indigo-500/20">
+                  <span className="hidden xs:inline-block font-mono text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/10 text-slate-700 dark:text-slate-300 font-semibold border border-white/15">
                     v2.6
                   </span>
                 </span>
@@ -91,10 +91,10 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsCommandOpen(true)}
-                className="hidden sm:inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full border border-line bg-surface-2/60 hover:bg-surface text-ink-muted hover:text-ink hover:border-indigo-500/30 transition-all cursor-pointer"
+                className="hidden sm:inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full border border-line bg-surface-2/60 hover:bg-surface text-ink-muted hover:text-ink hover:border-white/30 transition-all cursor-pointer"
                 title="Open Command Palette (⌘K)"
               >
-                <Search className="w-3.5 h-3.5 text-indigo-500" />
+                <Search className="w-3.5 h-3.5 text-slate-400" />
                 <span className="hidden md:inline text-[11px]">Search</span>
                 <kbd className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface border border-line text-ink font-semibold">
                   ⌘K
@@ -108,7 +108,7 @@ const Navbar = () => {
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-line bg-surface/80 hover:bg-surface text-ink-muted hover:text-ink transition-all cursor-pointer"
                 title="View interactive CV"
               >
-                <FileText className="w-3.5 h-3.5 text-indigo-500" />
+                <FileText className="w-3.5 h-3.5 text-slate-400" />
                 <span>CV</span>
               </button>
 
@@ -121,16 +121,16 @@ const Navbar = () => {
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-400" />
+                  <Sun className="w-4 h-4 text-amber-300" />
                 ) : (
-                  <Moon className="w-4 h-4 text-indigo-600" />
+                  <Moon className="w-4 h-4 text-slate-900" />
                 )}
               </button>
 
               {/* Primary Consultation CTA */}
               <a
                 href="#work-with-me"
-                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-500/25 transition-all cursor-pointer"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-200 shadow-md transition-all cursor-pointer border border-white/20"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Let's Build</span>
@@ -151,7 +151,7 @@ const Navbar = () => {
 
           {/* Mobile Dropdown Menu */}
           {mobileMenuOpen && (
-            <div className="mt-2 rounded-2xl glass-panel p-5 shadow-2xl border-indigo-500/20 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200 bg-slate-950/95">
+            <div className="mt-2 rounded-2xl glass-panel p-5 shadow-2xl border-white/10 lg:hidden animate-in fade-in slide-in-from-top-2 duration-200 bg-slate-950/95">
               <nav className="flex flex-col gap-2">
                 <button
                   type="button"
@@ -159,13 +159,13 @@ const Navbar = () => {
                     setMobileMenuOpen(false);
                     setIsCommandOpen(true);
                   }}
-                  className="px-4 py-2.5 rounded-xl text-sm font-mono text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-between text-left"
+                  className="px-4 py-2.5 rounded-xl text-sm font-mono text-slate-200 bg-white/05 border border-white/10 flex items-center justify-between text-left"
                 >
                   <span className="flex items-center gap-2">
-                    <Search className="w-4 h-4" />
+                    <Search className="w-4 h-4 text-slate-400" />
                     <span>Command Palette</span>
                   </span>
-                  <span className="text-xs">⌘K</span>
+                  <span className="text-xs text-slate-400">⌘K</span>
                 </button>
 
                 {navLinks.map((link) => (
@@ -186,7 +186,7 @@ const Navbar = () => {
                   }}
                   className="px-4 py-2.5 rounded-xl text-sm font-medium text-ink-muted hover:text-ink hover:bg-surface-2/80 text-left flex items-center gap-2"
                 >
-                  <FileText className="w-4 h-4 text-indigo-500" />
+                  <FileText className="w-4 h-4 text-slate-400" />
                   <span>View Full CV</span>
                 </button>
                 <div className="pt-2">

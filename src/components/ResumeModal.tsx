@@ -7,7 +7,6 @@ import {
   GraduationCap,
   Award,
   CheckCircle2,
-  ExternalLink,
 } from "lucide-react";
 
 interface ResumeModalProps {
@@ -29,7 +28,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl rounded-3xl glass-panel border-indigo-500/30 p-6 sm:p-8 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto space-y-6"
+        className="relative w-full max-w-3xl rounded-3xl glass-panel border-white/15 p-6 sm:p-8 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -45,24 +44,34 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-line/60">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse" />
               <h3 id="resume-modal-title" className="font-display font-bold text-2xl text-ink">
                 Kelvin Atsu Djayouri
               </h3>
             </div>
-            <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mt-0.5">
+            <p className="text-xs font-mono text-ink-muted mt-0.5">
               Frontend Developer & Technical Writer @ Formgrid.dev
             </p>
           </div>
 
-          <a
-            href="/resume.pdf"
-            download
-            className="btn-primary h-10 px-4 rounded-xl text-xs font-semibold self-start sm:self-auto"
-          >
-            <Download className="w-4 h-4" />
-            <span>Download CV (PDF)</span>
-          </a>
+          <div className="flex items-center gap-2 self-start sm:self-auto">
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="btn-secondary h-10 px-3.5 rounded-xl text-xs font-semibold cursor-pointer"
+              title="Print or Save as PDF"
+            >
+              <Download className="w-4 h-4" />
+              <span>Print / Save PDF</span>
+            </button>
+            <a
+              href="/resume.pdf"
+              download="Kelvin_Atsu_Djayouri_CV.pdf"
+              className="btn-primary h-10 px-4 rounded-xl text-xs font-semibold"
+            >
+              <span>Download PDF</span>
+            </a>
+          </div>
         </div>
 
         {/* Modal Navigation Tabs */}
@@ -80,7 +89,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/25"
+                    ? "bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-md"
                     : "text-ink-muted hover:text-ink hover:bg-surface-2"
                 }`}
               >
@@ -101,8 +110,8 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 <div className="p-4 rounded-2xl bg-surface-2/60 border border-line/60 space-y-1.5">
-                  <span className="text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-1.5 text-xs">
-                    <Award className="w-4 h-4" /> Technical Stack
+                  <span className="text-ink font-bold flex items-center gap-1.5 text-xs">
+                    <Award className="w-4 h-4 text-slate-400" /> Technical Stack
                   </span>
                   <p className="text-ink-muted text-xs leading-relaxed">
                     <strong className="text-ink">Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React 18, TypeScript, Tailwind CSS, Next.js, Vite<br />
@@ -111,8 +120,8 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                   </p>
                 </div>
                 <div className="p-4 rounded-2xl bg-surface-2/60 border border-line/60 space-y-1.5">
-                  <span className="text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-1.5 text-xs">
-                    <CheckCircle2 className="w-4 h-4" /> Key Milestones
+                  <span className="text-ink font-bold flex items-center gap-1.5 text-xs">
+                    <CheckCircle2 className="w-4 h-4 text-slate-400" /> Key Milestones
                   </span>
                   <ul className="text-ink-muted text-xs space-y-1 list-disc list-inside">
                     <li>9+ projects shipped, including 3 production SaaS platforms</li>
@@ -130,7 +139,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Technical Writer & Documentation Engineer</h4>
-                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2024 – Present</span>
+                  <span className="text-ink font-mono font-semibold">2024 – Present</span>
                 </div>
                 <p className="text-ink font-medium">Formgrid.dev · Remote</p>
                 <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
@@ -143,7 +152,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2.5">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Frontend Developer</h4>
-                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2023 – Present</span>
+                  <span className="text-ink font-mono font-semibold">2023 – Present</span>
                 </div>
                 <p className="text-ink font-medium">Freelance & Client Engineering · Remote</p>
                 <ul className="space-y-1.5 text-ink-muted list-disc list-inside">
@@ -161,7 +170,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">Diploma in Information Technology</h4>
-                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">2024 – 2026</span>
+                  <span className="text-ink font-mono font-semibold">2024 – 2026</span>
                 </div>
                 <p className="text-ink font-medium">Accra Technical University</p>
                 <p className="text-ink-muted">Coursework: Data Structures • Networking • Web Technologies • Software Engineering • Database Systems.</p>
@@ -170,7 +179,7 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
               <div className="p-5 rounded-2xl bg-surface-2/60 border border-line/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink text-sm">BSc in Computer Science (Top-Up)</h4>
-                  <span className="text-indigo-600 dark:text-indigo-400 font-mono font-semibold">Target: 2027</span>
+                  <span className="text-ink font-mono font-semibold">Target: 2027</span>
                 </div>
                 <p className="text-ink font-medium">Ghana Communication Technology University (GCTU)</p>
                 <p className="text-ink-muted">Target program advancing study in algorithms, distributed systems, software engineering, and systems architecture.</p>

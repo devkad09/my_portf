@@ -1,4 +1,4 @@
-import { ExternalLink, Sparkles, Calendar, MapPin, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ExternalLink, Sparkles, Calendar, MapPin } from "lucide-react";
 
 interface ExperienceItem {
   role: string;
@@ -56,7 +56,7 @@ const Experience = () => {
           </p>
           <h2 id="experience-heading" className="section-heading">
             Engineering experience &{" "}
-            <span className="text-indigo-600 dark:text-indigo-400">
+            <span className="text-slate-500 dark:text-slate-300">
               measurable impact
             </span>
           </h2>
@@ -70,7 +70,7 @@ const Experience = () => {
           {EXPERIENCES.map((exp) => (
             <article
               key={`${exp.company}-${exp.role}`}
-              className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 shadow-xl"
+              className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-white/10 hover:border-white/25 transition-all duration-300 shadow-xl"
             >
               {/* Header Row */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-line/60">
@@ -79,7 +79,7 @@ const Experience = () => {
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">
                       {exp.role}
                     </h3>
-                    <span className="px-3 py-0.5 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                    <span className="px-3 py-0.5 rounded-full text-xs font-mono font-semibold bg-white/10 text-ink border border-white/15">
                       {exp.badge}
                     </span>
                   </div>
@@ -90,7 +90,7 @@ const Experience = () => {
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-semibold text-ink hover:text-indigo-500 transition-colors flex items-center gap-1"
+                        className="font-semibold text-ink hover:text-white transition-colors flex items-center gap-1"
                       >
                         <span>{exp.company}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -100,14 +100,14 @@ const Experience = () => {
                     )}
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-indigo-500" />
+                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
                       {exp.location}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-surface-2 border border-line text-xs font-mono text-ink-muted self-start sm:self-auto">
-                  <Calendar className="w-3.5 h-3.5 text-indigo-500" />
+                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
                   <span>{exp.period}</span>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const Experience = () => {
               {/* Problem vs Outcome */}
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="text-xs font-mono uppercase font-bold text-indigo-600 dark:text-indigo-400 tracking-wider">
+                  <p className="text-xs font-mono uppercase font-bold text-ink tracking-wider">
                     The Challenge & Need:
                   </p>
                   <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
@@ -124,7 +124,7 @@ const Experience = () => {
                 </div>
 
                 <div className="p-4 sm:p-5 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="text-xs font-mono uppercase font-bold text-violet-600 dark:text-violet-400 tracking-wider">
+                  <p className="text-xs font-mono uppercase font-bold text-slate-400 tracking-wider">
                     Business Outcome & Delivery:
                   </p>
                   <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
@@ -138,7 +138,7 @@ const Experience = () => {
                 {exp.technologies.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 rounded-xl text-xs font-mono text-ink-muted bg-surface-2/80 border border-line hover:border-indigo-500/30 hover:text-ink transition-colors"
+                    className="px-3 py-1 rounded-xl text-xs font-mono text-ink-muted bg-surface-2/80 border border-line hover:border-white/30 hover:text-ink transition-colors"
                   >
                     {t}
                   </span>

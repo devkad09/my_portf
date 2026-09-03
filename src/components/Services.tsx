@@ -6,7 +6,6 @@ const SERVICES_DATA = [
     subtitle: "Modern React 18 & TypeScript Systems",
     icon: Code2,
     badge: "Sub-Second Delivery",
-    accent: "indigo",
     description:
       "For founders, startups, and engineering teams that need a developer who builds high-performance, accessible web applications with clean component architecture and complete visual perfection.",
     highlights: [
@@ -23,7 +22,6 @@ const SERVICES_DATA = [
     subtitle: "Developer Portals & API References",
     icon: BookOpen,
     badge: "Formgrid.dev Standard",
-    accent: "violet",
     description:
       "For developer tools, APIs, and SaaS products that need software built with absolute clarity: REST API endpoint references, MDX documentation pipelines, and onboarding guides that accelerate developer adoption.",
     highlights: [
@@ -48,7 +46,7 @@ const Services = () => {
             <span>Value & Offerings</span>
           </p>
           <h2 id="services-heading" className="section-heading">
-            How we can <span className="text-indigo-600 dark:text-indigo-400">collaborate</span>
+            How we can <span className="text-slate-500 dark:text-slate-300">collaborate</span>
           </h2>
           <p className="section-copy mx-auto">
             Focused on concrete business outcomes: fast software delivery and documentation systems that drive developer adoption.
@@ -63,15 +61,15 @@ const Services = () => {
             return (
               <article
                 key={service.title}
-                className="rounded-3xl glass-card p-8 sm:p-10 border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between"
+                className="rounded-3xl glass-card p-8 sm:p-10 border-white/10 hover:border-white/25 transition-all duration-300 shadow-xl flex flex-col justify-between"
               >
                 <div className="space-y-6">
                   {/* Service Top Bar */}
                   <div className="flex items-center justify-between pb-6 border-b border-line/60">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-slate-950 shadow-md">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-surface-2 border border-line text-indigo-600 dark:text-indigo-400">
+                    <span className="px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-surface-2 border border-line text-ink">
                       {service.badge}
                     </span>
                   </div>
@@ -80,7 +78,7 @@ const Services = () => {
                     <h3 className="font-display text-2xl sm:text-[26px] font-bold text-ink tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mt-1 font-semibold">
+                    <p className="text-xs font-mono text-ink-muted mt-1 font-semibold">
                       {service.subtitle}
                     </p>
                     <p className="mt-4 text-sm sm:text-base leading-relaxed text-ink-muted">
@@ -96,7 +94,7 @@ const Services = () => {
                     <ul className="space-y-2.5">
                       {service.highlights.map((h) => (
                         <li key={h} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-muted">
-                          <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -113,7 +111,7 @@ const Services = () => {
 
                   <a
                     href="#work-with-me"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-violet-500 transition-colors shrink-0"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink hover:text-slate-400 transition-colors shrink-0"
                   >
                     <span>Request Quote</span>
                     <ArrowRight className="w-3.5 h-3.5" />

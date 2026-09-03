@@ -59,7 +59,7 @@ const Writing = () => {
             <span>Technical Publications</span>
           </p>
           <h2 id="writing-heading" className="section-heading">
-            Engineering insights & <span className="text-indigo-600 dark:text-indigo-400">publications</span>
+            Engineering insights & <span className="text-slate-500 dark:text-slate-300">publications</span>
           </h2>
           <p className="section-copy mx-auto">
             Working notes on frontend systems, API design, accessibility, and developer documentation architecture.
@@ -71,17 +71,17 @@ const Writing = () => {
           {ARTICLES.map((article) => (
             <article
               key={article.title}
-              className="rounded-3xl glass-card p-6 sm:p-8 border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between group relative overflow-hidden"
+              className="rounded-3xl glass-card p-6 sm:p-8 border-white/10 hover:border-white/25 transition-all duration-300 shadow-xl flex flex-col justify-between group relative overflow-hidden"
             >
               <div className="relative z-10 space-y-4">
                 {/* Meta Top Row */}
                 <div className="flex items-center justify-between gap-3 pb-3 border-b border-line/60">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-white/10 text-ink border border-white/15">
                     {article.tag}
                   </span>
                   <div className="flex items-center gap-2 text-xs font-mono text-ink-muted">
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-indigo-500" />
+                      <Clock className="w-3 h-3 text-slate-400" />
                       {article.readTime}
                     </span>
                     <span>•</span>
@@ -90,7 +90,7 @@ const Writing = () => {
                 </div>
 
                 {/* Article Headline */}
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-ink group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-ink group-hover:text-slate-400 transition-colors leading-snug">
                   <a href={article.url} target="_blank" rel="noopener noreferrer">
                     {article.title}
                   </a>
@@ -107,7 +107,7 @@ const Writing = () => {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 group-hover:text-violet-500 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink hover:text-slate-400 transition-colors"
                 >
                   <span>Read Article</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

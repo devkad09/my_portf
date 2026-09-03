@@ -28,14 +28,14 @@ const Hero = () => {
       cmd: "whoami",
       res: (
         <div className="space-y-1 text-xs">
-          <p className="text-indigo-400 font-bold">Kelvin Atsu Djayouri (KadDev)</p>
+          <p className="text-white font-bold">Kelvin Atsu Djayouri (KadDev)</p>
           <p className="text-slate-300">
             Frontend Developer & Technical Writer @{" "}
             <a
               href="https://formgrid.dev"
               target="_blank"
               rel="noreferrer"
-              className="text-indigo-400 font-semibold underline underline-offset-2"
+              className="text-white font-semibold underline underline-offset-2 hover:text-slate-200"
             >
               Formgrid.dev
             </a>
@@ -49,14 +49,14 @@ const Hero = () => {
   const terminalCommands: Record<string, React.ReactNode> = {
     whoami: (
       <div className="space-y-1 text-xs">
-        <p className="text-indigo-400 font-bold">Kelvin Atsu Djayouri (KadDev)</p>
+        <p className="text-white font-bold">Kelvin Atsu Djayouri (KadDev)</p>
         <p className="text-slate-300">
           Frontend Developer & Technical Writer @{" "}
           <a
             href="https://formgrid.dev"
             target="_blank"
             rel="noreferrer"
-            className="text-indigo-400 font-semibold underline underline-offset-2"
+            className="text-white font-semibold underline underline-offset-2 hover:text-slate-200"
           >
             Formgrid.dev
           </a>
@@ -66,30 +66,30 @@ const Hero = () => {
     ),
     formgrid: (
       <div className="space-y-1 text-xs text-slate-300">
-        <p className="text-indigo-400 font-bold">⚡ Formgrid.dev Documentation Systems</p>
+        <p className="text-white font-bold">⚡ Formgrid.dev Documentation Systems</p>
         <p>• Authored REST API endpoint references & headless pipeline documentation (/api/f/:id).</p>
         <p>• Engineered interactive component architecture guides and lead intake portals.</p>
       </div>
     ),
     stack: (
       <div className="space-y-1 text-xs text-slate-300">
-        <p><span className="text-indigo-400 font-bold">Frontend:</span> React 18, TypeScript, Tailwind CSS, Vite, Next.js</p>
-        <p><span className="text-violet-400 font-bold">Backend & Cloud:</span> Node.js, REST APIs, Supabase, Express, MongoDB</p>
-        <p><span className="text-purple-400 font-bold">Quality:</span> WCAG 2.1 AA A11y, axe DevTools, Core Web Vitals (100/100)</p>
+        <p><span className="text-white font-bold">Frontend:</span> React 18, TypeScript, Tailwind CSS, Vite, Next.js</p>
+        <p><span className="text-slate-300 font-bold">Backend & Cloud:</span> Node.js, REST APIs, Supabase, Express, MongoDB</p>
+        <p><span className="text-white font-bold">Quality:</span> WCAG 2.1 AA A11y, axe DevTools, Core Web Vitals (100/100)</p>
       </div>
     ),
     projects: (
       <div className="space-y-1 text-xs text-slate-300">
-        <p>🛍️ <span className="text-indigo-300 font-semibold">Nordhem:</span> Scandinavian e-commerce (Personal Project · In Progress)</p>
-        <p>📋 <span className="text-violet-300 font-semibold">FormFlow:</span> Multi-step form engine with Supabase (Active SaaS)</p>
-        <p>🍸 <span className="text-purple-300 font-semibold">Mcsteeze Lounge:</span> Digital hospitality experience (Production Live)</p>
+        <p>🛍️ <span className="text-white font-semibold">Nordhem:</span> Scandinavian e-commerce (Personal Project · In Progress)</p>
+        <p>📋 <span className="text-slate-300 font-semibold">FormFlow:</span> Multi-step form engine with Supabase (Active SaaS)</p>
+        <p>🍸 <span className="text-white font-semibold">Mcsteeze Lounge:</span> Digital hospitality experience (Production Live)</p>
       </div>
     ),
     contact: (
       <div className="space-y-1 text-xs text-slate-300">
-        <p>📧 Email: <a href="mailto:deve.kad.tech@gmail.com" className="text-indigo-400 underline">deve.kad.tech@gmail.com</a></p>
-        <p>💼 LinkedIn: <a href="https://linkedin.com/in/kaddev" target="_blank" rel="noreferrer" className="text-violet-400 underline">@kaddev</a></p>
-        <p>💻 GitHub: <a href="https://github.com/devkad09" target="_blank" rel="noreferrer" className="text-indigo-400 underline">@devkad09</a></p>
+        <p>📧 Email: <a href="mailto:deve.kad.tech@gmail.com" className="text-white underline">deve.kad.tech@gmail.com</a></p>
+        <p>💼 LinkedIn: <a href="https://linkedin.com/in/kaddev" target="_blank" rel="noreferrer" className="text-white underline">@kaddev</a></p>
+        <p>💻 GitHub: <a href="https://github.com/devkad09" target="_blank" rel="noreferrer" className="text-white underline">@devkad09</a></p>
       </div>
     ),
   };
@@ -110,7 +110,7 @@ const Hero = () => {
           cmd: clean,
           res: (
             <p className="text-red-400 text-xs">
-              Command '{clean}' not found. Try: <code className="text-indigo-300">whoami</code>, <code className="text-indigo-300">formgrid</code>, <code className="text-indigo-300">stack</code>, <code className="text-indigo-300">projects</code>, <code className="text-indigo-300">contact</code>, <code className="text-indigo-300">clear</code>
+              Command '{clean}' not found. Try: <code className="text-white">whoami</code>, <code className="text-white">formgrid</code>, <code className="text-white">stack</code>, <code className="text-white">projects</code>, <code className="text-white">contact</code>, <code className="text-white">clear</code>
             </p>
           ),
         },
@@ -132,23 +132,22 @@ const Hero = () => {
         className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden"
         aria-labelledby="hero-heading"
       >
-        {/* Subtle Ambient Indigo & Violet Background Lighting */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-indigo-500/10 dark:bg-indigo-500/15 blur-[120px] rounded-full pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-10 w-[300px] h-[250px] bg-violet-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+        {/* Subtle Ambient Monochrome Background Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-white/05 blur-[140px] rounded-full pointer-events-none -z-10" />
 
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
             {/* Left Column: Hero Narrative & Value Prop (6 cols) */}
             <div className="lg:col-span-6 space-y-6 sm:space-y-7">
               {/* Radar Live Status Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border-indigo-500/30 text-xs font-semibold text-ink shadow-sm">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border-white/20 text-xs font-semibold text-ink shadow-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-900 dark:bg-white" />
                 </span>
                 <span>Available for Select Contracts & Engineering</span>
                 <span className="text-ink-muted/40">•</span>
-                <span className="text-indigo-600 dark:text-indigo-400 font-mono text-[11px]">Accra (GMT+0)</span>
+                <span className="text-ink font-mono text-[11px]">Accra (GMT+0)</span>
               </div>
 
               {/* Main Headline */}
@@ -157,7 +156,7 @@ const Hero = () => {
                 className="text-[36px] sm:text-[48px] lg:text-[54px] font-extrabold leading-[1.08] tracking-[-0.04em] text-ink font-display"
               >
                 Engineering sub-second web applications &{" "}
-                <span className="text-indigo-600 dark:text-indigo-400">
+                <span className="text-slate-500 dark:text-slate-300 underline underline-offset-8 decoration-white/30">
                   modern digital experiences.
                 </span>
               </h1>
@@ -178,7 +177,7 @@ const Hero = () => {
                   onClick={() => setIsResumeOpen(true)}
                   className="btn-secondary"
                 >
-                  <FileText className="w-4 h-4 text-indigo-500" />
+                  <FileText className="w-4 h-4 text-slate-400" />
                   <span>Interactive CV</span>
                 </button>
               </div>
@@ -190,15 +189,15 @@ const Hero = () => {
                   <p className="text-[11px] font-mono text-ink-muted mt-0.5">React & TS</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">9+</p>
+                  <p className="font-display text-2xl font-extrabold text-ink tracking-tight">9+</p>
                   <p className="text-[11px] font-mono text-ink-muted mt-0.5">Projects Shipped</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-2xl font-extrabold text-violet-600 dark:text-violet-400 tracking-tight">100/100</p>
-                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">Web Vitals Pass</p>
+                  <p className="font-display text-2xl font-extrabold text-ink tracking-tight">3 SaaS</p>
+                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">In Production</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-base font-bold text-indigo-600 dark:text-indigo-400 tracking-tight truncate">Formgrid</p>
+                  <p className="font-display text-base font-bold text-ink tracking-tight truncate">Formgrid</p>
                   <p className="text-[11px] font-mono text-ink-muted mt-0.5">Tech Writer</p>
                 </div>
               </div>
@@ -207,13 +206,13 @@ const Hero = () => {
             {/* Right Column: Multi-Bento Interactive Cockpit (6 cols) */}
             <div className="lg:col-span-6 space-y-4">
               {/* Main Cockpit Window */}
-              <div className="relative rounded-[24px] glass-panel border-indigo-500/30 overflow-hidden shadow-2xl">
+              <div className="relative rounded-[24px] glass-panel border-white/15 overflow-hidden shadow-2xl">
                 {/* Cockpit Chrome Header */}
                 <div className="px-4 py-3 bg-slate-900/95 border-b border-white/10 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-slate-600" />
+                    <div className="w-3 h-3 rounded-full bg-slate-500" />
+                    <div className="w-3 h-3 rounded-full bg-slate-400" />
                     <span className="ml-2 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
                       kaddev-cockpit v2.6
                     </span>
@@ -226,7 +225,7 @@ const Hero = () => {
                       onClick={() => setActiveTab("terminal")}
                       className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                         activeTab === "terminal"
-                          ? "bg-indigo-600 text-white shadow-sm font-semibold"
+                          ? "bg-white text-slate-950 shadow-sm font-bold"
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
@@ -239,7 +238,7 @@ const Hero = () => {
                       onClick={() => setActiveTab("code")}
                       className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                         activeTab === "code"
-                          ? "bg-indigo-600 text-white shadow-sm font-semibold"
+                          ? "bg-white text-slate-950 shadow-sm font-bold"
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
@@ -252,7 +251,7 @@ const Hero = () => {
                       onClick={() => setActiveTab("metrics")}
                       className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                         activeTab === "metrics"
-                          ? "bg-indigo-600 text-white shadow-sm font-semibold"
+                          ? "bg-white text-slate-950 shadow-sm font-bold"
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
@@ -263,20 +262,20 @@ const Hero = () => {
                 </div>
 
                 {/* Cockpit Window Content */}
-                <div className="p-5 bg-[#070914] text-slate-200 min-h-[320px] max-h-[360px] overflow-y-auto font-mono text-xs">
+                <div className="p-5 bg-[#0a0b10] text-slate-200 min-h-[320px] max-h-[360px] overflow-y-auto font-mono text-xs">
                   {/* TAB 1: Terminal Shell */}
                   {activeTab === "terminal" && (
                     <div className="space-y-4">
                       <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/05 pb-2">
                         <p>
-                          Commands: <span className="text-indigo-400">whoami</span>, <span className="text-violet-400">formgrid</span>, <span className="text-indigo-400">stack</span>, <span className="text-purple-400">projects</span>
+                          Commands: <span className="text-white font-semibold">whoami</span>, <span className="text-white font-semibold">formgrid</span>, <span className="text-white font-semibold">stack</span>, <span className="text-white font-semibold">projects</span>
                         </p>
                         <button
                           type="button"
                           onClick={handleCopyCmd}
                           className="text-[10px] text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer bg-white/05 px-2 py-0.5 rounded border border-white/05"
                         >
-                          {copied ? <Check className="w-3 h-3 text-indigo-400" /> : <Copy className="w-3 h-3" />}
+                          {copied ? <Check className="w-3 h-3 text-white" /> : <Copy className="w-3 h-3" />}
                           <span>npx kaddev-cli</span>
                         </button>
                       </div>
@@ -288,9 +287,9 @@ const Hero = () => {
                             type="button"
                             key={cmd}
                             onClick={() => handleRunCommand(cmd)}
-                            className="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-[11px] text-slate-300 hover:text-indigo-300 hover:border-indigo-500/40 transition-all flex items-center gap-1 cursor-pointer"
+                            className="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-[11px] text-slate-300 hover:text-white hover:border-white/40 transition-all flex items-center gap-1 cursor-pointer"
                           >
-                            <Play className="w-2.5 h-2.5 text-indigo-400" />
+                            <Play className="w-2.5 h-2.5 text-white" />
                             <span>{cmd}</span>
                           </button>
                         ))}
@@ -300,11 +299,11 @@ const Hero = () => {
                       <div className="space-y-3 pt-2">
                         {terminalHistory.map((item, idx) => (
                           <div key={idx} className="space-y-1">
-                            <div className="flex items-center gap-2 text-indigo-400">
+                            <div className="flex items-center gap-2 text-slate-400">
                               <span>❯</span>
                               <span className="text-white font-bold">{item.cmd}</span>
                             </div>
-                            <div className="pl-3 border-l border-indigo-500/30">{item.res}</div>
+                            <div className="pl-3 border-l border-white/20">{item.res}</div>
                           </div>
                         ))}
                       </div>
@@ -315,7 +314,7 @@ const Hero = () => {
                           e.preventDefault();
                           if (terminalInput) handleRunCommand(terminalInput);
                         }}
-                        className="flex items-center gap-2 pt-2 text-indigo-400"
+                        className="flex items-center gap-2 pt-2 text-slate-400"
                       >
                         <span>❯</span>
                         <input
@@ -334,31 +333,31 @@ const Hero = () => {
                     <div className="space-y-2 leading-relaxed text-slate-300">
                       <p className="text-slate-500">// TypeScript & Formgrid.dev API Endpoint Reference</p>
                       <p>
-                        <span className="text-indigo-400">interface</span>{" "}
-                        <span className="text-violet-300">FrontendArchitecture</span> &#123;
+                        <span className="text-slate-400">interface</span>{" "}
+                        <span className="text-white font-semibold">FrontendArchitecture</span> &#123;
                       </p>
                       <p className="pl-4">
-                        <span className="text-indigo-300">author</span>: <span className="text-violet-300">"Kelvin Atsu Djayouri"</span>;
+                        <span className="text-slate-400">author</span>: <span className="text-slate-200">"Kelvin Atsu Djayouri"</span>;
                       </p>
                       <p className="pl-4">
-                        <span className="text-indigo-300">specialization</span>: <span className="text-violet-300">"React 18 & Docs Systems"</span>;
+                        <span className="text-slate-400">specialization</span>: <span className="text-slate-200">"React 18 & Docs Systems"</span>;
                       </p>
                       <p className="pl-4">
-                        <span className="text-indigo-300">coreStack</span>: [<span className="text-violet-300">"React"</span>, <span className="text-violet-300">"TypeScript"</span>, <span className="text-violet-300">"Tailwind"</span>];
+                        <span className="text-slate-400">coreStack</span>: [<span className="text-slate-200">"React"</span>, <span className="text-slate-200">"TypeScript"</span>, <span className="text-slate-200">"Tailwind"</span>];
                       </p>
                       <p className="pl-4">
-                        <span className="text-indigo-300">guarantees</span>: &#123; <span className="text-violet-300">a11y</span>: <span className="text-purple-300">"WCAG 2.1 AA"</span>, <span className="text-violet-300">speed</span>: <span className="text-purple-300">"&lt;0.8s LCP"</span> &#125;;
+                        <span className="text-slate-400">guarantees</span>: &#123; <span className="text-slate-300">a11y</span>: <span className="text-white">"WCAG 2.1 AA"</span>, <span className="text-slate-300">speed</span>: <span className="text-white">"&lt;0.8s LCP"</span> &#125;;
                       </p>
                       <p>&#125;</p>
                       <p className="pt-2">
-                        <span className="text-indigo-400">export async function</span>{" "}
-                        <span className="text-indigo-300">shipProductionApp</span>(<span className="text-violet-300">spec</span>: <span className="text-purple-300">ProjectSpec</span>) &#123;
+                        <span className="text-slate-400">export async function</span>{" "}
+                        <span className="text-white font-semibold">shipProductionApp</span>(<span className="text-slate-300">spec</span>: <span className="text-white">ProjectSpec</span>) &#123;
                       </p>
-                      <p className="pl-4 text-slate-400">
+                      <p className="pl-4 text-slate-500">
                         // Real-time sub-second delivery pipeline
                       </p>
                       <p className="pl-4">
-                        <span className="text-indigo-400">return await</span> <span className="text-indigo-300">formgrid</span>.<span className="text-violet-300">dispatch</span>(<span className="text-violet-300">spec</span>);
+                        <span className="text-slate-400">return await</span> <span className="text-slate-200">formgrid</span>.<span className="text-white">dispatch</span>(<span className="text-slate-300">spec</span>);
                       </p>
                       <p>&#125;</p>
                     </div>
@@ -372,52 +371,52 @@ const Hero = () => {
                       </p>
 
                       <div className="grid grid-cols-2 gap-3 pt-1">
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-400 text-sm">
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
                             100
                           </div>
                           <div>
                             <p className="font-semibold text-white text-xs">Performance</p>
-                            <p className="text-[10px] text-indigo-400">Sub-second FCP</p>
+                            <p className="text-[10px] text-slate-400">Sub-second FCP</p>
                           </div>
                         </div>
 
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-400 text-sm">
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
                             100
                           </div>
                           <div>
                             <p className="font-semibold text-white text-xs">Accessibility</p>
-                            <p className="text-[10px] text-indigo-400">WCAG 2.1 AA</p>
+                            <p className="text-[10px] text-slate-400">WCAG 2.1 AA</p>
                           </div>
                         </div>
 
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-400 text-sm">
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
                             100
                           </div>
                           <div>
                             <p className="font-semibold text-white text-xs">Best Practices</p>
-                            <p className="text-[10px] text-indigo-400">Strict TypeScript</p>
+                            <p className="text-[10px] text-slate-400">Strict TypeScript</p>
                           </div>
                         </div>
 
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-400 text-sm">
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
                             100
                           </div>
                           <div>
                             <p className="font-semibold text-white text-xs">SEO & Semantic</p>
-                            <p className="text-[10px] text-indigo-400">Clean Schema</p>
+                            <p className="text-[10px] text-slate-400">Clean Schema</p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between text-[11px]">
-                        <span className="text-indigo-300 flex items-center gap-1.5 font-sans">
-                          <ShieldCheck className="w-4 h-4 text-indigo-400" /> Tested with axe DevTools 2026
+                      <div className="p-3 rounded-xl bg-white/05 border border-white/10 flex items-center justify-between text-[11px]">
+                        <span className="text-slate-300 flex items-center gap-1.5 font-sans">
+                          <ShieldCheck className="w-4 h-4 text-white" /> Tested with axe DevTools 2026
                         </span>
-                        <span className="text-indigo-400 font-bold">0 Violations</span>
+                        <span className="text-white font-bold">0 Violations</span>
                       </div>
                     </div>
                   )}
@@ -426,7 +425,7 @@ const Hero = () => {
                 {/* Cockpit Status Bar */}
                 <div className="px-4 py-2.5 bg-slate-950 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     Cockpit Online
                   </span>
                   <span className="text-slate-500 font-mono">React 18 • TypeScript • Tailwind</span>
@@ -436,8 +435,8 @@ const Hero = () => {
               {/* Bento Sub-Cards: Role Snapshot & Stack Pills */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {/* Formgrid.dev Role Bento Badge */}
-                <div className="p-4 rounded-2xl glass-card border-indigo-500/20 flex items-center gap-3 shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                <div className="p-4 rounded-2xl glass-card border-white/10 flex items-center gap-3 shadow-md">
+                  <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-ink shrink-0">
                     <Layers className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
@@ -447,8 +446,8 @@ const Hero = () => {
                 </div>
 
                 {/* Speed SLA Bento Badge */}
-                <div className="p-4 rounded-2xl glass-card border-indigo-500/20 flex items-center gap-3 shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-600 dark:text-violet-400 shrink-0">
+                <div className="p-4 rounded-2xl glass-card border-white/10 flex items-center gap-3 shadow-md">
+                  <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-ink shrink-0">
                     <Zap className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">

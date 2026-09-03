@@ -36,7 +36,7 @@ const WhyHire = () => (
           Why Work With Me
         </p>
         <h2 className="section-heading">
-          Engineering & documentation that drives <span className="text-indigo-600 dark:text-indigo-400">real results</span>
+          Engineering & documentation that drives <span className="text-slate-500 dark:text-slate-300">real results</span>
         </h2>
         <p className="section-copy mx-auto max-w-2xl text-base sm:text-lg">
           Combining modern frontend engineering with rigorous technical documentation and accessible design systems.
@@ -55,15 +55,15 @@ const WhyHire = () => (
               <div className="flex flex-col justify-between h-full space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-all shadow-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-ink group-hover:scale-110 transition-all shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-white/10 text-ink border border-white/15">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-xl text-ink group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <h3 className="font-bold text-xl text-ink group-hover:text-slate-400 transition-colors">
                     {item.title}
                   </h3>
 
@@ -72,8 +72,8 @@ const WhyHire = () => (
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-line/60 flex items-center gap-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
+                <div className="pt-4 border-t border-line/60 flex items-center gap-2 text-xs font-semibold text-ink">
+                  <CheckCircle2 className="w-4 h-4 text-slate-400 flex-shrink-0" />
                   <span>Clear, accurate & developer-ready documentation guaranteed</span>
                 </div>
               </div>

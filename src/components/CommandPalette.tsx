@@ -181,12 +181,12 @@ const CommandPalette = ({ isOpen, onClose, onOpenResume }: CommandPaletteProps) 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-xl rounded-2xl glass-panel border-indigo-500/30 shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_30px_rgba(99,102,241,0.15)] overflow-hidden animate-in zoom-in-95 duration-200 bg-slate-950 text-slate-100"
+        className="relative w-full max-w-xl rounded-2xl glass-panel border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_30px_rgba(255,255,255,0.05)] overflow-hidden animate-in zoom-in-95 duration-200 bg-slate-950 text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Header */}
         <div className="flex items-center px-4 py-3.5 border-b border-white/10 gap-3">
-          <Search className="w-5 h-5 text-indigo-400 shrink-0" />
+          <Search className="w-5 h-5 text-slate-400 shrink-0" />
           <input
             type="text"
             autoFocus
@@ -217,23 +217,23 @@ const CommandPalette = ({ isOpen, onClose, onOpenResume }: CommandPaletteProps) 
                 <button
                   key={item.id}
                   onClick={item.action}
-                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-indigo-500/10 hover:border hover:border-indigo-500/30 border border-transparent transition-all group cursor-pointer"
+                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/10 hover:border hover:border-white/20 border border-transparent transition-all group cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-indigo-400 group-hover:border-indigo-500/30 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-white group-hover:border-white/30 transition-colors">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">
                         {item.title}
                       </p>
-                      <p className="text-[10px] font-mono text-slate-500 group-hover:text-indigo-400/80">
+                      <p className="text-[10px] font-mono text-slate-500 group-hover:text-slate-400">
                         {item.category}
                       </p>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-400 group-hover:text-indigo-400">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-400 group-hover:text-white">
                     {item.shortcut}
                   </span>
                 </button>

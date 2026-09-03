@@ -22,9 +22,9 @@ const Footer = () => {
           <div className="space-y-1">
             <a
               href="#top"
-              className="font-display font-bold text-lg text-ink hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-2"
+              className="font-display font-bold text-lg text-ink hover:text-slate-400 transition-colors flex items-center gap-2"
             >
-              <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-md shadow-indigo-500/25">
+              <div className="w-7 h-7 rounded-lg bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-slate-950 font-bold text-xs shadow-md">
                 K
               </div>
               <span>Kelvin Atsu Djayouri</span>
@@ -40,7 +40,7 @@ const Footer = () => {
               href="https://github.com/devkad09"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-indigo-500/40 transition-all block"
+              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-white/30 transition-all block"
               aria-label="GitHub"
               title="GitHub @devkad09"
             >
@@ -51,7 +51,7 @@ const Footer = () => {
               href="https://linkedin.com/in/kaddev"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-indigo-500/40 transition-all block"
+              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-white/30 transition-all block"
               aria-label="LinkedIn"
               title="LinkedIn @kaddev"
             >
@@ -60,20 +60,20 @@ const Footer = () => {
 
             <button
               onClick={handleEmailClick}
-              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-indigo-500/40 transition-all block relative cursor-pointer"
+              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-white/30 transition-all block relative cursor-pointer"
               aria-label="Copy Email"
               title="Click to copy deve.kad.tech@gmail.com"
             >
-              {copied ? <Check className="w-4 h-4 text-indigo-500" /> : <Mail className="w-4 h-4" />}
+              {copied ? <Check className="w-4 h-4 text-white" /> : <Mail className="w-4 h-4" />}
             </button>
 
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-indigo-500/40 transition-all block cursor-pointer ml-2"
+              className="p-2.5 rounded-xl bg-surface-2 border border-line text-ink-muted hover:text-ink hover:border-white/30 transition-all block cursor-pointer ml-2"
               title="Scroll to top"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-4 h-4 text-indigo-500" />
+              <ArrowUp className="w-4 h-4 text-slate-400" />
             </button>
           </div>
         </div>
@@ -81,8 +81,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-muted">
           <p>© {new Date().getFullYear()} Kelvin Atsu Djayouri. Built with React 18, TypeScript & Tailwind CSS.</p>
-          <div className="flex items-center gap-2 text-indigo-500">
-            <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+          <div className="flex items-center gap-2 text-ink">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span>100% Core Web Vitals • axe DevTools Cleared</span>
           </div>
         </div>
