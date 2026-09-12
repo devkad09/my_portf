@@ -7,7 +7,6 @@ import Projects from "@/components/Projects";
 import Playground from "@/components/Playground";
 import HowIBuild from "@/components/HowIBuild";
 import CurrentlyBuilding from "@/components/CurrentlyBuilding";
-import GithubSection from "@/components/GithubSection";
 import Experience from "@/components/Experience";
 import Articles from "@/components/Articles";
 import Contact from "@/components/Contact";
@@ -38,7 +37,6 @@ const Index = () => {
         <Playground />
         <HowIBuild />
         <CurrentlyBuilding />
-        <GithubSection />
         <Experience />
         <Articles />
         <Contact />
