@@ -9,7 +9,7 @@ A high-performance developer portfolio built with React 18, TypeScript, Tailwind
 
 ---
 
-## 🧭 Career Progression Arc
+## Career Progression Arc
 
 ```
 Strong Frontend Foundation ──▶ Growing Backend Skills ──▶ Future Full-Stack Developer
@@ -20,7 +20,7 @@ Kelvin’s core strength is modern frontend engineering (component architecture,
 
 ---
 
-## 🛠️ Confirmed Technical Stack
+## Confirmed Technical Stack
 
 ### Frontend (Strong Focus)
 - **React 18** — Component hierarchies, reactive hooks, performance profiling
@@ -44,7 +44,7 @@ Kelvin’s core strength is modern frontend engineering (component architecture,
 
 ---
 
-## 💻 Featured Confirmed Projects
+## Featured Confirmed Projects
 
 1. **[Nordhem Scandinavian Furniture](https://nordhem-blue.vercel.app)** — E-commerce storefront with live catalog filtering, responsive gallery layouts, cart persistence, and micro-interactions.
 2. **[FormFlow SaaS Onboarding Engine](https://formflow-olive.vercel.app)** — Production-grade multi-step form engine with real-time schema validation, keyboard navigation, and zero data-loss state persistence.
@@ -52,11 +52,11 @@ Kelvin’s core strength is modern frontend engineering (component architecture,
 
 ---
 
-## 🧪 Key Features & Architecture
+## Key Features & Architecture
 
 - **100% White Light-Mode Theme**: High-contrast, clean developer aesthetic with subtle neutral borders (`#E2E8F0`) and blue accent interactions.
-- **Frontend Playground 🧪**: Interactive browser sandbox demonstrating button micro-interaction physics, real-time regex/password gatekeeper, and async REST API lifecycle simulation with mock error recovery.
-- **Currently Building 🚀**: Live sprint tracker displaying active milestone progress on Nordhem and FormFlow.
+- **Frontend Playground**: Interactive browser sandbox demonstrating button micro-interaction physics, real-time regex/password gatekeeper, and async REST API lifecycle simulation with mock error recovery.
+- **Currently Building**: Live sprint tracker displaying active milestone progress on Nordhem and FormFlow.
 - **Case Study Deep-Dive**: Expandable modal detailing Problem, Technical Approach, Technologies, Engineering Challenges, Solution, Results, and Lessons Learned for each project.
 - **GitHub Live Sync**: Automated public repository feed fetching latest commits and repositories from `@devkad09` with graceful offline fallback.
 - **Interactive Command Palette (`⌘K`)**: Quick keyboard-driven navigation across all sections, project demos, and direct actions.
@@ -64,7 +64,7 @@ Kelvin’s core strength is modern frontend engineering (component architecture,
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18 or v20+ recommended)
@@ -98,6 +98,6 @@ npm run preview
 
 ---
 
-## 📄 License
+## License
 
 Created by **Kelvin Atsu Djayouri**. All rights reserved.

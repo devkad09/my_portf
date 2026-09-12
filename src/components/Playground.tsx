@@ -90,7 +90,7 @@ export const Playground = () => {
             <span>Interactive Experiments</span>
           </div>
           <h2 id="playground-heading" className="section-heading text-3xl sm:text-4xl lg:text-5xl">
-            Frontend Playground 🧪
+            Frontend Playground
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
             Interactive experiments demonstrating practical UI states and frontend architecture.

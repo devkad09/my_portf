@@ -25,7 +25,7 @@ export const CurrentlyBuilding = () => {
               <span>Active Sprints</span>
             </div>
             <h2 id="currently-building-heading" className="section-heading text-3xl sm:text-4xl">
-              Currently Building 🚀
+              Currently Building
             </h2>
           </div>
           <p className="text-xs font-mono text-slate-500">

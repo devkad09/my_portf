@@ -15,7 +15,7 @@ export const LevelingUp = () => {
             <span>Continuous Growth & Journey</span>
           </div>
           <h2 id="leveling-up-heading" className="section-heading text-3xl sm:text-4xl">
-            Currently Leveling Up 🚀
+            Currently Leveling Up
           </h2>
         </div>
 
