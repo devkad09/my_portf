@@ -81,7 +81,7 @@ export const PERSONAL_INFO = {
   positioning: "Frontend Developer | Growing into Full-Stack Development",
   headline: "I build modern digital experiences that people enjoy using.",
   supportingText:
-    "I’m a frontend developer focused on building responsive, accessible, and engaging web experiences while expanding my backend skills to build complete applications.",
+    "Frontend developer crafting fast, accessible web experiences with React & TypeScript, growing into full-stack development.",
   email: "deve.kad.tech@gmail.com",
   location: "Accra, Ghana (GMT+0)",
   availability: "Available for opportunities",
@@ -90,37 +90,37 @@ export const PERSONAL_INFO = {
 };
 
 export const FRONTEND_SKILLS: SkillItem[] = [
-  { name: "React", focus: "Component Architecture", description: "Hooks, custom state logic, component composition, and responsive state." },
-  { name: "TypeScript", focus: "Type Safety", description: "Strong typing, interface contracts, generics, and compile-time error prevention." },
-  { name: "JavaScript (ES6+)", focus: "Core Language", description: "Modern syntax, asynchronous promises, array methods, and DOM APIs." },
-  { name: "Next.js", focus: "Framework & Tooling", description: "File-system routing, server/client component boundaries, and performance." },
-  { name: "Tailwind CSS", focus: "Styling & Design Systems", description: "Utility-first design, custom configurations, tokens, and responsive layouts." },
-  { name: "HTML5 & Semantic Web", focus: "Structural Foundation", description: "Accessible landmark structure, SEO metadata, and semantic markup." },
-  { name: "CSS3 & Modern Layouts", focus: "Layout Precision", description: "Flexbox, CSS Grid, media queries, keyframe animations, and transitions." },
-  { name: "Responsive Design", focus: "Cross-Device UX", description: "Pixel-accurate rendering from mobile viewports to desktop monitors." },
-  { name: "UI/UX Implementation", focus: "Interactive Polish", description: "Translating mockups into intuitive, clean, and accessible user flows." },
-  { name: "API Integration", focus: "Data Layer", description: "Connecting frontend components to RESTful APIs, JSON data, and webhooks." },
+  { name: "React", focus: "Component Architecture", description: "Hooks, state management, and component composition." },
+  { name: "TypeScript", focus: "Type Safety", description: "Interface contracts, generics, and compile-time safety." },
+  { name: "JavaScript (ES6+)", focus: "Core Language", description: "Modern syntax, asynchronous promises, and DOM APIs." },
+  { name: "Next.js", focus: "Framework & Tooling", description: "App router, SSR/SSG, and performance optimization." },
+  { name: "Tailwind CSS", focus: "Styling Systems", description: "Utility-first layouts, responsive design, and tokens." },
+  { name: "HTML5 & Semantics", focus: "Structure", description: "Accessible landmark markup and SEO structure." },
+  { name: "CSS3 & Modern Layouts", focus: "Layout Precision", description: "Flexbox, CSS Grid, and fluid animations." },
+  { name: "Responsive Design", focus: "Cross-Device UX", description: "Pixel-accurate rendering from mobile to desktop." },
+  { name: "UI/UX Implementation", focus: "Interface Polish", description: "Intuitive, clean, and accessible user flows." },
+  { name: "API Integration", focus: "Data Layer", description: "Connecting frontends to REST APIs and JSON endpoints." },
 ];
 
 export const BACKEND_LEARNING_SKILLS: SkillItem[] = [
-  { name: "Node.js & Express", focus: "Currently Learning", description: "Building server endpoints, handling routing, middleware, and request/response lifecycles." },
-  { name: "REST APIs", focus: "Currently Learning", description: "Designing structured CRUD endpoints, query parameters, and status code conventions." },
-  { name: "Databases (Supabase / SQL)", focus: "Currently Learning", description: "Relational data modeling, table schemas, foreign keys, and basic SQL queries." },
-  { name: "MongoDB", focus: "Currently Learning", description: "Document-oriented databases, schemas, and basic collection operations." },
-  { name: "Authentication", focus: "Currently Learning", description: "Understanding session tokens, JWTs, protected routes, and user access flows." },
-  { name: "Server-Side Logic", focus: "Currently Learning", description: "Form submissions, webhook handlers, server-side data validation, and error recovery." },
+  { name: "Node.js & Express", focus: "Currently Learning", description: "Server endpoints, routing, middleware, and request lifecycles." },
+  { name: "REST APIs", focus: "Currently Learning", description: "Designing CRUD endpoints and HTTP status conventions." },
+  { name: "Databases (Supabase / SQL)", focus: "Currently Learning", description: "Relational modeling, schemas, and basic queries." },
+  { name: "MongoDB", focus: "Currently Learning", description: "Document collections, schemas, and basic queries." },
+  { name: "Authentication", focus: "Currently Learning", description: "JWT tokens, protected routes, and auth flows." },
+  { name: "Server-Side Logic", focus: "Currently Learning", description: "Form handlers, validation, and error handling." },
 ];
 
 export const LEVELING_UP = {
   quote:
-    "I’m currently expanding beyond frontend development and building my backend skills. My goal is to understand the complete lifecycle of a web application — from designing the interface to building APIs, handling data and authentication, and deploying the application.",
+    "Strong frontend foundation — actively expanding into Node.js, Express, and Supabase for end-to-end delivery.",
   steps: [
-    { title: "Frontend", status: "Strong Core", desc: "React, TypeScript, responsive UI & UX design" },
-    { title: "APIs", status: "Actively Practicing", desc: "REST conventions, JSON payloads, and fetch handling" },
-    { title: "Backend", status: "In Progress", desc: "Node.js, Express server logic, and request routing" },
-    { title: "Databases", status: "In Progress", desc: "Supabase, PostgreSQL schemas, and basic queries" },
-    { title: "Authentication", status: "Next Milestone", desc: "Sessions, token handling, and protected routes" },
-    { title: "Deployment", status: "Production Ready", desc: "Vercel, Git workflows, and CI/CD automation" },
+    { title: "Frontend", status: "Strong Core", desc: "React, TypeScript, responsive UI" },
+    { title: "APIs", status: "Practicing", desc: "REST conventions & JSON handling" },
+    { title: "Backend", status: "In Progress", desc: "Node.js & Express routing" },
+    { title: "Databases", status: "In Progress", desc: "Supabase & SQL schemas" },
+    { title: "Authentication", status: "Next Milestone", desc: "Session & token security" },
+    { title: "Deployment", status: "Production Ready", desc: "Vercel & CI/CD automation" },
   ],
 };
 
@@ -128,47 +128,47 @@ export const HOW_I_BUILD_STEPS = [
   {
     step: "01",
     title: "Discover",
-    description: "Understand the problem, users, and core requirements before writing any code.",
+    description: "Clarify user flows and core requirements.",
   },
   {
     step: "02",
     title: "Design",
-    description: "Plan the interface, user experience, typography, and reusable component structure.",
+    description: "Structure reusable components and design tokens.",
   },
   {
     step: "03",
     title: "Develop",
-    description: "Build clean, responsive, and maintainable frontend components with TypeScript.",
+    description: "Write clean, type-safe React & Tailwind code.",
   },
   {
     step: "04",
     title: "Test",
-    description: "Audit responsiveness across devices, accessibility standards, and runtime performance.",
+    description: "Audit accessibility, responsiveness & speed.",
   },
   {
     step: "05",
     title: "Deploy",
-    description: "Deploy to production platforms, verify live functionality, and continuously iterate.",
+    description: "Ship production bundles via Git & CI/CD.",
   },
 ];
 
 export const CURRENTLY_BUILDING: CurrentlyBuildingItem[] = [
   {
     name: "Nordhem Storefront",
-    tagline: "Minimalist Scandinavian E-Commerce",
-    description: "Building faceted product filters, reactive slide-out cart drawer, and client-side state persistence.",
-    technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite"],
-    status: "Active Development",
-    progressPercent: 85,
+    tagline: "Performance & Filter Polish",
+    description: "Adding instant facet filtering, quick-view modals, and cart persistence.",
+    technologies: ["React 18", "TypeScript", "Tailwind CSS"],
+    status: "Active Sprint",
+    progressPercent: 80,
     liveUrl: "https://nordhem-blue.vercel.app",
   },
   {
     name: "FormFlow Engine",
-    tagline: "Multi-Step Form & Pipeline Router",
-    description: "Developing runtime schema validation with Zod and connecting lead submissions to Supabase.",
+    tagline: "Supabase Database Pipeline",
+    description: "Connecting multi-step Zod validated inputs to Supabase tables.",
     technologies: ["React 18", "TypeScript", "Zod", "Supabase"],
-    status: "Active Development",
-    progressPercent: 70,
+    status: "Active Sprint",
+    progressPercent: 75,
     liveUrl: "https://formflow-olive.vercel.app",
   },
 ];
@@ -179,17 +179,15 @@ export const PROJECTS: Project[] = [
     title: "Nordhem",
     category: "frontend",
     categoryLabel: "Frontend",
-    tagline: "Scandinavian Minimalist Fashion Storefront",
+    tagline: "Minimalist Scandinavian E-Commerce",
     description:
-      "A clean e-commerce interface built with React 18, TypeScript, and Tailwind CSS. Features dynamic multi-filter facet navigation, reactive product quick-views, and an intuitive slide-out cart drawer.",
-    status: "Live & Active Dev",
+      "A fast, responsive e-commerce storefront with client-side faceted filtering, product quick-views, and an interactive slide-out cart.",
+    status: "Live Project",
     image: "/nordhem.png",
     technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite"],
     keyFeatures: [
-      "Client-side faceted filtering by category, size, and price",
-      "Slide-out reactive cart drawer with persistent item counts",
-      "Mobile-first responsive design tested on multiple device widths",
-      "Keyboard-accessible interactive elements and focus states",
+      "Faceted filtering by category, size & price",
+      "Interactive cart drawer with local persistence",
     ],
     liveUrl: "https://nordhem-blue.vercel.app",
     githubUrl: "https://github.com/devkad09/nordhem",
@@ -200,17 +198,15 @@ export const PROJECTS: Project[] = [
     title: "FormFlow",
     category: "fullstack",
     categoryLabel: "Full Stack (Learning Project)",
-    tagline: "Multi-Step Form Engine & Database Pipeline",
+    tagline: "Multi-Step Form & Database Engine",
     description:
-      "A multi-step form application exploring frontend validation and backend database integration. Demonstrates dynamic field rendering, Zod schema validation, and data persistence via Supabase.",
-    status: "Active Development",
+      "A multi-step form engine with runtime Zod schema validation and direct data persistence into Supabase.",
+    status: "Active Project",
     image: "/formflow.png",
     technologies: ["React 18", "TypeScript", "Zod", "Supabase", "Tailwind CSS"],
     keyFeatures: [
-      "Multi-step progress indicator with step-by-step validation",
-      "Runtime form schema validation with clear field error messages",
-      "Direct integration with Supabase database for record storage",
-      "Accessible keyboard navigation across form inputs",
+      "Step-by-step progress with schema validation gates",
+      "Direct cloud persistence via Supabase tables",
     ],
     liveUrl: "https://formflow-olive.vercel.app",
     githubUrl: "https://github.com/devkad09/formflow",
@@ -221,16 +217,15 @@ export const PROJECTS: Project[] = [
     title: "Mcsteeze Lounge",
     category: "uiux",
     categoryLabel: "UI/UX & Web",
-    tagline: "Digital Hospitality Menu & Table Reservation Platform",
+    tagline: "Digital Menu & Table Reservation Portal",
     description:
-      "A mobile-first hospitality web application designed for a contemporary lounge. Features an interactive menu browser, item search, and a streamlined reservation request flow.",
-    status: "Production Live",
+      "A mobile-first hospitality web app with quick-filter menu browsing and a streamlined table reservation flow.",
+    status: "Live Project",
     image: "/mcsteeze.png",
     technologies: ["React 18", "Tailwind CSS", "Vite", "Lucide Icons"],
     keyFeatures: [
-      "Interactive category filtering for food and beverage menus",
-      "Mobile-optimized reservation modal with clear validation feedback",
-      "High visual hierarchy with clean spacing and subtle typography",
+      "Category-filtered digital menu with live search",
+      "Streamlined table reservation booking flow",
     ],
     liveUrl: "https://mcsteeze-lounge.vercel.app",
     githubUrl: "https://github.com/devkad09/mcsteeze-lounge",
@@ -249,51 +244,51 @@ export const CASE_STUDIES: CaseStudy[] = [
       "I designed a minimalist layout using generous white space and clean typography. On the technical side, I implemented client-side state handling to ensure filter updates and cart operations happen instantly without reloading the page.",
     technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite"],
     challenges:
-      "Managing complex multi-faceted filtering (combining size, category, and price range) while keeping the code maintainable and ensuring smooth slide-out cart transitions on mobile viewports.",
+      "Managing multi-faceted filtering (combining size, category, and price range) while keeping code modular and transitions smooth on mobile.",
     solution:
-      "I structured a centralized filter state hook that applies pure filter predicates against the product catalog, and built a lightweight slide-out drawer with CSS transitions for a native app feel.",
+      "Created a centralized filter state hook applying pure filter predicates against product records, paired with a lightweight slide-out drawer.",
     result:
-      "Delivered a fast, responsive, and visually clean e-commerce experience that demonstrates strong frontend component design and smooth user interaction.",
+      "Delivered a fast, responsive e-commerce experience with sub-second transitions and zero layout shifts.",
     whatILearned:
-      "Deepened my understanding of reactive state management, clean responsive layouts, and how careful layout choices significantly improve the user's shopping experience.",
+      "Deepened understanding of reactive state management and how clean visual hierarchy improves conversion.",
   },
   {
     projectId: "formflow",
     title: "FormFlow Multi-Step Engine",
     subtitle: "Connecting structured multi-step frontend forms to a cloud database pipeline.",
     problem:
-      "Long, single-page forms often overwhelm users, leading to high drop-off rates and invalid or incomplete submissions.",
+      "Long, single-page forms often overwhelm users, leading to high drop-off rates and invalid submissions.",
     approach:
-      "I broke down the intake process into clear, logical steps with progress tracking. I chose Zod for runtime schema validation to give users instant, helpful error feedback at each step before submitting.",
+      "Broke down intake into clear logical steps with Zod runtime schema validation for instant feedback before submission.",
     technologies: ["React 18", "TypeScript", "Zod", "Supabase", "Tailwind CSS"],
     challenges:
-      "Handling field dependencies across multiple steps, preventing navigation forward until the current step is valid, and persisting data cleanly into Supabase.",
+      "Handling field dependencies across multiple steps, preventing invalid navigation, and persisting data cleanly into Supabase.",
     solution:
-      "Implemented a step-by-step state machine with validation gates powered by Zod schemas. Once all steps passed validation, the clean payload is dispatched to a Supabase table.",
+      "Implemented a state machine with validation gates powered by Zod. On completion, the sanitized payload posts to Supabase.",
     result:
-      "Built a functional multi-step form application that successfully saves submissions to a cloud database with zero validation leakage.",
+      "A reliable multi-step form application saving structured submissions to a cloud database with zero validation leakage.",
     whatILearned:
-      "Gained hands-on experience connecting frontend interfaces to a real backend database (Supabase), understanding schema design, and handling asynchronous submission states (loading, success, error).",
+      "Hands-on experience connecting frontend interfaces to cloud databases, handling async loading and error states.",
     backendNote:
-      "This project represents one of my key milestones in learning backend development, specifically working with cloud databases, API requests, and data validation.",
+      "A key milestone in learning backend development, working with cloud databases, API requests, and data validation.",
   },
   {
     projectId: "mcsteeze",
     title: "Mcsteeze Lounge Web Portal",
     subtitle: "Developing a mobile-first digital menu and reservation flow for a hospitality venue.",
     problem:
-      "Patrons needed a fast way to browse food and drink offerings on their phones while dining, as well as an easy method to request reservations in advance.",
+      "Patrons needed a fast way to browse food and drink offerings on their phones, plus an easy method to reserve tables.",
     approach:
-      "Focused heavily on mobile ergonomics, designing thumb-friendly navigation, quick-tap category filters, and clear typography suitable for reading in various lighting conditions.",
+      "Focused on mobile ergonomics: thumb-friendly navigation, quick-tap category filters, and high-contrast typography.",
     technologies: ["React 18", "Tailwind CSS", "Vite", "Lucide Icons"],
     challenges:
-      "Ensuring images load swiftly on slower mobile networks without causing layout shifts, and designing an intuitive table booking modal.",
+      "Ensuring images load swiftly on slower mobile networks without causing layout shifts, and designing an intuitive booking modal.",
     solution:
       "Optimized assets, utilized responsive image sizing, and created a compact reservation form with clear input states.",
     result:
-      "Shipped a live, production web application that provides a modern digital touchpoint for lounge guests.",
+      "Shipped a live production web application that provides a modern digital touchpoint for lounge guests.",
     whatILearned:
-      "Reinforced the importance of mobile-first development and verified how clean visual hierarchy directly enhances user convenience.",
+      "Reinforced mobile-first development and verified how clean visual hierarchy enhances user convenience.",
   },
 ];
 
@@ -306,28 +301,26 @@ export const EXPERIENCES: ExperienceItem[] = [
     location: "Remote",
     period: "2024 – Present",
     summary:
-      "Authoring developer-facing technical documentation, REST API endpoint guides, and component integration workflows.",
+      "Writing developer documentation, REST API specifications, and component integration guides.",
     achievements: [
       "Authored REST API endpoint specifications and code examples in TypeScript and cURL",
-      "Created interactive component usage recipes and developer onboarding guides",
-      "Collaborated with engineering to clarify API request and response data structures",
+      "Created interactive component integration recipes and developer guides",
     ],
-    technologies: ["REST APIs", "TypeScript", "Technical Documentation", "Markdown", "Component Guides"],
+    technologies: ["REST APIs", "TypeScript", "Documentation", "Markdown"],
   },
   {
     id: "freelance",
     role: "Frontend Developer",
-    company: "Freelance & Independent Projects",
+    company: "Freelance & Projects",
     location: "Remote",
     period: "2023 – Present",
     summary:
-      "Designing and building modern, responsive frontend web applications and interfaces for clients and personal initiatives.",
+      "Building clean, responsive frontend web applications with React, TypeScript, and Tailwind CSS.",
     achievements: [
-      "Shipped multiple responsive web applications using React, TypeScript, and Tailwind CSS",
-      "Implemented mobile-first interfaces with strong attention to accessibility and clean aesthetics",
-      "Integrated frontends with third-party APIs and cloud database services like Supabase",
+      "Shipped responsive web applications with strong accessibility and performance",
+      "Integrated frontends with third-party APIs and Supabase cloud databases",
     ],
-    technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite", "Supabase", "Git"],
+    technologies: ["React 18", "TypeScript", "Tailwind CSS", "Vite", "Supabase"],
   },
 ];
 
@@ -338,17 +331,17 @@ export const EDUCATION_DATA: EducationItem[] = [
     period: "2024 – 2026",
     status: "Current Program",
     description:
-      "Foundational computer science and software coursework covering data structures, relational database systems, networking, and web technologies.",
-    highlights: ["Data Structures & Algorithms", "Database Management", "Web Engineering Foundations"],
+      "Computer science fundamentals: data structures, relational databases, and web engineering.",
+    highlights: ["Data Structures", "Database Management", "Web Engineering"],
   },
   {
     degree: "BSc in Computer Science (Top-Up)",
     institution: "Ghana Communication Technology University (GCTU)",
-    period: "Target Start: 2027",
-    status: "Planned Academic Advancement",
+    period: "Target: 2027",
+    status: "Planned Advancement",
     description:
-      "Planned undergraduate advancement focusing on advanced software systems, distributed computing, algorithms, and systems architecture.",
-    highlights: ["Distributed Systems", "Software Architecture", "Systems Programming"],
+      "Planned advancement in distributed computing, algorithms, and software systems.",
+    highlights: ["Distributed Systems", "Software Architecture", "Algorithms"],
   },
 ];
 
@@ -360,7 +353,7 @@ export const ARTICLES: Article[] = [
     date: "Aug 2026",
     readTime: "6 min read",
     description:
-      "How to design headless form backend endpoints that handle CORS, validate inputs, and process JSON and HTML form posts with minimal client friction.",
+      "Designing headless form endpoints that handle CORS, validation, and JSON submissions.",
     url: "https://formgrid.dev",
   },
   {
@@ -370,7 +363,7 @@ export const ARTICLES: Article[] = [
     date: "Aug 2026",
     readTime: "7 min read",
     description:
-      "Techniques for code splitting, asset optimization, and eliminating cumulative layout shifts in client-rendered React and TypeScript applications.",
+      "Techniques for code splitting and eliminating cumulative layout shifts in React SPAs.",
     url: "https://nordhem-blue.vercel.app",
   },
   {
@@ -380,7 +373,7 @@ export const ARTICLES: Article[] = [
     date: "Jul 2026",
     readTime: "5 min read",
     description:
-      "A straightforward guide to focus traps, ARIA attributes, and accessible modal navigation in custom React components.",
+      "Guide to focus traps, ARIA attributes, and accessible modal keyboard navigation.",
     url: "https://github.com/devkad09",
   },
 ];

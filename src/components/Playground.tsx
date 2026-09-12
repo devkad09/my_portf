@@ -92,13 +92,13 @@ export const Playground = () => {
           <h2 id="playground-heading" className="section-heading text-3xl sm:text-4xl lg:text-5xl">
             Frontend Playground 🧪
           </h2>
-          <p className="text-base text-slate-600">
-            A sandbox demonstrating practical frontend capabilities through working interactive experiments. &ldquo;I don’t just know frontend technologies — I know how to build with them.&rdquo;
+          <p className="text-sm sm:text-base text-slate-600">
+            Interactive experiments demonstrating practical UI states and frontend architecture.
           </p>
         </div>
 
         {/* 3 Interactive Experiment Cards */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Experiment 1: Button Micro-Interactions */}
           <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between space-y-6 hover:border-blue-300 transition-colors">
             <div className="space-y-3">
@@ -114,7 +114,7 @@ export const Playground = () => {
                 Action Feedback & States
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Experience tactile loading state transitions, timing curves, and accessible state confirmations.
+                Tactile loading state transitions and accessible confirmation curves.
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {renderTechTag("react")}
@@ -250,7 +250,7 @@ export const Playground = () => {
                 API Lifecycle Simulator
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Test how the interface gracefully handles loading skeletons, successful JSON parsing, and error recovery.
+                Simulate API state lifecycles: loading skeletons, data parsing, and error boundaries.
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {renderTechTag("typescript")}

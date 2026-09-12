@@ -28,8 +28,8 @@ export const Skills = () => {
               technologies
             </span>
           </h2>
-          <p className="text-base text-slate-600">
-            A verified inventory of technologies I actively engineer with, organized transparently by technical proficiency.
+          <p className="text-sm sm:text-base text-slate-600">
+            Technologies and tools I actively engineer with.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export const Skills = () => {
           </div>
 
           <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
-            I am currently expanding my backend knowledge to build complete full-stack applications. These are the tools and server-side concepts I am actively studying and implementing.
+            Server-side technologies and databases I am actively studying and implementing.
           </p>
 
           <div className="grid gap-3.5 sm:gap-4 grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4">

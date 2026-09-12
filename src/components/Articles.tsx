@@ -21,8 +21,8 @@ export const Articles = () => {
                 guides
               </span>
             </h2>
-            <p className="text-base text-slate-600">
-              Writing helps me think through software architecture. Here are technical publications covering headless APIs, frontend performance, and web accessibility.
+            <p className="text-sm sm:text-base text-slate-600">
+              Technical writing on headless APIs, performance, and accessibility.
             </p>
           </div>
         </div>

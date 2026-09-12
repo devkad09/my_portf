@@ -59,8 +59,8 @@ export const Projects = () => {
                   applications
                 </span>
               </h2>
-              <p className="text-base text-slate-600">
-                Real web applications engineered with clean component architecture, strict type contracts, and modern performance standards.
+              <p className="text-sm sm:text-base text-slate-600">
+                Web applications built with React, TypeScript, and modern component architecture.
               </p>
             </div>
 

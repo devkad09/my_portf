@@ -21,8 +21,8 @@ export const HowIBuild = () => {
               ship software
             </span>
           </h2>
-          <p className="text-base text-slate-600">
-            A methodical 5-phase engineering approach that ensures every interface is thoughtful, responsive, and production-ready.
+          <p className="text-sm sm:text-base text-slate-600">
+            A structured 5-phase workflow from discovery to deployment.
           </p>
         </div>
 

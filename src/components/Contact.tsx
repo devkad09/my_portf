@@ -95,8 +95,8 @@ export const Contact = () => {
                   Let’s build it.
                 </span>
               </h2>
-              <p className="text-base text-slate-600 leading-relaxed">
-                Whether you have an interesting frontend role, a freelance project, or just want to chat about web technology and backend learning, I’d love to connect.
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                Available for frontend opportunities and freelance projects. Let's discuss your next build.
               </p>
             </div>
 

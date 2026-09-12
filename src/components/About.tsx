@@ -69,15 +69,12 @@ export const About = () => {
               </h2>
             </div>
 
-            <div className="space-y-4 text-sm sm:text-base leading-relaxed text-slate-600">
+            <div className="space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
               <p>
-                I'm a frontend developer based in Ghana with over two years of hands-on experience building clean, responsive user interfaces. I love taking complex interface challenges and turning them into digital products that feel intuitive, fast, and effortless to navigate.
+                I’m a frontend developer specializing in building clean, accessible, and high-performance interfaces with <strong className="text-slate-900 font-semibold">React</strong>, <strong className="text-slate-900 font-semibold">TypeScript</strong>, and <strong className="text-slate-900 font-semibold">Tailwind CSS</strong>.
               </p>
               <p>
-                My daily work centers around <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>. For me, good frontend engineering is not just about making things look polished on desktop screens; it is about respecting accessibility, ensuring clean semantics, designing fluid mobile layouts, and paying close attention to rendering performance.
-              </p>
-              <p>
-                Alongside building web applications, I work as a Technical Writer at{" "}
+                Currently documenting developer APIs at{" "}
                 <a
                   href="https://formgrid.dev"
                   target="_blank"
@@ -85,21 +82,25 @@ export const About = () => {
                   className="font-semibold text-slate-900 underline underline-offset-4 decoration-slate-300 hover:text-blue-600 transition-colors inline-flex items-center gap-1"
                 >
                   <span>Formgrid.dev</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
                 </a>
-                , where I write clear API specifications, component documentation, and integration guides. This has strengthened my ability to read code critically, understand how APIs work under the hood, and communicate technical concepts clearly.
-              </p>
-              <p>
-                Right now, I am actively expanding my skill set into backend development. I am learning how to build RESTful APIs with <strong>Node.js</strong> and <strong>Express</strong>, working with cloud databases like <strong>Supabase</strong>, and understanding authentication patterns. My goal is simple: to become a well-rounded full-stack developer capable of turning an idea into a complete, end-to-end application.
+                , while actively learning <strong className="text-slate-900 font-semibold">Node.js</strong> and <strong className="text-slate-900 font-semibold">Supabase</strong> to grow into full-stack development.
               </p>
             </div>
 
-            {/* Academic Journey */}
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-start gap-3 text-xs sm:text-sm text-slate-600">
-              <GraduationCap className="w-5 h-5 text-slate-500 shrink-0 mt-0.5" />
-              <div>
-                <span className="font-semibold text-slate-900">Academic Background:</span>{" "}
-                Diploma in Information Technology at <strong>Accra Technical University</strong> (2024–2026), working toward a <strong>BSc in Computer Science (Top-Up)</strong> at <strong>Ghana Communication Technology University (GCTU)</strong> planned for 2027.
+            {/* Quick Highlights Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                <span className="text-[11px] font-mono text-slate-500 block">Core Focus</span>
+                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Frontend & UX</span>
+              </div>
+              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                <span className="text-[11px] font-mono text-slate-500 block">Writing & Docs</span>
+                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Formgrid.dev</span>
+              </div>
+              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                <span className="text-[11px] font-mono text-slate-500 block">Education</span>
+                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Diploma in IT, ATU</span>
               </div>
             </div>
           </div>
