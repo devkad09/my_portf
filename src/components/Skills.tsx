@@ -1,164 +1,111 @@
-import { useState } from "react";
-import { Sparkles, Code2, Database, BookOpen, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Sparkles, Code2, Server, Wrench } from "lucide-react";
+import { CONFIRMED_TECHNOLOGIES } from "@/data/technologies";
+import TechnologyCard from "./TechnologyCard";
 
-interface SkillItem {
-  name: string;
-  category: string;
-  level: string;
-  description: string;
-  iconBg: string;
-}
+export const Skills = () => {
+  const allTechs = Object.values(CONFIRMED_TECHNOLOGIES);
 
-const SKILL_CATEGORIES = [
-  {
-    id: "frontend",
-    title: "Frontend Engineering",
-    icon: Code2,
-    badge: "Core Architecture",
-    accent: "emerald",
-    skills: [
-      { name: "React 18", level: "Primary Core", desc: "Hooks, Context, Suspense, custom reactive hooks" },
-      { name: "TypeScript", level: "Strict Mode", desc: "Generics, Discriminated Unions, strict type contracts" },
-      { name: "Tailwind CSS", level: "Design Systems", desc: "Custom themes, tokens, responsive layouts" },
-      { name: "Next.js & Vite", level: "Build Tooling", desc: "SSR/SSG, fast HMR, code splitting, asset optimization" },
-      { name: "JavaScript (ES6+)", level: "Advanced", desc: "Async/await, DOM APIs, Event Loops, closures" },
-      { name: "HTML5 / CSS3", level: "Semantic A11y", desc: "ARIA attributes, flexbox, CSS Grid, animations" },
-    ],
-  },
-  {
-    id: "docs",
-    title: "Technical Writing & Systems",
-    icon: BookOpen,
-    badge: "Formgrid.dev Author",
-    accent: "cyan",
-    skills: [
-      { name: "REST API References", level: "Headless Endpoints", desc: "Complete OpenAPI & curl/fetch endpoint specifications" },
-      { name: "Component Systems", level: "Design Tokens", desc: "Reusable React UI documentation and recipes" },
-      { name: "MDX & Markdown", level: "Docs Pipelines", desc: "Content architectures, workflow guides, live code tabs" },
-      { name: "Lead Pipeline Docs", level: "Workflow Systems", desc: "Stage routing, automated notifications, onboarding portals" },
-      { name: "Developer Onboarding", level: "Adoption Portals", desc: "Zero to first API request in under 2 minutes" },
-      { name: "Technical Specifications", level: "Architecture", desc: "Clear functional requirements & engineering plans" },
-    ],
-  },
-  {
-    id: "backend",
-    title: "Backend & Integrations",
-    icon: Database,
-    badge: "Cloud & APIs",
-    accent: "violet",
-    skills: [
-      { name: "Node.js & Express", level: "Server Runtimes", desc: "RESTful routers, JSON parsing, middleware security" },
-      { name: "Supabase & SQL", level: "Cloud Database", desc: "Relational modeling, Row Level Security, realtime subscriptions" },
-      { name: "RESTful APIs", level: "Contract Design", desc: "CORS handling, Webhooks, Formsubmit & Web3Forms pipelines" },
-      { name: "MongoDB", level: "NoSQL Stores", desc: "Document schemas, Mongoose models, aggregation pipelines" },
-    ],
-  },
-  {
-    id: "quality",
-    title: "Standards & Tooling",
-    icon: ShieldCheck,
-    badge: "Production Ready",
-    accent: "emerald",
-    skills: [
-      { name: "WCAG 2.1 AA A11y", level: "axe DevTools", desc: "Keyboard trap elimination, ARIA landmarks, screen reader audits" },
-      { name: "Core Web Vitals", level: "Sub-Second LCP", desc: "Code splitting, lazy assets, zero layout shifts (CLS)" },
-      { name: "Git & GitHub", level: "Version Control", desc: "Feature branching, PR reviews, CI/CD automated workflows" },
-      { name: "Figma to Code", level: "Pixel Perfection", desc: "Translating design systems into scalable React components" },
-    ],
-  },
-];
-
-const Skills = () => {
-  const [activeSkill, setActiveSkill] = useState<string | null>(null);
+  const frontendTechs = allTechs.filter((t) => t.category === "frontend");
+  const backendTechs = allTechs.filter((t) => t.category === "backend");
+  const toolTechs = allTechs.filter((t) => t.category === "tools");
 
   return (
-    <section id="skills" className="py-24 sm:py-32 relative overflow-hidden" aria-labelledby="skills-heading">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <section
+      id="skills"
+      className="py-20 sm:py-28 lg:py-32 relative overflow-hidden bg-white scroll-mt-16"
+      aria-labelledby="skills-heading"
+    >
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <p className="section-eyebrow justify-center">
-            <Sparkles className="w-4 h-4" />
-            <span>Technical Capabilities</span>
+        <div className="space-y-3 max-w-2xl">
+          <p className="section-eyebrow">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span>Technology Stack</span>
           </p>
-          <h2 id="skills-heading" className="section-heading">
-            Engineering tools & <span className="text-emerald-600 dark:text-emerald-400">documentation systems</span>
+          <h2 id="skills-heading" className="section-heading text-3xl sm:text-4xl lg:text-5xl">
+            Confirmed skills &{" "}
+            <span className="text-slate-500">
+              technologies
+            </span>
           </h2>
-          <p className="section-copy mx-auto">
-            A battle-tested technical arsenal built around React 18, TypeScript, sub-second performance, and clear developer documentation.
+          <p className="text-base text-slate-600">
+            A verified inventory of technologies I actively engineer with, organized transparently by technical proficiency.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {SKILL_CATEGORIES.map((cat) => {
-            const Icon = cat.icon;
-
-            return (
-              <div
-                key={cat.id}
-                className="rounded-3xl glass-card p-6 sm:p-8 border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between"
-              >
-                <div>
-                  {/* Category Header */}
-                  <div className="flex items-center justify-between pb-5 border-b border-line/60 mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-display font-bold text-lg sm:text-xl text-ink">
-                          {cat.title}
-                        </h3>
-                        <p className="text-xs text-ink-muted">{cat.skills.length} core competencies</p>
-                      </div>
-                    </div>
-
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-surface-2 border border-line text-emerald-600 dark:text-emerald-400">
-                      {cat.badge}
-                    </span>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {cat.skills.map((skill) => {
-                      const isHovered = activeSkill === skill.name;
-
-                      return (
-                        <div
-                          key={skill.name}
-                          onMouseEnter={() => setActiveSkill(skill.name)}
-                          onMouseLeave={() => setActiveSkill(null)}
-                          className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-default ${
-                            isHovered
-                              ? "bg-emerald-500/10 border-emerald-500/50 shadow-md scale-[1.02]"
-                              : "bg-surface-2/60 border-line/60 hover:border-emerald-500/30"
-                          }`}
-                        >
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="font-semibold text-xs sm:text-sm text-ink">
-                              {skill.name}
-                            </span>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface border border-line text-emerald-600 dark:text-emerald-400 font-semibold">
-                              {skill.level}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-ink-muted mt-1 leading-snug">
-                            {skill.desc}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Footer validation */}
-                <div className="mt-6 pt-4 border-t border-line/60 flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Production standard tested & deployed</span>
-                </div>
+        {/* 1. Frontend — Strong Focus */}
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                <Code2 className="w-4 h-4" />
               </div>
-            );
-          })}
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
+                Frontend — Strong Focus
+              </h3>
+            </div>
+            <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-medium border border-blue-200 self-start sm:self-auto">
+              Core Technical Specialty
+            </span>
+          </div>
+
+          <div className="grid gap-3.5 sm:gap-4 grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3">
+            {frontendTechs.map((tech) => (
+              <TechnologyCard key={tech.id} technology={tech} />
+            ))}
+          </div>
+        </div>
+
+        {/* 2. Backend — Currently Learning */}
+        <div className="space-y-6 pt-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                <Server className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
+                  Backend — Currently Learning
+                </h3>
+              </div>
+            </div>
+            <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-medium border border-slate-200 self-start sm:self-auto">
+              Active Growth Domain
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
+            I am currently expanding my backend knowledge to build complete full-stack applications. These are the tools and server-side concepts I am actively studying and implementing.
+          </p>
+
+          <div className="grid gap-3.5 sm:gap-4 grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4">
+            {backendTechs.map((tech) => (
+              <TechnologyCard key={tech.id} technology={tech} />
+            ))}
+          </div>
+        </div>
+
+        {/* 3. Tools & Workflow */}
+        <div className="space-y-6 pt-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                <Wrench className="w-4 h-4" />
+              </div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
+                Tools & Workflow
+              </h3>
+            </div>
+            <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-medium border border-slate-200 self-start sm:self-auto">
+              Engineering Environment
+            </span>
+          </div>
+
+          <div className="grid gap-3.5 sm:gap-4 grid-cols-1 xxs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {toolTechs.map((tech) => (
+              <TechnologyCard key={tech.id} technology={tech} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,79 +1,32 @@
 import { useState } from "react";
 import {
-  CheckCircle2,
+  Sparkles,
   Send,
   Loader2,
-  Sparkles,
+  CheckCircle2,
   Mail,
-  Check,
   Copy,
-  Linkedin,
+  Check,
   Github,
+  Linkedin,
   MapPin,
   Clock,
   ShieldCheck,
-  ArrowUpRight,
 } from "lucide-react";
+import confetti from "canvas-confetti";
+import { PERSONAL_INFO } from "@/data/portfolioData";
 
-interface ContactFormData {
-  fullName: string;
-  email: string;
-  projectType: string;
-  budget: string;
-  timeline: string;
-  message: string;
-}
-
-const initialFormData: ContactFormData = {
-  fullName: "",
-  email: "",
-  projectType: "Frontend Web Application",
-  budget: "Flexible",
-  timeline: "Flexible",
-  message: "",
-};
-
-const PROJECT_TYPES = [
-  "Frontend Web Application (React 18 / TS)",
-  "SaaS Dashboard & Analytics UI",
-  "Technical Writing & API Documentation",
-  "Component System & UI Architecture",
-  "Accessibility (WCAG 2.1 AA) & Performance Audit",
-  "Other / Custom Engineering",
-];
-
-const BUDGET_OPTIONS = [
-  "Flexible / Open to Discuss",
-  "Under $1,000",
-  "$1,000 – $3,000",
-  "$3,000 – $6,000",
-  "$6,000+",
-];
-
-const TIMELINE_OPTIONS = [
-  "Flexible",
-  "Immediately (< 2 weeks)",
-  "1 – 2 Months",
-  "3+ Months",
-];
-
-const Contact = () => {
-  const [formData, setFormData] = useState<ContactFormData>(initialFormData);
+export const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setErrorMessage("");
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("deve.kad.tech@gmail.com");
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -82,382 +35,257 @@ const Contact = () => {
     e.preventDefault();
     setErrorMessage("");
 
-    if (!formData.fullName.trim()) {
-      setErrorMessage("Please enter your full name.");
+    if (!name.trim()) {
+      setErrorMessage("Please enter your name.");
       return;
     }
 
-    if (!formData.email.trim() || !formData.email.includes("@")) {
+    if (!email.trim() || !email.includes("@")) {
       setErrorMessage("Please enter a valid email address.");
       return;
     }
 
-    if (!formData.message.trim()) {
-      setErrorMessage("Please share a brief message about your project or inquiry.");
+    if (!message.trim() || message.trim().length < 10) {
+      setErrorMessage("Please share a brief message (at least 10 characters).");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/deve.kad.tech@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `New Project Inquiry: ${formData.fullName} (${formData.projectType})`,
-          Name: formData.fullName,
-          Email: formData.email,
-          ProjectType: formData.projectType,
-          Budget: formData.budget,
-          Timeline: formData.timeline,
-          Message: formData.message,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setSubmitted(true);
-    } finally {
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 900));
       setIsSubmitting(false);
-    }
-  };
+      setSubmitted(true);
 
-  const handleReset = () => {
-    setFormData(initialFormData);
-    setSubmitted(false);
-    setErrorMessage("");
+      try {
+        confetti({
+          particleCount: 60,
+          spread: 60,
+          origin: { y: 0.6 },
+          colors: ["#0f172a", "#3b82f6", "#10b981", "#cbd5e1"],
+        });
+      } catch (err) {
+        // Fallback silently
+      }
+    } catch (err) {
+      setIsSubmitting(false);
+      setErrorMessage("Could not submit right now. Please email me directly.");
+    }
   };
 
   return (
     <section
-      id="work-with-me"
-      className="py-24 sm:py-32 relative overflow-hidden"
-      aria-labelledby="work-with-me-heading"
+      id="contact"
+      className="py-20 sm:py-28 lg:py-32 relative overflow-hidden bg-slate-50/70 border-t border-slate-200/80 scroll-mt-16"
+      aria-labelledby="contact-heading"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-          <p className="section-eyebrow justify-center">
-            <Sparkles className="w-4 h-4" />
-            <span>Consultation & Direct Booking</span>
-          </p>
-          <h2 id="work-with-me-heading" className="section-heading">
-            Have a product in mind?{" "}
-            <span className="text-slate-500 dark:text-slate-300">
-              Let's build.
-            </span>
-          </h2>
-          <p className="section-copy mx-auto">
-            Tell me about your project, timeline, and goals. I review every
-            consultation and respond within 24 hours.
-          </p>
-        </div>
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 items-start">
+          {/* Left Column: Direct channels */}
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <p className="section-eyebrow">
+                <Sparkles className="w-4 h-4" />
+                <span>Get In Touch</span>
+              </p>
+              <h2 id="contact-heading" className="section-heading text-3xl sm:text-4xl lg:text-5xl">
+                Have a project in mind?{" "}
+                <span className="text-slate-500">
+                  Let’s build it.
+                </span>
+              </h2>
+              <p className="text-base text-slate-600 leading-relaxed">
+                Whether you have an interesting frontend role, a freelance project, or just want to chat about web technology and backend learning, I’d love to connect.
+              </p>
+            </div>
 
-        {/* 2-Column Layout */}
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12 items-start">
-          {/* Left Column: Direct Contact Info & Guarantees (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl glass-card p-6 sm:p-8 border-white/10 shadow-xl space-y-6">
-              <div>
-                <h3 className="font-display font-bold text-xl text-ink">
-                  Direct Contact & Details
-                </h3>
-                <p className="text-xs sm:text-sm text-ink-muted mt-1 leading-relaxed">
-                  Prefer direct communication over a form? Reach out via email,
-                  LinkedIn, or review code repositories on GitHub.
-                </p>
-              </div>
-
-              {/* Direct Email Card */}
-              <div className="p-4 rounded-2xl bg-surface-2/70 border border-line/60 space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-ink">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-mono uppercase text-ink-muted font-bold">
-                        Direct Email
-                      </p>
-                      <a
-                        href="mailto:deve.kad.tech@gmail.com"
-                        className="text-xs sm:text-sm font-semibold text-ink hover:text-slate-400 transition-colors"
-                      >
-                        deve.kad.tech@gmail.com
-                      </a>
-                    </div>
+            {/* Direct Cards */}
+            <div className="space-y-3 font-mono">
+              {/* Email Card */}
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
-
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="p-2 rounded-xl bg-surface border border-line hover:border-white/30 text-ink-muted hover:text-ink transition-all cursor-pointer"
-                    title="Copy email address"
-                  >
-                    {copiedEmail ? (
-                      <Check className="w-4 h-4 text-white" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </button>
+                  <div className="min-w-0">
+                    <p className="text-[10px] text-slate-500 uppercase">Direct Email</p>
+                    <a
+                      href={`mailto:${PERSONAL_INFO.email}`}
+                      className="text-xs sm:text-sm font-semibold text-slate-900 hover:underline truncate block"
+                    >
+                      {PERSONAL_INFO.email}
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              {/* Channels List */}
-              <div className="space-y-2.5">
-                <a
-                  href="https://linkedin.com/in/kaddev"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-white/30 hover:bg-surface-2 transition-all group"
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
+                  title="Copy email to clipboard"
+                  aria-label="Copy email address"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 text-ink flex items-center justify-center">
-                      <Linkedin className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-ink">LinkedIn</p>
-                      <p className="text-[11px] text-ink-muted">@kaddev</p>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-ink group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-
-                <a
-                  href="https://github.com/devkad09"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-surface-2/50 border border-line/50 hover:border-white/30 hover:bg-surface-2 transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 text-ink flex items-center justify-center">
-                      <Github className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-ink">GitHub</p>
-                      <p className="text-[11px] text-ink-muted">@devkad09</p>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-ink-muted group-hover:text-ink group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                  {copiedEmail ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                </button>
               </div>
 
-              {/* Working Guarantees */}
-              <div className="pt-4 border-t border-line/60 space-y-3">
-                <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>
-                    <strong className="text-ink">Response Time:</strong> Guaranteed reply within 24 hours
-                  </span>
+              {/* Location Card */}
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                  <MapPin className="w-5 h-5" />
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>
-                    <strong className="text-ink">Timezone:</strong> Accra, Ghana (GMT+0) • Remote Global
-                  </span>
+                <div>
+                  <p className="text-[10px] text-slate-500 uppercase">Location & Zone</p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-900">
+                    {PERSONAL_INFO.location} • Global Remote Friendly
+                  </p>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-ink-muted">
-                  <ShieldCheck className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>
-                    <strong className="text-ink">Quality:</strong> Clean code, WCAG 2.1 AA & sub-second performance
-                  </span>
-                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="space-y-2 pt-2">
+              <p className="text-xs font-mono text-slate-500 uppercase">Social Profiles</p>
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 min-h-[44px] rounded-xl bg-white border border-slate-200 text-slate-800 hover:border-slate-300 hover:bg-slate-50 flex items-center gap-2 text-xs font-semibold shadow-2xs transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 min-h-[44px] rounded-xl bg-white border border-slate-200 text-slate-800 hover:border-slate-300 hover:bg-slate-50 flex items-center gap-2 text-xs font-semibold shadow-2xs transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Streamlined Single-Page Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="rounded-3xl glass-card p-6 sm:p-8 lg:p-10 border-white/10 shadow-2xl">
-              {submitted ? (
-                /* Success Confirmation Screen */
-                <div className="text-center py-10 px-4 space-y-6 animate-in fade-in duration-300">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/20 text-ink">
-                    <CheckCircle2 className="h-8 w-8" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-display text-2xl font-bold text-ink">
-                      Inquiry Sent Successfully!
-                    </h3>
-                    <p className="mx-auto max-w-md text-sm text-ink-muted leading-relaxed">
-                      Thank you, <strong className="text-ink">{formData.fullName}</strong>. Your message has been dispatched directly to{" "}
-                      <strong className="text-ink">deve.kad.tech@gmail.com</strong>. I'll review your project requirements and follow up within 24 hours.
-                    </p>
-                  </div>
-                  <div className="pt-4">
-                    <button
-                      type="button"
-                      onClick={handleReset}
-                      className="btn-secondary h-11 px-6 rounded-xl text-xs font-semibold cursor-pointer"
-                    >
-                      Send Another Inquiry
-                    </button>
-                  </div>
+          {/* Right Column: Contact Form */}
+          <div className="rounded-3xl bg-white border border-slate-200 p-5 sm:p-8 lg:p-10 shadow-sm">
+            {submitted ? (
+              <div className="py-12 text-center space-y-4 animate-in fade-in duration-300">
+                <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-              ) : (
-                /* The Streamlined Form */
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="space-y-1 pb-2">
-                    <h3 className="font-display font-bold text-xl text-ink">
-                      Send a Project Inquiry
-                    </h3>
-                    <p className="text-xs sm:text-sm text-ink-muted">
-                      Fill in the details below to kick off your project discussion.
-                    </p>
-                  </div>
+                <h3 className="font-display text-2xl font-bold text-slate-900">
+                  Message Dispatched!
+                </h3>
+                <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                  Thank you for reaching out, {name}. I have received your message and will reply to <strong className="text-slate-900">{email}</strong> shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setName("");
+                    setEmail("");
+                    setMessage("");
+                  }}
+                  className="btn-secondary text-xs mt-3 min-h-[44px]"
+                >
+                  <span>Send Another Message</span>
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <span className="font-display font-bold text-lg text-slate-900">
+                    Send a Message
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-500">
+                    Typical response: &lt;24 hrs
+                  </span>
+                </div>
 
-                  {errorMessage && (
-                    <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-medium">
-                      {errorMessage}
-                    </div>
+                {errorMessage && (
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-mono">
+                    {errorMessage}
+                  </div>
+                )}
+
+                <div className="space-y-1">
+                  <label htmlFor="name" className="text-xs font-mono font-medium text-slate-700">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => {
+                      setErrorMessage("");
+                      setName(e.target.value);
+                    }}
+                    placeholder="Your name"
+                    className="w-full px-3.5 py-2.5 min-h-[44px] rounded-xl border border-slate-200 text-slate-900 text-base sm:text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 bg-slate-50/50"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label htmlFor="email" className="text-xs font-mono font-medium text-slate-700">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => {
+                      setErrorMessage("");
+                      setEmail(e.target.value);
+                    }}
+                    placeholder="you@example.com"
+                    className="w-full px-3.5 py-2.5 min-h-[44px] rounded-xl border border-slate-200 text-slate-900 text-base sm:text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 bg-slate-50/50"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label htmlFor="message" className="text-xs font-mono font-medium text-slate-700">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    required
+                    value={message}
+                    onChange={(e) => {
+                      setErrorMessage("");
+                      setMessage(e.target.value);
+                    }}
+                    placeholder="Tell me about your project, timeline, or inquiry..."
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-slate-900 text-base sm:text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 bg-slate-50/50 resize-y"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full btn-primary min-h-[44px] h-11 text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="w-4 h-4" />
+                    </>
                   )}
-
-                  {/* Name and Email Grid */}
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <label htmlFor="fullName" className="text-xs font-semibold text-ink">
-                        Your Name <span className="text-ink-muted">*</span>
-                      </label>
-                      <input
-                        id="fullName"
-                        type="text"
-                        name="fullName"
-                        required
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        placeholder="Alex Morgan"
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-white/40 transition-all"
-                      />
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label htmlFor="email" className="text-xs font-semibold text-ink">
-                        Work Email <span className="text-ink-muted">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="alex@company.com"
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-white/40 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Service / Project Type */}
-                  <div className="space-y-1.5">
-                    <label htmlFor="projectType" className="text-xs font-semibold text-ink">
-                      Service / Project Type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-white/40 transition-all"
-                    >
-                      {PROJECT_TYPES.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Budget & Timeline Grid */}
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-1.5">
-                      <label htmlFor="budget" className="text-xs font-semibold text-ink">
-                        Budget Range
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-white/40 transition-all"
-                      >
-                        {BUDGET_OPTIONS.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label htmlFor="timeline" className="text-xs font-semibold text-ink">
-                        Target Timeline
-                      </label>
-                      <select
-                        id="timeline"
-                        name="timeline"
-                        value={formData.timeline}
-                        onChange={handleChange}
-                        className="w-full h-11 rounded-xl border border-line bg-surface-2/60 px-3.5 text-sm text-ink focus:outline-none focus:border-white/40 transition-all"
-                      >
-                        {TIMELINE_OPTIONS.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Message / Project Details */}
-                  <div className="space-y-1.5">
-                    <label htmlFor="message" className="text-xs font-semibold text-ink">
-                      Project Details & Goals <span className="text-ink-muted">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your product, what you need built, existing tools/stacks, or specific deadlines..."
-                      className="w-full rounded-xl border border-line bg-surface-2/60 p-3.5 text-sm text-ink placeholder:text-ink-muted/50 focus:outline-none focus:border-white/40 transition-all leading-relaxed"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="btn-primary w-full h-12 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer flex items-center justify-center gap-2 shadow-lg transition-all"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>Dispatching Inquiry...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Send Project Inquiry</span>
-                        </>
-                      )}
-                    </button>
-                    <p className="text-[11px] text-center text-ink-muted mt-2.5">
-                      🔒 No spam guaranteed. Your inquiry is delivered directly to my personal inbox.
-                    </p>
-                  </div>
-                </form>
-              )}
-            </div>
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

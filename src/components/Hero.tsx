@@ -1,469 +1,324 @@
 import { useState } from "react";
 import {
   ArrowRight,
-  Terminal as TerminalIcon,
   Code2,
-  Activity,
-  CheckCircle2,
   Sparkles,
-  ShieldCheck,
+  Github,
+  Linkedin,
+  Mail,
+  CheckCircle2,
   Copy,
   Check,
-  Play,
-  FileText,
-  Layers,
-  Zap,
 } from "lucide-react";
-import ResumeModal from "./ResumeModal";
+import { PERSONAL_INFO } from "@/data/portfolioData";
+import { CONFIRMED_TECHNOLOGIES } from "@/data/technologies";
 
-const Hero = () => {
-  const [activeTab, setActiveTab] = useState<"terminal" | "code" | "metrics">("terminal");
-  const [terminalInput, setTerminalInput] = useState("");
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
+export const Hero = () => {
   const [copied, setCopied] = useState(false);
-  const [terminalHistory, setTerminalHistory] = useState<
-    Array<{ cmd: string; res: React.ReactNode }>
-  >([
-    {
-      cmd: "whoami",
-      res: (
-        <div className="space-y-1 text-xs">
-          <p className="text-white font-bold">Kelvin Atsu Djayouri (KadDev)</p>
-          <p className="text-slate-300">
-            Frontend Developer & Technical Writer @{" "}
-            <a
-              href="https://formgrid.dev"
-              target="_blank"
-              rel="noreferrer"
-              className="text-white font-semibold underline underline-offset-2 hover:text-slate-200"
-            >
-              Formgrid.dev
-            </a>
-          </p>
-          <p className="text-slate-400 text-[11px]">Accra, Ghana (GMT+0) • Remote Global</p>
-        </div>
-      ),
-    },
-  ]);
+  const [interactiveCounter, setInteractiveCounter] = useState(3);
+  const [activeTab, setActiveTab] = useState<"component" | "types" | "performance">("component");
 
-  const terminalCommands: Record<string, React.ReactNode> = {
-    whoami: (
-      <div className="space-y-1 text-xs">
-        <p className="text-white font-bold">Kelvin Atsu Djayouri (KadDev)</p>
-        <p className="text-slate-300">
-          Frontend Developer & Technical Writer @{" "}
-          <a
-            href="https://formgrid.dev"
-            target="_blank"
-            rel="noreferrer"
-            className="text-white font-semibold underline underline-offset-2 hover:text-slate-200"
-          >
-            Formgrid.dev
-          </a>
-        </p>
-        <p className="text-slate-400 text-[11px]">Accra, Ghana (GMT+0) • Remote Global</p>
-      </div>
-    ),
-    formgrid: (
-      <div className="space-y-1 text-xs text-slate-300">
-        <p className="text-white font-bold">⚡ Formgrid.dev Documentation Systems</p>
-        <p>• Authored REST API endpoint references & headless pipeline documentation (/api/f/:id).</p>
-        <p>• Engineered interactive component architecture guides and lead intake portals.</p>
-      </div>
-    ),
-    stack: (
-      <div className="space-y-1 text-xs text-slate-300">
-        <p><span className="text-white font-bold">Frontend:</span> React 18, TypeScript, Tailwind CSS, Vite, Next.js</p>
-        <p><span className="text-slate-300 font-bold">Backend & Cloud:</span> Node.js, REST APIs, Supabase, Express, MongoDB</p>
-        <p><span className="text-white font-bold">Quality:</span> WCAG 2.1 AA A11y, axe DevTools, Core Web Vitals (100/100)</p>
-      </div>
-    ),
-    projects: (
-      <div className="space-y-1 text-xs text-slate-300">
-        <p>🛍️ <span className="text-white font-semibold">Nordhem:</span> Scandinavian e-commerce (Personal Project · In Progress)</p>
-        <p>📋 <span className="text-slate-300 font-semibold">FormFlow:</span> Multi-step form engine with Supabase (Active SaaS)</p>
-        <p>🍸 <span className="text-white font-semibold">Mcsteeze Lounge:</span> Digital hospitality experience (Production Live)</p>
-      </div>
-    ),
-    contact: (
-      <div className="space-y-1 text-xs text-slate-300">
-        <p>📧 Email: <a href="mailto:deve.kad.tech@gmail.com" className="text-white underline">deve.kad.tech@gmail.com</a></p>
-        <p>💼 LinkedIn: <a href="https://linkedin.com/in/kaddev" target="_blank" rel="noreferrer" className="text-white underline">@kaddev</a></p>
-        <p>💻 GitHub: <a href="https://github.com/devkad09" target="_blank" rel="noreferrer" className="text-white underline">@devkad09</a></p>
-      </div>
-    ),
-  };
-
-  const handleRunCommand = (cmd: string) => {
-    const clean = cmd.trim().toLowerCase();
-    if (clean === "clear") {
-      setTerminalHistory([]);
-      setTerminalInput("");
-      return;
-    }
-    if (terminalCommands[clean]) {
-      setTerminalHistory((prev) => [...prev, { cmd: clean, res: terminalCommands[clean] }]);
-    } else {
-      setTerminalHistory((prev) => [
-        ...prev,
-        {
-          cmd: clean,
-          res: (
-            <p className="text-red-400 text-xs">
-              Command '{clean}' not found. Try: <code className="text-white">whoami</code>, <code className="text-white">formgrid</code>, <code className="text-white">stack</code>, <code className="text-white">projects</code>, <code className="text-white">contact</code>, <code className="text-white">clear</code>
-            </p>
-          ),
-        },
-      ]);
-    }
-    setTerminalInput("");
-  };
-
-  const handleCopyCmd = () => {
-    navigator.clipboard.writeText("npx kaddev-cli");
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const navOffset = 76;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navOffset,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <>
-      <section
-        id="top"
-        className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 sm:pt-36 sm:pb-28 overflow-hidden"
-        aria-labelledby="hero-heading"
-      >
-        {/* Subtle Ambient Monochrome Background Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-white/05 blur-[140px] rounded-full pointer-events-none -z-10" />
-
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-10 items-center">
-            {/* Left Column: Hero Narrative & Value Prop (6 cols) */}
-            <div className="lg:col-span-6 space-y-5 sm:space-y-7">
-              {/* Radar Live Status Pill */}
-              <div className="inline-flex max-w-full items-start sm:items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full glass-card border-white/20 text-xs font-semibold text-ink shadow-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-900 dark:bg-white" />
-                </span>
-                <span className="leading-snug">Available for Select Contracts & Engineering</span>
-                <span className="text-ink-muted/40">•</span>
-                <span className="hidden sm:inline text-ink font-mono text-[11px]">Accra (GMT+0)</span>
-              </div>
-
-              {/* Main Headline */}
-              <h1
-                id="hero-heading"
-                className="text-[34px] sm:text-[48px] lg:text-[54px] font-extrabold leading-[1.08] tracking-[-0.04em] text-ink font-display"
-              >
-                Engineering sub-second web applications &{" "}
-                <span className="text-slate-500 dark:text-slate-300 underline underline-offset-8 decoration-white/30">
-                  modern digital experiences.
-                </span>
-              </h1>
-
-              {/* Narrative Subtitle */}
-              <p className="text-base sm:text-lg leading-relaxed text-ink-muted max-w-xl">
-                Frontend Developer & Technical Writer with 2+ years of experience crafting high-performance React 18 & TypeScript applications, accessible design systems, and developer-grade documentation.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1">
-                <a href="#projects" className="btn-primary w-full sm:w-auto">
-                  <span>Explore Selected Works</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setIsResumeOpen(true)}
-                  className="btn-secondary w-full sm:w-auto"
-                >
-                  <FileText className="w-4 h-4 text-slate-400" />
-                  <span>Interactive CV</span>
-                </button>
-              </div>
-
-              {/* 4-Metric Verified Bento Strip */}
-              <div className="pt-6 border-t border-line/60 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-                <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-2xl font-extrabold text-ink tracking-tight">2+ Yrs</p>
-                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">React & TS</p>
-                </div>
-                <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-2xl font-extrabold text-ink tracking-tight">9+</p>
-                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">Projects Shipped</p>
-                </div>
-                <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-2xl font-extrabold text-ink tracking-tight">3 SaaS</p>
-                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">In Production</p>
-                </div>
-                <div className="p-3 rounded-2xl bg-surface-2/60 border border-line/60">
-                  <p className="font-display text-base font-bold text-ink tracking-tight truncate">Formgrid</p>
-                  <p className="text-[11px] font-mono text-ink-muted mt-0.5">Tech Writer</p>
-                </div>
-              </div>
+    <section
+      id="top"
+      className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-white"
+      aria-label="Introduction and Overview"
+    >
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center">
+          {/* Left Column: Narrative & CTAs */}
+          <div className="space-y-6">
+            {/* Subtle Availability Indicator */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/80 border border-emerald-200 text-xs font-mono text-emerald-800">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#16a34a]" />
+              </span>
+              <span className="font-semibold">{PERSONAL_INFO.availability}</span>
             </div>
 
-            {/* Right Column: Multi-Bento Interactive Cockpit (6 cols) */}
-            <div className="lg:col-span-6 space-y-4">
-              {/* Main Cockpit Window */}
-              <div className="relative rounded-[24px] glass-panel border-white/15 overflow-hidden shadow-2xl">
-                {/* Cockpit Chrome Header */}
-                <div className="px-4 py-3 bg-slate-900/95 border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-slate-600" />
-                    <div className="w-3 h-3 rounded-full bg-slate-500" />
-                    <div className="w-3 h-3 rounded-full bg-slate-400" />
-                    <span className="ml-2 font-mono text-[11px] text-slate-400 hidden sm:inline-block">
-                      kaddev-cockpit v2.6
-                    </span>
-                  </div>
+            {/* Name & Title */}
+            <div className="space-y-2">
+              <p className="font-mono text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wider">
+                {PERSONAL_INFO.name}
+              </p>
+              <h1 className="font-display font-extrabold text-[clamp(1.95rem,5.5vw,3.75rem)] text-slate-900 tracking-tight leading-[1.08] break-words">
+                {PERSONAL_INFO.headline}
+              </h1>
+            </div>
 
-                  {/* Mode Switcher */}
-                  <div className="flex items-center p-1 rounded-xl bg-slate-950/80 border border-white/10">
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab("terminal")}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
-                        activeTab === "terminal"
-                          ? "bg-white text-slate-950 shadow-sm font-bold"
-                          : "text-slate-400 hover:text-white"
-                      }`}
-                    >
-                      <TerminalIcon className="w-3.5 h-3.5" />
-                      <span>terminal</span>
-                    </button>
+            {/* Supporting Text */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
+              {PERSONAL_INFO.supportingText}
+            </p>
 
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab("code")}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
-                        activeTab === "code"
-                          ? "bg-white text-slate-950 shadow-sm font-bold"
-                          : "text-slate-400 hover:text-white"
-                      }`}
-                    >
-                      <Code2 className="w-3.5 h-3.5" />
-                      <span>spec.ts</span>
-                    </button>
+            {/* Positioning Pill */}
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-600">
+              <span className="px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 font-medium border border-blue-200">
+                {PERSONAL_INFO.positioning}
+              </span>
+            </div>
 
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab("metrics")}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
-                        activeTab === "metrics"
-                          ? "bg-white text-slate-950 shadow-sm font-bold"
-                          : "text-slate-400 hover:text-white"
-                      }`}
-                    >
-                      <Activity className="w-3.5 h-3.5" />
-                      <span>audits</span>
-                    </button>
-                  </div>
-                </div>
+            {/* Primary CTAs - Responsive Full Width on narrow mobile */}
+            <div className="flex flex-col xxs:flex-row flex-wrap items-stretch xxs:items-center gap-2.5 sm:gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => scrollToSection("projects")}
+                className="w-full xxs:w-auto inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.98] bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-sm min-h-[44px] h-11 rounded-xl px-6 text-sm cursor-pointer group"
+              >
+                <span>View My Work</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
 
-                {/* Cockpit Window Content */}
-                <div className="p-5 bg-[#0a0b10] text-slate-200 min-h-[320px] max-h-[360px] overflow-y-auto font-mono text-xs">
-                  {/* TAB 1: Terminal Shell */}
-                  {activeTab === "terminal" && (
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/05 pb-2">
-                        <p>
-                          Commands: <span className="text-white font-semibold">whoami</span>, <span className="text-white font-semibold">formgrid</span>, <span className="text-white font-semibold">stack</span>, <span className="text-white font-semibold">projects</span>
-                        </p>
-                        <button
-                          type="button"
-                          onClick={handleCopyCmd}
-                          className="text-[10px] text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer bg-white/05 px-2 py-0.5 rounded border border-white/05"
-                        >
-                          {copied ? <Check className="w-3 h-3 text-white" /> : <Copy className="w-3 h-3" />}
-                          <span>npx kaddev-cli</span>
-                        </button>
-                      </div>
+              <button
+                type="button"
+                onClick={() => scrollToSection("contact")}
+                className="w-full xxs:w-auto btn-secondary min-h-[44px]"
+              >
+                <span>Let’s Connect</span>
+              </button>
 
-                      {/* Quick Runnable Command Pills */}
-                      <div className="flex flex-wrap gap-1.5 pt-0.5">
-                        {["whoami", "formgrid", "stack", "projects", "contact", "clear"].map((cmd) => (
-                          <button
-                            type="button"
-                            key={cmd}
-                            onClick={() => handleRunCommand(cmd)}
-                            className="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-[11px] text-slate-300 hover:text-white hover:border-white/40 transition-all flex items-center gap-1 cursor-pointer"
-                          >
-                            <Play className="w-2.5 h-2.5 text-white" />
-                            <span>{cmd}</span>
-                          </button>
-                        ))}
-                      </div>
+              {/* Copy Email Button */}
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="w-full xxs:w-auto inline-flex items-center justify-center gap-1.5 text-xs font-mono px-3.5 min-h-[44px] h-11 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-all cursor-pointer"
+                title="Copy email to clipboard"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? "Copied" : "Copy Email"}</span>
+              </button>
+            </div>
 
-                      {/* Terminal History */}
-                      <div className="space-y-3 pt-2">
-                        {terminalHistory.map((item, idx) => (
-                          <div key={idx} className="space-y-1">
-                            <div className="flex items-center gap-2 text-slate-400">
-                              <span>❯</span>
-                              <span className="text-white font-bold">{item.cmd}</span>
-                            </div>
-                            <div className="pl-3 border-l border-white/20">{item.res}</div>
-                          </div>
-                        ))}
-                      </div>
+            {/* Social Links & Location */}
+            <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-colors"
+                  aria-label="GitHub Profile"
+                  title="GitHub Profile"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-colors"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn Profile"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href={`mailto:${PERSONAL_INFO.email}`}
+                  className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-colors"
+                  aria-label="Email"
+                  title="Send Email"
+                >
+                  <Mail className="w-4 h-4" />
+                </a>
+              </div>
 
-                      {/* Command Prompt Input */}
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          if (terminalInput) handleRunCommand(terminalInput);
-                        }}
-                        className="flex items-center gap-2 pt-2 text-slate-400"
-                      >
-                        <span>❯</span>
-                        <input
-                          type="text"
-                          value={terminalInput}
-                          onChange={(e) => setTerminalInput(e.target.value)}
-                          placeholder="Type command and hit Enter..."
-                          className="flex-1 bg-transparent text-white focus:outline-none text-xs font-mono placeholder-slate-600"
-                        />
-                      </form>
-                    </div>
-                  )}
+              <span className="text-xs font-mono text-slate-500">
+                {PERSONAL_INFO.location}
+              </span>
+            </div>
+          </div>
 
-                  {/* TAB 2: Live Code Architecture Spec */}
-                  {activeTab === "code" && (
-                    <div className="space-y-2 leading-relaxed text-slate-300">
-                      <p className="text-slate-500">// TypeScript & Formgrid.dev API Endpoint Reference</p>
-                      <p>
-                        <span className="text-slate-400">interface</span>{" "}
-                        <span className="text-white font-semibold">FrontendArchitecture</span> &#123;
-                      </p>
-                      <p className="pl-4">
-                        <span className="text-slate-400">author</span>: <span className="text-slate-200">"Kelvin Atsu Djayouri"</span>;
-                      </p>
-                      <p className="pl-4">
-                        <span className="text-slate-400">specialization</span>: <span className="text-slate-200">"React 18 & Docs Systems"</span>;
-                      </p>
-                      <p className="pl-4">
-                        <span className="text-slate-400">coreStack</span>: [<span className="text-slate-200">"React"</span>, <span className="text-slate-200">"TypeScript"</span>, <span className="text-slate-200">"Tailwind"</span>];
-                      </p>
-                      <p className="pl-4">
-                        <span className="text-slate-400">guarantees</span>: &#123; <span className="text-slate-300">a11y</span>: <span className="text-white">"WCAG 2.1 AA"</span>, <span className="text-slate-300">speed</span>: <span className="text-white">"&lt;0.8s LCP"</span> &#125;;
-                      </p>
-                      <p>&#125;</p>
-                      <p className="pt-2">
-                        <span className="text-slate-400">export async function</span>{" "}
-                        <span className="text-white font-semibold">shipProductionApp</span>(<span className="text-slate-300">spec</span>: <span className="text-white">ProjectSpec</span>) &#123;
-                      </p>
-                      <p className="pl-4 text-slate-500">
-                        // Real-time sub-second delivery pipeline
-                      </p>
-                      <p className="pl-4">
-                        <span className="text-slate-400">return await</span> <span className="text-slate-200">formgrid</span>.<span className="text-white">dispatch</span>(<span className="text-slate-300">spec</span>);
-                      </p>
-                      <p>&#125;</p>
-                    </div>
-                  )}
+          {/* Right Column: Developer Visual with Floating Technology Badges (lg-only to prevent mobile clipping) */}
+          <div className="relative">
+            {/* Subtle Floating Technology Badges on Large Screens */}
+            <div className="hidden lg:flex absolute -top-4 -left-4 z-20 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md animate-float">
+              <div
+                className="w-4 h-4 flex items-center justify-center"
+                dangerouslySetInnerHTML={{ __html: CONFIRMED_TECHNOLOGIES.react.svgIcon }}
+              />
+              <span className="text-xs font-mono font-bold text-slate-800">React</span>
+            </div>
 
-                  {/* TAB 3: Verified Performance & Vitals */}
-                  {activeTab === "metrics" && (
-                    <div className="space-y-4">
-                      <p className="text-xs text-slate-400">
-                        Lighthouse & axe DevTools Verified Metrics on Live Builds:
-                      </p>
+            <div className="hidden lg:flex absolute -bottom-3 -left-3 z-20 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md animate-float [animation-delay:1.5s]">
+              <div
+                className="w-4 h-4 flex items-center justify-center"
+                dangerouslySetInnerHTML={{ __html: CONFIRMED_TECHNOLOGIES.typescript.svgIcon }}
+              />
+              <span className="text-xs font-mono font-bold text-slate-800">TypeScript</span>
+            </div>
 
-                      <div className="grid grid-cols-2 gap-3 pt-1">
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
-                            100
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white text-xs">Performance</p>
-                            <p className="text-[10px] text-slate-400">Sub-second FCP</p>
-                          </div>
-                        </div>
+            <div className="hidden lg:flex absolute -top-4 -right-3 z-20 items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md animate-float [animation-delay:0.8s]">
+              <div
+                className="w-4 h-4 flex items-center justify-center"
+                dangerouslySetInnerHTML={{ __html: CONFIRMED_TECHNOLOGIES.tailwindcss.svgIcon }}
+              />
+              <span className="text-xs font-mono font-bold text-slate-800">Tailwind CSS</span>
+            </div>
 
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
-                            100
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white text-xs">Accessibility</p>
-                            <p className="text-[10px] text-slate-400">WCAG 2.1 AA</p>
-                          </div>
-                        </div>
-
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
-                            100
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white text-xs">Best Practices</p>
-                            <p className="text-[10px] text-slate-400">Strict TypeScript</p>
-                          </div>
-                        </div>
-
-                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">
-                            100
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white text-xs">SEO & Semantic</p>
-                            <p className="text-[10px] text-slate-400">Clean Schema</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="p-3 rounded-xl bg-white/05 border border-white/10 flex items-center justify-between text-[11px]">
-                        <span className="text-slate-300 flex items-center gap-1.5 font-sans">
-                          <ShieldCheck className="w-4 h-4 text-white" /> Tested with axe DevTools 2026
-                        </span>
-                        <span className="text-white font-bold">0 Violations</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Cockpit Status Bar */}
-                <div className="px-4 py-2.5 bg-slate-950 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    Cockpit Online
+            {/* Visual Container */}
+            <div className="rounded-3xl border border-slate-200 bg-white shadow-lg p-4 sm:p-6 lg:p-7 space-y-4 sm:space-y-5">
+              {/* Window Header - Responsive Flex Reflow */}
+              <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2.5 pb-3 sm:pb-4 border-b border-slate-100">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <span className="ml-2 text-xs font-mono text-slate-500 font-medium">
+                    DeveloperWorkspace.tsx
                   </span>
-                  <span className="text-slate-500 font-mono">React 18 • TypeScript • Tailwind</span>
+                </div>
+
+                {/* Tab Switcher */}
+                <div className="flex items-center gap-0.5 sm:gap-1 p-0.5 rounded-lg bg-slate-100 border border-slate-200 text-xs w-full xs:w-auto justify-between xs:justify-start">
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab("component")}
+                    className={`flex-1 xs:flex-none text-center px-2 sm:px-2.5 py-1 min-h-[30px] rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                      activeTab === "component" ? "bg-white text-slate-900 shadow-xs font-semibold" : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    UI State
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab("types")}
+                    className={`flex-1 xs:flex-none text-center px-2 sm:px-2.5 py-1 min-h-[30px] rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                      activeTab === "types" ? "bg-white text-slate-900 shadow-xs font-semibold" : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    TypeScript
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab("performance")}
+                    className={`flex-1 xs:flex-none text-center px-2 sm:px-2.5 py-1 min-h-[30px] rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                      activeTab === "performance" ? "bg-white text-slate-900 shadow-xs font-semibold" : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    Standards
+                  </button>
                 </div>
               </div>
 
-              {/* Bento Sub-Cards: Role Snapshot & Stack Pills */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {/* Formgrid.dev Role Bento Badge */}
-                <div className="p-4 rounded-2xl glass-card border-white/10 flex items-center gap-3 shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-ink shrink-0">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold text-ink truncate">Formgrid.dev Author</p>
-                    <p className="text-[11px] text-ink-muted truncate">REST APIs & Component Docs</p>
-                  </div>
-                </div>
+              {/* Tab 1: Live Interactive Component State */}
+              {activeTab === "component" && (
+                <div className="space-y-4 py-2">
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-mono font-semibold text-slate-700">
+                        Interactive Playground
+                      </span>
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-medium shrink-0">
+                        Live React State
+                      </span>
+                    </div>
 
-                {/* Speed SLA Bento Badge */}
-                <div className="p-4 rounded-2xl glass-card border-white/10 flex items-center gap-3 shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-ink shrink-0">
-                    <Zap className="w-4 h-4" />
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Click to interact with reactive state, view responsive breakpoint changes, and inspect clean component ergonomics.
+                    </p>
+
+                    {/* Interactive controls */}
+                    <div className="pt-1 flex flex-wrap items-center gap-2.5">
+                      <button
+                        type="button"
+                        onClick={() => setInteractiveCounter((prev) => prev + 1)}
+                        className="px-3.5 py-1.5 min-h-[36px] rounded-lg bg-[#2563eb] text-white text-xs font-medium hover:bg-[#1d4ed8] transition-colors cursor-pointer shadow-xs"
+                      >
+                        Count: {interactiveCounter}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setInteractiveCounter(0)}
+                        className="px-2.5 py-1.5 min-h-[36px] rounded-lg border border-slate-200 bg-white text-slate-700 text-xs hover:bg-slate-50 transition-colors cursor-pointer"
+                      >
+                        Reset
+                      </button>
+
+                      <span className="text-xs font-mono text-slate-500">
+                        Latency: &lt;1ms
+                      </span>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold text-ink truncate">Sub-Second Delivery</p>
-                    <p className="text-[11px] text-ink-muted truncate">Code Splitting & Zero CLS</p>
+
+                  {/* Responsive simulation bar */}
+                  <div className="p-3 rounded-xl border border-slate-200 bg-white flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 text-xs font-mono text-slate-600">
+                    <span className="flex items-center gap-1.5">
+                      <Code2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                      <span>Viewport Verified:</span>
+                    </span>
+                    <div className="flex flex-wrap items-center gap-1">
+                      <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-medium">320px–430px</span>
+                      <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-medium">768px–1920px+</span>
+                    </div>
                   </div>
                 </div>
+              )}
+
+              {/* Tab 2: TypeScript Strict Contract */}
+              {activeTab === "types" && (
+                <div className="py-1 font-mono text-xs space-y-2 text-slate-700 bg-slate-50 p-3 sm:p-4 rounded-2xl border border-slate-200 overflow-x-auto max-w-full">
+                  <pre className="text-[11px] leading-relaxed text-slate-800">
+{`interface FrontendDeveloper {
+  name: 'Kelvin Atsu Djayouri';
+  role: 'Frontend Developer';
+  focus: ['React 18', 'TypeScript', 'Tailwind CSS'];
+  currentLearning: ['Node.js', 'APIs', 'Supabase'];
+  goal: 'Well-Rounded Full-Stack Engineering';
+  accessible: true; // WCAG 2.1 AA Compliant
+}`}
+                  </pre>
+                </div>
+              )}
+
+              {/* Tab 3: Performance Standards */}
+              {activeTab === "performance" && (
+                <div className="py-2 grid grid-cols-2 gap-3 font-mono text-xs">
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                    <p className="text-[10px] text-slate-500">CORE VITALS</p>
+                    <p className="text-xl font-bold text-blue-600">100/100</p>
+                    <p className="text-[10px] text-slate-500">Performance Focus</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                    <p className="text-[10px] text-slate-500">ACCESSIBILITY</p>
+                    <p className="text-xl font-bold text-slate-900">100%</p>
+                    <p className="text-[10px] text-slate-500">WCAG 2.1 AA Target</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Footer Note */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Frontend First • Expanding Full-Stack</span>
+                </span>
+                <span>KadDev</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Interactive CV Modal */}
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
-    </>
+      </div>
+    </section>
   );
 };
 
