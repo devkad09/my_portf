@@ -46,14 +46,6 @@ export interface ExperienceItem {
   technologies: string[];
 }
 
-export interface EducationItem {
-  degree: string;
-  institution: string;
-  period: string;
-  status: string;
-  description: string;
-  highlights: string[];
-}
 
 export interface Article {
   id: string;
@@ -324,26 +316,6 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
 ];
 
-export const EDUCATION_DATA: EducationItem[] = [
-  {
-    degree: "Diploma in Information Technology",
-    institution: "Accra Technical University",
-    period: "2024 – 2026",
-    status: "Current Program",
-    description:
-      "Computer science fundamentals: data structures, relational databases, and web engineering.",
-    highlights: ["Data Structures", "Database Management", "Web Engineering"],
-  },
-  {
-    degree: "BSc in Computer Science (Top-Up)",
-    institution: "Ghana Communication Technology University (GCTU)",
-    period: "Target: 2027",
-    status: "Planned Advancement",
-    description:
-      "Planned advancement in distributed computing, algorithms, and software systems.",
-    highlights: ["Distributed Systems", "Software Architecture", "Algorithms"],
-  },
-];
 
 export const ARTICLES: Article[] = [
   {

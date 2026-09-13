@@ -99,8 +99,8 @@ export const About = () => {
                 <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Formgrid.dev</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-[11px] font-mono text-slate-500 block">Education</span>
-                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Diploma in IT, ATU</span>
+                <span className="text-[11px] font-mono text-slate-500 block">Availability</span>
+                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Open to Roles</span>
               </div>
             </div>
           </div>

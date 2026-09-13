@@ -99,7 +99,7 @@ export const CommandPalette = ({ isOpen, onClose }: CommandPaletteProps) => {
     {
       id: "experience",
       category: "Navigation",
-      title: "Experience & Education Timeline",
+      title: "Experience Timeline",
       shortcut: "Timeline",
       icon: Sparkles,
       action: () => scrollToSection("experience"),
