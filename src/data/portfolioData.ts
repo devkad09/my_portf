@@ -76,7 +76,6 @@ export const PERSONAL_INFO = {
     "Frontend developer crafting fast, accessible web experiences with React & TypeScript, growing into full-stack development.",
   email: "deve.kad.tech@gmail.com",
   location: "Accra, Ghana (GMT+0)",
-  availability: "Available for opportunities",
   github: "https://github.com/devkad09",
   linkedin: "https://linkedin.com/in/kaddev",
 };

@@ -46,14 +46,6 @@ export const Hero = () => {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 items-center">
           {/* Left Column: Narrative & CTAs */}
           <div className="space-y-6">
-            {/* Subtle Availability Indicator */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/80 border border-emerald-200 text-xs font-mono text-emerald-800">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#16a34a]" />
-              </span>
-              <span className="font-semibold">{PERSONAL_INFO.availability}</span>
-            </div>
 
             {/* Name & Title */}
             <div className="space-y-2">
