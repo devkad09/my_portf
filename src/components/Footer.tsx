@@ -1,59 +1,38 @@
-import { useState } from "react";
-import { Github, Linkedin, Mail, Check, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 
 export const Footer = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleEmailClick = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-slate-200 bg-white py-14 relative z-10">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+    <footer className="bg-white py-16 border-t border-slate-100">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-8 space-y-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-100">
           <div className="space-y-1">
-            <a
-              href="#top"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToTop();
-              }}
-              className="font-display font-bold text-lg text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
-            >
-              <div className="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
-                K
-              </div>
-              <span>{PERSONAL_INFO.name}</span>
-            </a>
-            <p className="text-xs font-mono text-slate-500">
-              Frontend Developer • Growing into Full-Stack Development
+            <div className="flex items-center gap-2">
+              <span className="font-mono font-black text-base tracking-tight text-slate-900">
+                KAD<span className="text-blue-600">.</span>DEV
+              </span>
+              <span className="font-mono text-xs text-slate-400">/</span>
+              <span className="font-mono text-xs text-slate-700 font-semibold">
+                {PERSONAL_INFO.name}
+              </span>
+            </div>
+            <p className="font-mono text-xs text-slate-500">
+              {PERSONAL_INFO.positioning}
             </p>
           </div>
 
-          <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-slate-600" aria-label="Footer Navigation">
-            <a href="#about" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">About</a>
-            <a href="#skills" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Skills</a>
-            <a href="#projects" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Projects</a>
-            <a href="#playground" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Playground</a>
-            <a href="#experience" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Experience</a>
-            <a href="#writing" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Writing</a>
-            <a href="#contact" className="hover:text-slate-900 transition-colors min-h-[32px] flex items-center py-1">Contact</a>
-          </nav>
-
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3 font-mono text-xs">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-slate-900 transition-colors"
+              className="text-slate-600 hover:text-slate-900 transition-colors p-2"
               aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
@@ -63,36 +42,35 @@ export const Footer = () => {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-slate-900 transition-colors"
+              className="text-slate-600 hover:text-slate-900 transition-colors p-2"
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
             </a>
 
-            <button
-              type="button"
-              onClick={handleEmailClick}
-              className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
-              aria-label="Copy Email"
-              title="Copy email to clipboard"
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="text-slate-600 hover:text-slate-900 transition-colors p-2"
+              aria-label="Send Email"
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Mail className="w-4 h-4" />}
-            </button>
+              <Mail className="w-4 h-4" />
+            </a>
 
             <button
               type="button"
               onClick={scrollToTop}
-              className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-600 hover:text-slate-900 transition-colors cursor-pointer ml-1"
+              className="p-2 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors cursor-pointer ml-2"
               title="Scroll to top"
-              aria-label="Scroll back to top"
+              aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-          <p>© {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with React, TypeScript & Tailwind CSS.</p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs text-slate-500">
+          <p>© {currentYear} {PERSONAL_INFO.name}. All rights reserved.</p>
+          <p className="text-slate-600 font-medium">Built by Kelvin 🇬🇭</p>
         </div>
       </div>
     </footer>

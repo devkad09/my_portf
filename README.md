@@ -1,103 +1,50 @@
-# Kelvin Atsu Djayouri — Frontend Developer Portfolio
+# KAD.DEV — Kelvin Atsu Djayouri
 
-> **Professional Positioning**: Frontend Developer | Growing into Full-Stack Development  
-> **Live Website**: [kaddev.vercel.app](https://kaddev.vercel.app)  
+> **Brand**: KAD.DEV  
+> **Positioning**: Frontend Developer → Backend Developer → Full-Stack Developer  
+> **Main Identity**: “I build things for the web.”  
+> **Supporting Statement**: “I turn ideas into clean, responsive web products — while going deeper into backend engineering.”  
+> **Live Site**: [kaddev.vercel.app](https://kaddev.vercel.app)  
 > **GitHub**: [@devkad09](https://github.com/devkad09)  
-> **Contact**: [deve.kad.tech@gmail.com](mailto:deve.kad.tech@gmail.com)
+> **Email**: [deve.kad.tech@gmail.com](mailto:deve.kad.tech@gmail.com)  
+> **Location**: Accra, Ghana 🇬🇭 (GMT+0)
 
-A high-performance developer portfolio built with React 18, TypeScript, Tailwind CSS, and Vite. Designed with a clean, high-contrast **pure white design system** (`#FFFFFF` canvas, `#2563EB` royal blue accent, `#16A34A` availability indicator), authentic brand narrative, interactive experiments sandbox, and structured case studies.
-
----
-
-## Career Progression Arc
-
-```
-Strong Frontend Foundation ──▶ Growing Backend Skills ──▶ Future Full-Stack Developer
-  (React / TS / Tailwind)     (Node / Express / Supabase)       (End-to-End Delivery)
-```
-
-Kelvin’s core strength is modern frontend engineering (component architecture, responsive layouts, web accessibility, and state management). Backend technologies (Node.js, Express, Supabase, SQL, and REST APIs) are actively being developed as part of his roadmap toward full-stack competence.
+A handcrafted, editorial, white-themed developer portfolio built for **Kelvin Atsu Djayouri**.
 
 ---
 
-## Confirmed Technical Stack
+## Design Principles
 
-### Frontend (Strong Focus)
-- **React 18** — Component hierarchies, reactive hooks, performance profiling
-- **TypeScript** — Strict type safety, discriminated unions, generic utilities
-- **JavaScript (ES6+)** — Modern async/await, closures, event delegation, DOM APIs
-- **Tailwind CSS** — Custom design tokens, responsive breakpoints, fluid typography
-- **Next.js & Vite** — Hybrid rendering, routing, sub-second HMR, Rollup bundling
-- **HTML5 & CSS3** — Semantic landmarks, WCAG 2.1 AA accessibility, CSS Grid/Flexbox
-
-### Backend (Currently Learning)
-- **Node.js** — Asynchronous runtime, event loops, NPM ecosystem
-- **Express.js** — HTTP routers, middleware pipelines, CORS, error handling
-- **Supabase & SQL** — PostgreSQL tables, schemas, relations, Row-Level Security
-- **REST APIs** — Endpoint design, HTTP status codes, structured JSON contracts
-
-### Tools & Engineering Workflow
-- **Git & GitHub** — Branch management, feature pull requests, code reviews
-- **VS Code** — Workspace configs, debugger integrations, linting extensions
-- **Figma** — Design token inspection, component spacing, responsive redlines
-- **Vercel** — Automated CI/CD deployments, edge caching, custom domain management
+- **Pure White Aesthetic**: Clean white background (`#ffffff`), near-black text (`#090a0f`), subtle light gray borders (`#e2e8f0`), and a single refined accent (`#2563eb`).
+- **Anti-Template & Anti-AI**: No generic developer phrases ("passionate developer", "crafting digital experiences"), no fake statistics, no fake testimonials. Real first-person language that sounds like Kelvin actually wrote it.
+- **Editorial & Technical**: Strong typography, generous whitespace, subtle micro-interactions, and monospace typography for technical details.
+- **Subtle Cultural Heritage**: Clean, tasteful Ghanaian branding (`Built by Kelvin 🇬🇭`).
 
 ---
 
-## Featured Confirmed Projects
+## Portfolio Structure
 
-1. **[Nordhem Scandinavian Furniture](https://nordhem-blue.vercel.app)** — E-commerce storefront with live catalog filtering, responsive gallery layouts, cart persistence, and micro-interactions.
-2. **[FormFlow SaaS Onboarding Engine](https://formflow-olive.vercel.app)** — Production-grade multi-step form engine with real-time schema validation, keyboard navigation, and zero data-loss state persistence.
-3. **[Mcsteeze Lounge Experience Portal](https://mcsteeze-lounge.vercel.app)** — Restaurant brand portal with menu showcase, VIP table reservation modal, event schedules, and mobile-optimized layouts.
-
----
-
-## Key Features & Architecture
-
-- **100% White Light-Mode Theme**: High-contrast, clean developer aesthetic with subtle neutral borders (`#E2E8F0`) and blue accent interactions.
-- **Frontend Playground**: Interactive browser sandbox demonstrating button micro-interaction physics, real-time regex/password gatekeeper, and async REST API lifecycle simulation with mock error recovery.
-- **Currently Building**: Live sprint tracker displaying active milestone progress on Nordhem and FormFlow.
-- **Case Study Deep-Dive**: Expandable modal detailing Problem, Technical Approach, Technologies, Engineering Challenges, Solution, Results, and Lessons Learned for each project.
-- **GitHub Live Sync**: Automated public repository feed fetching latest commits and repositories from `@devkad09` with graceful offline fallback.
-- **Interactive Command Palette (`⌘K`)**: Quick keyboard-driven navigation across all sections, project demos, and direct actions.
-- **Accessibility & SEO**: WCAG 2.1 AA contrast compliance, semantic landmarks (`<header>`, `<main>`, `<section>`, `<nav>`, `<footer>`), descriptive meta tags, and keyboard focus rings.
-
----
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v18 or v20+ recommended)
-- npm or yarn
-
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/devkad09/my_portf.git
-
-# Navigate to the project directory
-cd my_portf
-
-# Install dependencies
-npm install
-
-# Launch development server
-npm run dev
-```
-
-The application will be running locally at `http://localhost:8080`.
-
-### Production Build & Verification
-```bash
-# Type check and build bundle
-npm run build
-
-# Preview production build locally
-npm run preview
-```
+1. **Sticky Navigation**: Minimal header with `KAD.DEV` brand marker and links to `Work`, `About`, `Stack`, `Journey`, and `Contact`.
+2. **Hero Section**: Confident typographic intro, status area with active focus domains, and embedded personal terminal (`$ whoami`).
+3. **Selected Work**:
+   - **01 — Nordhem**: Large horizontal showcase with faceted client-side filtering and slide-out cart.
+   - **02 — FormFlow**: Image left / information right split with multi-step runtime Zod validation and Supabase PostgreSQL persistence.
+   - **03 — Mcsteeze Lounge**: Information left / image right split with mobile-first menu filters and reservation portal.
+   - **Build Notes Accordion**: In-depth breakdowns covering Problem, Approach, Challenge, and Learning for every project.
+4. **Currently Building**: Dedicated section themed around *“I’m not done learning”* detailing the 6 backend and full-stack growth domains (JavaScript, Python, Backend Development, APIs, Databases, SaaS Development) without fake progress bars.
+5. **A Little About Me**: Conversational, grounded story of Kelvin's path from Ghana, his product mindset, and core engineering philosophy.
+6. **My Journey**: 5-stage visual progression: `IT Foundation` → `Frontend Development` → `Real-World Projects` → `Backend Development` → `Full-Stack Engineering`.
+7. **Technology Stack**: Clean categorization into `Frontend`, `Backend`, `Database`, and `Tools` with verified SVG logos.
+8. **GitHub Activity**: Real public repositories fetched from GitHub with graceful fallbacks and direct link to `@devkad09`.
+9. **Contact**: Personal contact container with direct email (`deve.kad.tech@gmail.com`) + one-click copy, GitHub, and LinkedIn.
+10. **Minimal Footer**: `KAD.DEV` • Kelvin Atsu Djayouri • Frontend Developer → Backend → Full-Stack • © 2026 • Built by Kelvin 🇬🇭.
 
 ---
 
-## License
+## Technology Stack
 
-Created by **Kelvin Atsu Djayouri**. All rights reserved.
+- **Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS & Vanilla CSS (Fluid Typography, Strict Light Mode)
+- **Icons**: Lucide React + Handcrafted Tech SVGs
+- **Routing**: React Router DOM
+- **Deployment**: Vercel

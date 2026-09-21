@@ -1,107 +1,123 @@
-import {
-  Sparkles,
-  MapPin,
-  ExternalLink,
-  GraduationCap,
-  ShieldCheck,
-  Code2,
-  Server,
-  Zap,
-  CheckCircle2,
-} from "lucide-react";
-import { PERSONAL_INFO } from "@/data/portfolioData";
+import { MapPin, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { PERSONAL_INFO, PERSONALITY_DETAILS } from "@/data/portfolioData";
+import SectionLabel from "./SectionLabel";
 
 export const About = () => {
   return (
     <section
       id="about"
-      className="py-20 sm:py-28 lg:py-32 relative overflow-hidden bg-slate-50/60 border-t border-b border-slate-200/80"
+      className="py-24 sm:py-32 bg-white border-b border-slate-100 scroll-mt-16"
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          {/* Left Column: Portrait & Details */}
-          <div className="relative mx-auto w-full max-w-[380px] lg:mx-0">
-            <div className="relative rounded-3xl overflow-hidden bg-white border border-slate-200 p-2.5 shadow-sm">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 relative group">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 items-start">
+          {/* Left Column: Natural Portrait Photo */}
+          <div className="relative mx-auto w-full max-w-[360px] lg:mx-0 space-y-4">
+            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-2">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100">
                 <img
                   src="/profile.jpg"
-                  alt={`${PERSONAL_INFO.name} - Frontend Developer`}
-                  className="w-full h-full object-cover grayscale-[10%] contrast-[1.02] group-hover:grayscale-0 transition-all duration-500"
+                  alt="Kelvin Atsu Djayouri - Developer"
+                  className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white space-y-0.5">
-                  <p className="font-display font-bold text-lg">{PERSONAL_INFO.name}</p>
-                  <p className="text-xs text-slate-200 font-mono">Frontend Developer</p>
-                  <p className="text-[11px] text-slate-300 flex items-center gap-1 pt-1 font-mono">
-                    <MapPin className="w-3.5 h-3.5 text-slate-300 shrink-0" />
-                    <span>{PERSONAL_INFO.location}</span>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/70 flex items-center justify-between font-mono text-xs text-slate-600">
+              <span className="flex items-center gap-1.5 font-medium">
+                <MapPin className="w-3.5 h-3.5 text-slate-500" />
+                <span>Accra, Ghana 🇬🇭</span>
+              </span>
+              <span className="text-slate-400">GMT+0</span>
+            </div>
+
+            {/* Quick Personal Snapshot */}
+            <div className="p-4 rounded-xl border border-slate-200 bg-white font-mono text-xs space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                CURRENT FOCUS
+              </span>
+              <p className="text-slate-700 font-sans text-xs leading-relaxed">
+                Frontend excellence + active backend study (Python, Node.js, REST APIs & PostgreSQL).
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Story & Personality */}
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <SectionLabel number="03" label="ABOUT" />
+              <h2
+                id="about-heading"
+                className="section-heading text-3xl sm:text-5xl"
+              >
+                A LITTLE ABOUT ME
+              </h2>
+            </div>
+
+            {/* Exact conversational copy requested by Kelvin */}
+            <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              {PERSONAL_INFO.aboutCopy.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+
+            {/* Personality Details: Currently Learning & Next Up */}
+            <div className="grid gap-3 sm:grid-cols-2 pt-2 font-mono text-xs">
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1.5">
+                <span className="font-bold text-slate-900 block text-xs">
+                  CURRENTLY LEARNING
+                </span>
+                <ul className="space-y-1 text-slate-600 font-sans text-xs">
+                  {PERSONALITY_DETAILS.currentlyLearning.map((item, idx) => (
+                    <li key={idx} className="flex items-baseline gap-1.5">
+                      <span className="text-blue-600 font-mono font-bold">&bull;</span>
+                      <span className="font-semibold text-slate-800 font-mono text-[11px]">{item.name}:</span>
+                      <span className="text-slate-600 text-xs">{item.context}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/60 space-y-2 flex flex-col justify-between">
+                <div className="space-y-1">
+                  <span className="font-bold text-slate-900 block text-xs">
+                    NEXT UP
+                  </span>
+                  <p className="text-slate-700 font-sans text-xs leading-relaxed font-medium">
+                    {PERSONALITY_DETAILS.nextUp}
                   </p>
+                </div>
+                <div className="pt-2 border-t border-slate-200/80 font-mono text-[11px] text-slate-500">
+                  <span>Aim: Ship clean, dependable software that solves actual problems.</span>
                 </div>
               </div>
             </div>
 
-            {/* Quality Standard Card */}
-            <div className="mt-4 p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col xxs:flex-row xxs:items-center justify-between gap-1.5 text-xs font-mono">
-              <span className="text-slate-600 flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Development Standard:</span>
-              </span>
-              <span className="text-slate-900 font-semibold">
-                Responsive & Accessible
-              </span>
-            </div>
-          </div>
+            {/* Direct Social Links */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 font-mono text-xs">
+              <a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-700 hover:text-slate-900 font-medium inline-flex items-center gap-1.5 hover:underline underline-offset-4 py-1"
+              >
+                <Github className="w-3.5 h-3.5" />
+                <span>github.com/devkad09</span>
+                <ArrowUpRight className="w-3 h-3 text-slate-400" />
+              </a>
 
-          {/* Right Column: Narrative */}
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <p className="section-eyebrow">
-                <Sparkles className="w-4 h-4" />
-                <span>About Me</span>
-              </p>
-              <h2 id="about-heading" className="section-heading text-3xl sm:text-4xl lg:text-5xl">
-                Passionate about frontend craft.{" "}
-                <span className="text-slate-500">
-                  Actively expanding into full-stack.
-                </span>
-              </h2>
-            </div>
-
-            <div className="space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
-              <p>
-                I’m a frontend developer specializing in building clean, accessible, and high-performance interfaces with <strong className="text-slate-900 font-semibold">React</strong>, <strong className="text-slate-900 font-semibold">TypeScript</strong>, and <strong className="text-slate-900 font-semibold">Tailwind CSS</strong>.
-              </p>
-              <p>
-                Currently documenting developer APIs at{" "}
-                <a
-                  href="https://formgrid.dev"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-slate-900 underline underline-offset-4 decoration-slate-300 hover:text-blue-600 transition-colors inline-flex items-center gap-1"
-                >
-                  <span>Formgrid.dev</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
-                </a>
-                , while actively learning <strong className="text-slate-900 font-semibold">Node.js</strong> and <strong className="text-slate-900 font-semibold">Supabase</strong> to grow into full-stack development.
-              </p>
-            </div>
-
-            {/* Quick Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-[11px] font-mono text-slate-500 block">Core Focus</span>
-                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Frontend & UX</span>
-              </div>
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-[11px] font-mono text-slate-500 block">Writing & Docs</span>
-                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Formgrid.dev</span>
-              </div>
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <span className="text-[11px] font-mono text-slate-500 block">Availability</span>
-                <span className="text-sm font-semibold text-slate-900 mt-0.5 block">Open to Roles</span>
-              </div>
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-700 hover:text-slate-900 font-medium inline-flex items-center gap-1.5 hover:underline underline-offset-4 py-1"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                <span>linkedin.com/in/kaddev</span>
+                <ArrowUpRight className="w-3 h-3 text-slate-400" />
+              </a>
             </div>
           </div>
         </div>

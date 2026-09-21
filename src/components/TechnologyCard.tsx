@@ -8,12 +8,12 @@ interface TechnologyCardProps {
 export const TechnologyCard: FC<TechnologyCardProps> = ({ technology }) => {
   return (
     <div
-      className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-600 hover:bg-blue-50/40 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-3 group cursor-default"
+      className="p-3.5 sm:p-4 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 transition-colors flex flex-col justify-between space-y-2.5 group cursor-default"
       role="article"
       aria-label={`${technology.name} capability card`}
     >
-      <div className="flex items-start justify-between gap-2 flex-wrap xxs:flex-nowrap">
-        <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 group-hover:scale-105 transition-transform duration-200 shrink-0">
+      <div className="flex items-center justify-between gap-2">
+        <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 shrink-0">
           <div
             className="w-full h-full flex items-center justify-center [&_svg]:w-full [&_svg]:h-full"
             dangerouslySetInnerHTML={{ __html: technology.svgIcon }}
@@ -21,17 +21,17 @@ export const TechnologyCard: FC<TechnologyCardProps> = ({ technology }) => {
         </div>
 
         {technology.badge && (
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 group-hover:bg-blue-100/70 group-hover:text-blue-800 text-slate-600 font-medium transition-colors shrink-0">
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100/90 text-slate-600 font-medium shrink-0">
             {technology.badge}
           </span>
         )}
       </div>
 
-      <div className="space-y-1">
-        <h4 className="font-display font-bold text-base text-slate-900 group-hover:text-blue-600 transition-colors">
+      <div className="space-y-0.5">
+        <h4 className="font-mono font-bold text-xs sm:text-sm text-slate-900">
           {technology.name}
         </h4>
-        <p className="text-xs text-slate-600 leading-relaxed font-sans">
+        <p className="text-xs text-slate-500 leading-relaxed font-sans">
           {technology.shortDescription}
         </p>
       </div>

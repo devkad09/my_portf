@@ -10,14 +10,12 @@
     --surface: #ffffff;
     --surface-2: #f8fafc;
     --surface-hover: #f1f5f9;
-    --ink: #0f172a;
+    --ink: #090a0f;
     --ink-muted: #64748b;
     --line: #e2e8f0;
     --line-subtle: #f1f5f9;
-    --accent: #0f172a;
-    --accent-hover: #1e293b;
-    --accent-light: #f1f5f9;
-    --accent-blue: #2563eb;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
   }
 
   html {
@@ -32,7 +30,7 @@
     min-height: 100%;
     margin: 0;
     background-color: #ffffff;
-    color: #0f172a;
+    color: #090a0f;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 400;
     line-height: 1.65;
@@ -46,12 +44,12 @@
 
   ::selection {
     background-color: #e2e8f0;
-    color: #0f172a;
+    color: #090a0f;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     color: var(--ink);
     overflow-wrap: break-word;
     word-break: break-word;
@@ -66,7 +64,7 @@
     text-decoration: none;
   }
 
-  /* Clean minimal scrollbar */
+  /* Editorial thin scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -74,11 +72,11 @@
     background: #ffffff;
   }
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
+    background: #e2e8f0;
+    border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #cbd5e1;
   }
 }
 
@@ -93,7 +91,7 @@
     background-color: #f8fafc;
   }
   .text-ink {
-    color: #0f172a;
+    color: #090a0f;
   }
   .text-ink-muted {
     color: #64748b;
@@ -102,50 +100,26 @@
     border-color: #e2e8f0;
   }
 
-  /* Light Modern Glass Panels */
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
-  }
-
-  .glass-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  }
-
-  .glass-card:hover {
-    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
-    border-color: #cbd5e1;
-  }
-
-  /* Typography / Section Tokens with Fluid Clamp */
+  /* Editorial Section Eyebrow */
   .section-eyebrow {
-    @apply inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-mono font-bold uppercase tracking-[0.2em] text-slate-600;
+    @apply inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-mono font-bold uppercase tracking-[0.2em] text-slate-500;
   }
 
+  /* Editorial Section Heading */
   .section-heading {
-    @apply font-display text-[clamp(1.85rem,4.5vw,3.25rem)] font-extrabold leading-[1.12] tracking-[-0.03em] text-slate-900;
+    @apply font-display text-[clamp(2rem,4.2vw,3.25rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900;
     overflow-wrap: break-word;
   }
 
-  .section-copy {
-    @apply mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg leading-[1.65] text-slate-600 max-w-2xl;
-  }
-
-  /* Clean Minimal Touch-Friendly Buttons (min 44px height) */
+  /* Clean Touch-Friendly Buttons (min 44px height) */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 active:scale-[0.98] bg-slate-900 text-white hover:bg-slate-800 shadow-sm min-h-[44px] h-11 rounded-xl px-5 sm:px-6 text-sm cursor-pointer select-none;
+    @apply relative inline-flex items-center justify-center gap-2 font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 active:scale-[0.98] bg-slate-900 text-white hover:bg-slate-800 shadow-sm min-h-[44px] h-11 rounded-xl px-5 sm:px-6 text-sm cursor-pointer select-none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 active:scale-[0.98] border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 shadow-sm min-h-[44px] h-11 rounded-xl px-4 sm:px-5 text-sm cursor-pointer select-none;
+    @apply inline-flex items-center justify-center gap-2 font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 active:scale-[0.98] border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:border-slate-300 shadow-xs min-h-[44px] h-11 rounded-xl px-4 sm:px-5 text-sm cursor-pointer select-none;
   }
 
-  /* Safe area helpers for modern mobile devices */
   .pb-safe {
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
