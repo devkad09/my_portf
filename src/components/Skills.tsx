@@ -3,7 +3,7 @@ import TechnologyCard from "./TechnologyCard";
 import SectionLabel from "./SectionLabel";
 
 export const Skills = () => {
-  const allTechs = Object.values(CONFIRMED_TECHNOLOGIES);
+  const allTechs = Object.values(CONFIRMED_TECHNOLOGIES).filter((t) => t.inStack !== false);
 
   const frontendTechs = allTechs.filter((t) => t.category === "frontend");
   const backendTechs = allTechs.filter((t) => t.category === "backend");
@@ -73,11 +73,11 @@ export const Skills = () => {
                 03 / DATABASE
               </h3>
               <span className="font-mono text-xs text-slate-500">
-                Relational schemas, queries & document storage
+                Relational schemas, queries & cloud storage
               </span>
             </div>
 
-            <div className="grid gap-3 grid-cols-1 xxs:grid-cols-2 lg:grid-cols-2">
+            <div className="grid gap-3 grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3">
               {databaseTechs.map((tech) => (
                 <TechnologyCard key={tech.id} technology={tech} />
               ))}

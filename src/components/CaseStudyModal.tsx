@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { X, CheckCircle2, Code2, AlertCircle, Lightbulb } from "lucide-react";
 import { CaseStudy } from "@/data/portfolioData";
+import { TechLogo } from "./TechLogo";
 
 interface CaseStudyModalProps {
   caseStudy: CaseStudy | null;
@@ -70,9 +71,10 @@ export const CaseStudyModal = ({ caseStudy, onClose }: CaseStudyModalProps) => {
           {caseStudy.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 rounded-lg text-xs font-mono bg-slate-50 border border-slate-200 text-slate-700 font-medium"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono bg-slate-50 border border-slate-200 text-slate-700 font-medium"
             >
-              {tech}
+              <TechLogo name={tech} className="w-3.5 h-3.5 shrink-0" ariaHidden={true} />
+              <span>{tech}</span>
             </span>
           ))}
         </div>

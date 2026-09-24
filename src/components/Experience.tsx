@@ -6,6 +6,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { EXPERIENCES } from "@/data/portfolioData";
+import { TechLogo } from "./TechLogo";
 
 export const Experience = () => {
   return (
@@ -93,9 +94,10 @@ export const Experience = () => {
                 {exp.technologies.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-slate-50 border border-slate-200 text-slate-700"
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-slate-50 border border-slate-200 text-slate-700"
                   >
-                    {t}
+                    <TechLogo name={t} className="w-3 h-3 shrink-0" ariaHidden={true} />
+                    <span>{t}</span>
                   </span>
                 ))}
               </div>

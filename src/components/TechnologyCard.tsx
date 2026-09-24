@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Technology } from "@/data/technologies";
+import { TechLogo } from "./TechLogo";
 
 interface TechnologyCardProps {
   technology: Technology;
@@ -13,10 +14,11 @@ export const TechnologyCard: FC<TechnologyCardProps> = ({ technology }) => {
       aria-label={`${technology.name} capability card`}
     >
       <div className="flex items-center justify-between gap-2">
-        <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 shrink-0">
-          <div
-            className="w-full h-full flex items-center justify-center [&_svg]:w-full [&_svg]:h-full"
-            dangerouslySetInnerHTML={{ __html: technology.svgIcon }}
+        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-2 shrink-0">
+          <TechLogo
+            name={technology.id}
+            className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:scale-105"
+            ariaHidden={true}
           />
         </div>
 

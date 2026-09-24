@@ -9,6 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 import { CONFIRMED_TECHNOLOGIES } from "../data/technologies";
+import { TechLogo } from "./TechLogo";
 
 export const Playground = () => {
   // Experiment 1: Micro-interaction states
@@ -67,10 +68,7 @@ export const Playground = () => {
         key={id}
         className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-mono text-slate-700"
       >
-        <span
-          className="w-3.5 h-3.5 flex items-center justify-center [&_svg]:w-3.5 [&_svg]:h-3.5"
-          dangerouslySetInnerHTML={{ __html: tech.svgIcon }}
-        />
+        <TechLogo name={id} className="w-3.5 h-3.5 shrink-0" ariaHidden={true} />
         <span>{tech.name}</span>
       </span>
     );

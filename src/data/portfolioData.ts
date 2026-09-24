@@ -279,7 +279,7 @@ export const PROJECTS: Project[] = [
     status: "Active Project",
     image: "/formflow.png",
     role: "Frontend + Backend Integration",
-    technologies: ["React 18", "TypeScript", "Zod", "Supabase (PostgreSQL)", "Tailwind CSS"],
+    technologies: ["React 18", "TypeScript", "Zod", "Supabase", "Tailwind CSS"],
     keyFeatures: [
       "Step-by-step progress wizard with runtime schema validation gates",
       "Direct data persistence via Supabase PostgreSQL tables",
